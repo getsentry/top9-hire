@@ -47,6 +47,65 @@ interface ResolvedTweetMedia {
   mediaUrl: string;
 }
 
+const NUMERIC_STATUS_ID = /^\d+$/;
+
+const TWITTER_API_HOST = "api.twitter.com";
+const FXTWITTER_API_HOST = "api.fxtwitter.com";
+
+/** Tweet photos are served from Twitter/X image CDNs. */
+const ALLOWED_MEDIA_HOSTS = new Set([
+  "pbs.twimg.com",
+  "video.twimg.com",
+  "ton.twimg.com",
+]);
+
+function assertNumericStatusId(statusId: string): string {
+  if (!NUMERIC_STATUS_ID.test(statusId)) {
+    throw new Error("Invalid X/Twitter URL. Please provide a link to a tweet/post.");
+  }
+  return statusId;
+}
+
+function assertLockedHost(url: URL, host: typeof TWITTER_API_HOST | typeof FXTWITTER_API_HOST): URL {
+  if (url.protocol !== "https:" || url.hostname !== host || url.port !== "") {
+    throw new Error("Refusing to call an unexpected API host.");
+  }
+  return url;
+}
+
+function twitterStatusUrl(statusId: string): URL {
+  const id = encodeURIComponent(assertNumericStatusId(statusId));
+  const url = new URL(`/2/tweets/${id}`, "https://api.twitter.com");
+  url.search =
+    "?expansions=attachments.media_keys&media.fields=url,preview_image_url,type,width,height";
+  return assertLockedHost(url, TWITTER_API_HOST);
+}
+
+function fxStatusUrl(statusId: string): URL {
+  const id = encodeURIComponent(assertNumericStatusId(statusId));
+  const url = new URL(`/status/${id}`, "https://api.fxtwitter.com");
+  return assertLockedHost(url, FXTWITTER_API_HOST);
+}
+
+function allowlistedMediaUrl(raw: string): URL {
+  let parsed: URL;
+  try {
+    parsed = new URL(raw);
+  } catch {
+    throw new Error("Tweet image URL could not be resolved.");
+  }
+  if (
+    parsed.protocol !== "https:" ||
+    parsed.port !== "" ||
+    parsed.username !== "" ||
+    parsed.password !== "" ||
+    !ALLOWED_MEDIA_HOSTS.has(parsed.hostname)
+  ) {
+    throw new Error("Tweet image host is not allowed.");
+  }
+  return parsed;
+}
+
 export async function resolveTweetMedia(
   tweetUrl: string,
   env: { [key: string]: string | undefined } = process.env,
@@ -55,12 +114,13 @@ export async function resolveTweetMedia(
   if (!parsed) {
     throw new Error("Invalid X/Twitter URL. Please provide a link to a tweet/post.");
   }
+  const statusId = assertNumericStatusId(parsed.statusId);
 
   // 1. Try official X API if bearer token or API credentials exist
   const bearerToken = env.TWITTER_BEARER_TOKEN || env.X_BEARER_TOKEN;
   if (bearerToken) {
     try {
-      const apiUrl = `https://api.twitter.com/2/tweets/${parsed.statusId}?expansions=attachments.media_keys&media.fields=url,preview_image_url,type,width,height`;
+      const apiUrl = twitterStatusUrl(statusId);
       const res = await fetch(apiUrl, {
         headers: { Authorization: `Bearer ${bearerToken}` },
       });
@@ -92,7 +152,7 @@ export async function resolveTweetMedia(
   }
 
   // 2. Reliable public tweet->media helper (fxtwitter API)
-  const fxUrl = `https://api.fxtwitter.com/status/${parsed.statusId}`;
+  const fxUrl = fxStatusUrl(statusId);
   let fxRes: Response;
   try {
     fxRes = await fetch(fxUrl, {
@@ -143,9 +203,10 @@ export async function fetchImageBytesFromUrl(
   url: string,
   maxSizeBytes = 5 * 1024 * 1024,
 ): Promise<ImageInput> {
+  const mediaUrl = allowlistedMediaUrl(url);
   let res: Response;
   try {
-    res = await fetch(url);
+    res = await fetch(mediaUrl);
   } catch (err) {
     throw new Error(
       `Failed to download image from URL: ${err instanceof Error ? err.message : String(err)}`,

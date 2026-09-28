@@ -5,9 +5,15 @@ import {
   extractSchema,
   parseTweetUrl,
   resolveTweetMedia,
+  fetchImageBytesFromUrl,
   DEFAULT_EXTRACT_MODEL,
   EXTRACT_PROMPT,
 } from "./extract.ts";
+
+function requestHostname(input: RequestInfo | URL): string {
+  const href = input instanceof Request ? input.url : input.toString();
+  return new URL(href).hostname;
+}
 
 test("extract schema requires exactly 9 non-empty game titles", () => {
   const valid = extractSchema.safeParse({
@@ -84,6 +90,8 @@ test("parseTweetUrl parses standard X and Twitter URLs", () => {
   assert.equal(parseTweetUrl("https://google.com/search?q=test"), null);
   assert.equal(parseTweetUrl("https://x.com/home"), null);
   assert.equal(parseTweetUrl("not-a-url"), null);
+  assert.equal(parseTweetUrl("https://x.com/user/status/notdigits"), null);
+  assert.equal(parseTweetUrl("https://x.com/user/status/../../etc/passwd"), null);
 });
 
 test("resolveTweetMedia uses official Twitter API when bearer token provided and falls back to fxtwitter", async () => {
@@ -91,8 +99,11 @@ test("resolveTweetMedia uses official Twitter API when bearer token provided and
   const originalFetch = globalThis.fetch;
   try {
     globalThis.fetch = async (input: RequestInfo | URL) => {
-      const url = typeof input === "string" ? input : input.toString();
-      if (url.includes("api.fxtwitter.com")) {
+      const url = new URL(input instanceof Request ? input.url : input.toString());
+      assert.equal(url.protocol, "https:");
+      assert.equal(url.hostname, "api.fxtwitter.com");
+      assert.equal(url.pathname, "/status/12345");
+      if (url.hostname === "api.fxtwitter.com") {
         return new Response(
           JSON.stringify({
             code: 200,
@@ -142,6 +153,120 @@ test("resolveTweetMedia throws when tweet has no media", async () => {
       },
       { message: "No image found attached to this tweet." },
     );
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("resolveTweetMedia rejects a non-numeric status id before fetching", async () => {
+  const originalFetch = globalThis.fetch;
+  let fetches = 0;
+  try {
+    globalThis.fetch = async () => {
+      fetches += 1;
+      return new Response("no", { status: 500 });
+    };
+
+    await assert.rejects(
+      () => resolveTweetMedia("https://x.com/user/status/notdigits", {}),
+      { message: "Invalid X/Twitter URL. Please provide a link to a tweet/post." },
+    );
+    await assert.rejects(
+      () => resolveTweetMedia("https://x.com/user/status/../../etc/passwd", {}),
+      { message: "Invalid X/Twitter URL. Please provide a link to a tweet/post." },
+    );
+    assert.equal(fetches, 0);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("resolveTweetMedia requests the official API on a fixed host", async () => {
+  const originalFetch = globalThis.fetch;
+  const seen: URL[] = [];
+  try {
+    globalThis.fetch = async (input: RequestInfo | URL) => {
+      const url = new URL(input instanceof Request ? input.url : input.toString());
+      seen.push(url);
+      if (url.hostname === "api.twitter.com") {
+        return new Response(
+          JSON.stringify({
+            includes: {
+              media: [
+                {
+                  type: "photo",
+                  url: "https://pbs.twimg.com/media/from-api.jpg",
+                  width: 800,
+                  height: 800,
+                },
+              ],
+            },
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } },
+        );
+      }
+      return new Response("Not found", { status: 404 });
+    };
+
+    const result = await resolveTweetMedia("https://x.com/testuser/status/12345?s=20", {
+      TWITTER_BEARER_TOKEN: "test-token",
+    });
+    assert.equal(result.mediaUrl, "https://pbs.twimg.com/media/from-api.jpg");
+    assert.equal(seen.length, 1);
+    assert.equal(seen[0]?.protocol, "https:");
+    assert.equal(seen[0]?.hostname, "api.twitter.com");
+    assert.equal(seen[0]?.pathname, "/2/tweets/12345");
+    assert.equal(seen[0]?.searchParams.get("expansions"), "attachments.media_keys");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async (input: RequestInfo | URL) => {
+      const host = requestHostname(input);
+      assert.ok(
+        host === "pbs.twimg.com" || host === "video.twimg.com" || host === "ton.twimg.com",
+      );
+      return new Response(new Uint8Array([1, 2, 3, 4]), {
+        status: 200,
+        headers: { "content-type": "image/jpeg" },
+      });
+    };
+
+    const image = await fetchImageBytesFromUrl("https://pbs.twimg.com/media/large.jpg");
+    assert.equal(image.mediaType, "image/jpeg");
+    assert.deepEqual(Array.from(image.bytes), [1, 2, 3, 4]);
+
+    for (const mediaUrl of [
+      "https://video.twimg.com/tweet_video_thumb/preview.jpg",
+      "https://ton.twimg.com/tweet_video_thumb/legacy.jpg",
+    ]) {
+      const extra = await fetchImageBytesFromUrl(mediaUrl);
+      assert.equal(extra.mediaType, "image/jpeg");
+    }
+
+    let fetches = 0;
+    globalThis.fetch = async () => {
+      fetches += 1;
+      return new Response(new Uint8Array([1]), { status: 200 });
+    };
+
+    const rejected = [
+      "https://evil.example/image.jpg",
+      "https://pbs.twimg.com.evil.example/image.jpg",
+      "https://evil.example/pbs.twimg.com/image.jpg",
+      "http://pbs.twimg.com/media/large.jpg",
+      "https://user:pass@pbs.twimg.com/media/large.jpg",
+    ];
+    for (const mediaUrl of rejected) {
+      await assert.rejects(() => fetchImageBytesFromUrl(mediaUrl), {
+        message: "Tweet image host is not allowed.",
+      });
+    }
+    assert.equal(fetches, 0);
   } finally {
     globalThis.fetch = originalFetch;
   }
