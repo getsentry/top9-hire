@@ -13,7 +13,7 @@ import {
   type HireCard,
   type Judgment,
   type Top9,
-} from "./hire";
+} from "./hire.ts";
 
 export const MODEL = "openai/gpt-5.4-mini";
 
@@ -30,7 +30,7 @@ const axisSchema = z.object({
   confidence: z.number().min(0).max(1),
 });
 
-const judgmentSchema = z.object({
+export const judgmentSchema = z.object({
   hire_archetype: z.object({
     choice: archetypeSchema,
     confidence: z.number().min(0).max(1),
@@ -41,8 +41,7 @@ const judgmentSchema = z.object({
           probability: z.number().min(0).max(1),
         }),
       )
-      .max(3)
-      .optional(),
+      .max(3),
   }),
   scores: z.object({
     systems_vs_product: axisSchema,
@@ -74,10 +73,10 @@ export class MissingGatewayKey extends Error {
 
 function runnerUp(
   choice: Archetype,
-  alternatives: { choice: Archetype; probability: number }[] | undefined,
+  alternatives: { choice: Archetype; probability: number }[],
 ): Judgment["runnerUp"] {
   let best: Judgment["runnerUp"];
-  for (const option of alternatives ?? []) {
+  for (const option of alternatives) {
     if (option.choice === choice) continue;
     if (!best || option.probability > best.probability) {
       best = { archetype: option.choice, probability: option.probability };

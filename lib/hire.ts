@@ -254,7 +254,7 @@ export function judgmentInstructions(): string {
     axes,
     "",
     "hire_archetype.confidence is 0 to 1 for the chosen label.",
-    "alternatives lists other labels only when they compete. probability is 0 to 1.",
+    "alternatives is required. Send [] when no other label competes. At most 3 items. probability is 0 to 1.",
     "Do not write a roast. The app writes that from the archetype.",
   ].join("\n");
 }
