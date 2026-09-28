@@ -2,19 +2,22 @@
 
 import { TextMorph } from "torph/react";
 import { SCORE_LEVELS, type HireBadge, type HireCard } from "@/lib/hire";
+import { wrapLines } from "@/lib/text";
 
 const MORPH = { duration: 520, ease: "cubic-bezier(0.19, 1, 0.22, 1)" };
 
 function stampText(badge: HireBadge): string {
-  return badge.kind === "chaos" ? "Unclassifiable chaos" : badge.label;
+  const label = badge.kind === "chaos" ? "Unclassifiable chaos" : badge.label;
+  return label.replace(" ", "\n");
 }
 
-function stampNote(badge: HireBadge): string {
-  if (badge.kind !== "soft") return "";
+function stampNote(badge: HireBadge): string | null {
+  if (badge.kind !== "soft") return null;
   return badge.runnerUp ? `Split vibes. Runner-up: ${badge.runnerUp}` : "Split vibes";
 }
 
 export function Verdict({ card }: { card: HireCard }) {
+  const note = stampNote(card.badge);
   return (
     <section className="verdict" aria-labelledby="verdict-title">
       <div className={`stamp ${card.badge.kind}`}>
@@ -22,11 +25,13 @@ export function Verdict({ card }: { card: HireCard }) {
           <TextMorph {...MORPH}>{stampText(card.badge)}</TextMorph>
         </h2>
       </div>
-      <TextMorph as="p" className="stamp-note" {...MORPH}>
-        {stampNote(card.badge)}
-      </TextMorph>
+      {note ? (
+        <p key={note} className="stamp-note fade">
+          {note}
+        </p>
+      ) : null}
       <TextMorph as="p" className="roast" {...MORPH}>
-        {card.roast}
+        {wrapLines(card.roast, 24)}
       </TextMorph>
       <ul className="scores">
         {card.scores.map((score) => (
@@ -38,9 +43,9 @@ export function Verdict({ card }: { card: HireCard }) {
               ))}
             </span>
             <span className="pole right">{score.right}</span>
-            <TextMorph as="span" className="criterion" {...MORPH}>
+            <span key={score.criterion} className="criterion fade">
               {score.fuzzy ? `${score.criterion} (fuzzy)` : score.criterion}
-            </TextMorph>
+            </span>
           </li>
         ))}
       </ul>

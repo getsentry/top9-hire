@@ -107,11 +107,19 @@ export default function HomePage() {
     takeIntake(source);
   }
 
-  function onSlotPaste(index: number, event: React.ClipboardEvent<HTMLInputElement>) {
+  function onSlotPaste(index: number, event: React.ClipboardEvent<HTMLTextAreaElement>) {
     const lines = readLines(event.clipboardData.getData("text"));
     if (lines.length < 2) return;
     event.preventDefault();
     setSlots(fillSlots(slots, index, lines));
+  }
+
+  function onSlotKeyDown(index: number, event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    const next = event.currentTarget.form?.elements.namedItem(`title-${index + 2}`);
+    if (next instanceof HTMLTextAreaElement) next.focus();
+    else event.currentTarget.form?.requestSubmit();
   }
 
   function onDrop(event: React.DragEvent<HTMLFieldSetElement>) {
@@ -138,8 +146,10 @@ export default function HomePage() {
 
   return (
     <main className="sheet">
-      <h1>Top9 Hire</h1>
-      <p className="lede">Nine games in. One hire archetype out. Skip the LeetCode.</p>
+      <header className="head">
+        <h1>Top9 Hire</h1>
+        <p className="lede">Nine games in. One hire archetype out. Skip the LeetCode.</p>
+      </header>
 
       <form onSubmit={onSubmit} aria-busy={busy}>
         <div className="line">
@@ -168,7 +178,7 @@ export default function HomePage() {
             spellCheck={false}
           />
           <button type="button" className="quiet" onClick={() => fileInput.current?.click()}>
-            Card image
+            Upload card image
           </button>
           <input
             ref={fileInput}
@@ -198,11 +208,16 @@ export default function HomePage() {
                 <span className="slot-n" aria-hidden>
                   {index + 1}
                 </span>
-                <input
+                <textarea
+                  name={`title-${index + 1}`}
                   aria-label={`Title ${index + 1}`}
                   value={slot}
-                  onChange={(event) => setSlots(setSlot(slots, index, event.target.value))}
+                  rows={2}
+                  onChange={(event) =>
+                    setSlots(setSlot(slots, index, event.target.value.replace(/\r?\n/g, " ")))
+                  }
                   onPaste={(event) => onSlotPaste(index, event)}
+                  onKeyDown={(event) => onSlotKeyDown(index, event)}
                   placeholder="Title"
                   autoComplete="off"
                 />
@@ -224,7 +239,9 @@ export default function HomePage() {
         </div>
       </form>
 
-      {card ? <Verdict card={card} /> : null}
+      <aside className="office" aria-live="polite">
+        {card ? <Verdict card={card} /> : <p className="pending">No verdict yet</p>}
+      </aside>
     </main>
   );
 }
