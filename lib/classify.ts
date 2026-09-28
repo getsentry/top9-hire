@@ -51,7 +51,7 @@ export const judgmentSchema = z.object({
   }),
 });
 
-async function requestOidcToken(env: {
+export async function requestOidcToken(env: {
   [key: string]: string | undefined;
 }): Promise<string | undefined> {
   if (env.AI_GATEWAY_API_KEY || env.VERCEL_OIDC_TOKEN || env.VERCEL !== "1") {
