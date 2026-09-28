@@ -7,7 +7,7 @@ import {
   type RoastResult,
   type ExtractActionResult,
 } from "./actions";
-import { readGames, type HireCard } from "@/lib/hire";
+import { DISCLAIMER, type HireCard } from "@/lib/hire";
 import {
   MAX_IMAGE_LABEL,
   interpretExtractResponse,
@@ -31,9 +31,21 @@ function Badge({ card }: { card: HireCard }) {
   return <p className="badge primary">{card.badge.label}</p>;
 }
 
-function CardView({ card }: { card: HireCard }) {
+function CardView({
+  card,
+  kicker,
+  slot,
+  jobTitle,
+}: {
+  card: HireCard;
+  kicker?: string;
+  slot?: string;
+  jobTitle?: string;
+}) {
   return (
-    <article className="card">
+    <article className="card" data-slot={slot}>
+      {kicker ? <p className="card-kicker">{kicker}</p> : null}
+      {jobTitle ? <p className="job-title">{jobTitle}</p> : null}
       <Badge card={card} />
       <p className="roast">{card.roast}</p>
       <ul className="scores">
@@ -65,6 +77,7 @@ export default function HomePage() {
   const [titles, setTitles] = useState<string[]>(Array(9).fill(""));
   const [handle, setHandle] = useState("");
   const [tweetUrl, setTweetUrl] = useState("");
+  const [jobUrl, setJobUrl] = useState("");
   const [extractError, setExtractError] = useState<string | null>(null);
   const [result, setResult] = useState<RoastResult | null>(null);
   const [isClassifying, startClassifyTransition] = useTransition();
@@ -147,13 +160,17 @@ export default function HomePage() {
   function onClassifySubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const paste = titles.map((t) => t.trim()).join("\n");
+    setResult(null);
     startClassifyTransition(async () => {
-      setResult(await roastLibrary({ paste, handle }));
+      setResult(await roastLibrary({ paste, handle, jobUrl }));
     });
   }
 
+  const paired = Boolean(result?.ok && (result.role || result.jobError));
+
   return (
     <main>
+      <div className="form-column">
       <h1>Top9 Hire</h1>
       <p className="lede">Drop a 3×3 card, paste a tweet, or enter 9 titles. Get roasted.</p>
 
@@ -264,6 +281,21 @@ export default function HomePage() {
           </div>
         </div>
 
+        <label className="job-url-slot" data-slot="job-url">
+          Job URL
+          <input
+            name="jobUrl"
+            type="url"
+            inputMode="url"
+            value={jobUrl}
+            onChange={(event) => setJobUrl(event.target.value)}
+            placeholder="https://jobs.ashbyhq.com/… or boards.greenhouse.io/…"
+          />
+          <span className="drop-hint">
+            Optional. Public Greenhouse or Ashby posting. A bad link shows an error and does not invent a description.
+          </span>
+        </label>
+
         <button type="submit" disabled={isClassifying || isExtracting || filledCount !== 9}>
           {isClassifying ? "Reading" : "Read the pile"}
         </button>
@@ -274,7 +306,50 @@ export default function HomePage() {
           {result.message}
         </p>
       ) : null}
-      {result?.ok ? <CardView card={result.card} /> : null}
+      {result?.ok && !paired ? <CardView card={result.card} slot="hire-card" /> : null}
+      </div>
+      {result?.ok && paired ? (
+        <div className="verdict" data-slot="verdict">
+          <div className="verdict-cards">
+            <CardView card={result.card} kicker="Hire" slot="hire-card" />
+            {result.role ? (
+              <CardView
+                card={result.role}
+                kicker="Role"
+                slot="role-card"
+                jobTitle={result.job?.title}
+              />
+            ) : (
+              <article className="card" data-slot="role-card">
+                <p className="card-kicker">Role</p>
+                <p className="error" role="alert">
+                  {result.jobError}
+                </p>
+              </article>
+            )}
+          </div>
+          {result.match ? (
+            <section className="match-slot" data-slot="hire-job-match">
+              <p className="card-kicker">Match</p>
+              <p className={`badge ${result.match.choice}`}>{result.match.choice}</p>
+              <p className="why">{result.match.why}</p>
+              <p className="disclaimer">{DISCLAIMER}</p>
+            </section>
+          ) : result.role && result.jobError ? (
+            <section className="match-slot" data-slot="hire-job-match">
+              <p className="card-kicker">Match</p>
+              <p className="error" role="alert">
+                {result.jobError}
+              </p>
+            </section>
+          ) : (
+            <section className="match-slot" data-slot="hire-job-match">
+              <p className="card-kicker">Match</p>
+              <p className="drop-hint">Match was not judged.</p>
+            </section>
+          )}
+        </div>
+      ) : null}
     </main>
   );
 }
