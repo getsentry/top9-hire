@@ -112,6 +112,8 @@ export async function roastLibrary(input: {
     }
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
+      // A hire span may already be queued. classify flushes only after it returns.
+      await Sentry.flush(2000);
       return {
         ok: false,
         error: "missing_key",
@@ -144,6 +146,7 @@ export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActi
     return { ok: true, games: result.games };
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
+      await Sentry.flush(2000);
       return {
         ok: false,
         error: "missing_key",
@@ -152,6 +155,7 @@ export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActi
     }
     const message = error instanceof Error ? error.message : "Failed to extract games from tweet";
     Sentry.captureException(error);
+    await Sentry.flush(2000);
     return {
       ok: false,
       error: "extract_failed",
