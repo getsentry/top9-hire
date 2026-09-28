@@ -3,6 +3,7 @@ import * as Sentry from "@sentry/nextjs";
 import { z } from "zod";
 import { MissingGatewayKey, requestOidcToken } from "./classify.ts";
 import { gatewayReady } from "./hire.ts";
+import { MAX_IMAGE_BYTES } from "./image-limit.ts";
 
 export const DEFAULT_EXTRACT_MODEL = "google/gemini-3.8-flash";
 
@@ -201,7 +202,7 @@ export async function resolveTweetMedia(
 
 export async function fetchImageBytesFromUrl(
   url: string,
-  maxSizeBytes = 5 * 1024 * 1024,
+  maxSizeBytes = MAX_IMAGE_BYTES,
 ): Promise<ImageInput> {
   const mediaUrl = allowlistedMediaUrl(url);
   let res: Response;
@@ -247,7 +248,7 @@ export async function extractGamesFromImage(
   const model =
     overrideModel || process.env.TOP9_EXTRACT_MODEL || DEFAULT_EXTRACT_MODEL;
 
-  return await Sentry.startSpan(
+  const extracted = await Sentry.startSpan(
     {
       op: "gen_ai.extract",
       name: "extract top9 games from card",
@@ -302,4 +303,7 @@ export async function extractGamesFromImage(
       return result;
     },
   );
+  // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
+  await Sentry.flush(2000);
+  return extracted;
 }

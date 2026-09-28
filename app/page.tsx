@@ -3,12 +3,17 @@
 import { useState, useTransition, useRef } from "react";
 import {
   roastLibrary,
-  extractFromFormData,
   extractFromTweetUrl,
   type RoastResult,
   type ExtractActionResult,
 } from "./actions";
 import { readGames, type HireCard } from "@/lib/hire";
+import {
+  MAX_IMAGE_LABEL,
+  interpretExtractResponse,
+  rejectImageFile,
+  titlesChanged,
+} from "@/lib/image-limit";
 
 function Badge({ card }: { card: HireCard }) {
   if (card.badge.kind === "chaos") {
@@ -66,6 +71,10 @@ export default function HomePage() {
   const [isExtracting, setIsExtracting] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const titlesRef = useRef(titles);
+  const extractBusy = useRef(false);
+  const extractGen = useRef(0);
+  titlesRef.current = titles;
 
   const filledCount = titles.filter((t) => t.trim().length > 0).length;
 
@@ -83,43 +92,56 @@ export default function HomePage() {
     setTitles(next);
   }
 
-  async function handleImageFile(file: File) {
-    if (!file) return;
+  function applyExtractedGames(games: string[]) {
+    if (titlesChanged(titlesRef.current, games)) setResult(null);
+    setTitles(games);
+  }
+
+  async function runExtract(task: () => Promise<ExtractActionResult>) {
+    if (extractBusy.current) return;
+    extractBusy.current = true;
+    const gen = ++extractGen.current;
     setExtractError(null);
     setIsExtracting(true);
     try {
-      const formData = new FormData();
-      formData.set("file", file);
-      const res: ExtractActionResult = await extractFromFormData(formData);
+      const res = await task();
+      if (gen !== extractGen.current) return;
       if (res.ok) {
-        setTitles(res.games);
+        applyExtractedGames(res.games);
       } else {
         setExtractError(res.message);
       }
     } catch (err) {
-      setExtractError(err instanceof Error ? err.message : "Failed to extract titles from image.");
+      if (gen !== extractGen.current) return;
+      setExtractError(err instanceof Error ? err.message : "Failed to extract titles.");
     } finally {
-      setIsExtracting(false);
+      if (gen === extractGen.current) {
+        extractBusy.current = false;
+        setIsExtracting(false);
+      }
     }
   }
 
-  async function handleTweetExtract(e: React.FormEvent) {
+  async function postCardImage(file: File): Promise<ExtractActionResult> {
+    const rejected = rejectImageFile(file);
+    if (rejected) return rejected;
+    const formData = new FormData();
+    formData.set("file", file);
+    const response = await fetch("/api/extract", { method: "POST", body: formData });
+    const body = await response.json().catch(() => null);
+    return interpretExtractResponse(response.status, body);
+  }
+
+  function handleImageFile(file: File) {
+    if (!file || extractBusy.current) return;
+    void runExtract(() => postCardImage(file));
+  }
+
+  function handleTweetExtract(e: React.FormEvent) {
     e.preventDefault();
-    if (!tweetUrl.trim()) return;
-    setExtractError(null);
-    setIsExtracting(true);
-    try {
-      const res: ExtractActionResult = await extractFromTweetUrl(tweetUrl.trim());
-      if (res.ok) {
-        setTitles(res.games);
-      } else {
-        setExtractError(res.message);
-      }
-    } catch (err) {
-      setExtractError(err instanceof Error ? err.message : "Failed to extract titles from tweet.");
-    } finally {
-      setIsExtracting(false);
-    }
+    if (!tweetUrl.trim() || extractBusy.current) return;
+    const url = tweetUrl.trim();
+    void runExtract(() => extractFromTweetUrl(url));
   }
 
   function onClassifySubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -138,21 +160,29 @@ export default function HomePage() {
       <section className="extract-section">
         <div
           className={`drop-zone ${isDragging ? "dragging" : ""} ${isExtracting ? "loading" : ""}`}
+          aria-disabled={isExtracting}
+          aria-busy={isExtracting}
           onDragOver={(e) => {
             e.preventDefault();
+            if (extractBusy.current) return;
             setIsDragging(true);
           }}
           onDragLeave={() => setIsDragging(false)}
           onDrop={(e) => {
             e.preventDefault();
             setIsDragging(false);
+            if (extractBusy.current) return;
             const file = e.dataTransfer.files?.[0];
             if (file) handleImageFile(file);
           }}
-          onClick={() => fileInputRef.current?.click()}
+          onClick={() => {
+            if (extractBusy.current) return;
+            fileInputRef.current?.click();
+          }}
           role="button"
-          tabIndex={0}
+          tabIndex={isExtracting ? -1 : 0}
           onKeyDown={(e) => {
+            if (extractBusy.current) return;
             if (e.key === "Enter" || e.key === " ") fileInputRef.current?.click();
           }}
         >
@@ -161,8 +191,10 @@ export default function HomePage() {
             type="file"
             accept="image/png,image/jpeg,image/webp"
             style={{ display: "none" }}
+            disabled={isExtracting}
             onChange={(e) => {
               const file = e.target.files?.[0];
+              e.target.value = "";
               if (file) handleImageFile(file);
             }}
           />
@@ -173,7 +205,7 @@ export default function HomePage() {
               <span>Drop My9Games card image here, or <u>browse</u></span>
             )}
           </p>
-          <span className="drop-hint">PNG, JPEG, WebP up to 5MB</span>
+          <span className="drop-hint">PNG, JPEG, WebP up to {MAX_IMAGE_LABEL}</span>
         </div>
 
         <form className="tweet-form" onSubmit={handleTweetExtract}>

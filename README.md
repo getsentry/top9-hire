@@ -19,6 +19,12 @@ npm run dev
 
 Open http://localhost:3000. One title per line. A line may add a note after `|`. The handle field can stay empty.
 
+Drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL. The page fills the nine title fields. Edit them, then submit the roast.
+
+Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs stay on the `extractFromTweetUrl` Server Action. That body is only the URL.
+
+Extract and roast call the paid AI Gateway and do not check a session. This demo expects the Vercel preview to stay behind Deployment Protection or SSO. Do not publish an unprotected URL.
+
 ## Environment
 
 | Name | Role |

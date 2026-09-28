@@ -8,15 +8,9 @@ import {
   type ImageInput,
 } from "@/lib/extract";
 import { GATEWAY_MISSING } from "@/lib/hire";
+import { acceptedMediaType, rejectImageFile } from "@/lib/image-limit";
 
-const MAX_IMAGE_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
-const ALLOWED_MIME_TYPES = new Set([
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/webp",
-]);
-
+// Card uploads land here. A Server Action body stops at 1MB and drops a real My9Games PNG.
 export async function POST(request: NextRequest) {
   try {
     const contentType = request.headers.get("content-type") || "";
@@ -34,23 +28,10 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      if (file.size > MAX_IMAGE_SIZE_BYTES) {
+      const rejected = rejectImageFile({ size: file.size, type: file.type });
+      if (rejected) {
         return NextResponse.json(
-          {
-            error: "file_too_large",
-            message: `File size exceeds 5MB limit (${Math.round(file.size / 1024)}KB).`,
-          },
-          { status: 400 },
-        );
-      }
-
-      const mimeType = file.type?.toLowerCase() || "image/jpeg";
-      if (!ALLOWED_MIME_TYPES.has(mimeType)) {
-        return NextResponse.json(
-          {
-            error: "unsupported_media_type",
-            message: `Unsupported file format '${mimeType}'. Supported formats: JPEG, PNG, WebP.`,
-          },
+          { error: rejected.error, message: rejected.message },
           { status: 400 },
         );
       }
@@ -58,7 +39,7 @@ export async function POST(request: NextRequest) {
       const buffer = await file.arrayBuffer();
       imageInput = {
         bytes: new Uint8Array(buffer),
-        mediaType: mimeType,
+        mediaType: acceptedMediaType(file),
       };
     } else if (contentType.includes("application/json")) {
       const body = await request.json();
@@ -72,7 +53,7 @@ export async function POST(request: NextRequest) {
       }
 
       const resolved = await resolveTweetMedia(tweetUrl);
-      imageInput = await fetchImageBytesFromUrl(resolved.mediaUrl, MAX_IMAGE_SIZE_BYTES);
+      imageInput = await fetchImageBytesFromUrl(resolved.mediaUrl);
     } else {
       return NextResponse.json(
         {
