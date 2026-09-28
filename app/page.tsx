@@ -161,8 +161,9 @@ export default function HomePage() {
     event.preventDefault();
     const paste = titles.map((t) => t.trim()).join("\n");
     setResult(null);
+    const trimmedJobUrl = jobUrl.trim();
     startClassifyTransition(async () => {
-      setResult(await roastLibrary({ paste, handle, jobUrl }));
+      setResult(await roastLibrary({ paste, handle, jobUrl: trimmedJobUrl }));
     });
   }
 
@@ -285,10 +286,12 @@ export default function HomePage() {
           Job URL
           <input
             name="jobUrl"
-            type="url"
+            type="text"
             inputMode="url"
+            spellCheck={false}
+            autoCapitalize="off"
             value={jobUrl}
-            onChange={(event) => setJobUrl(event.target.value)}
+            onChange={(event) => setJobUrl(event.target.value.trim())}
             placeholder="https://jobs.ashbyhq.com/… or boards.greenhouse.io/…"
           />
           <span className="drop-hint">
