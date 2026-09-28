@@ -174,8 +174,8 @@ export function htmlToText(html: string): string {
   let decoded = html;
   for (let i = 0; i < 2; i++) decoded = decodeEntities(decoded);
   const stripped = decoded
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, " ")
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<\/(p|div|h[1-6]|li|tr)>/gi, "\n")
     .replace(/<li\b[^>]*>/gi, "\n- ")

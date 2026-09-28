@@ -92,6 +92,23 @@ test("disallowed job URLs are rejected and not fetched", () => {
   }
 });
 
+test("htmlToText drops script end tags that include spaces or attributes", () => {
+  const samples = [
+    '<script src="foo">alert(1)</script >',
+    '<script src="foo">alert(1)</script foo="bar">',
+    "<script src=\"foo\">alert(1)</script\t\n bar>",
+    "<script \n>alert(1)</script>",
+    "<style>alert(2)</style >",
+  ];
+  for (const sample of samples) {
+    const text = htmlToText(
+      `<p>Build developer tools for the team and the docs.</p>${sample}`,
+    );
+    assert.equal(text.includes("alert"), false, sample);
+    assert.match(text, /developer tools/);
+  }
+});
+
 test("htmlToText decodes greenhouse entities and drops scripts", () => {
   const text = htmlToText(
     "&lt;h3&gt;About&lt;/h3&gt;&lt;p&gt;Build developer tools for the team and the docs.&lt;/p&gt;&lt;script&gt;alert(1)&lt;/script&gt;",
