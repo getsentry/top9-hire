@@ -90,7 +90,7 @@ export async function classify(top9: Top9): Promise<HireCard> {
   if (!gatewayReady(process.env, oidcToken)) throw new MissingGatewayKey();
   const state = modelState(top9);
   const instructions = judgmentInstructions();
-  return Sentry.startSpan(
+  const card = await Sentry.startSpan(
     {
       op: "gen_ai.evaluate",
       name: "evaluate hire_archetype",
@@ -153,4 +153,7 @@ export async function classify(top9: Top9): Promise<HireCard> {
       return card;
     },
   );
+  // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
+  await Sentry.flush(2000);
+  return card;
 }
