@@ -26,13 +26,15 @@ Open http://localhost:3000. One title per line. A line may add a note after `|`.
 | `AI_GATEWAY_API_KEY` | Static AI Gateway key. Server only. |
 | `VERCEL_OIDC_TOKEN` | Short-lived gateway token from `vercel env pull`. Server only. |
 | `VERCEL` | Set to `1` by Vercel. With OIDC enabled, the request header supplies the token. |
+| `TOP9_EXTRACT_MODEL` | Optional model override for image extraction (defaults to `google/gemini-2.5-flash`). |
+| `TWITTER_BEARER_TOKEN` / `X_BEARER_TOKEN` | Optional official X API bearer token. Falls back to fxtwitter helper if omitted. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Browser Sentry DSN. |
 | `SENTRY_DSN` | Server and edge Sentry DSN. Falls back to the public DSN. |
 | `SENTRY_AUTH_TOKEN` | Uploads source maps during `npm run build`. |
 | `SENTRY_ORG` | Defaults to `sentry-developer-experience`. |
 | `SENTRY_PROJECT` | Defaults to `top9-hire`. |
 
-The model id is `openai/gpt-5.4-mini` in `lib/classify.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
+The classification model id is `openai/gpt-5.4-mini` in `lib/classify.ts`. The default extraction vision model is `google/gemini-2.5-flash` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
 
 Without a gateway credential the form returns an error and does not invent a card. A Vercel deployment with OIDC does not need a static `AI_GATEWAY_API_KEY`.
 
