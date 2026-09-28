@@ -161,7 +161,7 @@ Square. `border-radius: 0` everywhere, including inputs and buttons. The stamp i
 
 ### Stamp
 
-`div.stamp > h2.stamp-text > TextMorph`. Variants by badge kind: `primary` (full ink), `soft` (74% opacity, followed by the split-vibes note), `chaos` (text "Unclassifiable chaos", tilted the other way). The `pending` variant is the same shape at 32% opacity with "No verdict yet", shown only in the two-column layout.
+`div.stamp > h2.stamp-text > TextMorph`. Variants by badge kind: `primary` (full ink), `soft` (80% opacity, followed by the split-vibes note), `chaos` (text "Unclassifiable chaos", tilted the other way). The `pending` variant is the same shape at 32% opacity with "No verdict yet", decorative (`aria-hidden`) and shown only in the two-column layout.
 
 ### Score row
 

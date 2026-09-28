@@ -173,7 +173,7 @@ export default function HomePage() {
             onChange={(event) => setSource(event.target.value)}
             onPaste={onSourcePaste}
             onKeyDown={onSourceKeyDown}
-            placeholder="Paste a list of titles or an x.com post link"
+            placeholder="Paste a title list or an x.com link"
             autoComplete="off"
             spellCheck={false}
           />
@@ -240,7 +240,13 @@ export default function HomePage() {
       </form>
 
       <aside className="office" aria-live="polite">
-        {card ? <Verdict card={card} /> : <p className="pending">No verdict yet</p>}
+        {card ? (
+          <Verdict card={card} />
+        ) : (
+          <p className="pending" aria-hidden>
+            No verdict yet
+          </p>
+        )}
       </aside>
     </main>
   );

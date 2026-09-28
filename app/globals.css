@@ -257,7 +257,7 @@ button.quiet:hover:not(:disabled) {
   font-weight: 500;
 }
 
-.office {
+.verdict {
   margin-top: 3.5rem;
   padding-top: 2.5rem;
   border-top: 1px solid var(--ink);
@@ -290,7 +290,7 @@ button.quiet:hover:not(:disabled) {
 }
 
 .stamp.soft {
-  opacity: 0.74;
+  opacity: 0.8;
 }
 
 .stamp.chaos {
@@ -450,7 +450,7 @@ button.quiet:hover:not(:disabled) {
     grid-column: 1 / -1;
   }
 
-  .office {
+  .verdict {
     margin-top: 0;
     padding-top: 0;
     border-top: 0;
@@ -458,7 +458,6 @@ button.quiet:hover:not(:disabled) {
 
   .pending {
     display: inline-block;
-    justify-self: start;
   }
 }
 
