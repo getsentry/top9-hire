@@ -4,7 +4,7 @@ import { z } from "zod";
 import { MissingGatewayKey, requestOidcToken } from "./classify.ts";
 import { gatewayReady } from "./hire.ts";
 
-export const DEFAULT_EXTRACT_MODEL = "google/gemini-2.5-flash";
+export const DEFAULT_EXTRACT_MODEL = "google/gemini-3.8-flash";
 
 export const extractSchema = z.object({
   games: z.array(z.string().min(1)).length(9),

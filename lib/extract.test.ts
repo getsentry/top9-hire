@@ -272,8 +272,8 @@ test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", as
   }
 });
 
-test("default extract model is google/gemini-2.5-flash and prompt specifies 3x3 reading order", () => {
-  assert.equal(DEFAULT_EXTRACT_MODEL, "google/gemini-2.5-flash");
+test("default extract model is google/gemini-3.8-flash and prompt specifies 3x3 reading order", () => {
+  assert.equal(DEFAULT_EXTRACT_MODEL, "google/gemini-3.8-flash");
   assert.ok(EXTRACT_PROMPT.includes("3x3"));
   assert.ok(EXTRACT_PROMPT.includes("left-to-right, top-to-bottom"));
 });
