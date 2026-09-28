@@ -1,0 +1,201 @@
+:root {
+  color-scheme: dark;
+  --bg: #14120e;
+  --ink: #f4efe4;
+  --muted: #b7ab99;
+  --line: #3a342b;
+  --card: #1e1a15;
+  --amber: #e6a15c;
+  --rose: #e07a6a;
+  --soft: #d6c48a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.45 ui-sans-serif, system-ui, sans-serif;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.lede,
+.disclaimer,
+.count,
+.criterion,
+label {
+  color: var(--muted);
+}
+
+.lede {
+  margin: 0.4rem 0 1.5rem;
+}
+
+form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  color: var(--ink);
+  background: #0e0c0a;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem;
+}
+
+textarea {
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6f675c;
+}
+
+button {
+  justify-self: start;
+  background: var(--ink);
+  color: #1a1612;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.count {
+  margin: 0;
+}
+
+.count.ready {
+  color: var(--amber);
+}
+
+.error {
+  margin: 1rem 0 0;
+  color: var(--rose);
+}
+
+.card {
+  margin-top: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.badge {
+  margin: 0;
+  font-weight: 650;
+}
+
+.badge.primary {
+  color: var(--amber);
+}
+
+.badge.soft {
+  color: var(--soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+}
+
+.badge.chaos {
+  color: var(--rose);
+}
+
+.roast {
+  margin: 0.7rem 0 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.scores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.track {
+  position: relative;
+  height: 8px;
+  margin: 0.4rem 0;
+  background: #2c271f;
+  border-radius: 999px;
+}
+
+.track.fuzzy {
+  opacity: 0.55;
+}
+
+.mark {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--amber);
+  transform: translate(-50%, -50%);
+}
+
+.criterion {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.fuzzy-tag {
+  margin-left: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  color: var(--soft);
+}
+
+.disclaimer {
+  margin: 1.2rem 0 0;
+  font-size: 0.85rem;
+}

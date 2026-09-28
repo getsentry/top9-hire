@@ -1,0 +1,25 @@
+{
+  "name": "top9-hire",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --experimental-strip-types --test lib/hire.test.ts"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^11.1.0",
+    "@vercel/oidc": "^3.2.0",
+    "ai": "^7.0.118",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
