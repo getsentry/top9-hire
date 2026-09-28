@@ -32,7 +32,7 @@ The input is a Top9 card, the artifact people already post. No quiz, no résumé
 - Exactly nine titles are required. A title may carry a note after `|`.
 - The handle is optional.
 - Archetypes, axes, roast lines, and the disclaimer live in `lib/hire.ts` and are the copy source of truth.
-- Image and tweet extraction is served by `POST /api/extract` (multipart file, or JSON `{ tweetUrl }`) returning `{ games: string[9] }`. The route lands in a separate PR; the UI treats a missing route as an unavailable feature, not an error in the person's input.
+- Image and tweet extraction is served by `POST /api/extract` (multipart `file` up to 4MB, or JSON `{ tweetUrl }`) returning `{ games: string[9] }`. Failures come back as `{ error, message }` and the UI shows the message on the status line.
 - Undecided: the job URL field and the match verdict. The layout reserves a place for both (a "Position" line under the candidate, a second stamp under the archetype).
 - No authentication. No persistence. Nothing is posted back to X.
 

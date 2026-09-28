@@ -4,7 +4,6 @@ import {
   EMPTY_SLOTS,
   fillSlots,
   filledCount,
-  readExtracted,
   readIntake,
   readLines,
   setSlot,
@@ -65,26 +64,4 @@ test("slots round-trip through the server paste parser, notes included", () => {
     { title: "Hades" },
   ]);
   assert.equal(filledCount(slots), 3);
-});
-
-test("an extract response with nine games becomes nine slots", () => {
-  const nine = ["a", " b ", "c", "d", "e", "f", "g", "h", "i"];
-  assert.deepEqual(readExtracted({ games: nine }), [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-  ]);
-});
-
-test("anything that is not nine strings is rejected", () => {
-  assert.equal(readExtracted(null), null);
-  assert.equal(readExtracted({ error: "extract_failed" }), null);
-  assert.equal(readExtracted({ games: ["a", "b"] }), null);
-  assert.equal(readExtracted({ games: [1, 2, 3, 4, 5, 6, 7, 8, 9] }), null);
 });

@@ -17,11 +17,11 @@ For local runs, fill `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`. On Vercel, OID
 npm run dev
 ```
 
-Open http://localhost:3000. One title per line. A line may add a note after `|`. The handle field can stay empty.
+Open http://localhost:3000. The nine title fields sit in a 3×3 grid. Paste a list into any field and it fills from there. A title may add a note after `|`. The candidate handle can stay empty.
 
-Drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL. The page fills the nine title fields. Edit them, then submit the roast.
+Drop a PNG, JPEG, or WebP card on the grid, upload one, or paste an `x.com` / `twitter.com` status URL into the Source line. The page fills the nine title fields. Edit them, then stamp the verdict.
 
-Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs stay on the `extractFromTweetUrl` Server Action. That body is only the URL.
+Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs go to the same route as JSON `{ tweetUrl }`. Both reply with `{ games: string[9] }`, or `{ error, message }` on failure.
 
 Extract and roast call the paid AI Gateway and do not check a session. This demo expects the Vercel preview to stay behind Deployment Protection or SSO. Do not publish an unprotected URL.
 

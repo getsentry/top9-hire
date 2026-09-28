@@ -56,15 +56,3 @@ export function slotsToPaste(slots: Slots): string {
 export function filledCount(slots: Slots): number {
   return slots.filter((slot) => slot.trim()).length;
 }
-
-export function readExtracted(body: unknown): Slots | null {
-  if (typeof body !== "object" || body === null) return null;
-  const games = (body as { games?: unknown }).games;
-  if (!Array.isArray(games) || games.length !== 9) return null;
-  if (!games.every((game) => typeof game === "string")) return null;
-  return fillSlots(
-    EMPTY_SLOTS,
-    0,
-    games.map((game) => game.trim()),
-  );
-}

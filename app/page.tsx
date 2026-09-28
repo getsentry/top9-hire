@@ -4,11 +4,11 @@ import { useRef, useState } from "react";
 import { roastLibrary } from "./actions";
 import { Verdict } from "./verdict";
 import type { HireCard } from "@/lib/hire";
+import { interpretExtractResponse, rejectImageFile } from "@/lib/image-limit";
 import {
   EMPTY_SLOTS,
   fillSlots,
   filledCount,
-  readExtracted,
   readIntake,
   readLines,
   setSlot,
@@ -22,16 +22,13 @@ type Status =
   | { kind: "classifying" }
   | { kind: "failed"; message: string };
 
-const EXTRACT_UNAVAILABLE =
-  "Card and post reading is not enabled on this deployment. Type or paste the titles instead.";
-const EXTRACT_FAILED =
-  "Could not read nine titles from that. Type or paste them instead.";
-
 async function requestExtract(
   input: File | string,
 ): Promise<{ ok: true; slots: Slots } | { ok: false; message: string }> {
   let response: Response;
   if (input instanceof File) {
+    const rejected = rejectImageFile(input);
+    if (rejected) return { ok: false, message: rejected.message };
     const form = new FormData();
     form.set("file", input);
     response = await fetch("/api/extract", { method: "POST", body: form });
@@ -42,12 +39,15 @@ async function requestExtract(
       body: JSON.stringify({ tweetUrl: input }),
     });
   }
-  if (response.status === 404) return { ok: false, message: EXTRACT_UNAVAILABLE };
   const body: unknown = await response.json().catch(() => null);
-  const slots = response.ok ? readExtracted(body) : null;
-  if (slots) return { ok: true, slots };
-  const message = (body as { message?: unknown } | null)?.message;
-  return { ok: false, message: typeof message === "string" ? message : EXTRACT_FAILED };
+  const result = interpretExtractResponse(response.status, body);
+  if (!result.ok) return { ok: false, message: result.message };
+  const slots = fillSlots(
+    EMPTY_SLOTS,
+    0,
+    result.games.map((game) => game.trim()),
+  );
+  return { ok: true, slots };
 }
 
 function statusLine(status: Status, count: number): string {
