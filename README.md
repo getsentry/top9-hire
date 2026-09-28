@@ -19,6 +19,12 @@ npm run dev
 
 Open http://localhost:3000. One title per line. A line may add a note after `|`. The handle field can stay empty.
 
+Drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL. The page fills the nine title fields. Edit them, then submit the roast.
+
+Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs stay on the `extractFromTweetUrl` Server Action. That body is only the URL.
+
+Extract and roast call the paid AI Gateway and do not check a session. This demo expects the Vercel preview to stay behind Deployment Protection or SSO. Do not publish an unprotected URL.
+
 ## Environment
 
 | Name | Role |
@@ -26,13 +32,15 @@ Open http://localhost:3000. One title per line. A line may add a note after `|`.
 | `AI_GATEWAY_API_KEY` | Static AI Gateway key. Server only. |
 | `VERCEL_OIDC_TOKEN` | Short-lived gateway token from `vercel env pull`. Server only. |
 | `VERCEL` | Set to `1` by Vercel. With OIDC enabled, the request header supplies the token. |
+| `TOP9_EXTRACT_MODEL` | Optional model override for image extraction (defaults to `google/gemini-3.8-flash`). |
+| `TWITTER_BEARER_TOKEN` / `X_BEARER_TOKEN` | Optional official X API bearer token. Falls back to fxtwitter helper if omitted. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Browser Sentry DSN. |
 | `SENTRY_DSN` | Server and edge Sentry DSN. Falls back to the public DSN. |
 | `SENTRY_AUTH_TOKEN` | Uploads source maps during `npm run build`. |
 | `SENTRY_ORG` | Defaults to `sentry-developer-experience`. |
 | `SENTRY_PROJECT` | Defaults to `top9-hire`. |
 
-The model id is `openai/gpt-5.4-mini` in `lib/classify.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
+The classification model id is `openai/gpt-5.4-mini` in `lib/classify.ts`. The default extraction vision model is `google/gemini-3.8-flash` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
 
 Without a gateway credential the form returns an error and does not invent a card. A Vercel deployment with OIDC does not need a static `AI_GATEWAY_API_KEY`.
 
