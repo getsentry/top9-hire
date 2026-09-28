@@ -22,9 +22,15 @@ body {
 }
 
 main {
-  max-width: 40rem;
+  max-width: 68rem;
   margin: 0 auto;
   padding: 2.5rem 1.25rem 4rem;
+}
+
+.form-column {
+  max-width: 40rem;
+  margin-inline: auto;
+  width: 100%;
 }
 
 h1 {
@@ -329,4 +335,70 @@ button:disabled {
 .disclaimer {
   margin: 1.2rem 0 0;
   font-size: 0.85rem;
+}
+
+.card-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.job-title {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+}
+
+.verdict {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.verdict-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 960px) {
+  .verdict-cards {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.verdict .card {
+  margin-top: 0;
+}
+
+.match-slot {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.match-slot .badge {
+  margin: 0;
+  font-size: 1.35rem;
+  text-transform: lowercase;
+}
+
+.match-slot .badge.match {
+  color: var(--amber);
+}
+
+.match-slot .badge.stretch {
+  color: var(--soft);
+}
+
+.match-slot .badge.mismatch {
+  color: var(--rose);
+}
+
+.why {
+  margin: 0.7rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.35;
 }

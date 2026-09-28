@@ -30,25 +30,29 @@ const axisSchema = z.object({
   confidence: z.number().min(0).max(1),
 });
 
+export const archetypeChoiceSchema = z.object({
+  choice: archetypeSchema,
+  confidence: z.number().min(0).max(1),
+  alternatives: z
+    .array(
+      z.object({
+        choice: archetypeSchema,
+        probability: z.number().min(0).max(1),
+      }),
+    )
+    .max(3),
+});
+
+export const scoresSchema = z.object({
+  systems_vs_product: axisSchema,
+  competitive_vs_collaborative: axisSchema,
+  depth_vs_breadth: axisSchema,
+  builder_vs_optimizer: axisSchema,
+});
+
 export const judgmentSchema = z.object({
-  hire_archetype: z.object({
-    choice: archetypeSchema,
-    confidence: z.number().min(0).max(1),
-    alternatives: z
-      .array(
-        z.object({
-          choice: archetypeSchema,
-          probability: z.number().min(0).max(1),
-        }),
-      )
-      .max(3),
-  }),
-  scores: z.object({
-    systems_vs_product: axisSchema,
-    competitive_vs_collaborative: axisSchema,
-    depth_vs_breadth: axisSchema,
-    builder_vs_optimizer: axisSchema,
-  }),
+  hire_archetype: archetypeChoiceSchema,
+  scores: scoresSchema,
 });
 
 export async function requestOidcToken(env: {
@@ -85,12 +89,26 @@ function runnerUp(
   return best;
 }
 
-export async function classify(top9: Top9): Promise<HireCard> {
+export function toJudgment(
+  choice: Archetype,
+  confidence: number,
+  alternatives: { choice: Archetype; probability: number }[],
+  scores: Judgment["scores"],
+): Judgment {
+  return {
+    archetype: choice,
+    confidence,
+    runnerUp: runnerUp(choice, alternatives),
+    scores,
+  };
+}
+
+export async function evaluateHire(top9: Top9): Promise<Judgment> {
   const oidcToken = await requestOidcToken(process.env);
   if (!gatewayReady(process.env, oidcToken)) throw new MissingGatewayKey();
   const state = modelState(top9);
   const instructions = judgmentInstructions();
-  const card = await Sentry.startSpan(
+  return Sentry.startSpan(
     {
       op: "gen_ai.evaluate",
       name: "evaluate hire_archetype",
@@ -127,15 +145,12 @@ export async function classify(top9: Top9): Promise<HireCard> {
         },
       });
       if (!output) throw new Error("Model returned an empty judgment");
-      const judgment: Judgment = {
-        archetype: output.hire_archetype.choice,
-        confidence: output.hire_archetype.confidence,
-        runnerUp: runnerUp(
-          output.hire_archetype.choice,
-          output.hire_archetype.alternatives,
-        ),
-        scores: output.scores,
-      };
+      const judgment = toJudgment(
+        output.hire_archetype.choice,
+        output.hire_archetype.confidence,
+        output.hire_archetype.alternatives,
+        output.scores,
+      );
       const card = toCard(judgment);
       span.setAttribute("gen_ai.evaluation.score.value", judgment.confidence);
       span.setAttribute("gen_ai.evaluation.score.label", judgment.archetype);
@@ -150,10 +165,14 @@ export async function classify(top9: Top9): Promise<HireCard> {
         ]),
       );
       span.setAttribute("hire.scores", JSON.stringify(judgment.scores));
-      return card;
+      return judgment;
     },
   );
+}
+
+export async function classify(top9: Top9): Promise<HireCard> {
+  const judgment = await evaluateHire(top9);
   // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
   await Sentry.flush(2000);
-  return card;
+  return toCard(judgment);
 }
