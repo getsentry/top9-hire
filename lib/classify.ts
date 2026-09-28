@@ -1,4 +1,5 @@
 import { generateText, Output } from "ai";
+import { getVercelOidcToken } from "@vercel/oidc";
 import * as Sentry from "@sentry/nextjs";
 import { z } from "zod";
 import {
@@ -51,6 +52,19 @@ const judgmentSchema = z.object({
   }),
 });
 
+async function requestOidcToken(env: {
+  [key: string]: string | undefined;
+}): Promise<string | undefined> {
+  if (env.AI_GATEWAY_API_KEY || env.VERCEL_OIDC_TOKEN || env.VERCEL !== "1") {
+    return undefined;
+  }
+  try {
+    return await getVercelOidcToken();
+  } catch {
+    return undefined;
+  }
+}
+
 export class MissingGatewayKey extends Error {
   constructor() {
     super("AI gateway credentials are missing");
@@ -73,7 +87,8 @@ function runnerUp(
 }
 
 export async function classify(top9: Top9): Promise<HireCard> {
-  if (!gatewayReady(process.env)) throw new MissingGatewayKey();
+  const oidcToken = await requestOidcToken(process.env);
+  if (!gatewayReady(process.env, oidcToken)) throw new MissingGatewayKey();
   const state = modelState(top9);
   const instructions = judgmentInstructions();
   return Sentry.startSpan(

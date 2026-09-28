@@ -2,7 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 import { classify, MissingGatewayKey } from "@/lib/classify";
-import { parsePaste, type HireCard } from "@/lib/hire";
+import { GATEWAY_MISSING, parsePaste, type HireCard } from "@/lib/hire";
 
 export type RoastResult =
   | { ok: true; card: HireCard }
@@ -28,8 +28,7 @@ export async function roastLibrary(input: {
       return {
         ok: false,
         error: "missing_key",
-        message:
-          "Set AI_GATEWAY_API_KEY or VERCEL_OIDC_TOKEN on the server. This app will not invent a classification.",
+        message: GATEWAY_MISSING,
       };
     }
     Sentry.captureException(error);

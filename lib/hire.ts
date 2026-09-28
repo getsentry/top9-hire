@@ -207,8 +207,15 @@ export function parsePaste(
   };
 }
 
-export function gatewayReady(env: { [key: string]: string | undefined }): boolean {
-  return Boolean(env.AI_GATEWAY_API_KEY || env.VERCEL_OIDC_TOKEN);
+export const GATEWAY_MISSING =
+  "No AI Gateway credential. Set AI_GATEWAY_API_KEY, set VERCEL_OIDC_TOKEN, or enable Vercel OIDC so the request token is available. This app will not invent a classification.";
+
+export function gatewayReady(
+  env: { [key: string]: string | undefined },
+  oidcToken?: string,
+): boolean {
+  if (env.AI_GATEWAY_API_KEY || env.VERCEL_OIDC_TOKEN) return true;
+  return env.VERCEL === "1" && Boolean(oidcToken?.trim());
 }
 
 export function modelState(top9: Top9): {
