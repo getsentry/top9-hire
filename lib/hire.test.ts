@@ -49,6 +49,16 @@ test("gateway is ready only when a server credential is set", () => {
   assert.equal(gatewayReady({ VERCEL_OIDC_TOKEN: "t" }), true);
 });
 
+test("a Vercel request OIDC token counts as ready", () => {
+  assert.equal(gatewayReady({ VERCEL: "1" }, "header-token"), true);
+});
+
+test("vercel without a token stays closed, and a token off Vercel does not open it", () => {
+  assert.equal(gatewayReady({ VERCEL: "1" }), false);
+  assert.equal(gatewayReady({ VERCEL: "1" }, ""), false);
+  assert.equal(gatewayReady({}, "header-token"), false);
+});
+
 test("confidence 0.9 on systems taste is a primary badge and a clear bar", () => {
   const card = toCard({
     archetype: "systems_necromancer",
