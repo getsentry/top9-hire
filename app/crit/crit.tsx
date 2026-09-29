@@ -1,7 +1,9 @@
 import { useState, type ReactNode } from "react";
 import { DISCLAIMER, type HireCard } from "@/lib/hire";
+import { CLASSIFY_MODEL } from "@/lib/models";
 import { sealScore, signalStrength } from "@/lib/pack";
 import { AxisTrack } from "./axis";
+import { Check } from "./check";
 import { renderCritPng } from "./export-png";
 import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
 import { Seal } from "./seal";
@@ -14,8 +16,16 @@ type Props = {
   roleLabel: string | null;
   card: HireCard | null;
   blurb: string;
+  readAt?: string;
   onEdit: () => void;
 };
+
+function formatRead(iso: string) {
+  const date = new Date(iso);
+  const day = date.toLocaleDateString("en-CA");
+  const time = date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+  return `${day} ${time}`;
+}
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -26,7 +36,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, onEdit }: Props) {
+export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, readAt, onEdit }: Props) {
   const [copied, setCopied] = useState(false);
   const [saving, setSaving] = useState<"idle" | "saving" | "failed">("idle");
   const tweetUrl = source.kind === "fixture" ? source.tweetUrl : null;
@@ -149,6 +159,16 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, on
               <AxisTrack key={score.id} score={score} />
             ))}
           </div>
+        ) : null}
+
+        {card && readAt ? (
+          <p className="crit-provenance">
+            <Check />
+            <span>
+              Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {CLASSIFY_MODEL} via AI Gateway ·
+              confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
+            </span>
+          </p>
         ) : null}
 
         <footer className="crit-foot mono">
