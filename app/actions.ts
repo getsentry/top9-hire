@@ -84,15 +84,16 @@ export async function readSignal(input: {
       const card = await classify(parsed.top9);
       return jobError ? { ok: true, card, jobError } : { ok: true, card };
     }
-    const hire = await evaluateHire(parsed.top9);
+    const [hire, role] = await Promise.all([
+      evaluateHire(parsed.top9),
+      evaluateRole(posting).catch((error: unknown) => {
+        if (error instanceof MissingGatewayKey) throw error;
+        Sentry.captureException(error);
+        return undefined;
+      }),
+    ]);
     const card = toCard(hire);
-    const job = { title: posting.title, url: posting.pageUrl };
-    try {
-      const role = await evaluateRole(posting);
-      return { ok: true, card, role: toCard(role), match: matchFor(hire, role), job };
-    } catch (error) {
-      if (error instanceof MissingGatewayKey) throw error;
-      Sentry.captureException(error);
+    if (!role) {
       await Sentry.flush(2000);
       return {
         ok: true,
@@ -100,8 +101,11 @@ export async function readSignal(input: {
         jobError: "The role judgment failed. Nothing was invented in its place.",
       };
     }
+    const job = { title: posting.title, url: posting.pageUrl };
+    return { ok: true, card, role: toCard(role), match: matchFor(hire, role), job };
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
+      // A hire span may already be queued. Promise.all can reject before evaluateHire flushes it.
       await Sentry.flush(2000);
       return {
         ok: false,
