@@ -26,8 +26,10 @@ Open http://localhost:3000.
 1. **Intake.** Drop a PNG, JPEG, or WebP card on the card silhouette, paste an `x.com` / `twitter.com` status URL, or type nine titles by hand.
 2. **Fixtures.** Eight public Top9s from tech Twitter, hardcoded in `lib/__fixtures__/top9-examples.ts`. Their card images live in `public/top9/`. Picking one fills the plate with no network call and no vision call.
 3. **Plate.** The card, the candidate handle, and the nine editable titles. Every plate gets a stable id (`T9-01` for fixtures, a four-hex hash for anything else).
-4. **Signal.** A seal with the confidence printed as a score out of 10, the archetype, one hire-signal line, and the four axes. Copy the blurb or post it on X.
-5. **Role match.** A secondary rail with twelve curated Greenhouse and Ashby postings from `lib/jobs.json`, plus a field for any other public posting. The result is `match`, `stretch`, or `mismatch` with a short why and both sets of axes on one track.
+4. **Crit.** Reading the signal turns the plate into one sheet in place: a numbered header (crit no, candidate, role), the card with the seal stamped on its corner, the archetype, one hire-signal line, and the four axes. The seal prints the confidence as a score out of 10. Save PNG draws the same sheet to a 1600×900 image; Copy blurb and Post on X share the text. Edit titles goes back to the plate.
+5. **Role match.** A secondary rail with the twelve-role pack from `lib/jobs.json`, plus a field for any other public posting. The result is `match`, `stretch`, or `mismatch`, an alignment percent, a short why, and one facet per axis marked aligned, adjacent, or diverges.
+
+The match choice is a rule, not a model mood. An axis diverges when the two levels are two or more apart. No diverging axes is `match`, one or two is `stretch`, three or four is `mismatch`. The alignment percent is one minus the summed axis gaps over the largest possible gap. The model writes the why and is told the choice; its own choice is kept on the span as `hire_job_match.model_choice`.
 
 Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs stay on the `extractFromTweetUrl` Server Action. That body is only the URL.
 
@@ -67,13 +69,13 @@ Manual checks, in order.
 2. Pick `@theo` in the strip. The plate shows his card image, `@theo`, and nine filled titles. No network request is made.
 3. Clear one title. The count reads 8/9 and Read the signal is disabled.
 4. Remove the gateway keys and leave `VERCEL` unset. Read the signal. The page says there is no AI Gateway credential and stamps nothing.
-5. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Read the signal. The sheet shows a seal with a score, the archetype, one signal line, four axes, a Copy blurb button, and the disclaimer.
+5. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Read the signal. The plate becomes the crit: the card with a seal and score, the archetype, one signal line, four axes, Save PNG, Copy blurb, and the disclaimer. Save PNG downloads `top9-hire-crit-<id>.png`.
 6. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Read the signal. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
 7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The silhouette shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.
 8. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract. The plate fills with the post's card image. A URL that is not a status link shows an error and does not invent titles.
-9. Pick a role from the pack and read the signal. The rail shows the role title, a `match`, `stretch`, or `mismatch` stamp with a short why, the role archetype, and both sets of axes.
+9. Pick `@dorryspears`. Roles that suggest that fixture carry a "Suggested for @dorryspears" tag. Pick one and read the signal. The rail shows the role title, a `match`, `stretch`, or `mismatch` stamp, an alignment percent, a short why, and a facet per axis plus the two archetypes.
 10. Paste a job URL that is not a public Greenhouse or Ashby posting. The sheet still stamps the signal, and the rail shows a role error with no invented description.
-11. With the Sentry DSNs set, a role read also produces spans named `evaluate role_archetype` and `evaluate hire_job_match` (op `gen_ai.evaluate`). The role call's function id is `role-archetype`. The match call's function id is `hire-job-match`.
+11. With the Sentry DSNs set, a role read also produces spans named `evaluate role_archetype` and `evaluate hire_job_match` (op `gen_ai.evaluate`). The role call's function id is `role-archetype`. The match call's function id is `hire-job-match`. The match span also carries `hire_job_match.alignment_percent`, `hire_job_match.model_choice`, and `hire_job_match.model_agrees`.
 
 Titles are sent to the gateway and, when a DSN is set, to Sentry on that evaluation span. A fetched job description is sent the same way on the role span.
 
