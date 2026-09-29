@@ -71,6 +71,10 @@ test("match state places hire and role scores on the same axes", () => {
     Object.keys(AXES),
   );
   assert.equal(state.hire.scores[0]?.level, 1);
+  assert.equal(state.hire.scores[0]?.axis, "Systems vs Product");
+  assert.equal(state.hire.label, "Sandbox builder");
+  assert.equal(state.role.label, "Systems necromancer");
+  assert.match(matchInstructions(), /Never print ids/);
   assert.equal(state.role.scores[0]?.level, 4);
   assert.match(roleInstructions(), /role_archetype/);
   assert.match(matchInstructions(), /mismatch/);

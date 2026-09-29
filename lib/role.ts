@@ -84,7 +84,8 @@ export function matchInstructions(): string {
     "match: the archetype family and the axis levels sit close. This taste would recognize the work.",
     "stretch: some axes agree and one or two diverge. The gap is real and adjacent.",
     "mismatch: the axes or archetypes pull apart. The taste and the work do not line up.",
-    "why is one or two sentences. Name the axes that agree or diverge.",
+    "why is one or two sentences for a hiring manager. Name the axes that agree or diverge.",
+    "In why, call an archetype by its label and an axis by its poles, like Systems vs Product. Never print ids such as systems_vs_product or co_op_cleric.",
     "Use only the JSON you are given. Do not invent scores, titles, or job duties.",
     "This is a hire signal for a conversation. It is not a hiring decision.",
   ].join("\n");
@@ -94,6 +95,7 @@ export function matchState(hire: Judgment, role: Judgment, job?: { title: string
   const axes = (judgment: Judgment) =>
     (Object.keys(AXES) as AxisId[]).map((id) => ({
       id,
+      axis: `${AXES[id].left} vs ${AXES[id].right}`,
       left: AXES[id].left,
       right: AXES[id].right,
       level: judgment.scores[id].level,
@@ -103,11 +105,13 @@ export function matchState(hire: Judgment, role: Judgment, job?: { title: string
     job,
     hire: {
       archetype: hire.archetype,
+      label: ARCHETYPES[hire.archetype].label,
       confidence: hire.confidence,
       scores: axes(hire),
     },
     role: {
       archetype: role.archetype,
+      label: ARCHETYPES[role.archetype].label,
       confidence: role.confidence,
       scores: axes(role),
     },
