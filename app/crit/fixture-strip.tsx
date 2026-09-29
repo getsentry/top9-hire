@@ -1,4 +1,4 @@
-import { CAPTURED_AT, type Top9Example } from "@/lib/pack";
+import type { Top9Example } from "@/lib/pack";
 import { PlateArt, fixtureSource } from "./plate-art";
 
 export function FixtureStrip({
@@ -13,7 +13,7 @@ export function FixtureStrip({
   return (
     <section className="strip" aria-labelledby="strip-title">
       <p className="field-label" id="strip-title">
-        Fixtures · {examples.length} real cards, captured {CAPTURED_AT}
+        Or pick a real card
       </p>
       <ul className="strip-row">
         {examples.map((example) => (

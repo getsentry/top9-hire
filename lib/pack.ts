@@ -1,12 +1,8 @@
 import pack from "./jobs.json" with { type: "json" };
-import {
-  CAPTURED_AT,
-  TOP9_EXAMPLES,
-  type Top9Example,
-} from "./__fixtures__/top9-examples.ts";
+import { TOP9_EXAMPLES, type Top9Example } from "./__fixtures__/top9-examples.ts";
 import type { HireCard } from "./hire.ts";
 
-export { CAPTURED_AT, TOP9_EXAMPLES, type Top9Example };
+export { TOP9_EXAMPLES, type Top9Example };
 
 export type PackJob = {
   id: string;

@@ -300,7 +300,7 @@ export default function CritSheet() {
                   <div className="plate-art">
                     <PlateArt source={{ kind: "typed" }} titles={EMPTY} />
                   </div>
-                  <p className="plate-empty-copy">Pick a fixture, paste a post, or drop a card.</p>
+                  <p className="plate-empty-copy">Pick a real card above, paste a post, or drop your own.</p>
                 </div>
               </div>
             )}

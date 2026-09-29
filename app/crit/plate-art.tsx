@@ -13,7 +13,7 @@ export function fixtureSource(example: Top9Example): PlateSource {
 }
 
 export function sourceLabel(source: PlateSource) {
-  if (source.kind === "fixture") return "Fixture";
+  if (source.kind === "fixture") return "Real card";
   if (source.kind === "upload") return "Uploaded card";
   if (source.kind === "post") return "From post";
   return "Typed by hand";
