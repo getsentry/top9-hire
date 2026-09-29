@@ -84,9 +84,10 @@ button:disabled {
 
 .masthead {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
   padding: 0.5rem 0 1.75rem;
 }
 
@@ -97,6 +98,7 @@ button:disabled {
   text-decoration: none;
   font-weight: 600;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -583,6 +585,7 @@ button.secondary:disabled {
 
 .details-grid label {
   padding-top: 0.75rem;
+  align-content: start;
 }
 
 .submit-row {
