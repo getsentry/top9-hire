@@ -3,7 +3,6 @@ import { DISCLAIMER, type HireCard } from "@/lib/hire";
 import { CLASSIFY_MODEL } from "@/lib/models";
 import { sealScore, signalStrength } from "@/lib/pack";
 import { AxisTrack } from "./axis";
-import { Check } from "./check";
 import { renderCritPng } from "./export-png";
 import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
 import { Seal } from "./seal";
@@ -163,11 +162,8 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
 
         {card && readAt ? (
           <p className="crit-provenance">
-            <Check />
-            <span>
-              Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {CLASSIFY_MODEL} via AI Gateway ·
-              confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
-            </span>
+            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {CLASSIFY_MODEL} via AI Gateway ·
+            confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
           </p>
         ) : null}
 

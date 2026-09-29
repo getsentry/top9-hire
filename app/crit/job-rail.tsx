@@ -129,10 +129,6 @@ export function JobRail({
           </button>
         ) : null}
       </header>
-      <p className="rail-intro">
-        Secondary read. Pick a role and the Top9 signal is compared with it on the same four axes.
-      </p>
-
       {hasMatch && result ? <MatchCard result={result} /> : null}
 
       <fieldset className="job-pack" disabled={locked}>
