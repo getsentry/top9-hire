@@ -324,9 +324,7 @@ export default function CritSheet() {
           />
         </div>
 
-        <footer className="colophon mono">
-          {JUDGE_MODEL} via Vercel AI Gateway · traced as gen_ai.evaluate
-        </footer>
+        <footer className="colophon">Judged by {JUDGE_MODEL} via Vercel AI Gateway</footer>
       </main>
     </>
   );
