@@ -815,6 +815,15 @@ img {
   padding-top: 2px;
 }
 
+.verdict-handle {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
 .crit .verdict-archetype {
   font-size: clamp(40px, 4.6vw, 64px);
 }

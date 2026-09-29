@@ -81,24 +81,27 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, onEdit }:
             </div>
           </figure>
 
-          {card ? (
-            <div className="crit-doc" aria-live="polite">
-              <p className="verdict-strength">{signalStrength(card)}</p>
-              <h2 className="verdict-archetype" id="crit-title">
-                {card.label}
-              </h2>
-              <p className="verdict-signal">{card.signal}</p>
-            </div>
-          ) : (
-            <div className="crit-doc" aria-live="polite">
-              <p className="verdict-strength muted" id="crit-title">
-                Reading nine titles…
-              </p>
-              <span className="skeleton h-lg w-80" />
-              <span className="skeleton w-90" />
-              <span className="skeleton w-70" />
-            </div>
-          )}
+          <div className="crit-doc" aria-live="polite">
+            {handle ? <p className="verdict-handle">@{handle}</p> : null}
+            {card ? (
+              <>
+                <p className="verdict-strength">{signalStrength(card)}</p>
+                <h2 className="verdict-archetype" id="crit-title">
+                  {card.label}
+                </h2>
+                <p className="verdict-signal">{card.signal}</p>
+              </>
+            ) : (
+              <>
+                <p className="verdict-strength muted" id="crit-title">
+                  Reading nine titles…
+                </p>
+                <span className="skeleton h-lg w-80" />
+                <span className="skeleton w-90" />
+                <span className="skeleton w-70" />
+              </>
+            )}
+          </div>
         </div>
 
         {card ? (
