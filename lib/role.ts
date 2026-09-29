@@ -22,19 +22,12 @@ import { type JobPosting } from "./job.ts";
 
 export { MODEL };
 
-const MATCH_CHOICES = ["match", "stretch", "mismatch"] as const;
-
 export const roleJudgmentSchema = z.object({
   role_archetype: archetypeChoiceSchema,
   scores: scoresSchema,
 });
 
-export const matchSchema = z.object({
-  choice: z.enum(MATCH_CHOICES),
-  why: z.string().trim().min(1).max(500),
-});
-
-export type MatchChoice = (typeof MATCH_CHOICES)[number];
+export type MatchChoice = "match" | "stretch" | "mismatch";
 
 /** A gap of this many levels or more on one axis counts as diverging. */
 export const DIVERGE_AT = 2;
@@ -58,7 +51,7 @@ export type Alignment = {
   archetypes: { hire: string; role: string; same: boolean };
 };
 
-export type HireJobMatch = z.infer<typeof matchSchema> & { alignment: Alignment };
+export type HireJobMatch = { choice: MatchChoice; why: string; alignment: Alignment };
 
 /**
  * The match choice is a rule on the axis gaps, not a model mood:
@@ -92,6 +85,32 @@ export function alignment(hire: Pick<Judgment, "archetype" | "scores">, role: Pi
       same: hire.archetype === role.archetype,
     },
   };
+}
+
+const READ_PHRASES: Record<AxisFacet["read"], { one: string; many: string }> = {
+  aligned: { one: "lines up", many: "line up" },
+  adjacent: { one: "is one level apart", many: "are one level apart" },
+  diverges: { one: "diverges", many: "diverge" },
+};
+
+const axisList = new Intl.ListFormat("en", { type: "conjunction" });
+
+export function matchWhy({ facets, archetypes }: Alignment): string {
+  const axes = Object.entries(READ_PHRASES).flatMap(([read, { one, many }]) => {
+    const named = facets.filter((facet) => facet.read === read).map((facet) => facet.axis);
+    if (named.length === 0) return [];
+    if (named.length === facets.length) return [`Every axis ${one}.`];
+    return [`${axisList.format(named)} ${named.length === 1 ? one : many}.`];
+  });
+  const archetype = archetypes.same
+    ? `Both read as ${archetypes.hire}.`
+    : `Top9 reads as ${archetypes.hire}, the role as ${archetypes.role}.`;
+  return [...axes, archetype].join(" ");
+}
+
+export function matchFor(hire: Judgment, role: Judgment): HireJobMatch {
+  const aligned = alignment(hire, role);
+  return { choice: aligned.choice, why: matchWhy(aligned), alignment: aligned };
 }
 
 function axisGuide(): string {
@@ -132,54 +151,6 @@ export function roleInstructions(): string {
     "role_archetype.confidence is 0 to 1 for the chosen label.",
     "alternatives is required. Send [] when no other label competes. At most 3 items. probability is 0 to 1.",
   ].join("\n");
-}
-
-export function matchInstructions(): string {
-  return [
-    "Compare a person's hire judgment with a role judgment.",
-    "Both use the same axes. Level 1 is the left pole and level 4 is the right pole.",
-    "choice is exactly one of match, stretch, mismatch, and the app has already fixed it from the axis gaps in alignment.",
-    `An axis diverges when the two levels are ${DIVERGE_AT} or more apart. No diverging axes is match, one or two is stretch, three or four is mismatch.`,
-    "Return alignment.choice as choice. Do not overrule it with the archetype labels.",
-    "why is one or two sentences for a hiring manager that explain that choice. Name the axes that align or diverge.",
-    "In why, call an archetype by its label and an axis by its poles, like Systems vs Product. Never print ids such as systems_vs_product or co_op_cleric.",
-    "Use only the JSON you are given. Do not invent scores, titles, or job duties.",
-    "This is a hire signal for a conversation. It is not a hiring decision.",
-  ].join("\n");
-}
-
-export function matchState(hire: Judgment, role: Judgment, job?: { title: string; url: string }) {
-  const aligned = alignment(hire, role);
-  const axes = (judgment: Judgment) =>
-    (Object.keys(AXES) as AxisId[]).map((id) => ({
-      id,
-      axis: `${AXES[id].left} vs ${AXES[id].right}`,
-      left: AXES[id].left,
-      right: AXES[id].right,
-      level: judgment.scores[id].level,
-      confidence: judgment.scores[id].confidence,
-    }));
-  return {
-    job,
-    hire: {
-      archetype: hire.archetype,
-      label: ARCHETYPES[hire.archetype].label,
-      confidence: hire.confidence,
-      scores: axes(hire),
-    },
-    role: {
-      archetype: role.archetype,
-      label: ARCHETYPES[role.archetype].label,
-      confidence: role.confidence,
-      scores: axes(role),
-    },
-    alignment: {
-      choice: aligned.choice,
-      percent: aligned.percent,
-      diverging: aligned.facets.filter((f) => f.read === "diverges").map((f) => f.axis),
-      aligned: aligned.facets.filter((f) => f.read === "aligned").map((f) => f.axis),
-    },
-  };
 }
 
 function inputMessages(prompt: string) {
@@ -257,64 +228,4 @@ export async function evaluateRole(posting: JobPosting): Promise<Judgment> {
   // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
   await Sentry.flush(2000);
   return judgment;
-}
-
-const MATCH_SCORE: Record<HireJobMatch["choice"], number> = {
-  match: 1,
-  stretch: 0.5,
-  mismatch: 0,
-};
-
-export async function evaluateMatch(hire: Judgment, role: Judgment, job?: { title: string; url: string }): Promise<HireJobMatch> {
-  await requireGateway();
-  const instructions = matchInstructions();
-  const aligned = alignment(hire, role);
-  const prompt = JSON.stringify(matchState(hire, role, job));
-  const match = await Sentry.startSpan(
-    {
-      op: "gen_ai.evaluate",
-      name: "evaluate hire_job_match",
-      attributes: {
-        "gen_ai.operation.name": "evaluate",
-        "gen_ai.evaluation.name": "hire_job_match",
-        "gen_ai.request.model": MODEL,
-        "gen_ai.provider.name": "vercel.ai_gateway",
-        "gen_ai.system_instructions": instructions,
-        "gen_ai.input.messages": inputMessages(prompt),
-      },
-    },
-    async (span) => {
-      const { output } = await generateText({
-        model: MODEL,
-        system: instructions,
-        prompt,
-        output: Output.object({
-          schema: matchSchema,
-          name: "hire_job_match",
-          description: "Whether a hire judgment and a role judgment match, stretch, or mismatch.",
-        }),
-        telemetry: {
-          isEnabled: true,
-          functionId: "hire-job-match",
-          recordInputs: true,
-          recordOutputs: true,
-        },
-      });
-      if (!output) throw new Error("Model returned an empty match");
-      const parsed = matchSchema.parse(output);
-      span.setAttribute("gen_ai.evaluation.score.value", MATCH_SCORE[aligned.choice]);
-      span.setAttribute("gen_ai.evaluation.score.label", aligned.choice);
-      span.setAttribute("gen_ai.evaluation.explanation", parsed.why);
-      span.setAttribute("gen_ai.output.messages", outputMessages(JSON.stringify(parsed)));
-      span.setAttribute("hire.scores", JSON.stringify(hire.scores));
-      span.setAttribute("role.scores", JSON.stringify(role.scores));
-      span.setAttribute("hire_job_match.alignment_percent", aligned.percent);
-      span.setAttribute("hire_job_match.model_choice", parsed.choice);
-      span.setAttribute("hire_job_match.model_agrees", parsed.choice === aligned.choice);
-      return { choice: aligned.choice, why: parsed.why, alignment: aligned };
-    },
-  );
-  // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
-  await Sentry.flush(2000);
-  return match;
 }

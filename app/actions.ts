@@ -15,7 +15,7 @@ import {
   parseJobUrl,
   type JobPosting,
 } from "@/lib/job";
-import { evaluateMatch, evaluateRole, type HireJobMatch } from "@/lib/role";
+import { evaluateRole, matchFor, type HireJobMatch } from "@/lib/role";
 
 export type SignalResult =
   | {
@@ -89,21 +89,7 @@ export async function readSignal(input: {
     const job = { title: posting.title, url: posting.pageUrl };
     try {
       const role = await evaluateRole(posting);
-      try {
-        const match = await evaluateMatch(hire, role, job);
-        return { ok: true, card, role: toCard(role), match, job };
-      } catch (error) {
-        if (error instanceof MissingGatewayKey) throw error;
-        Sentry.captureException(error);
-        await Sentry.flush(2000);
-        return {
-          ok: true,
-          card,
-          role: toCard(role),
-          job,
-          jobError: "The match judgment failed. Nothing was invented in its place.",
-        };
-      }
+      return { ok: true, card, role: toCard(role), match: matchFor(hire, role), job };
     } catch (error) {
       if (error instanceof MissingGatewayKey) throw error;
       Sentry.captureException(error);
