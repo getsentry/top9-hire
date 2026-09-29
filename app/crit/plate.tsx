@@ -36,25 +36,19 @@ export function Plate({
     <section className="plate" id="plate" aria-labelledby="plate-title">
       <header className="section-head">
         <p className="eyebrow" id="plate-title">
-          <span>03</span> Plate
+          Plate
         </p>
         <p className="section-meta">
-          <span className="mono ink">{plate}</span> · {sourceLabel(source)}
           {tweetUrl ? (
-            <>
-              {" · "}
-              <a href={tweetUrl} target="_blank" rel="noreferrer">
-                source post ↗
-              </a>
-            </>
+            <a href={tweetUrl} target="_blank" rel="noreferrer">
+              source post ↗
+            </a>
           ) : null}
+          {tweetUrl && onBack ? " · " : null}
           {onBack ? (
-            <>
-              {" · "}
-              <button type="button" className="link-button small" onClick={onBack}>
-                Back to crit
-              </button>
-            </>
+            <button type="button" className="link-button small" onClick={onBack}>
+              Back to crit
+            </button>
           ) : null}
         </p>
       </header>
@@ -66,9 +60,13 @@ export function Plate({
           if (!disabled) onSubmit();
         }}
       >
-        <div className="plate-art">
+        <figure className="plate-art">
           <PlateArt source={source} titles={titles} />
-        </div>
+          <figcaption className="plate-caption mono">
+            <span className="ink">{plate}</span>
+            <span>{sourceLabel(source)}</span>
+          </figcaption>
+        </figure>
 
         <div className="plate-sheet">
           <label className="plate-field">

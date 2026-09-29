@@ -118,10 +118,10 @@ export function JobRail({
   }, [hasMatch, result]);
 
   return (
-    <aside className="rail" id="roles" aria-labelledby="rail-title" data-slot="job-url">
+    <aside className="rail" aria-labelledby="rail-title" data-slot="job-url">
       <header className="section-head">
         <p className="eyebrow" id="rail-title">
-          <span>04</span> Role match
+          Role match <span className="muted">optional</span>
         </p>
         {selectedUrl ? (
           <button type="button" className="link-button small" onClick={() => onSelect("")} disabled={locked}>
