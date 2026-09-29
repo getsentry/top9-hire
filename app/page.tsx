@@ -9,9 +9,7 @@ import {
 } from "./actions";
 import { CLASSIFY_MODEL } from "@/lib/models";
 import {
-  CAPTURED_AT,
   JOB_PACK,
-  JOB_PACK_CHECKED_AT,
   TOP9_EXAMPLES,
   findJob,
   plateId,
@@ -24,10 +22,8 @@ import {
   rejectImageFile,
   titlesChanged,
 } from "@/lib/image-limit";
-import { Check } from "./crit/check";
 import { FixtureStrip } from "./crit/fixture-strip";
 import { DropCard, PostForm } from "./crit/intake";
-import { Stage } from "./crit/stage";
 import { JobRail, type RailResult } from "./crit/job-rail";
 import { Crit } from "./crit/crit";
 import { Plate, type PlateSource } from "./crit/plate";
@@ -249,61 +245,15 @@ export default function CritSheet() {
 
   return (
     <div className="sheet">
-      <nav className="topbar" aria-label="Sheet">
-        <a className="wordmark" href="#top">
-          Top9 Hire <span className="mono">Crit sheet</span>
-        </a>
-        <span className="topbar-links">
-          <a href="#fixtures">Fixtures</a>
-          <a href="#plate">Sheet</a>
-          <a href="#roles">Role pack</a>
-        </span>
-        <span className="mono topbar-no">
-          No. <span className="ink">{plate}</span>
-        </span>
-      </nav>
-
-      <header className="hero" id="top">
-        <p className="trust-pill">
-          <Check />
-          {TOP9_EXAMPLES.length} real Top9 cards · {JOB_PACK.length} open roles
-        </p>
-        <h1>
-          Nine games are a <em>hire signal.</em>
-        </h1>
-        <p className="hero-lede">
-          The games that shaped someone say how they like to work: systems or product, solo or team,
-          deep or broad, building or tuning. After Dillon Mulroy&rsquo;s Top9 hiring thesis.
-        </p>
+      <section className="intake" aria-label="Intake">
         <PostForm
           extracting={extracting}
           error={extractError}
           onTweet={onTweet}
           onTypeInstead={onTypeInstead}
         />
-        <ul className="proof" aria-label="What backs a read">
-          <li>
-            <Check />
-            Cards captured from public posts {CAPTURED_AT}
-          </li>
-          <li>
-            <Check />
-            {JOB_PACK.length} open roles, links checked {JOB_PACK_CHECKED_AT}
-          </li>
-          <li>
-            <Check />
-            Every read traced as gen_ai.evaluate in Sentry
-          </li>
-        </ul>
-      </header>
-
-      <Stage
-        examples={TOP9_EXAMPLES}
-        activeId={source?.kind === "fixture" ? source.id : null}
-        onPick={pickFixture}
-      >
         <DropCard extracting={extracting} preview={preview} onFile={onFile} />
-      </Stage>
+      </section>
 
       <FixtureStrip
         examples={TOP9_EXAMPLES}
@@ -353,20 +303,6 @@ export default function CritSheet() {
               <p className="plate-empty-copy">
                 No plate on the sheet yet. Drop a card, paste a post, or pull a fixture from the strip.
               </p>
-              <dl className="sheet-index">
-                <div>
-                  <dt className="mono">03 Plate</dt>
-                  <dd>The card, the candidate, and nine titles you can correct.</dd>
-                </div>
-                <div>
-                  <dt className="mono">03 Crit</dt>
-                  <dd>After the read, the plate becomes one sheet: the card under a seal, the archetype, the hire-signal line, and four axes. Save it as a PNG.</dd>
-                </div>
-                <div>
-                  <dt className="mono">04 Role match</dt>
-                  <dd>Optional. The same signal lined up against a real role from the pack, with an alignment percent and the axes that agree or diverge.</dd>
-                </div>
-              </dl>
             </section>
           )}
         </div>
