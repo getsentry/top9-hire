@@ -221,6 +221,10 @@ export function parsePaste(
 export const GATEWAY_MISSING =
   "No AI Gateway credential. Set AI_GATEWAY_API_KEY, set VERCEL_OIDC_TOKEN, or enable Vercel OIDC so the request token is available. This app will not invent a classification.";
 
+/** The server action never answered: network, timeout, or a protected deployment answering with a login page. */
+export const READ_UNREACHABLE =
+  "The read did not come back from the server. Nothing was invented in its place. Try again.";
+
 export function gatewayReady(
   env: { [key: string]: string | undefined },
   oidcToken?: string,

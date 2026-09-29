@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { gatewayReady, parsePaste, toCard, type Judgment } from "./hire.ts";
+import {
+  GATEWAY_MISSING,
+  READ_UNREACHABLE,
+  gatewayReady,
+  parsePaste,
+  toCard,
+  type Judgment,
+} from "./hire.ts";
 
 const NINE = "a\nb\nc\nd\ne\nf\ng\nh\ni";
 
@@ -57,6 +64,12 @@ test("vercel without a token stays closed, and a token off Vercel does not open 
   assert.equal(gatewayReady({ VERCEL: "1" }), false);
   assert.equal(gatewayReady({ VERCEL: "1" }, ""), false);
   assert.equal(gatewayReady({}, "header-token"), false);
+});
+
+test("failed reads say so plainly and promise nothing was invented", () => {
+  assert.match(GATEWAY_MISSING, /will not invent/);
+  assert.match(READ_UNREACHABLE, /Nothing was invented/);
+  assert.match(READ_UNREACHABLE, /Try again/);
 });
 
 test("confidence 0.9 on systems taste is a primary badge and a clear bar", () => {
