@@ -58,7 +58,7 @@ export function PlateArt({ source, titles }: { source: PlateSource; titles: read
         {titles.map((title, i) => (
           <span key={i} data-empty={!title.trim() || undefined}>
             <span className="mono">{String(i + 1).padStart(2, "0")}</span>
-            {title.trim() || "—"}
+            {title.trim()}
           </span>
         ))}
       </span>
