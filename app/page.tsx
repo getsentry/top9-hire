@@ -324,6 +324,7 @@ export default function CritSheet() {
           }}
           result={isReading ? null : rail}
           locked={isReading}
+          suggestHandle={source?.kind === "fixture" ? handle.trim() || null : null}
         />
       </div>
 

@@ -1263,6 +1263,18 @@ img {
   color: var(--ink-2);
 }
 
+.job-suggested {
+  align-self: flex-start;
+  margin-top: 3px;
+  padding: 1px 5px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  color: var(--stamp);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .job-more {
   display: block;
   width: 100%;
