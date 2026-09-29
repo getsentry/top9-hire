@@ -27,6 +27,7 @@ import { DropCard, PostForm } from "./crit/intake";
 import { JobRail, type RailResult } from "./crit/job-rail";
 import { Crit } from "./crit/crit";
 import { Plate, type PlateSource } from "./crit/plate";
+import { PlateArt } from "./crit/plate-art";
 
 const EMPTY = Array<string>(9).fill("");
 
@@ -49,10 +50,11 @@ function reducedMotion() {
 
 function scrollToId(id: string) {
   requestAnimationFrame(() => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: reducedMotion() ? "auto" : "smooth",
-      block: "start",
-    });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    if (top >= 0 && top < window.innerHeight / 2) return;
+    el.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
   });
 }
 
@@ -244,91 +246,100 @@ export default function CritSheet() {
       : "";
 
   return (
-    <div className="sheet">
-      <section className="intake" aria-label="Intake">
-        <PostForm
-          extracting={extracting}
-          error={extractError}
-          onTweet={onTweet}
-          onTypeInstead={onTypeInstead}
-        />
-        <DropCard extracting={extracting} preview={preview} onFile={onFile} />
-      </section>
-
-      <FixtureStrip
-        examples={TOP9_EXAMPLES}
-        activeId={source?.kind === "fixture" ? source.id : null}
-        onPick={pickFixture}
-      />
-
-      <div className="desk">
-        <div className="desk-main">
-          {source && reading && showCrit ? (
-            <Crit
-              source={source}
-              titles={reading.titles}
-              plate={reading.plate}
-              handle={reading.handle}
-              roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
-              card={ok && !isReading ? ok.card : null}
-              blurb={blurb}
-              readAt={reading.readAt}
-              onEdit={() => {
-                setEditing(true);
-                scrollToId("plate");
-              }}
+    <>
+      <header className="masthead">
+        <span className="wordmark">Top9 Hire</span>
+        <span className="mono">
+          No. <span className="masthead-no">{plate}</span>
+        </span>
+      </header>
+      <main className="sheet">
+        <section className="intake" aria-label="Intake">
+          <div className="intake-add">
+            <PostForm
+              extracting={extracting}
+              error={extractError}
+              onTweet={onTweet}
+              onTypeInstead={onTypeInstead}
             />
-          ) : source ? (
-            <Plate
-              source={source}
-              plate={plate}
-              titles={titles}
-              handle={handle}
-              onTitle={updateTitle}
-              onHandle={setHandle}
-              onSubmit={submit}
-              onBack={canReturn ? () => setEditing(false) : undefined}
-              reading={isReading}
-              disabled={isReading || extracting || filled !== 9}
-              roleLabel={roleLabel}
-              error={result && !result.ok ? result.message : null}
-            />
-          ) : (
-            <section className="plate plate-empty" id="plate">
-              <header className="section-head">
-                <p className="eyebrow">
-                  <span>03</span> Plate
-                </p>
-              </header>
-              <p className="plate-empty-copy">
-                No plate on the sheet yet. Drop a card, paste a post, or pull a fixture from the strip.
-              </p>
-            </section>
-          )}
+            <DropCard extracting={extracting} preview={preview} onFile={onFile} />
+          </div>
+          <FixtureStrip
+            examples={TOP9_EXAMPLES}
+            activeId={source?.kind === "fixture" ? source.id : null}
+            onPick={pickFixture}
+          />
+        </section>
+
+        <div className="desk">
+          <div className="desk-main">
+            {source && reading && showCrit ? (
+              <Crit
+                source={source}
+                titles={reading.titles}
+                plate={reading.plate}
+                handle={reading.handle}
+                roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
+                card={ok && !isReading ? ok.card : null}
+                blurb={blurb}
+                readAt={reading.readAt}
+                onEdit={() => {
+                  setEditing(true);
+                  scrollToId("plate");
+                }}
+              />
+            ) : source ? (
+              <Plate
+                source={source}
+                plate={plate}
+                titles={titles}
+                handle={handle}
+                onTitle={updateTitle}
+                onHandle={setHandle}
+                onSubmit={submit}
+                onBack={canReturn ? () => setEditing(false) : undefined}
+                reading={isReading}
+                disabled={isReading || extracting || filled !== 9}
+                roleLabel={roleLabel}
+                error={result && !result.ok ? result.message : null}
+              />
+            ) : (
+              <section className="plate plate-empty" id="plate">
+                <header className="section-head">
+                  <p className="eyebrow">Plate</p>
+                </header>
+                <div className="plate-body">
+                  <div className="plate-art">
+                    <PlateArt source={{ kind: "typed" }} titles={EMPTY} />
+                  </div>
+                  <p className="plate-empty-copy">Pick a fixture, paste a post, or drop a card.</p>
+                </div>
+              </section>
+            )}
+          </div>
+
+          <JobRail
+            jobs={JOB_PACK}
+            selectedUrl={selectedUrl}
+            customUrl={customUrl}
+            onSelect={(url) => {
+              setSelectedUrl(url);
+              setCustomUrl("");
+            }}
+            onCustom={(url) => {
+              setCustomUrl(url);
+              if (url) setSelectedUrl("");
+            }}
+            result={isReading ? null : rail}
+            locked={isReading}
+            suggestHandle={source?.kind === "fixture" ? handle.trim() || null : null}
+          />
         </div>
 
-        <JobRail
-          jobs={JOB_PACK}
-          selectedUrl={selectedUrl}
-          customUrl={customUrl}
-          onSelect={(url) => {
-            setSelectedUrl(url);
-            setCustomUrl("");
-          }}
-          onCustom={(url) => {
-            setCustomUrl(url);
-            if (url) setSelectedUrl("");
-          }}
-          result={isReading ? null : rail}
-          locked={isReading}
-          suggestHandle={source?.kind === "fixture" ? handle.trim() || null : null}
-        />
-      </div>
-
-      <footer className="colophon mono">
-        <span>Top9 Hire · a hire signal, not a hiring decision</span>
-        <span>Judged by {CLASSIFY_MODEL} through Vercel AI Gateway · traced as gen_ai.evaluate in Sentry</span>
-      </footer>
-    </div>
+        <footer className="colophon mono">
+          {CLASSIFY_MODEL} via Vercel AI Gateway · traced as gen_ai.evaluate
+        </footer>
+      </main>
+    </>
   );
 }

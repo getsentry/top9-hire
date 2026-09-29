@@ -51,7 +51,6 @@ export function FixtureStrip({
                   ) : (
                     <TypesetCard games={example.games} />
                   )}
-                  {active ? <span className="strip-tag">On sheet</span> : null}
                 </span>
                 <span className="strip-caption">
                   <span className="mono">{example.id}</span>

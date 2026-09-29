@@ -77,9 +77,7 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
       aria-busy={card ? undefined : true}
     >
       <header className="section-head">
-        <p className="eyebrow">
-          <span>03</span> Crit
-        </p>
+        <p className="eyebrow">Crit</p>
         <p className="section-meta">
           {sourceLabel(source)}
           {tweetUrl ? (

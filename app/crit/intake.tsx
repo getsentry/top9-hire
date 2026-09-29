@@ -58,12 +58,13 @@ export function DropCard({
           if (file) onFile(file);
         }}
       />
-      {preview ? <CardBitmap className="silhouette-preview" file={preview} /> : null}
-      <span className="silhouette-head" />
-      <span className="silhouette-grid" aria-hidden>
-        {Array.from({ length: 9 }, (_, i) => (
-          <span key={i} style={{ animationDelay: `${i * 90}ms` }} />
-        ))}
+      <span className="silhouette-card" aria-hidden>
+        {preview ? <CardBitmap className="silhouette-preview" file={preview} /> : null}
+        <span className="silhouette-grid">
+          {Array.from({ length: 9 }, (_, i) => (
+            <span key={i} style={{ animationDelay: `${i * 90}ms` }} />
+          ))}
+        </span>
       </span>
       <span className="silhouette-label">
         {extracting ? (
@@ -97,6 +98,9 @@ export function PostForm({
 
   return (
     <div className="post-intake">
+      <label className="field-label" htmlFor="post-url">
+        Paste a post
+      </label>
       <form
         className="post-form"
         onSubmit={(e) => {
@@ -105,9 +109,6 @@ export function PostForm({
           if (url && !extracting) onTweet(url);
         }}
       >
-        <label className="sr-only" htmlFor="post-url">
-          Top9 post URL
-        </label>
         <div className="inline-field">
           <input
             id="post-url"
@@ -115,7 +116,7 @@ export function PostForm({
             inputMode="url"
             spellCheck={false}
             autoCapitalize="off"
-            placeholder="Paste a Top9 post: x.com/handle/status/…"
+            placeholder="x.com/handle/status/…"
             value={tweetUrl}
             onChange={(e) => setTweetUrl(e.target.value)}
             disabled={extracting}
@@ -125,13 +126,9 @@ export function PostForm({
           </button>
         </div>
       </form>
-      <p className="post-alt">
-        Or drop the card image below, pick a real card, or{" "}
-        <button type="button" className="link-button" onClick={onTypeInstead} disabled={extracting}>
-          type nine titles by hand
-        </button>
-        .
-      </p>
+      <button type="button" className="link-button post-alt" onClick={onTypeInstead} disabled={extracting}>
+        Or type nine titles
+      </button>
       {error ? (
         <p className="error" role="alert">
           {error}
