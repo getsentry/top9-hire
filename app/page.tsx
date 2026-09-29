@@ -27,7 +27,7 @@ import { DropCard, PostForm } from "./crit/intake";
 import { JobRail, type RailResult } from "./crit/job-rail";
 import { Crit } from "./crit/crit";
 import { Plate, type PlateSource } from "./crit/plate";
-import { PlateArt } from "./crit/plate-art";
+import { PlateArt, fixtureSource } from "./crit/plate-art";
 
 const EMPTY = Array<string>(9).fill("");
 
@@ -106,11 +106,7 @@ export default function CritSheet() {
     setExtracting(false);
     setExtractError(null);
     setPreview(null);
-    loadTitles(
-      [...example.games],
-      { kind: "fixture", id: example.id, tweetUrl: example.tweetUrl, image: example.image },
-      example.handle,
-    );
+    loadTitles([...example.games], fixtureSource(example), example.handle);
   }
 
   async function runExtract(
