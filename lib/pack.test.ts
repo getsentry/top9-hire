@@ -106,7 +106,7 @@ test("the share blurb carries the archetype, signal line, score, and role read",
       "@dorryspears: Systems necromancer. Strong signal, 8.4/10.",
       '"Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own."',
       "Role read: stretch, 75% aligned for Vercel Software Engineer, Platform.",
-      "Top9 Hire",
+      "top9.wtf",
     ].join("\n"),
   );
 });

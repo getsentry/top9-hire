@@ -248,7 +248,7 @@ export default function CritSheet() {
   return (
     <>
       <header className="masthead">
-        <span className="wordmark">Top9 Hire</span>
+        <span className="wordmark">top9.wtf</span>
       </header>
       <main className="sheet">
         <section className="intake" aria-label="Intake">

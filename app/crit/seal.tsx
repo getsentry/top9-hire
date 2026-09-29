@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-const RING = "HIRE SIGNAL · TOP9 HIRE · ".repeat(3);
+export const SEAL_RING = "TOP9.WTF · HIRE SIGNAL · ".repeat(3);
 
 export function Seal({ score, pending = false }: { score?: string; pending?: boolean }) {
   const pathId = useId();
@@ -14,7 +14,7 @@ export function Seal({ score, pending = false }: { score?: string; pending?: boo
         <circle cx="100" cy="100" r="64" className="seal-inner" />
         <text className="seal-ring">
           <textPath href={`#${pathId}`} textLength="486" lengthAdjust="spacing">
-            {RING}
+            {SEAL_RING}
           </textPath>
         </text>
         {score ? (

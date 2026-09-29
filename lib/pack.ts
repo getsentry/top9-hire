@@ -71,6 +71,6 @@ export function shareBlurb(input: {
     const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
     lines.push(`Role read: ${input.match.choice}${aligned} for ${role}.`);
   }
-  lines.push("Top9 Hire");
+  lines.push("top9.wtf");
   return lines.join("\n");
 }

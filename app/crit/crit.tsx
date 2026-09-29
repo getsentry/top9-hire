@@ -49,7 +49,7 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, o
       const href = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = href;
-      link.download = `top9-hire-${handle ?? "card"}.png`;
+      link.download = `top9-wtf-${handle ?? "card"}.png`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(href), 1000);
       setSaving("idle");

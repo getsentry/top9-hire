@@ -23,9 +23,8 @@ const mono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Top9 Hire — Crit Sheet",
-  description:
-    "Nine games are a hire signal. Drop a Top9 card, read the archetype, and check it against a real role.",
+  title: "top9.wtf",
+  description: "Nine games give a hire signal.",
 };
 
 export const viewport: Viewport = {

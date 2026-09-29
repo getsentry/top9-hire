@@ -1,6 +1,7 @@
 import type { HireCard } from "@/lib/hire";
 import { sealScore, signalStrength } from "@/lib/pack";
 import type { PlateSource } from "./plate-art";
+import { SEAL_RING } from "./seal";
 
 const W = 1600;
 const H = 900;
@@ -123,17 +124,16 @@ function drawSeal(ctx: CanvasRenderingContext2D, fonts: Fonts, cx: number, cy: n
   ctx.arc(0, 0, r * 0.66, 0, Math.PI * 2);
   ctx.stroke();
 
-  const ring = "HIRE SIGNAL · TOP9 HIRE · ".repeat(3);
   ctx.fillStyle = STAMP;
   ctx.font = `400 ${Math.round(r * 0.11)}px ${fonts.mono}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const step = (Math.PI * 2) / ring.length;
-  for (let i = 0; i < ring.length; i++) {
+  const step = (Math.PI * 2) / SEAL_RING.length;
+  for (let i = 0; i < SEAL_RING.length; i++) {
     ctx.save();
     ctx.rotate(-Math.PI / 2 + i * step);
     ctx.translate(0, -r * 0.83);
-    ctx.fillText(ring[i] ?? "", 0, 0);
+    ctx.fillText(SEAL_RING[i] ?? "", 0, 0);
     ctx.restore();
   }
 
@@ -298,7 +298,7 @@ export async function renderCritPng(input: {
   ctx.fillStyle = MUTE;
   ctx.font = `400 14px ${fonts.mono}`;
   ctx.textAlign = "left";
-  ctx.fillText("TOP9 HIRE · A HIRE SIGNAL, NOT A HIRING DECISION", x0, H - 78);
+  ctx.fillText("TOP9.WTF · A HIRE SIGNAL, NOT A HIRING DECISION", x0, H - 78);
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("PNG export failed."))), "image/png");
