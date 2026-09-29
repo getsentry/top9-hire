@@ -13,16 +13,25 @@ export type PackJob = {
   company: string;
   title: string;
   url: string;
-  location: string;
-  lean: string;
+  board: "ashby" | "greenhouse";
+  /** Short display line for the rail. `notes` is curator context, not UI copy. */
+  facet: string;
+  notes: string;
+  suggestedFixtureHandles: string[];
 };
 
-export const JOB_PACK: readonly PackJob[] = pack.jobs;
+export const JOB_PACK = pack.jobs as readonly PackJob[];
 export const JOB_PACK_CHECKED_AT: string = pack.checkedAt;
 
 export function findJob(url: string, jobs: readonly PackJob[] = JOB_PACK): PackJob | undefined {
   const needle = url.trim();
   return jobs.find((job) => job.url === needle);
+}
+
+export function suggestedFor(job: PackJob, handle: string | null | undefined): boolean {
+  const needle = handle?.trim().replace(/^@/, "").toLowerCase();
+  if (!needle) return false;
+  return job.suggestedFixtureHandles.some((h) => h.toLowerCase() === needle);
 }
 
 export function findExample(

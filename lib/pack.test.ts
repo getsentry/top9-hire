@@ -12,6 +12,7 @@ import {
   sealScore,
   shareBlurb,
   signalStrength,
+  suggestedFor,
 } from "./pack.ts";
 
 const scores = {
@@ -30,11 +31,32 @@ test("the job pack is twelve unique public Greenhouse or Ashby postings", () => 
     const locked = parseJobUrl(job.url);
     assert.ok(locked, `${job.id} must pass parseJobUrl`);
     sources.add(locked.source);
-    for (const field of [job.company, job.title, job.location, job.lean]) {
+    assert.equal(locked.source, job.board, `${job.id} board disagrees with its URL`);
+    for (const field of [job.company, job.title, job.facet]) {
       assert.ok(field.trim().length > 0, `${job.id} has an empty field`);
     }
   }
   assert.deepEqual([...sources].sort(), ["ashby", "greenhouse"]);
+});
+
+test("every suggested handle is a fixture, and every fixture has a suggested role", () => {
+  for (const job of JOB_PACK) {
+    assert.ok(job.suggestedFixtureHandles.length > 0, `${job.id} suggests no fixture`);
+    for (const handle of job.suggestedFixtureHandles) {
+      assert.ok(findExample(handle), `${job.id} suggests unknown fixture @${handle}`);
+    }
+  }
+  for (const example of TOP9_EXAMPLES) {
+    assert.ok(
+      JOB_PACK.some((job) => suggestedFor(job, example.handle)),
+      `@${example.handle} has no suggested role`,
+    );
+  }
+  const dx = JOB_PACK.find((job) => job.id === "sentry-dx");
+  assert.ok(dx);
+  assert.equal(suggestedFor(dx, "@Theo"), true);
+  assert.equal(suggestedFor(dx, "dorryspears"), false);
+  assert.equal(suggestedFor(dx, ""), false);
 });
 
 test("findJob matches a pack URL exactly and ignores others", () => {

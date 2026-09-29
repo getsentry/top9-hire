@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { HireCard } from "@/lib/hire";
-import type { PackJob } from "@/lib/pack";
+import { suggestedFor, type PackJob } from "@/lib/pack";
 import type { HireJobMatch } from "@/lib/role";
 import { AxisTrack } from "./axis";
 
@@ -66,6 +66,7 @@ export function JobRail({
   onCustom,
   result,
   locked,
+  suggestHandle,
 }: {
   jobs: readonly PackJob[];
   selectedUrl: string;
@@ -74,6 +75,7 @@ export function JobRail({
   onCustom: (url: string) => void;
   result: RailResult | null;
   locked: boolean;
+  suggestHandle: string | null;
 }) {
   const [expanded, setExpanded] = useState(false);
   const hasMatch = Boolean(result && (result.role || result.match || result.jobError));
@@ -108,6 +110,7 @@ export function JobRail({
         </legend>
         {visible.map((job) => {
           const checked = selectedUrl === job.url;
+          const suggested = suggestedFor(job, suggestHandle);
           return (
             <label key={job.id} className="job-row" data-checked={checked || undefined}>
               <input
@@ -121,8 +124,11 @@ export function JobRail({
               <span className="job-text">
                 <span className="job-title">{job.title}</span>
                 <span className="job-meta">
-                  <span className="mono">{job.company}</span> · {job.lean} · {job.location}
+                  <span className="mono">{job.company}</span> · {job.facet}
                 </span>
+                {suggested ? (
+                  <span className="job-suggested mono">Suggested for @{suggestHandle}</span>
+                ) : null}
               </span>
             </label>
           );
