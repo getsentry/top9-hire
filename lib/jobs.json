@@ -1,0 +1,101 @@
+{
+  "checkedAt": "2026-09-29",
+  "jobs": [
+    {
+      "id": "sentry-dx",
+      "company": "Sentry",
+      "title": "Senior Developer Experience Engineer",
+      "url": "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f",
+      "location": "San Francisco",
+      "lean": "Docs, SDKs, community"
+    },
+    {
+      "id": "sentry-issues",
+      "company": "Sentry",
+      "title": "Staff Software Engineer, Issues",
+      "url": "https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda",
+      "location": "San Francisco",
+      "lean": "Product surface at scale"
+    },
+    {
+      "id": "cloudflare-platforms",
+      "company": "Cloudflare",
+      "title": "Software Engineer, Platforms & Productivity",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8168623",
+      "location": "Hybrid",
+      "lean": "Internal developer platform"
+    },
+    {
+      "id": "cloudflare-lb",
+      "company": "Cloudflare",
+      "title": "Senior Software Engineer, Load Balancing",
+      "url": "https://boards.greenhouse.io/cloudflare/jobs/8212352",
+      "location": "Hybrid",
+      "lean": "Networking, hard systems"
+    },
+    {
+      "id": "vercel-design-engineer",
+      "company": "Vercel",
+      "title": "Design Engineer",
+      "url": "https://job-boards.greenhouse.io/vercel/jobs/6129441004",
+      "location": "Remote, US",
+      "lean": "Interface craft"
+    },
+    {
+      "id": "linear-product",
+      "company": "Linear",
+      "title": "Senior / Staff Product Engineer",
+      "url": "https://jobs.ashbyhq.com/linear/12f8f208-0b9c-4569-bb3d-41c8a197029e",
+      "location": "North America",
+      "lean": "Product polish"
+    },
+    {
+      "id": "resend-product",
+      "company": "Resend",
+      "title": "Product Engineer",
+      "url": "https://jobs.ashbyhq.com/resend/9b68ba51-3895-4d29-8fd1-364bdf8956e7",
+      "location": "Americas",
+      "lean": "Developer product"
+    },
+    {
+      "id": "supabase-devrel",
+      "company": "Supabase",
+      "title": "Developer Relations Engineer",
+      "url": "https://jobs.ashbyhq.com/supabase/a1320bbf-bfae-49a8-a1b7-12eeccaf39ca",
+      "location": "Remote",
+      "lean": "Community, content"
+    },
+    {
+      "id": "railway-baremetal",
+      "company": "Railway",
+      "title": "Senior Infra Engineer, Baremetal Orchestration",
+      "url": "https://jobs.ashbyhq.com/railway/d93c8794-6058-4295-83a0-092b05664f34",
+      "location": "Global",
+      "lean": "Bare metal, orchestration"
+    },
+    {
+      "id": "planetscale-vitess",
+      "company": "PlanetScale",
+      "title": "Software Engineer, PlanetScale Vitess",
+      "url": "https://job-boards.greenhouse.io/planetscale/jobs/4009746009",
+      "location": "EMEA, remote",
+      "lean": "Databases, deep internals"
+    },
+    {
+      "id": "discord-data-platform",
+      "company": "Discord",
+      "title": "Senior Software Engineer, Data Platform",
+      "url": "https://job-boards.greenhouse.io/discord/jobs/8694476002",
+      "location": "San Francisco",
+      "lean": "Data pipelines"
+    },
+    {
+      "id": "riot-tft-gameplay",
+      "company": "Riot Games",
+      "title": "Principal Software Engineer, Gameplay (Teamfight Tactics)",
+      "url": "https://job-boards.greenhouse.io/riotgames/jobs/8049865",
+      "location": "Los Angeles",
+      "lean": "Gameplay systems"
+    }
+  ]
+}
