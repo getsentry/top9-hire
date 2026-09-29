@@ -62,7 +62,6 @@ function MatchCard({ result }: { result: RailResult }) {
                   <AxisTrack
                     score={score}
                     compare={compare}
-                    showCriterion={false}
                     note={facet ? facet.read : undefined}
                   />
                 </li>

@@ -8,12 +8,10 @@ function position(level: number) {
 export function AxisTrack({
   score,
   compare,
-  showCriterion = true,
   note,
 }: {
   score: ScoreBar;
   compare?: ScoreBar;
-  showCriterion?: boolean;
   note?: ReactNode;
 }) {
   return (
@@ -27,8 +25,8 @@ export function AxisTrack({
         className="axis-track"
         role="img"
         aria-label={`${score.left} to ${score.right}: level ${score.level} of 4${
-          compare ? `, role at level ${compare.level}` : ""
-        }`}
+          score.fuzzy ? ", low confidence" : ""
+        }${compare ? `, role at level ${compare.level}` : ""}`}
       >
         {[1, 2, 3, 4].map((tick) => (
           <span key={tick} className="axis-tick" style={{ left: position(tick) }} />
@@ -38,12 +36,6 @@ export function AxisTrack({
         ) : null}
         <span className="axis-mark hire" style={{ left: position(score.level) }} />
       </div>
-      {showCriterion ? (
-        <p className="axis-criterion">
-          {score.criterion}
-          {score.fuzzy ? <span className="axis-fuzzy">low confidence</span> : null}
-        </p>
-      ) : null}
     </div>
   );
 }

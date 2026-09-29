@@ -1060,22 +1060,6 @@ img {
   border: 1.5px dashed var(--ink);
 }
 
-.axis-criterion {
-  margin: 2px 0 0;
-  color: var(--ink-2);
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.axis-fuzzy {
-  margin-left: 8px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-
 /* Rail */
 
 .rail {
