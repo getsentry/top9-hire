@@ -238,7 +238,7 @@ export function modelState(top9: Top9): {
   top9: Game[];
 } {
   return {
-    candidate: top9.handle ? { handle: top9.handle } : undefined,
+    ...(top9.handle ? { candidate: { handle: top9.handle } } : {}),
     top9: top9.titles.map((game) =>
       game.note ? { title: game.title, note: game.note } : { title: game.title },
     ),

@@ -4,6 +4,7 @@ import {
   GATEWAY_MISSING,
   READ_UNREACHABLE,
   gatewayReady,
+  modelState,
   parsePaste,
   toCard,
   type Judgment,
@@ -37,6 +38,16 @@ test("a pipe splits a title from an optional note", () => {
   if (!parsed.ok) return;
   assert.equal(parsed.top9.handle, "ada");
   assert.deepEqual(parsed.top9.titles[0], { title: "Factorio", note: "belts" });
+});
+
+test("the model state is plain JSON with no candidate key for a blank handle", () => {
+  const blank = parsePaste(NINE, "  ");
+  const named = parsePaste(NINE, "ada");
+  assert.equal(blank.ok && named.ok, true);
+  if (!blank.ok || !named.ok) return;
+  const top9 = ["a", "b", "c", "d", "e", "f", "g", "h", "i"].map((title) => ({ title }));
+  assert.deepEqual(modelState(blank.top9), { top9 });
+  assert.deepEqual(modelState(named.top9), { candidate: { handle: "ada" }, top9 });
 });
 
 test("eight titles fail and report the count", () => {
