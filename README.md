@@ -23,11 +23,13 @@ Open http://localhost:3000.
 
 ## The sheet
 
-1. **Intake.** Paste an `x.com` / `twitter.com` status URL in the hero field, drop a PNG, JPEG, or WebP card on the card silhouette, or type nine titles by hand. The silhouette sits on a table of four real fixture cards; clicking one loads it. The proof row under the field prints the fixture capture date, the role pack check date, and where reads are traced.
-2. **Fixtures.** Eight public Top9s from tech Twitter, hardcoded in `lib/__fixtures__/top9-examples.ts`. Their card images live in `public/top9/`. Picking one fills the plate with no network call and no vision call.
-3. **Plate.** The card, the candidate handle, and the nine editable titles. Every plate gets a stable id (`T9-01` for fixtures, a four-hex hash for anything else).
+The page is one desk. A thin masthead carries the wordmark and the plate number, and the footer prints the Gateway model from `CLASSIFY_MODEL`.
+
+1. **Intake.** A compact band on top. Paste an `x.com` / `twitter.com` status URL and choose Extract, drop a PNG, JPEG, or WebP card on the drop row, or type nine titles by hand.
+2. **Fixtures.** The same band holds a strip of eight real card thumbnails, hardcoded in `lib/__fixtures__/top9-examples.ts`. Their images live in `public/top9/` and are served as plain static files, not through `/_next/image`, so they load behind Deployment Protection. A card that fails to load shows the typeset card. Picking one fills the plate with no network call and no vision call.
+3. **Plate.** The centre of the desk. The card with a caption strip, the candidate handle, and the nine editable titles. Every plate gets a stable id (`T9-01` for fixtures, a four-hex hash for anything else).
 4. **Crit.** Reading the signal turns the plate into one sheet in place: a numbered header (crit no, candidate, role), the card with the seal stamped on its corner, the archetype, one hire-signal line, the four axes, and a provenance line (read time, Gateway model, raw confidence). The seal prints the confidence as a score out of 10. Save PNG draws the same sheet to a 1600×900 image; Copy blurb and Post on X share the text. Edit titles goes back to the plate.
-5. **Role match.** A secondary rail with the twelve-role pack from `lib/jobs.json`, plus a field for any other public posting. The result is `match`, `stretch`, or `mismatch`, an alignment percent, a short why, and one facet per axis marked aligned, adjacent, or diverges.
+5. **Role match.** A quiet ruled column beside the plate (below it on narrow screens) with the twelve-role pack from `lib/jobs.json`, plus a field for any other public posting. The result is `match`, `stretch`, or `mismatch`, an alignment percent, a short why, and one facet per axis marked aligned, adjacent, or diverges.
 
 The match choice is a rule, not a model mood. An axis diverges when the two levels are two or more apart. No diverging axes is `match`, one or two is `stretch`, three or four is `mismatch`. The alignment percent is one minus the summed axis gaps over the largest possible gap. The model writes the why and is told the choice; its own choice is kept on the span as `hire_job_match.model_choice`.
 
@@ -50,7 +52,7 @@ Extract and the signal read call the paid AI Gateway and do not check a session.
 | `SENTRY_ORG` | Defaults to `sentry-developer-experience`. |
 | `SENTRY_PROJECT` | Defaults to `top9-hire`. |
 
-The classification model id is `openai/gpt-5.4-mini` in `lib/classify.ts`. Role judgment and hire/job match use that same id. The default extraction vision model is `google/gemini-3.8-flash` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
+The classification model id is `openai/gpt-5.4-mini`, exported as `CLASSIFY_MODEL` from `lib/models.ts` and used by `lib/classify.ts`. Role judgment and hire/job match use that same id. The default extraction vision model is `google/gemini-3.8-flash` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
 
 Without a gateway credential the page returns an error and does not invent a signal. A Vercel deployment with OIDC does not need a static `AI_GATEWAY_API_KEY`.
 
@@ -65,13 +67,13 @@ npm run build
 
 Manual checks, in order.
 
-1. Load the page. The strip shows eight fixture cards. The plate area holds one line of text, not an empty title grid.
+1. Load the page. The strip shows eight fixture cards. The plate area holds a blank card and one line of text, not an empty title grid.
 2. Pick `@theo` in the strip. The plate shows his card image, `@theo`, and nine filled titles. No network request is made.
 3. Clear one title. The count reads 8/9 and Read the signal is disabled.
 4. Remove the gateway keys and leave `VERCEL` unset. Read the signal. The page says there is no AI Gateway credential and stamps nothing.
 5. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Read the signal. The plate becomes the crit: the card with a seal and score, the archetype, one signal line, four axes, Save PNG, Copy blurb, and the disclaimer. Save PNG downloads `top9-hire-crit-<id>.png`.
 6. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Read the signal. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
-7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The silhouette shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.
+7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The drop row shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.
 8. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract. The plate fills with the post's card image. A URL that is not a status link shows an error and does not invent titles.
 9. Pick `@dorryspears`. Roles that suggest that fixture carry a "Suggested for @dorryspears" tag. Pick one and read the signal. The rail shows the role title, a `match`, `stretch`, or `mismatch` stamp, an alignment percent, a short why, and a facet per axis plus the two archetypes.
 10. Paste a job URL that is not a public Greenhouse or Ashby posting. The sheet still stamps the signal, and the rail shows a role error with no invented description.
