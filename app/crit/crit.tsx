@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { DISCLAIMER, type HireCard } from "@/lib/hire";
-import { JUDGE_MODEL } from "@/lib/models";
 import { sealScore, signalStrength } from "@/lib/pack";
 import { AxisTrack } from "./axis";
 import { renderCritPng } from "./export-png";
@@ -14,22 +13,13 @@ type Props = {
   roleLabel: string | null;
   card: HireCard | null;
   blurb: string;
-  readAt?: string;
   onEdit: () => void;
 };
 
-function formatRead(iso: string) {
-  const date = new Date(iso);
-  const day = date.toLocaleDateString("en-CA");
-  const time = date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
-  return `${day} ${time}`;
-}
-
-export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, onEdit }: Props) {
+export function Crit({ source, titles, handle, roleLabel, card, blurb, onEdit }: Props) {
   const [copied, setCopied] = useState(false);
   const [saving, setSaving] = useState<"idle" | "saving" | "failed">("idle");
   const tweetUrl = source.kind === "fixture" ? source.tweetUrl : null;
-  const runnerUp = card?.badge.kind === "soft" ? card.badge.runnerUp : undefined;
 
   async function copy() {
     try {
@@ -101,22 +91,6 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, o
                 {card.label}
               </h2>
               <p className="verdict-signal">{card.signal}</p>
-              <dl className="crit-ledger">
-                <div>
-                  <dt>Titles read</dt>
-                  <dd className="mono-figure">{titles.filter((t) => t.trim()).length} / 9</dd>
-                </div>
-                {runnerUp ? (
-                  <div>
-                    <dt>Runner-up</dt>
-                    <dd>{runnerUp}</dd>
-                  </div>
-                ) : null}
-                <div className="crit-total">
-                  <dt>Signal</dt>
-                  <dd className="mono-figure">{sealScore(card.confidence)} / 10</dd>
-                </div>
-              </dl>
             </div>
           ) : (
             <div className="crit-doc" aria-live="polite">
@@ -126,8 +100,6 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, o
               <span className="skeleton h-lg w-80" />
               <span className="skeleton w-90" />
               <span className="skeleton w-70" />
-              <span className="skeleton w-40 crit-skeleton-gap" />
-              <span className="skeleton w-90" />
             </div>
           )}
         </div>
@@ -138,13 +110,6 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, o
               <AxisTrack key={score.id} score={score} />
             ))}
           </div>
-        ) : null}
-
-        {card && readAt ? (
-          <p className="crit-provenance">
-            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {JUDGE_MODEL} via AI Gateway ·
-            confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
-          </p>
         ) : null}
       </article>
 

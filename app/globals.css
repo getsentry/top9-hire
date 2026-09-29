@@ -823,43 +823,6 @@ img {
   font-size: clamp(18px, 1.7vw, 22px);
 }
 
-.crit-ledger {
-  display: flex;
-  flex-direction: column;
-  margin: 14px 0 0;
-}
-
-.crit-ledger div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 9px 0;
-  border-top: 1px solid var(--rule);
-  font-size: 13.5px;
-}
-
-.crit-ledger dt {
-  color: var(--ink-3);
-}
-
-.crit-ledger dd {
-  margin: 0;
-  text-align: right;
-}
-
-.crit-ledger .crit-total {
-  border-top-color: var(--ink);
-  font-weight: 500;
-}
-
-.crit-total dd {
-  font-size: 15px;
-}
-
-.crit-skeleton-gap {
-  margin-top: 22px;
-}
-
 .crit-axes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -867,19 +830,6 @@ img {
   margin-top: 48px;
   padding-top: 22px;
   border-top: 1px solid var(--rule);
-}
-
-.crit-provenance {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 26px 0 0;
-  color: var(--ink-2);
-  font-size: 12.5px;
-}
-
-.crit-provenance .mono-figure {
-  color: var(--ink);
 }
 
 .crit-actions {
@@ -1023,9 +973,6 @@ img {
   height: 56px;
 }
 
-.w-40 {
-  width: 40%;
-}
 .w-70 {
   width: 70%;
 }

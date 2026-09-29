@@ -36,7 +36,6 @@ type Reading = {
   titles: string[];
   handle?: string;
   job?: { title?: string; url: string; company?: string };
-  readAt?: string;
 };
 
 function jobLabel(job: { title?: string; company?: string; url: string }) {
@@ -201,8 +200,6 @@ export default function CritSheet() {
     scrollToId("plate");
     startReading(async () => {
       const next = await readSignal({ paste, handle, jobUrl }).catch(unreachableRead);
-      const readAt = new Date().toISOString();
-      setReading((prev) => (prev === request ? { ...request, readAt } : prev));
       setResult(next);
     });
   }
@@ -278,7 +275,6 @@ export default function CritSheet() {
                 roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
                 card={ok && !isReading ? ok.card : null}
                 blurb={blurb}
-                readAt={reading.readAt}
                 onEdit={() => {
                   setEditing(true);
                   scrollToId("plate");
