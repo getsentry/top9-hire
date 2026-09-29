@@ -17,6 +17,7 @@ import {
 } from "@/lib/pack";
 import {
   interpretExtractResponse,
+  postImageUrl,
   rejectImageFile,
   titlesChanged,
 } from "@/lib/image-limit";
@@ -51,7 +52,7 @@ export default function CritSheet() {
   const [titles, setTitles] = useState<string[]>(EMPTY);
   const [handle, setHandle] = useState("");
   const [source, setSource] = useState<PlateSource | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
+  const [preview, setPreview] = useState<File | null>(null);
   const [extracting, setExtracting] = useState(false);
   const [extractError, setExtractError] = useState<string | null>(null);
   const [selectedUrl, setSelectedUrl] = useState("");
@@ -61,15 +62,7 @@ export default function CritSheet() {
   const [isReading, startReading] = useTransition();
   const titlesRef = useRef(titles);
   const extractGen = useRef(0);
-  const uploadUrl = useRef<string | null>(null);
   titlesRef.current = titles;
-
-  useEffect(
-    () => () => {
-      if (uploadUrl.current) URL.revokeObjectURL(uploadUrl.current);
-    },
-    [],
-  );
 
   const plate = useMemo(() => {
     if (source?.kind === "fixture") return source.id;
@@ -84,11 +77,6 @@ export default function CritSheet() {
       ? customUrl.replace(/^https?:\/\//, "")
       : null;
   const filled = titles.filter((t) => t.trim()).length;
-
-  function setUpload(src: string | null) {
-    if (uploadUrl.current && uploadUrl.current !== src) URL.revokeObjectURL(uploadUrl.current);
-    uploadUrl.current = src;
-  }
 
   function loadTitles(next: string[], nextSource: PlateSource, nextHandle?: string) {
     if (titlesChanged(titlesRef.current, next)) {
@@ -106,7 +94,6 @@ export default function CritSheet() {
     setExtracting(false);
     setExtractError(null);
     setPreview(null);
-    setUpload(null);
     loadTitles(
       [...example.games],
       { kind: "fixture", id: example.id, tweetUrl: example.tweetUrl, image: example.image },
@@ -125,9 +112,13 @@ export default function CritSheet() {
       const res = await task();
       if (gen !== extractGen.current) return;
       if (res.ok) onDone(res.games, res.imageUrl);
-      else setExtractError(res.message);
+      else {
+        setPreview(null);
+        setExtractError(res.message);
+      }
     } catch (err) {
       if (gen !== extractGen.current) return;
+      setPreview(null);
       setExtractError(err instanceof Error ? err.message : "The card could not be read.");
     } finally {
       if (gen === extractGen.current) setExtracting(false);
@@ -140,8 +131,7 @@ export default function CritSheet() {
       setExtractError(rejected.message);
       return;
     }
-    const src = URL.createObjectURL(file);
-    setPreview(src);
+    setPreview(file);
     void runExtract(
       async () => {
         const body = new FormData();
@@ -150,9 +140,8 @@ export default function CritSheet() {
         return interpretExtractResponse(response.status, await response.json().catch(() => null));
       },
       (games) => {
-        setUpload(src);
         setPreview(null);
-        loadTitles(games, { kind: "upload", src }, "");
+        loadTitles(games, { kind: "upload", file }, "");
       },
     );
   }
@@ -163,7 +152,7 @@ export default function CritSheet() {
       () => extractFromTweetUrl(url),
       (games, imageUrl) => {
         const handleFromUrl = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status/i)?.[1] ?? "";
-        loadTitles(games, { kind: "post", src: imageUrl, tweetUrl: url }, handleFromUrl);
+        loadTitles(games, { kind: "post", src: postImageUrl(imageUrl) }, handleFromUrl);
       },
     );
   }

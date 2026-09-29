@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { MAX_IMAGE_LABEL } from "@/lib/image-limit";
+import { CardBitmap } from "./card-bitmap";
 
 export function Intake({
   extracting,
@@ -10,7 +11,7 @@ export function Intake({
   onTypeInstead,
 }: {
   extracting: boolean;
-  preview: string | null;
+  preview: File | null;
   error: string | null;
   onFile: (file: File) => void;
   onTweet: (url: string) => void;
@@ -65,7 +66,7 @@ export function Intake({
             if (file) onFile(file);
           }}
         />
-        {preview ? <img className="silhouette-preview" src={preview} alt="" /> : null}
+        {preview ? <CardBitmap className="silhouette-preview" file={preview} /> : null}
         <span className="silhouette-head" />
         <span className="silhouette-grid" aria-hidden>
           {Array.from({ length: 9 }, (_, i) => (

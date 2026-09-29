@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { CardBitmap } from "./card-bitmap";
 
 export type PlateSource =
   | { kind: "fixture"; id: string; tweetUrl: string; image: { src: string; width: number; height: number } | null }
-  | { kind: "upload"; src: string }
-  | { kind: "post"; src?: string; tweetUrl: string }
+  | { kind: "upload"; file: File }
+  | { kind: "post"; src?: string }
   | { kind: "typed" };
 
 function sourceLabel(source: PlateSource) {
@@ -27,9 +28,11 @@ function PlateArt({ source, titles }: { source: PlateSource; titles: string[] })
       />
     );
   }
-  const remote = source.kind === "upload" ? source.src : source.kind === "post" ? source.src : undefined;
-  if (remote) {
-    return <img className="plate-image" src={remote} alt={`Top9 card: ${titles.join(", ")}`} />;
+  if (source.kind === "upload") {
+    return <CardBitmap className="plate-image" file={source.file} label={`Top9 card: ${titles.join(", ")}`} />;
+  }
+  if (source.kind === "post" && source.src) {
+    return <img className="plate-image" src={source.src} alt={`Top9 card: ${titles.join(", ")}`} />;
   }
   return (
     <div className="plate-typeset" aria-hidden>
@@ -72,7 +75,7 @@ export function Plate({
   error: string | null;
 }) {
   const filled = titles.filter((t) => t.trim()).length;
-  const tweetUrl = source.kind === "fixture" || source.kind === "post" ? source.tweetUrl : null;
+  const tweetUrl = source.kind === "fixture" ? source.tweetUrl : null;
 
   return (
     <section className="plate" id="plate" aria-labelledby="plate-title">
