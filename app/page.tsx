@@ -7,8 +7,11 @@ import {
   type ExtractActionResult,
   type SignalResult,
 } from "./actions";
+import { CLASSIFY_MODEL } from "@/lib/models";
 import {
+  CAPTURED_AT,
   JOB_PACK,
+  JOB_PACK_CHECKED_AT,
   TOP9_EXAMPLES,
   findJob,
   plateId,
@@ -21,8 +24,10 @@ import {
   rejectImageFile,
   titlesChanged,
 } from "@/lib/image-limit";
+import { Check } from "./crit/check";
 import { FixtureStrip } from "./crit/fixture-strip";
-import { Intake } from "./crit/intake";
+import { DropCard, PostForm } from "./crit/intake";
+import { Stage } from "./crit/stage";
 import { JobRail, type RailResult } from "./crit/job-rail";
 import { Crit } from "./crit/crit";
 import { Plate, type PlateSource } from "./crit/plate";
@@ -34,6 +39,7 @@ type Reading = {
   titles: string[];
   handle?: string;
   job?: { title?: string; url: string; company?: string };
+  readAt?: string;
 };
 
 function jobLabel(job: { title?: string; company?: string; url: string }) {
@@ -196,6 +202,8 @@ export default function CritSheet() {
     scrollToId("plate");
     startReading(async () => {
       const next = await readSignal({ paste, handle, jobUrl });
+      const readAt = new Date().toISOString();
+      setReading((prev) => (prev === request ? { ...request, readAt } : prev));
       setResult(next);
     });
   }
@@ -241,38 +249,61 @@ export default function CritSheet() {
 
   return (
     <div className="sheet">
-      <header className="masthead">
-        <p className="wordmark">
+      <nav className="topbar" aria-label="Sheet">
+        <a className="wordmark" href="#top">
           Top9 Hire <span className="mono">Crit sheet</span>
-        </p>
-        <p className="mono masthead-no">
+        </a>
+        <span className="topbar-links">
+          <a href="#fixtures">Fixtures</a>
+          <a href="#plate">Sheet</a>
+          <a href="#roles">Role pack</a>
+        </span>
+        <span className="mono topbar-no">
           No. <span className="ink">{plate}</span>
-        </p>
-      </header>
+        </span>
+      </nav>
 
-      <section className="intake" aria-labelledby="thesis">
-        <div className="thesis">
-          <p className="eyebrow">
-            <span>01</span> Intake
-          </p>
-          <h1 id="thesis">
-            Nine games are a <em>hire signal.</em>
-          </h1>
-          <p className="thesis-lede">
-            The games that shaped someone say how they like to work: systems or product, solo or
-            team, deep or broad, building or tuning. Drop a Top9 card and read the signal.
-          </p>
-          <p className="thesis-note mono">After Dillon Mulroy&rsquo;s Top9 hiring thesis</p>
-        </div>
-        <Intake
+      <header className="hero" id="top">
+        <p className="trust-pill">
+          <Check />
+          {TOP9_EXAMPLES.length} real Top9 cards · {JOB_PACK.length} open roles
+        </p>
+        <h1>
+          Nine games are a <em>hire signal.</em>
+        </h1>
+        <p className="hero-lede">
+          The games that shaped someone say how they like to work: systems or product, solo or team,
+          deep or broad, building or tuning. After Dillon Mulroy&rsquo;s Top9 hiring thesis.
+        </p>
+        <PostForm
           extracting={extracting}
-          preview={preview}
           error={extractError}
-          onFile={onFile}
           onTweet={onTweet}
           onTypeInstead={onTypeInstead}
         />
-      </section>
+        <ul className="proof" aria-label="What backs a read">
+          <li>
+            <Check />
+            Cards captured from public posts {CAPTURED_AT}
+          </li>
+          <li>
+            <Check />
+            {JOB_PACK.length} open roles, links checked {JOB_PACK_CHECKED_AT}
+          </li>
+          <li>
+            <Check />
+            Every read traced as gen_ai.evaluate in Sentry
+          </li>
+        </ul>
+      </header>
+
+      <Stage
+        examples={TOP9_EXAMPLES}
+        activeId={source?.kind === "fixture" ? source.id : null}
+        onPick={pickFixture}
+      >
+        <DropCard extracting={extracting} preview={preview} onFile={onFile} />
+      </Stage>
 
       <FixtureStrip
         examples={TOP9_EXAMPLES}
@@ -291,6 +322,7 @@ export default function CritSheet() {
               roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
               card={ok && !isReading ? ok.card : null}
               blurb={blurb}
+              readAt={reading.readAt}
               onEdit={() => {
                 setEditing(true);
                 scrollToId("plate");
@@ -359,7 +391,7 @@ export default function CritSheet() {
 
       <footer className="colophon mono">
         <span>Top9 Hire · a hire signal, not a hiring decision</span>
-        <span>Judged by openai/gpt-5.4-mini through Vercel AI Gateway · traced as gen_ai.evaluate in Sentry</span>
+        <span>Judged by {CLASSIFY_MODEL} through Vercel AI Gateway · traced as gen_ai.evaluate in Sentry</span>
       </footer>
     </div>
   );

@@ -24,13 +24,17 @@ export function FixtureStrip({
   onPick: (example: Top9Example) => void;
 }) {
   return (
-    <section className="strip" aria-labelledby="strip-title">
-      <header className="section-head">
-        <p className="eyebrow" id="strip-title">
+    <section className="strip" id="fixtures" aria-labelledby="strip-title">
+      <header className="strip-head">
+        <p className="eyebrow">
           <span>02</span> Fixtures
         </p>
-        <p className="section-meta">
-          {examples.length} public Top9s from tech Twitter · captured {CAPTURED_AT} · no live fetch
+        <h2 id="strip-title">
+          Real cards, <em>captured once.</em>
+        </h2>
+        <p className="strip-meta">
+          {examples.length} public Top9s from tech Twitter, captured {CAPTURED_AT}. Pick one and it
+          lands on the sheet with its nine titles already read. Nothing is fetched live.
         </p>
       </header>
       <ul className="strip-row">
