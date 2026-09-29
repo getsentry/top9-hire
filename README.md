@@ -17,7 +17,9 @@ For local runs, fill `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`. On Vercel, OID
 npm run dev
 ```
 
-Open http://localhost:3000. One title per line. A line may add a note after `|`. The handle field can stay empty. The job URL field is optional. It accepts a public Greenhouse or Ashby posting and, when the fetch works, adds a role card and a match choice next to the hire card.
+Open http://localhost:3000. Fill the nine slots, or paste a whole list into any slot and it fills forward. A slot may add a note after `|`. The handle field can stay empty. The job URL field is optional. It accepts a public Greenhouse or Ashby posting and, when the fetch works, adds a role card and a match choice next to the hire card.
+
+The example chips at the top load nine titles from a card someone posted publicly. Those cards are hardcoded in `lib/__fixtures__/top9-examples.ts` with the post URL and the engagement counts at capture time. Picking a chip fills the slots and the handle without calling the extract route, the vision model, or X. Prominent handles lead the row; the rest sit behind `more`. Real cards come from https://my9games.com/en.
 
 Drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL. The page fills the nine title fields. Edit them, then submit the roast.
 
@@ -53,25 +55,30 @@ npm run build
 
 Manual checks, in order.
 
-1. Paste 8 titles and submit. The page says it found 8.
-2. Remove the gateway keys and leave `VERCEL` unset. Paste 9 titles and submit. The page says there is no AI Gateway credential and shows no card.
-3. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Paste 9 titles and submit. The card shows one badge, four score bars, one roast line, and the entertainment disclaimer.
-4. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Submit 9 titles. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
-5. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The nine title fields fill. A larger file or a non-image shows an error and does not fill the fields.
-6. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract from post. The nine fields fill. A URL that is not a status link shows an error and does not invent titles.
-7. Paste 9 titles and a job URL that is not a public Greenhouse or Ashby posting. The page shows the hire card, a role error, and no invented description.
-8. Paste 9 titles and a public Greenhouse or Ashby job URL with a gateway credential. The page shows the hire card, a role card on the same four axes, and a match choice of `match`, `stretch`, or `mismatch` with a short why. The entertainment disclaimer stays on the card.
-9. With the Sentry DSNs set, that job submit also produces spans named `evaluate role_archetype` and `evaluate hire_job_match` (op `gen_ai.evaluate`). The role call's function id is `role-archetype`. The match call's function id is `hire-job-match`.
+1. Pick the `@theo` chip. The nine slots fill with Outer Wilds through Persona 5, the handle reads `theo`, the counter reads 9 / 9, and no network request leaves the browser. Open `more`, pick `@dorryspears`, and the first slot changes to Factorio. Clear empties the slots and the handle.
+2. Paste 8 titles and submit. The page says it found 8.
+3. Remove the gateway keys and leave `VERCEL` unset. Paste 9 titles and submit. The page says there is no AI Gateway credential and shows no card.
+4. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Paste 9 titles and submit. The card shows one badge, four score bars, one roast line, and the entertainment disclaimer.
+5. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Submit 9 titles. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
+6. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The nine title fields fill. A larger file or a non-image shows an error and does not fill the fields.
+7. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract from post. The nine fields fill. A URL that is not a status link shows an error and does not invent titles.
+8. Paste 9 titles and a job URL that is not a public Greenhouse or Ashby posting. The page shows the hire card, a role error, and no invented description.
+9. Paste 9 titles and a public Greenhouse or Ashby job URL with a gateway credential. The page shows the hire card, a role card on the same four axes, and a match choice of `match`, `stretch`, or `mismatch` with a short why. The entertainment disclaimer stays on the card.
+10. With the Sentry DSNs set, that job submit also produces spans named `evaluate role_archetype` and `evaluate hire_job_match` (op `gen_ai.evaluate`). The role call's function id is `role-archetype`. The match call's function id is `hire-job-match`.
 
 Titles are sent to the gateway and, when a DSN is set, to Sentry on that evaluation span. A fetched job description is sent the same way on the role span.
 
 Job URL fetches are rebuilt onto `boards-api.greenhouse.io` or `jobs.ashbyhq.com`. Other hosts, redirects, and non-posting paths are refused. The page does not invent a description when the fetch fails.
 
-Layout slots for a later visual pass: `[data-slot="job-url"]`, `[data-slot="hire-card"]`, `[data-slot="role-card"]`, `[data-slot="hire-job-match"]`.
+Layout slots: `[data-slot="examples"]`, `[data-slot="job-url"]`, `[data-slot="hire-card"]`, `[data-slot="role-card"]`, `[data-slot="hire-job-match"]`.
+
+## Example cards
+
+`lib/__fixtures__/top9-examples.ts` holds eight public Top9 cards captured from x.com on 2026-09-28: handle, post URL, the nine titles, and the like / repost / reply / quote counts at that time. `lib/examples.ts` orders them. `theo`, `hajimesyacho`, and `LinkofSunshine` lead when present, the row is topped up by engagement, and the rest sit behind `more`. Each entry may carry an optional `jobUrl`; none does today. `lib/examples.test.ts` checks that every entry is an `x.com` status link with nine distinct titles that pass `parsePaste`.
 
 ## Fixture proof cases
 
-Public Top9 cards for these people were not found. The nine-title pastes in `lib/__fixtures__/proof-cases.ts` are labeled fixtures. The job URLs below were live public postings on 2026-09-28. Checked-in HTML and JSON under `lib/__fixtures__/` cover the parsers if a posting 404s.
+Public Top9 cards for these people were not found when the proof cases were written. The nine-title pastes in `lib/__fixtures__/proof-cases.ts` are labeled fixtures and are separate from the example cards above. The job URLs below were live public postings on 2026-09-28. Checked-in HTML and JSON under `lib/__fixtures__/` cover the parsers if a posting 404s.
 
 | Case | Job URL | Intended |
 | --- | --- | --- |
