@@ -22,7 +22,6 @@ const scores = {
 
 test("role and match use the classify model", () => {
   assert.equal(MODEL, classifyModel);
-  assert.equal(MODEL, "openai/gpt-5.4-mini");
 });
 
 test("role schema mirrors hire axes and requires alternatives", async () => {

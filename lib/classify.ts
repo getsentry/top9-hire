@@ -14,9 +14,9 @@ import {
   type Judgment,
   type Top9,
 } from "./hire.ts";
-import { CLASSIFY_MODEL } from "./models.ts";
+import { JUDGE_MODEL } from "./models.ts";
 
-export const MODEL = CLASSIFY_MODEL;
+export const MODEL = JUDGE_MODEL;
 
 const archetypeIds = Object.keys(ARCHETYPES) as [Archetype, ...Archetype[]];
 const archetypeSchema = z.enum(archetypeIds);

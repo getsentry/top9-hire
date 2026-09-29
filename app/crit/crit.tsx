@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { DISCLAIMER, type HireCard } from "@/lib/hire";
-import { CLASSIFY_MODEL } from "@/lib/models";
+import { JUDGE_MODEL } from "@/lib/models";
 import { sealScore, signalStrength } from "@/lib/pack";
 import { AxisTrack } from "./axis";
 import { renderCritPng } from "./export-png";
@@ -160,7 +160,7 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
 
         {card && readAt ? (
           <p className="crit-provenance">
-            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {CLASSIFY_MODEL} via AI Gateway ·
+            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {JUDGE_MODEL} via AI Gateway ·
             confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
           </p>
         ) : null}

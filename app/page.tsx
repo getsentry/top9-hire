@@ -9,7 +9,7 @@ import {
   type SignalResult,
 } from "./actions";
 import { READ_UNREACHABLE } from "@/lib/hire";
-import { CLASSIFY_MODEL } from "@/lib/models";
+import { JUDGE_MODEL } from "@/lib/models";
 import {
   JOB_PACK,
   TOP9_EXAMPLES,
@@ -346,7 +346,7 @@ export default function CritSheet() {
         </div>
 
         <footer className="colophon mono">
-          {CLASSIFY_MODEL} via Vercel AI Gateway · traced as gen_ai.evaluate
+          {JUDGE_MODEL} via Vercel AI Gateway · traced as gen_ai.evaluate
         </footer>
       </main>
     </>
