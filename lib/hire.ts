@@ -168,10 +168,10 @@ export type HireCard = {
 export const DISCLAIMER =
   "A hire signal from nine games. It starts a conversation. It is not a hiring decision.";
 
-const ARCHETYPE_QUESTION =
+export const ARCHETYPE_QUESTION =
   "Which hire archetype best fits this person's taste, judging only from `top9`?";
 
-const ARCHETYPE_RULES = [
+export const ARCHETYPE_RULES = [
   "Read the taste as a hire signal: the kind of work this person would recognize and do well. It is not a hiring decision",
   "Prefer the clearest cluster over averaging everything",
   "Use no_match when the list is contradictory or too thin to label",
@@ -243,35 +243,6 @@ export function modelState(top9: Top9): {
       game.note ? { title: game.title, note: game.note } : { title: game.title },
     ),
   };
-}
-
-export function judgmentInstructions(): string {
-  const labels = (Object.keys(ARCHETYPES) as Archetype[])
-    .map((id) => `${id}: ${ARCHETYPES[id].criterion}`)
-    .join("\n");
-  const axes = (Object.keys(AXES) as AxisId[])
-    .map((id) => {
-      const axis = AXES[id];
-      const levels = axis.criteria
-        .map((line, index) => `${index + 1}. ${line}`)
-        .join("\n");
-      return `${id}\n${axis.instructions}\n${levels}`;
-    })
-    .join("\n\n");
-  return [
-    ARCHETYPE_QUESTION,
-    ...ARCHETYPE_RULES,
-    "",
-    "Archetypes",
-    labels,
-    "",
-    "Scores. level is 1, 2, 3, or 4 and matches the numbered criterion. confidence is 0 to 1.",
-    axes,
-    "",
-    "hire_archetype.confidence is 0 to 1 for the chosen label.",
-    "alternatives is required. Send [] when no other label competes. At most 3 items. probability is 0 to 1.",
-    "Do not write the signal line. The app writes it from the archetype.",
-  ].join("\n");
 }
 
 export function toCard(judgment: Judgment): HireCard {

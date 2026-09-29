@@ -1,7 +1,7 @@
 "use server";
 
 import * as Sentry from "@sentry/nextjs";
-import { classify, evaluateHire, MissingGatewayKey } from "@/lib/classify";
+import { classify, evaluateHire, evaluateRole, MissingGatewayKey } from "@/lib/classify";
 import {
   extractGamesFromImage,
   fetchImageBytesFromUrl,
@@ -15,7 +15,7 @@ import {
   parseJobUrl,
   type JobPosting,
 } from "@/lib/job";
-import { evaluateRole, matchFor, type HireJobMatch } from "@/lib/role";
+import { matchFor, type HireJobMatch } from "@/lib/role";
 
 export type SignalResult =
   | {
@@ -102,7 +102,6 @@ export async function readSignal(input: {
     }
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
-      // A hire span may already be queued. classify flushes only after it returns.
       await Sentry.flush(2000);
       return {
         ok: false,

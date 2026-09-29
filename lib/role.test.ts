@@ -1,9 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { asSchema } from "ai";
-import { MODEL as classifyModel } from "./classify.ts";
-import { AXES, type Judgment } from "./hire.ts";
-import { MODEL, alignment, matchFor, roleJudgmentSchema } from "./role.ts";
+import { type Judgment } from "./hire.ts";
+import { alignment, matchFor } from "./role.ts";
 
 const scores = {
   systems_vs_product: { level: 1 as const, confidence: 0.8 },
@@ -11,32 +9,6 @@ const scores = {
   depth_vs_breadth: { level: 3 as const, confidence: 0.6 },
   builder_vs_optimizer: { level: 4 as const, confidence: 0.5 },
 };
-
-test("role and match use the classify model", () => {
-  assert.equal(MODEL, classifyModel);
-});
-
-test("role schema mirrors hire axes and requires alternatives", async () => {
-  const parsed = roleJudgmentSchema.safeParse({
-    role_archetype: { choice: "systems_necromancer", confidence: 0.8, alternatives: [] },
-    scores,
-  });
-  assert.equal(parsed.success, true);
-
-  const missing = roleJudgmentSchema.safeParse({
-    role_archetype: { choice: "systems_necromancer", confidence: 0.8 },
-    scores,
-  });
-  assert.equal(missing.success, false);
-
-  const schema = await asSchema(roleJudgmentSchema).jsonSchema;
-  const scoresProp = schema.properties?.scores;
-  assert.ok(scoresProp && typeof scoresProp === "object" && !Array.isArray(scoresProp));
-  assert.deepEqual(Object.keys(scoresProp.properties ?? {}).sort(), Object.keys(AXES).sort());
-  const archetype = schema.properties?.role_archetype;
-  assert.ok(archetype && typeof archetype === "object" && !Array.isArray(archetype));
-  assert.deepEqual([...(archetype.required ?? [])].sort(), ["alternatives", "choice", "confidence"]);
-});
 
 test("alignment fixes the choice from axis gaps and prints a percent", () => {
   const hire: Judgment = { archetype: "systems_necromancer", confidence: 0.9, scores };
