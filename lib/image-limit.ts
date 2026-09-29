@@ -56,6 +56,21 @@ export function rejectImageFile(file: {
   return null;
 }
 
+/** A post card image the plate may display: https on pbs.twimg.com only. */
+export function postImageUrl(raw: string | undefined): string | undefined {
+  if (!raw) return undefined;
+  let url: URL;
+  try {
+    url = new URL(raw);
+  } catch {
+    return undefined;
+  }
+  if (url.protocol !== "https:" || url.hostname !== "pbs.twimg.com" || url.port || url.username) {
+    return undefined;
+  }
+  return `https://pbs.twimg.com${url.pathname}${url.search}`;
+}
+
 export function titlesChanged(current: readonly string[], next: readonly string[]): boolean {
   if (current.length !== next.length) return true;
   return next.some((title, index) => title !== current[index]);

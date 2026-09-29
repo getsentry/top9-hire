@@ -3,6 +3,7 @@ import { test } from "node:test";
 import {
   MAX_IMAGE_BYTES,
   interpretExtractResponse,
+  postImageUrl,
   rejectImageFile,
   titlesChanged,
 } from "./image-limit.ts";
@@ -44,4 +45,16 @@ test("titlesChanged is false only when every slot matches", () => {
   assert.equal(titlesChanged(games, ["a", "b", "c"]), false);
   assert.equal(titlesChanged(games, ["a", "b", "d"]), true);
   assert.equal(titlesChanged(games, ["a", "b"]), true);
+});
+
+test("the plate only shows post images from https pbs.twimg.com", () => {
+  assert.equal(
+    postImageUrl("https://pbs.twimg.com/media/HTLvdylboAABRjQ.jpg?name=orig"),
+    "https://pbs.twimg.com/media/HTLvdylboAABRjQ.jpg?name=orig",
+  );
+  assert.equal(postImageUrl("http://pbs.twimg.com/media/a.jpg"), undefined);
+  assert.equal(postImageUrl("https://pbs.twimg.com.evil.test/a.jpg"), undefined);
+  assert.equal(postImageUrl("javascript:alert(1)"), undefined);
+  assert.equal(postImageUrl("https://user@pbs.twimg.com/a.jpg"), undefined);
+  assert.equal(postImageUrl(undefined), undefined);
 });
