@@ -183,6 +183,16 @@ async function judge(subject: Subject, state: EvaluationState): Promise<Judgment
         telemetry: { isEnabled: true, functionId, recordInputs: true, recordOutputs: true },
       });
       const next = judgmentFrom(result.answers, result.providerMetadata);
+      // Logged so a preview's runtime logs show which model answered. One line, no titles.
+      console.log(
+        JSON.stringify({
+          judge: evaluation,
+          model: result.response.modelId,
+          archetype: next.archetype,
+          confidence: next.confidence,
+          scores: recordOf(axisIds, (id) => next.scores[id].level),
+        }),
+      );
       span.setAttributes({
         "gen_ai.response.model": result.response.modelId,
         "gen_ai.output.messages": JSON.stringify([
