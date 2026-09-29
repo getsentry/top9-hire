@@ -1,8 +1,9 @@
 import { useId } from "react";
 
-export function Seal({ score, plate, pending = false }: { score?: string; plate: string; pending?: boolean }) {
+const RING = "HIRE SIGNAL · TOP9 HIRE · ".repeat(3);
+
+export function Seal({ score, pending = false }: { score?: string; pending?: boolean }) {
   const pathId = useId();
-  const ring = `HIRE SIGNAL · TOP9 HIRE · CRIT ${plate} · `;
   return (
     <div className={pending ? "seal pending" : "seal"} aria-hidden={pending || undefined}>
       <svg viewBox="0 0 200 200" role="img" aria-label={score ? `Signal ${score} out of 10` : "Reading"}>
@@ -13,8 +14,7 @@ export function Seal({ score, plate, pending = false }: { score?: string; plate:
         <circle cx="100" cy="100" r="64" className="seal-inner" />
         <text className="seal-ring">
           <textPath href={`#${pathId}`} textLength="486" lengthAdjust="spacing">
-            {ring}
-            {ring}
+            {RING}
           </textPath>
         </text>
         {score ? (

@@ -1,10 +1,9 @@
-import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
+import { PlateArt, type PlateSource } from "./plate-art";
 
 export type { PlateSource };
 
 export function Plate({
   source,
-  plate,
   titles,
   handle,
   onTitle,
@@ -17,7 +16,6 @@ export function Plate({
   error,
 }: {
   source: PlateSource;
-  plate: string;
   titles: string[];
   handle: string;
   onTitle: (index: number, value: string) => void;
@@ -62,10 +60,6 @@ export function Plate({
       >
         <figure className="plate-art">
           <PlateArt source={source} titles={titles} />
-          <figcaption className="plate-caption mono">
-            <span className="ink">{plate}</span>
-            <span>{sourceLabel(source)}</span>
-          </figcaption>
         </figure>
 
         <div className="plate-sheet">

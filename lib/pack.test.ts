@@ -8,7 +8,6 @@ import {
   TOP9_EXAMPLES,
   findExample,
   findJob,
-  plateId,
   sealScore,
   shareBlurb,
   signalStrength,
@@ -87,14 +86,6 @@ test("findExample ignores case and a leading @", () => {
   assert.equal(findExample("nobody"), undefined);
 });
 
-test("plate ids are stable, case-blind, and differ by list", () => {
-  const theo = TOP9_EXAMPLES[0]?.games ?? [];
-  const dorry = TOP9_EXAMPLES[6]?.games ?? [];
-  assert.match(plateId(theo), /^T9-[0-9A-F]{4}$/);
-  assert.equal(plateId(theo), plateId(theo.map((t) => ` ${t.toUpperCase()} `)));
-  assert.notEqual(plateId(theo), plateId(dorry));
-});
-
 test("the seal prints confidence as a one-decimal score", () => {
   assert.equal(sealScore(0.84), "8.4");
   assert.equal(sealScore(1), "10.0");
@@ -106,7 +97,6 @@ test("the share blurb carries the archetype, signal line, score, and role read",
   assert.equal(signalStrength(card), "Strong signal");
   const blurb = shareBlurb({
     handle: "dorryspears",
-    plate: "T9-07",
     card,
     match: { choice: "stretch", percent: 75, jobTitle: "Software Engineer, Platform", company: "Vercel" },
   });
@@ -116,7 +106,7 @@ test("the share blurb carries the archetype, signal line, score, and role read",
       "@dorryspears: Systems necromancer. Strong signal, 8.4/10.",
       '"Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own."',
       "Role read: stretch, 75% aligned for Vercel Software Engineer, Platform.",
-      "Top9 Hire crit T9-07",
+      "Top9 Hire",
     ].join("\n"),
   );
 });

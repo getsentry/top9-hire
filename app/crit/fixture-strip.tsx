@@ -22,15 +22,14 @@ export function FixtureStrip({
               type="button"
               className="strip-card"
               aria-pressed={example.id === activeId}
-              aria-label={`${example.id}, @${example.handle}'s card`}
+              aria-label={`@${example.handle}'s card`}
               onClick={() => onPick(example)}
             >
               <span className="strip-frame">
                 <PlateArt source={fixtureSource(example)} titles={example.games} />
               </span>
-              <span className="strip-caption" aria-hidden>
-                <span className="mono">{example.id}</span>
-                <span className="strip-handle">@{example.handle}</span>
+              <span className="strip-handle" aria-hidden>
+                @{example.handle}
               </span>
             </button>
           </li>

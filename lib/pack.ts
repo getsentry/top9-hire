@@ -42,16 +42,6 @@ export function findExample(
   return examples.find((example) => example.handle.toLowerCase() === needle);
 }
 
-/** Stable four-hex plate id for a typed or extracted list, e.g. `T9-7F3A`. */
-export function plateId(titles: readonly string[]): string {
-  let hash = 0x811c9dc5;
-  for (const char of titles.map((t) => t.trim().toLowerCase()).join("\n")) {
-    hash ^= char.codePointAt(0) ?? 0;
-    hash = Math.imul(hash, 0x01000193) >>> 0;
-  }
-  return `T9-${(hash & 0xffff).toString(16).toUpperCase().padStart(4, "0")}`;
-}
-
 /** Confidence on the seal, printed like a review score: 0.84 → "8.4". */
 export function sealScore(confidence: number): string {
   const clamped = Math.min(1, Math.max(0, confidence));
@@ -66,7 +56,6 @@ export function signalStrength(card: Pick<HireCard, "badge">): string {
 
 export function shareBlurb(input: {
   handle?: string;
-  plate: string;
   card: Pick<HireCard, "label" | "signal" | "confidence" | "badge">;
   match?: { choice: string; percent?: number; jobTitle: string; company?: string };
 }): string {
@@ -82,6 +71,6 @@ export function shareBlurb(input: {
     const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
     lines.push(`Role read: ${input.match.choice}${aligned} for ${role}.`);
   }
-  lines.push(`Top9 Hire crit ${input.plate}`);
+  lines.push("Top9 Hire");
   return lines.join("\n");
 }

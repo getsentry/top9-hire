@@ -1,7 +1,7 @@
 "use client";
 
 import * as Sentry from "@sentry/nextjs";
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import {
   extractFromTweetUrl,
   readSignal,
@@ -14,7 +14,6 @@ import {
   JOB_PACK,
   TOP9_EXAMPLES,
   findJob,
-  plateId,
   shareBlurb,
   type Top9Example,
 } from "@/lib/pack";
@@ -34,7 +33,6 @@ import { PlateArt, fixtureSource } from "./crit/plate-art";
 const EMPTY = Array<string>(9).fill("");
 
 type Reading = {
-  plate: string;
   titles: string[];
   handle?: string;
   job?: { title?: string; url: string; company?: string };
@@ -87,11 +85,6 @@ export default function CritSheet() {
   const titlesRef = useRef(titles);
   const extractGen = useRef(0);
   titlesRef.current = titles;
-
-  const plate = useMemo(() => {
-    if (source?.kind === "fixture") return source.id;
-    return titles.some((t) => t.trim()) ? plateId(titles) : "T9-····";
-  }, [source, titles]);
 
   const jobUrl = customUrl || selectedUrl;
   const packJob = findJob(jobUrl);
@@ -195,7 +188,6 @@ export default function CritSheet() {
 
   function submit() {
     const request: Reading = {
-      plate,
       titles: titles.map((t) => t.trim()),
       handle: handle.trim() || undefined,
       job: jobUrl
@@ -240,7 +232,6 @@ export default function CritSheet() {
     ok && reading
       ? shareBlurb({
           handle: reading.handle,
-          plate: reading.plate,
           card: ok.card,
           match:
             ok.match && rail?.job
@@ -258,9 +249,6 @@ export default function CritSheet() {
     <>
       <header className="masthead">
         <span className="wordmark">Top9 Hire</span>
-        <span className="mono">
-          No. <span className="masthead-no">{plate}</span>
-        </span>
       </header>
       <main className="sheet">
         <section className="intake" aria-label="Intake">
@@ -286,7 +274,6 @@ export default function CritSheet() {
               <Crit
                 source={source}
                 titles={reading.titles}
-                plate={reading.plate}
                 handle={reading.handle}
                 roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
                 card={ok && !isReading ? ok.card : null}
@@ -300,7 +287,6 @@ export default function CritSheet() {
             ) : source ? (
               <Plate
                 source={source}
-                plate={plate}
                 titles={titles}
                 handle={handle}
                 onTitle={updateTitle}

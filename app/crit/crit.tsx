@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import { DISCLAIMER, type HireCard } from "@/lib/hire";
 import { JUDGE_MODEL } from "@/lib/models";
 import { sealScore, signalStrength } from "@/lib/pack";
@@ -10,7 +10,6 @@ import { Seal } from "./seal";
 type Props = {
   source: PlateSource;
   titles: readonly string[];
-  plate: string;
   handle?: string;
   roleLabel: string | null;
   card: HireCard | null;
@@ -26,16 +25,7 @@ function formatRead(iso: string) {
   return `${day} ${time}`;
 }
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div className="crit-field">
-      <dt className="mono">{label}</dt>
-      <dd>{children}</dd>
-    </div>
-  );
-}
-
-export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, readAt, onEdit }: Props) {
+export function Crit({ source, titles, handle, roleLabel, card, blurb, readAt, onEdit }: Props) {
   const [copied, setCopied] = useState(false);
   const [saving, setSaving] = useState<"idle" | "saving" | "failed">("idle");
   const tweetUrl = source.kind === "fixture" ? source.tweetUrl : null;
@@ -55,11 +45,11 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
     if (!card) return;
     setSaving("saving");
     try {
-      const blob = await renderCritPng({ source, titles, card, plate, handle, roleLabel });
+      const blob = await renderCritPng({ source, titles, card, handle, roleLabel });
       const href = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = href;
-      link.download = `top9-hire-crit-${plate}.png`;
+      link.download = `top9-hire-${handle ?? "card"}.png`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(href), 1000);
       setSaving("idle");
@@ -96,19 +86,11 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
       </header>
 
       <article className="crit-sheet" id="verdict">
-        <dl className="crit-fields">
-          <Field label="Crit no">
-            <span className="mono-figure">{plate}</span>
-          </Field>
-          <Field label="Candidate">{handle ? `@${handle}` : <span className="muted">Unnamed</span>}</Field>
-          <Field label="Role">{roleLabel ?? <span className="muted">No role picked</span>}</Field>
-        </dl>
-
         <div className="crit-body">
           <figure className="crit-card">
             <PlateArt source={source} titles={titles} />
             <div className="crit-seal">
-              {card ? <Seal plate={plate} score={sealScore(card.confidence)} /> : <Seal plate={plate} pending />}
+              {card ? <Seal score={sealScore(card.confidence)} /> : <Seal pending />}
             </div>
           </figure>
 
@@ -164,11 +146,6 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
             confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
           </p>
         ) : null}
-
-        <footer className="crit-foot mono">
-          <span>Top9 Hire · a hire signal, not a hiring decision</span>
-          <span>Crit {plate}</span>
-        </footer>
       </article>
 
       {card ? (

@@ -107,7 +107,7 @@ function drawTypeset(ctx: CanvasRenderingContext2D, fonts: Fonts, titles: readon
   });
 }
 
-function drawSeal(ctx: CanvasRenderingContext2D, fonts: Fonts, cx: number, cy: number, r: number, score: string, plate: string) {
+function drawSeal(ctx: CanvasRenderingContext2D, fonts: Fonts, cx: number, cy: number, r: number, score: string) {
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate((-9 * Math.PI) / 180);
@@ -123,7 +123,7 @@ function drawSeal(ctx: CanvasRenderingContext2D, fonts: Fonts, cx: number, cy: n
   ctx.arc(0, 0, r * 0.66, 0, Math.PI * 2);
   ctx.stroke();
 
-  const ring = `HIRE SIGNAL · TOP9 HIRE · CRIT ${plate} · `.repeat(2);
+  const ring = "HIRE SIGNAL · TOP9 HIRE · ".repeat(3);
   ctx.fillStyle = STAMP;
   ctx.font = `400 ${Math.round(r * 0.11)}px ${fonts.mono}`;
   ctx.textAlign = "center";
@@ -188,7 +188,6 @@ export async function renderCritPng(input: {
   source: PlateSource;
   titles: readonly string[];
   card: HireCard;
-  plate: string;
   handle?: string;
   roleLabel?: string | null;
 }): Promise<Blob> {
@@ -230,13 +229,12 @@ export async function renderCritPng(input: {
   else drawTypeset(ctx, fonts, input.titles, cardW, cardH);
   ctx.restore();
 
-  drawSeal(ctx, fonts, cardX + cardW - 6, cardY + cardH - 40, 104, sealScore(input.card.confidence), input.plate);
+  drawSeal(ctx, fonts, cardX + cardW - 6, cardY + cardH - 40, 104, sealScore(input.card.confidence));
 
   const x0 = cardX + cardW + 150;
   const colW = W - 104 - x0;
 
   const fields: Array<[string, string, number]> = [
-    ["Crit no", input.plate, 0.7],
     ["Candidate", input.handle ? `@${input.handle}` : "Unnamed", 1],
   ];
   if (input.roleLabel) {
@@ -301,8 +299,6 @@ export async function renderCritPng(input: {
   ctx.font = `400 14px ${fonts.mono}`;
   ctx.textAlign = "left";
   ctx.fillText("TOP9 HIRE · A HIRE SIGNAL, NOT A HIRING DECISION", x0, H - 78);
-  ctx.textAlign = "right";
-  ctx.fillText(`CRIT ${input.plate}`, x0 + colW, H - 78);
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("PNG export failed."))), "image/png");

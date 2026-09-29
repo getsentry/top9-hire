@@ -77,10 +77,6 @@ img {
   text-transform: uppercase;
 }
 
-.ink {
-  color: var(--ink);
-}
-
 .muted {
   color: var(--ink-3);
 }
@@ -90,8 +86,6 @@ img {
 .masthead {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   height: 44px;
   padding: 0 max(var(--gutter), calc((100% - 1320px) / 2 + var(--gutter)));
   background: var(--ink);
@@ -103,14 +97,6 @@ img {
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.03em;
-}
-
-.masthead .mono {
-  color: rgba(243, 239, 230, 0.6);
-}
-
-.masthead-no {
-  color: var(--paper);
 }
 
 .sheet {
@@ -503,17 +489,6 @@ img {
   box-shadow: 0 0 0 2px var(--ink);
 }
 
-.strip-caption {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.strip-caption .mono {
-  color: var(--ink-3);
-  font-size: 9.5px;
-}
-
 .strip-handle {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -578,17 +553,6 @@ img {
 .plate-art {
   margin: 0;
   min-width: 0;
-}
-
-.plate-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: 16px;
-  padding-top: 8px;
-  border-top: 1px solid var(--ink);
-  color: var(--ink-3);
-  font-size: 10px;
 }
 
 .plate-image {
@@ -810,42 +774,6 @@ img {
   transform: rotate(0.6deg);
 }
 
-.crit-fields {
-  display: grid;
-  grid-template-columns: minmax(96px, 0.7fr) minmax(0, 1fr) minmax(0, 1.8fr);
-  margin: 0 0 30px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--rule);
-}
-
-.crit-field {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-  padding-right: 16px;
-}
-
-.crit-field + .crit-field {
-  padding-left: 16px;
-  border-left: 1px solid var(--rule);
-}
-
-.crit-field dt {
-  color: var(--ink-3);
-  font-size: 10px;
-}
-
-.crit-field dd {
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-}
-
 .mono-figure {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
@@ -952,17 +880,6 @@ img {
 
 .crit-provenance .mono-figure {
   color: var(--ink);
-}
-
-.crit-foot {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 22px;
-  padding-top: 12px;
-  border-top: 1px solid var(--rule);
-  color: var(--ink-3);
-  font-size: 10px;
 }
 
 .crit-actions {
@@ -1601,17 +1518,6 @@ img {
     padding: 20px 18px 14px;
   }
 
-  .crit-fields {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 12px;
-  }
-
-  .crit-field:nth-child(3) {
-    grid-column: 1 / -1;
-    padding-left: 0;
-    border-left: 0;
-  }
-
   .crit-body {
     grid-template-columns: 1fr;
     gap: 64px;
@@ -1629,11 +1535,6 @@ img {
   .crit-axes {
     grid-template-columns: 1fr;
     margin-top: 28px;
-  }
-
-  .crit-foot {
-    flex-direction: column;
-    gap: 4px;
   }
 
   .plate-actions {
