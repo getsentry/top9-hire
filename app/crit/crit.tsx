@@ -56,24 +56,21 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, onEdit }:
       aria-labelledby="crit-title"
       aria-busy={card ? undefined : true}
     >
-      <header className="section-head">
-        <p className="eyebrow">Crit</p>
-        <p className="section-meta">
-          {sourceLabel(source)}
-          {tweetUrl ? (
-            <>
-              {" · "}
-              <a href={tweetUrl} target="_blank" rel="noreferrer">
-                source post ↗
-              </a>
-            </>
-          ) : null}
-          {" · "}
-          <button type="button" className="link-button small" onClick={onEdit} disabled={!card}>
-            Edit titles
-          </button>
-        </p>
-      </header>
+      <p className="section-meta">
+        {sourceLabel(source)}
+        {tweetUrl ? (
+          <>
+            {" · "}
+            <a href={tweetUrl} target="_blank" rel="noreferrer">
+              source post ↗
+            </a>
+          </>
+        ) : null}
+        {" · "}
+        <button type="button" className="link-button small" onClick={onEdit} disabled={!card}>
+          Edit titles
+        </button>
+      </p>
 
       <article className="crit-sheet" id="verdict">
         <div className="crit-body">

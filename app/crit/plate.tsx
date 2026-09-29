@@ -32,10 +32,7 @@ export function Plate({
 
   return (
     <section className="plate" id="plate" aria-labelledby="plate-title">
-      <header className="section-head">
-        <p className="eyebrow" id="plate-title">
-          Plate
-        </p>
+      {tweetUrl || onBack ? (
         <p className="section-meta">
           {tweetUrl ? (
             <a href={tweetUrl} target="_blank" rel="noreferrer">
@@ -49,7 +46,7 @@ export function Plate({
             </button>
           ) : null}
         </p>
-      </header>
+      ) : null}
 
       <form
         className="plate-body"
@@ -79,7 +76,7 @@ export function Plate({
 
           <div className="plate-field">
             <span className="field-label">
-              Nine titles
+              <span id="plate-title">Nine titles</span>
               <span className={filled === 9 ? "count ready" : "count"}>{filled}/9</span>
             </span>
             <ol className="title-list">

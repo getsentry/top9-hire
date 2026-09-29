@@ -295,17 +295,14 @@ export default function CritSheet() {
                 error={result && !result.ok ? result.message : null}
               />
             ) : (
-              <section className="plate plate-empty" id="plate">
-                <header className="section-head">
-                  <p className="eyebrow">Plate</p>
-                </header>
+              <div className="plate plate-empty" id="plate">
                 <div className="plate-body">
                   <div className="plate-art">
                     <PlateArt source={{ kind: "typed" }} titles={EMPTY} />
                   </div>
                   <p className="plate-empty-copy">Pick a fixture, paste a post, or drop a card.</p>
                 </div>
-              </section>
+              </div>
             )}
           </div>
 
