@@ -3,7 +3,15 @@ import { test } from "node:test";
 import { asSchema } from "ai";
 import { MODEL as classifyModel } from "./classify.ts";
 import { AXES, type Judgment } from "./hire.ts";
-import { MODEL, matchInstructions, matchSchema, matchState, roleInstructions, roleJudgmentSchema } from "./role.ts";
+import {
+  MODEL,
+  alignment,
+  matchInstructions,
+  matchSchema,
+  matchState,
+  roleInstructions,
+  roleJudgmentSchema,
+} from "./role.ts";
 
 const scores = {
   systems_vs_product: { level: 1 as const, confidence: 0.8 },
@@ -47,6 +55,46 @@ test("match schema is match, stretch, or mismatch plus a why", () => {
   assert.equal(matchSchema.safeParse({ choice: "match", why: "   " }).success, false);
 });
 
+test("alignment fixes the choice from axis gaps and prints a percent", () => {
+  const hire: Judgment = { archetype: "systems_necromancer", confidence: 0.9, scores };
+  const same = alignment(hire, hire);
+  assert.equal(same.percent, 100);
+  assert.equal(same.choice, "match");
+  assert.equal(same.archetypes.same, true);
+  assert.deepEqual(same.facets.map((f) => f.read), ["aligned", "aligned", "aligned", "aligned"]);
+  assert.equal(same.facets[0]?.axis, "Systems vs Product");
+
+  const adjacent = alignment(hire, {
+    archetype: "product_bard",
+    scores: { ...scores, depth_vs_breadth: { level: 4, confidence: 0.5 } },
+  });
+  assert.equal(adjacent.choice, "match");
+  assert.equal(adjacent.percent, 92);
+  assert.equal(adjacent.facets[2]?.read, "adjacent");
+  assert.equal(adjacent.archetypes.role, "Product bard");
+
+  const oneApart = alignment(hire, {
+    ...hire,
+    scores: { ...scores, competitive_vs_collaborative: { level: 4, confidence: 0.5 } },
+  });
+  assert.equal(oneApart.choice, "stretch");
+  assert.equal(oneApart.diverging, 1);
+  assert.equal(oneApart.facets[1]?.read, "diverges");
+
+  const apart = alignment(hire, {
+    ...hire,
+    scores: {
+      systems_vs_product: { level: 4, confidence: 0.5 },
+      competitive_vs_collaborative: { level: 4, confidence: 0.5 },
+      depth_vs_breadth: { level: 1, confidence: 0.5 },
+      builder_vs_optimizer: { level: 1, confidence: 0.5 },
+    },
+  });
+  assert.equal(apart.choice, "mismatch");
+  assert.equal(apart.diverging, 4);
+  assert.equal(apart.percent, 17);
+});
+
 test("match state places hire and role scores on the same axes", () => {
   const hire: Judgment = {
     archetype: "sandbox_builder",
@@ -76,6 +124,9 @@ test("match state places hire and role scores on the same axes", () => {
   assert.equal(state.role.label, "Systems necromancer");
   assert.match(matchInstructions(), /Never print ids/);
   assert.equal(state.role.scores[0]?.level, 4);
+  assert.equal(state.alignment.choice, "stretch");
+  assert.deepEqual(state.alignment.diverging, ["Systems vs Product"]);
+  assert.match(matchInstructions(), /Return alignment\.choice as choice/);
   assert.match(roleInstructions(), /role_archetype/);
   assert.match(matchInstructions(), /mismatch/);
   for (const id of Object.keys(AXES)) {

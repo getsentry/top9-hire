@@ -68,7 +68,7 @@ export function shareBlurb(input: {
   handle?: string;
   plate: string;
   card: Pick<HireCard, "label" | "signal" | "confidence" | "badge">;
-  match?: { choice: string; jobTitle: string; company?: string };
+  match?: { choice: string; percent?: number; jobTitle: string; company?: string };
 }): string {
   const who = input.handle ? `@${input.handle.replace(/^@/, "")}` : "This Top9";
   const lines = [
@@ -79,7 +79,8 @@ export function shareBlurb(input: {
     const role = input.match.company
       ? `${input.match.company} ${input.match.jobTitle}`
       : input.match.jobTitle;
-    lines.push(`Role read: ${input.match.choice} for ${role}.`);
+    const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
+    lines.push(`Role read: ${input.match.choice}${aligned} for ${role}.`);
   }
   lines.push(`Top9 Hire crit ${input.plate}`);
   return lines.join("\n");
