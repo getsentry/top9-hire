@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { useState } from "react";
+import type { Top9Example } from "@/lib/pack";
 import { CardBitmap } from "./card-bitmap";
 
 export type PlateSource =
@@ -7,6 +8,10 @@ export type PlateSource =
   | { kind: "post"; src?: string }
   | { kind: "typed" };
 
+export function fixtureSource(example: Top9Example): PlateSource {
+  return { kind: "fixture", id: example.id, tweetUrl: example.tweetUrl, image: example.image };
+}
+
 export function sourceLabel(source: PlateSource) {
   if (source.kind === "fixture") return "Fixture";
   if (source.kind === "upload") return "Uploaded card";
@@ -14,26 +19,37 @@ export function sourceLabel(source: PlateSource) {
   return "Typed by hand";
 }
 
+function cardImage(source: PlateSource): { src: string; width?: number; height?: number } | null {
+  if (source.kind === "fixture") return source.image;
+  if (source.kind === "post" && source.src) return { src: source.src };
+  return null;
+}
+
+/** Fixture cards are served straight from /top9, never through /_next/image, so they load behind Deployment Protection. */
 export function PlateArt({ source, titles }: { source: PlateSource; titles: readonly string[] }) {
+  const [failed, setFailed] = useState<string | null>(null);
   const alt = `Top9 card: ${titles.join(", ")}`;
-  if (source.kind === "fixture" && source.image) {
+  const image = cardImage(source);
+
+  if (image && failed !== image.src) {
+    const fail = () => setFailed(image.src);
     return (
-      <Image
+      <img
         className="plate-image"
-        src={source.image.src}
-        width={source.image.width}
-        height={source.image.height}
-        sizes="(max-width: 720px) 70vw, 320px"
-        priority
+        src={image.src}
+        width={image.width}
+        height={image.height}
+        decoding="async"
         alt={alt}
+        onError={fail}
+        ref={(el) => {
+          if (el?.complete && el.naturalWidth === 0) fail();
+        }}
       />
     );
   }
   if (source.kind === "upload") {
     return <CardBitmap className="plate-image" file={source.file} label={alt} />;
-  }
-  if (source.kind === "post" && source.src) {
-    return <img className="plate-image" src={source.src} alt={alt} />;
   }
   return (
     <div className="plate-typeset" aria-hidden>
