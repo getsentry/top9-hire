@@ -1,16 +1,42 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Fragment_Mono, Geist, Newsreader } from "next/font/google";
 import "./globals.css";
 
+const serif = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const sans = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = Fragment_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Top9 Hire",
-  description: "Paste nine games. Get a roast of the taste.",
+  title: "Top9 Hire — Crit Sheet",
+  description:
+    "Nine games are a hire signal. Drop a Top9 card, read the archetype, and check it against a real role.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F3EFE6",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );
