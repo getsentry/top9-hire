@@ -56,6 +56,8 @@ The classification model id is `openai/gpt-5.4-mini`, exported as `CLASSIFY_MODE
 
 Without a gateway credential the page returns an error and does not invent a signal. A Vercel deployment with OIDC does not need a static `AI_GATEWAY_API_KEY`.
 
+If the read never comes back at all (a network failure, a function timeout, or a protected deployment answering the action POST with its login page), the plate shows a failed-read line and Read the signal re-enables. It does not fall through to Next's client error page. The failure is sent to Sentry from the browser.
+
 ## Verify
 
 ```bash
@@ -71,6 +73,7 @@ Manual checks, in order.
 2. Pick `@theo` in the strip. The plate shows his card image, `@theo`, and nine filled titles. No network request is made.
 3. Clear one title. The count reads 8/9 and Read the signal is disabled.
 4. Remove the gateway keys and leave `VERCEL` unset. Read the signal. The page says there is no AI Gateway credential and stamps nothing.
+   With DevTools set to offline, Read the signal instead says the read did not come back. The desk stays up and the button re-enables.
 5. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Read the signal. The plate becomes the crit: the card with a seal and score, the archetype, one signal line, four axes, Save PNG, Copy blurb, and the disclaimer. Save PNG downloads `top9-hire-crit-<id>.png`.
 6. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Read the signal. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
 7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The drop row shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.

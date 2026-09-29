@@ -1,5 +1,6 @@
 "use client";
 
+import * as Sentry from "@sentry/nextjs";
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import {
   extractFromTweetUrl,
@@ -7,6 +8,7 @@ import {
   type ExtractActionResult,
   type SignalResult,
 } from "./actions";
+import { READ_UNREACHABLE } from "@/lib/hire";
 import { CLASSIFY_MODEL } from "@/lib/models";
 import {
   JOB_PACK,
@@ -42,6 +44,17 @@ type Reading = {
 function jobLabel(job: { title?: string; company?: string; url: string }) {
   const title = job.title ?? job.url.replace(/^https?:\/\//, "");
   return job.company ? `${job.company} · ${title}` : title;
+}
+
+/**
+ * A rejected server action inside startTransition reaches the nearest error
+ * boundary and takes down the whole desk. Keep transport failures (fetch
+ * errors, timeouts, a protected preview answering with its login page) on the
+ * plate as an ordinary failed read instead.
+ */
+function unreachableRead(error: unknown): SignalResult {
+  Sentry.captureException(error);
+  return { ok: false, error: "request_failed", message: READ_UNREACHABLE };
 }
 
 function reducedMotion() {
@@ -195,7 +208,7 @@ export default function CritSheet() {
     setEditing(false);
     scrollToId("plate");
     startReading(async () => {
-      const next = await readSignal({ paste, handle, jobUrl });
+      const next = await readSignal({ paste, handle, jobUrl }).catch(unreachableRead);
       const readAt = new Date().toISOString();
       setReading((prev) => (prev === request ? { ...request, readAt } : prev));
       setResult(next);

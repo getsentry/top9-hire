@@ -26,7 +26,11 @@ export type SignalResult =
       job?: { title: string; url: string };
       jobError?: string;
     }
-  | { ok: false; error: "need_nine" | "missing_key" | "model_failed"; message: string };
+  | {
+      ok: false;
+      error: "need_nine" | "missing_key" | "model_failed" | "request_failed";
+      message: string;
+    };
 
 export type ExtractActionResult =
   | { ok: true; games: string[]; imageUrl?: string }
