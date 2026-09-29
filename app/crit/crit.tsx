@@ -1,8 +1,9 @@
 import { useState, type ReactNode } from "react";
-import { DISCLAIMER, type HireCard } from "@/lib/hire";
-import { CLASSIFY_MODEL } from "@/lib/models";
-import { sealScore, signalStrength } from "@/lib/pack";
-import { AxisTrack } from "./axis";
+import { Evidence } from "@/app/proto/verdict/shared";
+import type { HireJobMatch } from "@/lib/fit";
+import { DISCLAIMER, type HireCard, type RoleCard } from "@/lib/hire";
+import { EVALUATE_MODEL } from "@/lib/models";
+import { DECISION } from "@/lib/pack";
 import { renderCritPng } from "./export-png";
 import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
 import { Seal } from "./seal";
@@ -13,7 +14,11 @@ type Props = {
   plate: string;
   handle?: string;
   roleLabel: string | null;
+  jobUrl?: string;
   card: HireCard | null;
+  role?: RoleCard;
+  match?: HireJobMatch;
+  jobError?: string;
   blurb: string;
   readAt?: string;
   onEdit: () => void;
@@ -35,11 +40,58 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, readAt, onEdit }: Props) {
+function Decision({
+  match,
+  roleLabel,
+  jobUrl,
+}: {
+  match: HireJobMatch;
+  roleLabel: string | null;
+  jobUrl?: string;
+}) {
+  return (
+    <div className="decision" data-choice={match.choice} data-slot="hire-job-match">
+      <p className="eyebrow">Panel decision</p>
+      <h2 className="decision-stamp" id="crit-title">
+        {DECISION[match.choice]}
+      </h2>
+      <p className="decision-for">
+        <span>
+          for{" "}
+          {jobUrl ? (
+            <a href={jobUrl} target="_blank" rel="noreferrer">
+              {roleLabel}&nbsp;↗
+            </a>
+          ) : (
+            roleLabel
+          )}
+        </span>
+        <span className="decision-percent mono-figure">{match.alignment.percent}% aligned</span>
+      </p>
+      <blockquote className="decision-note">{match.why}</blockquote>
+    </div>
+  );
+}
+
+export function Crit({
+  source,
+  titles,
+  plate,
+  handle,
+  roleLabel,
+  jobUrl,
+  card,
+  role,
+  match,
+  jobError,
+  blurb,
+  readAt,
+  onEdit,
+}: Props) {
   const [copied, setCopied] = useState(false);
   const [saving, setSaving] = useState<"idle" | "saving" | "failed">("idle");
   const tweetUrl = source.kind === "fixture" ? source.tweetUrl : null;
-  const runnerUp = card?.badge.kind === "soft" ? card.badge.runnerUp : undefined;
+  const decided = Boolean(card && match);
 
   async function copy() {
     try {
@@ -55,7 +107,7 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
     if (!card) return;
     setSaving("saving");
     try {
-      const blob = await renderCritPng({ source, titles, card, plate, handle, roleLabel });
+      const blob = await renderCritPng({ source, titles, card, match, plate, handle, roleLabel });
       const href = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = href;
@@ -73,11 +125,12 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
       className="crit"
       id="plate"
       data-slot="hire-card"
+      data-decided={decided || undefined}
       aria-labelledby="crit-title"
       aria-busy={card ? undefined : true}
     >
       <header className="section-head">
-        <p className="eyebrow">Crit</p>
+        <p className="eyebrow">Interview packet</p>
         <p className="section-meta">
           {sourceLabel(source)}
           {tweetUrl ? (
@@ -97,49 +150,75 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
 
       <article className="crit-sheet" id="verdict">
         <dl className="crit-fields">
-          <Field label="Crit no">
+          <Field label="File no">
             <span className="mono-figure">{plate}</span>
           </Field>
           <Field label="Candidate">{handle ? `@${handle}` : <span className="muted">Unnamed</span>}</Field>
-          <Field label="Role">{roleLabel ?? <span className="muted">No role picked</span>}</Field>
+          <Field label="Hiring for">{roleLabel ?? <span className="muted">No role on file</span>}</Field>
         </dl>
+
+        {card && match ? <Decision match={match} roleLabel={roleLabel} jobUrl={jobUrl} /> : null}
+        {card && jobError ? (
+          <p className="error decision-error" role="alert">
+            {jobError}
+          </p>
+        ) : null}
 
         <div className="crit-body">
           <figure className="crit-card">
             <PlateArt source={source} titles={titles} />
             <div className="crit-seal">
-              {card ? <Seal plate={plate} score={sealScore(card.confidence)} /> : <Seal plate={plate} pending />}
+              {card && match ? (
+                <Seal plate={plate} score={String(match.alignment.percent)} />
+              ) : (
+                <Seal plate={plate} pending={!card} />
+              )}
             </div>
           </figure>
 
           {card ? (
             <div className="crit-doc" aria-live="polite">
-              <p className="verdict-strength">{signalStrength(card)}</p>
-              <h2 className="verdict-archetype" id="crit-title">
-                {card.label}
-              </h2>
+              <p className="verdict-strength">
+                {decided ? "Evidence" : "Library read"}
+              </p>
+              {decided ? (
+                <p className="verdict-archetype">{card.label}</p>
+              ) : (
+                <h2 className="verdict-archetype" id="crit-title">
+                  {card.label}
+                </h2>
+              )}
               <p className="verdict-signal">{card.signal}</p>
               <dl className="crit-ledger">
                 <div>
-                  <dt>Titles read</dt>
+                  <dt>Titles reviewed</dt>
                   <dd className="mono-figure">{titles.filter((t) => t.trim()).length} / 9</dd>
                 </div>
-                {runnerUp ? (
+                <div>
+                  <dt>Top skills</dt>
+                  <dd>{card.skills.map((entry) => entry.skill).join(", ")}</dd>
+                </div>
+                {role ? (
                   <div>
-                    <dt>Runner-up</dt>
-                    <dd>{runnerUp}</dd>
+                    <dt>The role reads as</dt>
+                    <dd>{role.label}</dd>
                   </div>
                 ) : null}
-                <div className="crit-total">
-                  <dt>Signal</dt>
-                  <dd className="mono-figure">{sealScore(card.confidence)} / 10</dd>
-                </div>
+                {match ? (
+                  <div className="crit-total">
+                    <dt>Fit</dt>
+                    <dd className="mono-figure">{match.alignment.percent}%</dd>
+                  </div>
+                ) : null}
               </dl>
+              {!roleLabel ? (
+                <p className="crit-nudge">No role on file, so no hiring decision. Pick a role and run it again.</p>
+              ) : null}
             </div>
           ) : (
             <div className="crit-doc" aria-live="polite">
               <p className="verdict-strength muted" id="crit-title">
-                Reading nine titles…
+                {roleLabel ? "The panel is deliberating…" : "Reviewing nine titles…"}
               </p>
               <span className="skeleton h-lg w-80" />
               <span className="skeleton w-90" />
@@ -150,24 +229,21 @@ export function Crit({ source, titles, plate, handle, roleLabel, card, blurb, re
           )}
         </div>
 
-        {card ? (
-          <div className="crit-axes">
-            {card.scores.map((score) => (
-              <AxisTrack key={score.id} score={score} />
-            ))}
+        {card && match ? (
+          <div className="crit-axes-block">
+            <Evidence fit={match.fit} />
           </div>
         ) : null}
 
         {card && readAt ? (
           <p className="crit-provenance">
-            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {CLASSIFY_MODEL} via AI Gateway ·
-            confidence <span className="mono-figure">{card.confidence.toFixed(2)}</span>
+            Read <time dateTime={readAt}>{formatRead(readAt)}</time> · {EVALUATE_MODEL} via AI Gateway
           </p>
         ) : null}
 
         <footer className="crit-foot mono">
-          <span>Top9 Hire · a hire signal, not a hiring decision</span>
-          <span>Crit {plate}</span>
+          <span>top9.wtf · nine games instead of a leetcode round</span>
+          <span>File {plate}</span>
         </footer>
       </article>
 

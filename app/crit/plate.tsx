@@ -110,11 +110,11 @@ export function Plate({
               {roleLabel ? (
                 <span>{roleLabel}</span>
               ) : (
-                <span className="muted">None. Pick one from the role pack for a match read.</span>
+                <span className="muted">None yet. Pick a role to get a hiring decision.</span>
               )}
             </p>
             <button type="submit" className="btn-primary" disabled={disabled}>
-              {reading ? "Reading the signal…" : "Read the signal"}
+              {reading ? "The panel is deliberating…" : "Start the interview"}
               <span aria-hidden>→</span>
             </button>
           </div>

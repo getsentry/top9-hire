@@ -1,0 +1,1063 @@
+.dg {
+  --dg-ok: #1f7a4d;
+  --dg-lean: #9a5608;
+  --dg-no: var(--stamp);
+  --dg-tone: var(--ink);
+  --dg-border: rgba(26, 26, 26, 0.1);
+  --dg-spring: cubic-bezier(0.2, 0.9, 0.25, 1.12);
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: clamp(16px, 4svh, 56px) 16px 112px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: clamp(14px, 3svh, 32px);
+  overflow-x: clip;
+}
+
+:where(.dg) button,
+:where(.dg) input {
+  font: inherit;
+  color: inherit;
+}
+
+.dg :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.dg > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dg-head {
+  text-align: center;
+  display: grid;
+  gap: clamp(6px, 1.2svh, 10px);
+  max-width: 32rem;
+}
+
+.dg-mark {
+  margin: 0;
+  font: 500 12px/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.dg-title {
+  margin: 0;
+  font: 400 clamp(30px, min(9vw, 6.5svh), 56px) / 1 var(--serif);
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.dg-lede {
+  margin: 0;
+  font-size: clamp(14px, 1.9svh, 16px);
+  line-height: 1.4;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Stage */
+
+.dg-stage {
+  --dg-t: 240ms;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  width: 100%;
+  padding: 4px 0;
+}
+
+.dg-stage[data-choice="mismatch"] {
+  --dg-t: 600ms;
+}
+
+.dg-stage[data-choice="match"],
+.dg-result[data-choice="match"] {
+  --dg-tone: var(--dg-ok);
+}
+
+.dg-stage[data-choice="stretch"],
+.dg-result[data-choice="stretch"] {
+  --dg-tone: var(--dg-lean);
+}
+
+.dg-stage[data-choice="mismatch"],
+.dg-result[data-choice="mismatch"] {
+  --dg-tone: var(--dg-no);
+}
+
+/* The empty cards hold their own inputs, so their content must fit the fixed card ratio. */
+.dg-card {
+  --tilt: 0deg;
+  --dir: 1;
+  position: relative;
+  width: clamp(150px, min(44vw, 28svh), 280px);
+  aspect-ratio: var(--card-ratio);
+  border-radius: clamp(14px, 2.4vw, 22px);
+  overflow: hidden;
+  flex: none;
+  transform: translateX(calc(var(--overlap) * 100% * var(--dir))) rotate(var(--tilt));
+  transition: transform 520ms var(--dg-spring);
+  box-shadow: 0 1px 2px rgba(40, 30, 10, 0.06), 0 12px 32px -12px rgba(40, 30, 10, 0.25);
+}
+
+.dg-you {
+  background: #fffdf8;
+  border: 1px solid var(--dg-border);
+}
+
+.dg-you[data-state="empty"] {
+  box-shadow: none;
+  background: transparent;
+  border: 1.5px dashed var(--rule-2);
+}
+
+.dg-you[data-drag] {
+  border: 2px solid var(--ink);
+  background: var(--paper-lift);
+}
+
+.dg-job {
+  --dir: -1;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 1;
+}
+
+.dg-job[data-state="empty"] {
+  box-shadow: none;
+}
+
+.dg-stage[data-phase="result"] .dg-you {
+  --tilt: -6deg;
+}
+
+.dg-stage[data-phase="result"] .dg-job {
+  --tilt: 6deg;
+}
+
+.dg-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  margin: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.dg-you[data-state="empty"] .dg-tag {
+  box-shadow: none;
+  background: var(--paper-deep);
+}
+
+.dg-job .dg-tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
+  box-shadow: none;
+}
+
+.dg-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--paper-deep);
+}
+
+.dg-art-empty {
+  display: grid;
+  place-items: center;
+}
+
+.dg-handle {
+  font: 400 22px/1 var(--serif);
+}
+
+.dg-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 248, 0.55) 48%, rgba(255, 253, 248, 0.9) 50%, transparent 52%) 0 0 / 100% 240% no-repeat;
+}
+
+.dg-foot {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+  transition: opacity 200ms;
+}
+
+.dg-stage:not([data-phase="setup"]) .dg-foot {
+  opacity: 0;
+}
+
+.dg-slot-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 40px 10px 10px;
+}
+
+.dg-card :focus-visible {
+  outline-offset: -2px;
+}
+
+.dg-job :focus-visible {
+  outline-color: var(--paper);
+}
+
+.dg-job-body {
+  height: 100%;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  padding: 16px;
+  background: radial-gradient(120% 70% at 100% 0%, color-mix(in oklch, var(--dg-tone) 45%, transparent), transparent 60%);
+}
+
+.dg-job-org {
+  font: 400 clamp(30px, 6vw, 48px) / 0.95 var(--serif);
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+.dg-job-title {
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(243, 239, 230, 0.8);
+  text-wrap: balance;
+}
+
+.dg-job-reads {
+  font: 500 11px/1.3 var(--mono);
+  letter-spacing: 0.04em;
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.dg-deciding {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dg-stamp {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 46%;
+  margin: 0;
+  padding: 10px 18px 8px;
+  border: 3px solid currentColor;
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.94);
+  font: 600 clamp(22px, 4.6vw, 34px) / 1 var(--serif);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* Flying ghost, appended to body by fly() */
+
+.dg-ghost {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  pointer-events: none;
+  object-fit: cover;
+  border-radius: clamp(14px, 2.4vw, 22px);
+  box-shadow: 0 16px 40px -10px rgba(40, 30, 10, 0.4);
+  will-change: transform;
+}
+
+.dg-ghost-job {
+  background: #1a1a1a;
+}
+
+/* Sample picker dialog */
+
+.dg-dialog {
+  width: min(94vw, 820px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  overflow: visible;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  box-shadow: 0 30px 80px -20px rgba(40, 30, 10, 0.45), 0 0 0 1px var(--dg-border);
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    transform 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    overlay 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete,
+    display 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete;
+}
+
+.dg-dialog[open] {
+  opacity: 1;
+  transform: none;
+  transition-duration: 220ms;
+}
+
+@starting-style {
+  .dg-dialog[open] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.dg-dialog::backdrop {
+  background: rgba(26, 20, 8, 0);
+  transition:
+    background-color 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    overlay 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete,
+    display 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete;
+}
+
+.dg-dialog[open]::backdrop {
+  background: rgba(26, 20, 8, 0.5);
+  transition-duration: 220ms;
+}
+
+@starting-style {
+  .dg-dialog[open]::backdrop {
+    background: rgba(26, 20, 8, 0);
+  }
+}
+
+.dg-dialog :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.dg-panel {
+  padding: 12px 24px 20px;
+}
+
+.dg-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dg-dialog-title {
+  margin: 0;
+  font: 400 clamp(22px, 3vw, 28px) / 1.1 var(--serif);
+  font-style: italic;
+}
+
+.dg-close {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms;
+}
+
+.dg-close:active {
+  transform: scale(0.94);
+}
+
+/* Fan */
+
+.dg-fan {
+  --spread: 16deg;
+  --w: 104px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 34px 0 26px;
+}
+
+.dg-c {
+  --a: calc(var(--spread) * -1 + var(--spread) * 2 * var(--i) / (var(--n) - 1));
+  position: relative;
+  flex: none;
+  width: var(--w);
+  aspect-ratio: var(--card-ratio);
+  margin-inline: -20px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--paper-deep);
+  cursor: pointer;
+  z-index: calc(var(--i) + 1);
+  transform: rotate(var(--a));
+  transform-origin: 50% 130%;
+  transition: transform 260ms var(--dg-spring);
+  box-shadow: 0 1px 2px rgba(40, 30, 10, 0.1), 0 8px 18px -8px rgba(40, 30, 10, 0.35);
+}
+
+.dg-c:active {
+  transform: rotate(var(--a)) scale(0.96);
+}
+
+.dg .dg-c:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  z-index: 20;
+}
+
+.dg-pick img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dg-pick-handle {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 18px 6px 6px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78));
+  color: #fff;
+  font: 500 10px/1.1 var(--mono);
+  letter-spacing: 0.02em;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dg-fan-jobs {
+  --w: 116px;
+  padding-top: 30px;
+}
+
+.dg-job-pick {
+  aspect-ratio: 132 / 116;
+  margin-inline: -18px;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  padding: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: left;
+}
+
+.dg-job-pick-org {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.65);
+}
+
+.dg-job-pick-title {
+  font: 400 15px/1.15 var(--serif);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dg-c:hover {
+    transform: translateY(-18px) rotate(0deg) scale(1.06);
+    z-index: 15;
+  }
+
+  .dg-c:active {
+    transform: translateY(-18px) rotate(0deg) scale(0.96);
+  }
+
+  .dg-close:hover {
+    background: var(--paper-deep);
+  }
+
+  .dg-sample:not(:disabled):hover {
+    background: color-mix(in oklch, currentColor 10%, transparent);
+  }
+}
+
+/* Empty-card inputs */
+
+.dg-drop {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 44px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  border: 1.5px dashed var(--rule-2);
+  text-align: center;
+  cursor: pointer;
+}
+
+.dg-drop[data-disabled] {
+  cursor: not-allowed;
+}
+
+.dg-drop:has(.dg-file:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.dg-you[data-drag] .dg-drop {
+  border-color: var(--ink);
+}
+
+.dg-file {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.dg-plus {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 300 20px/1 var(--sans);
+}
+
+.dg-drop-text {
+  font: 400 13px/1.1 var(--serif);
+  text-wrap: balance;
+}
+
+.dg-sample {
+  flex: none;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-2);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms;
+}
+
+.dg-job .dg-sample {
+  border-color: rgba(243, 239, 230, 0.4);
+}
+
+.dg-sample:active {
+  transform: scale(0.96);
+}
+
+.dg-sample:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dg-or {
+  flex: none;
+  display: grid;
+  gap: 4px;
+}
+
+.dg-or-label {
+  font: 500 10px/1 var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.dg-job .dg-or-label {
+  color: rgba(243, 239, 230, 0.75);
+}
+
+.dg-field {
+  width: 100%;
+  height: 44px;
+  min-width: 0;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--dg-border);
+  background: #fffdf8;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.dg-field:disabled {
+  cursor: not-allowed;
+}
+
+.dg-field::placeholder {
+  color: var(--ink-3);
+}
+
+.dg-hint,
+.dg-error {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.dg-hint {
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.dg-error {
+  color: var(--dg-no);
+}
+
+.dg-job .dg-error {
+  color: #ff8f7a;
+}
+
+/* Setup action */
+
+.dg-go {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.dg-primary,
+.dg-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms, opacity 150ms;
+}
+
+.dg .dg-primary {
+  border: 0;
+  background: var(--ink);
+  color: var(--paper-lift);
+  min-width: 200px;
+}
+
+.dg .dg-primary:disabled {
+  background: var(--paper-deep);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.dg .dg-primary:not(:disabled):active,
+.dg .dg-text:active,
+.dg-secondary:active {
+  transform: scale(0.96);
+}
+
+.dg-need {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 14px;
+  color: var(--ink-3);
+  text-align: center;
+  max-width: 36ch;
+}
+
+.dg-need [role="alert"] {
+  color: var(--dg-no);
+}
+
+/* Once both picks are in, the match button stays in reach. 72px clears the proto picker bar. */
+
+.dg-go:has(> button:enabled) {
+  position: sticky;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  z-index: 30;
+}
+
+.dg-need:not(:empty) {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--paper) 92%, transparent);
+}
+
+:where(.dg) :is(button, a, input, label) {
+  touch-action: manipulation;
+}
+
+/* Result */
+
+.dg-result {
+  width: min(100%, 560px);
+  display: grid;
+  gap: 20px;
+  scroll-margin-top: 24px;
+}
+
+.dg-score {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.dg-percent {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--dg-tone);
+}
+
+.dg-percent-n {
+  font: 400 clamp(64px, 16vw, 104px) / 0.9 var(--serif);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.dg-percent-unit {
+  font: 500 14px/1 var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.dg-verdict {
+  margin: 8px 0 0;
+  font: 500 22px/1.1 var(--sans);
+  letter-spacing: -0.01em;
+}
+
+.dg-tone {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.dg-why {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--dg-border);
+  font: 400 19px/1.45 var(--serif);
+  text-wrap: pretty;
+}
+
+.dg-reads {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 16px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.dg-reads strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.dg-result .ev {
+  --ev-bg: var(--paper);
+}
+
+.dg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.dg-secondary {
+  border: 1px solid var(--dg-border);
+  background: transparent;
+}
+
+.dg-text {
+  height: 48px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: transform 120ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dg .dg-primary:not(:disabled):hover {
+    background: color-mix(in oklch, var(--ink) 85%, var(--paper));
+  }
+
+  .dg-secondary:hover {
+    background: var(--paper-deep);
+  }
+
+  .dg-text:hover {
+    color: var(--ink);
+  }
+}
+
+/* Motion */
+
+@media (prefers-reduced-motion: no-preference) {
+  .dg-scan {
+    animation: dg-scan 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  .dg-dialog[open] .dg-c {
+    animation: dg-deal 480ms var(--dg-spring) backwards;
+    animation-delay: calc(var(--i) * 40ms);
+  }
+
+  .dg-stage[data-phase="busy"] .dg-you {
+    animation: dg-bob 1.4s ease-in-out infinite;
+  }
+
+  .dg-stage[data-phase="busy"] .dg-job {
+    animation: dg-bob 1.4s ease-in-out 0.7s infinite;
+  }
+
+  .dg-stage[data-choice="mismatch"] .dg-card {
+    animation: dg-apart 480ms ease-out both;
+  }
+
+  .dg-stage[data-phase="result"] {
+    animation: dg-shake 380ms ease-out calc(var(--dg-t) + 300ms);
+  }
+
+  .dg-stamp {
+    animation: dg-slam 560ms var(--dg-spring) var(--dg-t) both;
+  }
+
+  .dg-deciding {
+    animation: dg-in 240ms var(--ease) both;
+  }
+
+  .dg-result > * {
+    animation: dg-in 480ms var(--ease) both;
+  }
+
+  .dg-result > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .dg-result > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .dg-result > :nth-child(n + 4) {
+    animation-delay: 200ms;
+  }
+}
+
+@keyframes dg-scan {
+  from {
+    background-position: 0 120%;
+  }
+  to {
+    background-position: 0 -20%;
+  }
+}
+
+@keyframes dg-deal {
+  from {
+    opacity: 0;
+    transform: translateY(60px) rotate(0deg) scale(0.9);
+  }
+}
+
+@keyframes dg-bob {
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes dg-apart {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  40% {
+    translate: calc(var(--dir) * -24px) 0;
+  }
+  70% {
+    translate: calc(var(--dir) * -6px) 0;
+  }
+}
+
+@keyframes dg-shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  15% {
+    translate: 7px -4px;
+  }
+  30% {
+    translate: -6px 3px;
+  }
+  45% {
+    translate: 4px -2px;
+  }
+  60% {
+    translate: -3px 2px;
+  }
+  80% {
+    translate: 1px -1px;
+  }
+}
+
+@keyframes dg-slam {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.6) rotate(-22deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.94) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+  }
+}
+
+@keyframes dg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-card,
+  .dg-c,
+  .dg-foot,
+  .dg-close,
+  .dg-sample {
+    transition: none;
+  }
+
+  .dg-dialog,
+  .dg-dialog::backdrop {
+    transition: none;
+    transform: none;
+  }
+
+  .dg-c:active,
+  .dg-c:hover {
+    transform: rotate(var(--a));
+  }
+
+  .dg-scan {
+    animation: none;
+  }
+}
+
+/* Small screens: the fan wraps into rows so every sample stays reachable */
+
+@media (max-width: 640px) {
+  .dg {
+    padding-inline: 12px;
+  }
+
+  .dg-stage {
+    gap: 10px;
+  }
+
+  .dg-dialog {
+    max-height: 88svh;
+    overflow-y: auto;
+  }
+
+  .dg-panel {
+    padding: 8px 16px 16px;
+  }
+
+  .dg-fan {
+    --w: 72px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 10px;
+    padding: 16px 0 12px;
+  }
+
+  .dg-fan-jobs {
+    --w: 140px;
+  }
+
+  .dg-c,
+  .dg-job-pick {
+    --a: -2deg;
+    margin-inline: 0;
+    transform-origin: 50% 50%;
+  }
+
+  .dg-c:nth-child(odd) {
+    --a: 2deg;
+  }
+
+  .dg-tag {
+    top: 8px;
+    left: 8px;
+  }
+
+  .dg-actions > * {
+    flex: 1 1 auto;
+  }
+}

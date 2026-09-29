@@ -227,9 +227,7 @@ test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", as
   try {
     globalThis.fetch = async (input: RequestInfo | URL) => {
       const host = requestHostname(input);
-      assert.ok(
-        host === "pbs.twimg.com" || host === "video.twimg.com" || host === "ton.twimg.com",
-      );
+      assert.equal(host, "pbs.twimg.com");
       return new Response(new Uint8Array([1, 2, 3, 4]), {
         status: 200,
         headers: { "content-type": "image/jpeg" },
@@ -240,14 +238,6 @@ test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", as
     assert.equal(image.mediaType, "image/jpeg");
     assert.deepEqual(Array.from(image.bytes), [1, 2, 3, 4]);
 
-    for (const mediaUrl of [
-      "https://video.twimg.com/tweet_video_thumb/preview.jpg",
-      "https://ton.twimg.com/tweet_video_thumb/legacy.jpg",
-    ]) {
-      const extra = await fetchImageBytesFromUrl(mediaUrl);
-      assert.equal(extra.mediaType, "image/jpeg");
-    }
-
     let fetches = 0;
     globalThis.fetch = async () => {
       fetches += 1;
@@ -256,6 +246,8 @@ test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", as
 
     const rejected = [
       "https://evil.example/image.jpg",
+      "https://video.twimg.com/tweet_video_thumb/preview.jpg",
+      "https://ton.twimg.com/tweet_video_thumb/legacy.jpg",
       "https://pbs.twimg.com.evil.example/image.jpg",
       "https://evil.example/pbs.twimg.com/image.jpg",
       "http://pbs.twimg.com/media/large.jpg",
@@ -272,8 +264,32 @@ test("fetchImageBytesFromUrl downloads only allowlisted Twitter image hosts", as
   }
 });
 
-test("default extract model is google/gemini-3.8-flash and prompt specifies 3x3 reading order", () => {
-  assert.equal(DEFAULT_EXTRACT_MODEL, "google/gemini-3.8-flash");
+test("default extract model is google/gemini-3.5-flash-lite and prompt specifies 3x3 reading order", () => {
+  assert.equal(DEFAULT_EXTRACT_MODEL, "google/gemini-3.5-flash-lite");
   assert.ok(EXTRACT_PROMPT.includes("3x3"));
   assert.ok(EXTRACT_PROMPT.includes("left-to-right, top-to-bottom"));
+});
+
+test("fetchImageBytesFromUrl refuses a redirect-free download with a wrong type or too many bytes", async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    let init: RequestInit | undefined;
+    globalThis.fetch = async (_input: RequestInfo | URL, options?: RequestInit) => {
+      init = options;
+      return new Response(new Uint8Array([1, 2, 3]), { status: 200, headers: { "content-type": "text/html" } });
+    };
+    await assert.rejects(() => fetchImageBytesFromUrl("https://pbs.twimg.com/a.jpg"), /Unsupported file format/);
+    assert.equal(init?.redirect, "manual");
+    assert.ok(init?.signal);
+
+    globalThis.fetch = async () => new Response(new Uint8Array(20), { status: 200, headers: { "content-type": "image/png" } });
+    await assert.rejects(() => fetchImageBytesFromUrl("https://pbs.twimg.com/a.png", 10), /exceeds limit/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("mobile.twitter.com tweet links parse; other hosts do not", () => {
+  assert.deepEqual(parseTweetUrl("https://mobile.twitter.com/u/status/123"), { statusId: "123" });
+  assert.equal(parseTweetUrl("https://evil.example/u/status/123"), null);
 });

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { existsSync, readFileSync } from "node:fs";
-import { toCard } from "./hire.ts";
+import { roleCard } from "./hire.ts";
 import { parseJobUrl } from "./job.ts";
 import {
   JOB_PACK,
@@ -9,18 +9,9 @@ import {
   findExample,
   findJob,
   plateId,
-  sealScore,
   shareBlurb,
-  signalStrength,
   suggestedFor,
 } from "./pack.ts";
-
-const scores = {
-  systems_vs_product: { level: 1, confidence: 0.8 },
-  competitive_vs_collaborative: { level: 2, confidence: 0.8 },
-  depth_vs_breadth: { level: 2, confidence: 0.8 },
-  builder_vs_optimizer: { level: 1, confidence: 0.8 },
-} as const;
 
 test("the job pack is twelve unique public Greenhouse or Ashby postings", () => {
   assert.equal(JOB_PACK.length, 12);
@@ -95,15 +86,8 @@ test("plate ids are stable, case-blind, and differ by list", () => {
   assert.notEqual(plateId(theo), plateId(dorry));
 });
 
-test("the seal prints confidence as a one-decimal score", () => {
-  assert.equal(sealScore(0.84), "8.4");
-  assert.equal(sealScore(1), "10.0");
-  assert.equal(sealScore(-1), "0.0");
-});
-
-test("the share blurb carries the archetype, signal line, score, and role read", () => {
-  const card = toCard({ archetype: "systems_necromancer", confidence: 0.84, scores });
-  assert.equal(signalStrength(card), "Strong signal");
+test("the share blurb leads with the panel decision when a role was read", () => {
+  const card = roleCard("systems_necromancer");
   const blurb = shareBlurb({
     handle: "dorryspears",
     plate: "T9-07",
@@ -113,10 +97,21 @@ test("the share blurb carries the archetype, signal line, score, and role read",
   assert.equal(
     blurb,
     [
-      "@dorryspears: Systems necromancer. Strong signal, 8.4/10.",
+      "@dorryspears for Vercel Software Engineer, Platform: Lean hire.",
+      "Evidence: Systems necromancer, 75% aligned.",
+      "Nine games instead of a leetcode round. top9.wtf crit T9-07",
+    ].join("\n"),
+  );
+});
+
+test("the share blurb without a role carries the archetype and signal line", () => {
+  const card = roleCard("systems_necromancer");
+  assert.equal(
+    shareBlurb({ handle: "dorryspears", plate: "T9-07", card }),
+    [
+      "@dorryspears: Systems necromancer.",
       '"Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own."',
-      "Role read: stretch, 75% aligned for Vercel Software Engineer, Platform.",
-      "Top9 Hire crit T9-07",
+      "top9.wtf crit T9-07",
     ].join("\n"),
   );
 });

@@ -1,93 +1,15 @@
 import { useEffect, useState } from "react";
-import type { HireCard } from "@/lib/hire";
+import type { HireJobMatch } from "@/lib/fit";
+import type { HireCard, RoleCard } from "@/lib/hire";
 import { suggestedFor, type PackJob } from "@/lib/pack";
-import type { HireJobMatch } from "@/lib/role";
-import { AxisTrack } from "./axis";
 
 export type RailResult = {
   hire: HireCard;
-  role?: HireCard;
+  role?: RoleCard;
   match?: HireJobMatch;
   job?: { title: string; url: string; company?: string };
   jobError?: string;
 };
-
-function MatchCard({ result }: { result: RailResult }) {
-  const { role, match, job, jobError, hire } = result;
-  const facets = match?.alignment.facets;
-  const sameArchetype = role ? role.archetype === hire.archetype : false;
-  return (
-    <div className="match-card" data-slot="hire-job-match">
-      {job ? (
-        <p className="match-job">
-          {job.company ? <span className="mono">{job.company}</span> : null}
-          <a href={job.url} target="_blank" rel="noreferrer">
-            {job.title}&nbsp;↗
-          </a>
-        </p>
-      ) : null}
-      {match ? (
-        <>
-          <div className="match-head">
-            <p className="match-stamp" data-choice={match.choice}>
-              {match.choice}
-            </p>
-            <p className="match-percent">
-              <span className="mono-figure">{match.alignment.percent}%</span>
-              <span className="mono">aligned</span>
-            </p>
-          </div>
-          <p className="match-why">{match.why}</p>
-        </>
-      ) : null}
-      {jobError ? (
-        <p className="error" role="alert">
-          {jobError}
-        </p>
-      ) : null}
-      {role ? (
-        <div className="match-role" data-slot="role-card">
-          <p className="field-label match-facets-head">
-            Facets
-            <span className="match-legend mono">
-              <span className="dot hire" /> Top9 <span className="dot role" /> Role
-            </span>
-          </p>
-          <ol className="match-facets">
-            {hire.scores.map((score, i) => {
-              const compare = role.scores[i];
-              const facet = facets?.[i];
-              return (
-                <li key={score.id} data-read={facet?.read}>
-                  <AxisTrack
-                    score={score}
-                    compare={compare}
-                    showCriterion={false}
-                    note={facet ? facet.read : undefined}
-                  />
-                </li>
-              );
-            })}
-            <li className="facet-archetype" data-read={sameArchetype ? "aligned" : "diverges"}>
-              <p className="axis-poles">
-                <span>Archetype</span>
-                <span className="axis-note">{sameArchetype ? "same" : "differs"}</span>
-              </p>
-              <p className="facet-arch">
-                <span>
-                  <span className="dot hire" /> {hire.label}
-                </span>
-                <span>
-                  <span className="dot role" /> {role.label}
-                </span>
-              </p>
-            </li>
-          </ol>
-        </div>
-      ) : null}
-    </div>
-  );
-}
 
 export function JobRail({
   jobs,
@@ -121,7 +43,7 @@ export function JobRail({
     <aside className="rail" aria-labelledby="rail-title" data-slot="job-url">
       <header className="section-head">
         <p className="eyebrow" id="rail-title">
-          Role match <span className="muted">optional</span>
+          Hiring for
         </p>
         {selectedUrl ? (
           <button type="button" className="link-button small" onClick={() => onSelect("")} disabled={locked}>
@@ -129,8 +51,6 @@ export function JobRail({
           </button>
         ) : null}
       </header>
-      {hasMatch && result ? <MatchCard result={result} /> : null}
-
       <fieldset className="job-pack" disabled={locked}>
         <legend className="field-label">
           Role pack <span className="count">{jobs.length}</span>

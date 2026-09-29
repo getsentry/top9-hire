@@ -7,6 +7,7 @@ import {
   resolveTweetMedia,
   type ImageInput,
 } from "@/lib/extract";
+import { LIMITED_COPY, Limited, limitedFromGateway, modelGate } from "@/lib/guard";
 import { GATEWAY_MISSING } from "@/lib/hire";
 import { acceptedMediaType, rejectImageFile } from "@/lib/image-limit";
 
@@ -64,9 +65,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await extractGamesFromImage(imageInput);
+    const result = await extractGamesFromImage(imageInput, undefined, { beforeModel: modelGate() });
     return NextResponse.json(result);
   } catch (error) {
+    const limited = error instanceof Limited ? error : limitedFromGateway(error);
+    if (limited) {
+      Sentry.getActiveSpan()?.setAttribute("top9.limited", limited.reason);
+      Sentry.logger.warn("model call refused", { "top9.limited": limited.reason });
+      return NextResponse.json(
+        { error: "extract_failed", message: LIMITED_COPY[limited.reason], limited: limited.reason },
+        { status: limited.reason === "budget" || limited.reason === "paused" ? 503 : 429 },
+      );
+    }
     if (error instanceof MissingGatewayKey) {
       return NextResponse.json(
         { error: "missing_key", message: GATEWAY_MISSING },

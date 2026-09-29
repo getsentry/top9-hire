@@ -1,0 +1,1233 @@
+.df {
+  --df-ok: #1f7a4d;
+  --df-lean: #9a5608;
+  --df-no: var(--stamp);
+  --df-tone: var(--ink);
+  --df-border: rgba(26, 26, 26, 0.1);
+  --df-spring: cubic-bezier(0.2, 0.9, 0.25, 1.12);
+  --df-pad: 16px;
+  --df-r: 24px;
+  --df-in: calc(var(--df-r) - var(--df-pad));
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: clamp(16px, 4svh, 48px) 16px calc(72px + clamp(14px, 3svh, 32px) + env(safe-area-inset-bottom));
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: clamp(14px, 3svh, 32px);
+  overflow-x: clip;
+}
+
+:where(.df) button,
+:where(.df) input {
+  font: inherit;
+  color: inherit;
+}
+
+.df :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.df > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.df-head {
+  text-align: center;
+  display: grid;
+  gap: clamp(6px, 1.2svh, 10px);
+  max-width: 32rem;
+  justify-items: center;
+}
+
+.df-mark {
+  margin: 0;
+  font: 500 12px/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.df-title {
+  margin: 0;
+  font: 400 clamp(30px, min(9vw, 6.5svh), 56px) / 1 var(--serif);
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.df-lede {
+  margin: 0;
+  font-size: clamp(14px, 1.9svh, 16px);
+  line-height: 1.4;
+  color: var(--ink-2);
+  max-width: 40ch;
+  text-wrap: balance;
+}
+
+/* Stage */
+
+.df-stage {
+  --df-t: 240ms;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --df-gap: clamp(10px, 3vw, 28px);
+  gap: var(--df-gap);
+  width: 100%;
+}
+
+.df-stage[data-choice="mismatch"] {
+  --df-t: 600ms;
+}
+
+.df-stage[data-choice="match"],
+.df-result[data-choice="match"] {
+  --df-tone: var(--df-ok);
+}
+
+.df-stage[data-choice="stretch"],
+.df-result[data-choice="stretch"] {
+  --df-tone: var(--df-lean);
+}
+
+.df-stage[data-choice="mismatch"],
+.df-result[data-choice="mismatch"] {
+  --df-tone: var(--df-no);
+}
+
+/*
+ * Both cards share one row template, so the tag, main area, field label, field and
+ * sample button sit at the same y in each. The note row is reserved for hints and errors.
+ */
+.df-card {
+  --tilt: 0deg;
+  --dir: 1;
+  position: relative;
+  width: min(calc((100% - var(--df-gap)) / 2), 300px);
+  height: clamp(330px, 46svh, 420px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) 12px 44px 15px 44px;
+  row-gap: 6px;
+  padding: var(--df-pad);
+  border: 1.5px solid transparent;
+  border-radius: var(--df-r);
+  overflow: hidden;
+  flex: none;
+  transform: translateX(calc(var(--overlap) * 100% * var(--dir))) rotate(var(--tilt));
+  transition: transform 520ms var(--df-spring);
+  box-shadow: 0 1px 2px rgba(40, 30, 10, 0.06), 0 12px 32px -12px rgba(40, 30, 10, 0.25);
+}
+
+.df-card > * {
+  min-width: 0;
+}
+
+/* A filled You card trades the field rows for owner, art and foot. */
+.df-you:not([data-state="empty"]) {
+  grid-template-rows: auto auto minmax(0, 1fr) 44px;
+}
+
+.df-you {
+  background: #fffdf8;
+  border-color: var(--df-border);
+}
+
+.df-you[data-state="empty"] {
+  box-shadow: none;
+  background: transparent;
+  border: 1.5px dashed var(--rule-2);
+}
+
+.df-you[data-drag] {
+  border-color: var(--ink);
+  background: var(--paper-lift);
+}
+
+.df-job {
+  --dir: -1;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 1;
+}
+
+.df-job[data-state="empty"] {
+  box-shadow: none;
+}
+
+.df-stage[data-phase="result"] .df-you {
+  --tilt: -6deg;
+}
+
+.df-stage[data-phase="result"] .df-job {
+  --tilt: 6deg;
+}
+
+.df-tag {
+  justify-self: start;
+  margin: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.df-job .df-tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
+}
+
+.df-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: var(--df-in);
+  object-fit: contain;
+  background: var(--paper-deep);
+}
+
+.df-art-empty {
+  display: grid;
+  place-items: center;
+}
+
+.df-handle {
+  font: 400 22px/1 var(--serif);
+}
+
+.df-owner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+}
+
+.df-owner-text {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.df-owner-text > * {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.df-owner-text strong {
+  flex: 0 1 auto;
+  font-weight: 600;
+}
+
+.df-owner-text span {
+  flex: 1 1 0;
+  color: var(--ink-3);
+}
+
+.df-avatar {
+  --s: 88px;
+  display: block;
+  flex: none;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper-deep);
+}
+
+.df-avatar-sm {
+  --s: 32px;
+}
+
+.df-avatar-xs {
+  --s: 28px;
+}
+
+.df-reads .df-avatar-xs {
+  --s: 24px;
+}
+
+.df-avatar-blank {
+  background: var(--rule-2);
+}
+
+.df-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 248, 0.55) 48%, rgba(255, 253, 248, 0.9) 50%, transparent 52%) 0 0 / 100% 240% no-repeat;
+}
+
+.df-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 12px;
+  transition: opacity 200ms;
+}
+
+.df-foot-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.df-replace {
+  flex: none;
+  height: 44px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.df-replace:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.df-stage:not([data-phase="setup"]) .df-foot {
+  opacity: 0;
+}
+
+.df-card :focus-visible {
+  outline-offset: -2px;
+}
+
+.df-job :focus-visible {
+  outline-color: var(--paper);
+}
+
+.df-job-body {
+  grid-row: 2 / -1;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  border-radius: var(--df-in);
+  background: radial-gradient(120% 70% at 100% 0%, color-mix(in oklch, var(--df-tone) 45%, transparent), transparent 60%);
+}
+
+.df-job-empty {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  border: 1.5px dashed rgba(243, 239, 230, 0.35);
+  border-radius: var(--df-in);
+  color: rgba(243, 239, 230, 0.85);
+  text-align: center;
+}
+
+.df-job-org {
+  font: 400 clamp(30px, 6vw, 48px) / 0.95 var(--serif);
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+.df-job-title {
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(243, 239, 230, 0.8);
+  text-wrap: balance;
+}
+
+.df-job-reads {
+  font: 500 11px/1.3 var(--mono);
+  letter-spacing: 0.04em;
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.df-deciding {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.df-stamp {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 46%;
+  margin: 0;
+  padding: 10px 18px 8px;
+  border: 3px solid currentColor;
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.94);
+  font: 600 clamp(22px, 4.6vw, 34px) / 1 var(--serif);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* Flying ghost, appended to body by fly() */
+
+.df-ghost {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  pointer-events: none;
+  object-fit: cover;
+  border-radius: var(--df-r, 22px);
+  box-shadow: 0 16px 40px -10px rgba(40, 30, 10, 0.4);
+  will-change: transform;
+}
+
+.df-ghost-job {
+  background: #1a1a1a;
+}
+
+/* Sample picker dialog */
+
+.df-dialog {
+  width: min(94vw, 900px);
+  max-width: none;
+  max-height: 92svh;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  overflow-y: auto;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  box-shadow: 0 30px 80px -20px rgba(40, 30, 10, 0.45), 0 0 0 1px var(--df-border);
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    transform 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    overlay 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete,
+    display 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete;
+}
+
+.df-dialog[open] {
+  opacity: 1;
+  transform: none;
+  transition-duration: 220ms;
+}
+
+@starting-style {
+  .df-dialog[open] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.df-dialog::backdrop {
+  background: rgba(26, 20, 8, 0);
+  transition:
+    background-color 160ms cubic-bezier(0.32, 0.72, 0, 1),
+    overlay 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete,
+    display 160ms cubic-bezier(0.32, 0.72, 0, 1) allow-discrete;
+}
+
+.df-dialog[open]::backdrop {
+  background: rgba(26, 20, 8, 0.5);
+  transition-duration: 220ms;
+}
+
+@starting-style {
+  .df-dialog[open]::backdrop {
+    background: rgba(26, 20, 8, 0);
+  }
+}
+
+.df-dialog :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.df-panel {
+  padding: 12px 24px 24px;
+}
+
+.df-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.df-dialog-title {
+  margin: 0;
+  font: 400 clamp(22px, 3vw, 28px) / 1.1 var(--serif);
+  font-style: italic;
+}
+
+.df-close {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms;
+}
+
+.df-close:active {
+  transform: scale(0.94);
+}
+
+/* Faces and preview */
+
+.df-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 24px;
+  align-items: start;
+  padding-top: 8px;
+}
+
+.df-people {
+  --cols: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 12px 8px;
+  align-content: start;
+}
+
+.df-people-jobs {
+  --cols: 3;
+}
+
+.df-face {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.df-face .df-avatar,
+.df-logo {
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px transparent;
+}
+
+.df-face[aria-checked="true"] {
+  background: var(--paper-deep);
+}
+
+.df-face[aria-checked="true"] .df-avatar,
+.df-face[aria-checked="true"] .df-logo {
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
+}
+
+.df-face-handle,
+.df-face-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.df-face-handle {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.df-face-name {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.df-people-jobs .df-face-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.df-logo {
+  --s: 88px;
+  display: grid;
+  place-items: center;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 22px;
+  background: var(--logo);
+  color: #fff;
+  font: 600 32px/1 var(--serif);
+  letter-spacing: -0.02em;
+}
+
+.df-logo-lg {
+  --s: 120px;
+  font-size: 44px;
+  box-shadow: none;
+}
+
+.df-preview {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.df-shot {
+  position: relative;
+  width: min(100%, calc((92svh - 270px) * 778 / 1200));
+  aspect-ratio: var(--card-ratio);
+  justify-self: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--paper-deep);
+}
+
+.df-shot > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 150ms linear;
+  pointer-events: none;
+}
+
+.df-shot > img[data-active] {
+  opacity: 1;
+}
+
+.df-shot-job {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+
+.df-job-pick-org {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.65);
+}
+
+.df-job-pick-title {
+  font: 400 20px/1.2 var(--serif);
+  text-wrap: balance;
+}
+
+.df-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 32px;
+}
+
+.df-caption-who {
+  display: grid;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.df-caption-who > * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.df-caption-who span {
+  color: var(--ink-3);
+}
+
+.df .df-use {
+  width: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .df-close:hover {
+    background: var(--paper-deep);
+  }
+
+  .df-face[aria-checked="false"]:hover {
+    background: color-mix(in oklch, var(--paper-deep) 55%, transparent);
+  }
+
+  .df-sample:not(:disabled):hover,
+  .df-replace:not(:disabled):hover {
+    background: color-mix(in oklch, currentColor 10%, transparent);
+  }
+}
+
+/* Empty-card inputs */
+
+.df-drop {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--df-in);
+  border: 1.5px dashed var(--rule-2);
+  text-align: center;
+  cursor: pointer;
+}
+
+.df-drop[data-disabled] {
+  cursor: not-allowed;
+}
+
+.df-drop:has(.df-file:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.df-you[data-drag] .df-drop {
+  border-color: var(--ink);
+}
+
+.df-file {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.df-plus {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 300 20px/1 var(--sans);
+}
+
+.df-drop-text {
+  font: 400 13px/1.1 var(--serif);
+  text-wrap: balance;
+}
+
+.df-sample {
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-2);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms;
+}
+
+.df-job .df-sample {
+  border-color: rgba(243, 239, 230, 0.4);
+}
+
+.df-sample:active {
+  transform: scale(0.96);
+}
+
+.df-sample:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.df-or {
+  display: contents;
+}
+
+.df-or-label {
+  align-self: end;
+  font: 500 10px/12px var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.df-job .df-or-label {
+  color: rgba(243, 239, 230, 0.75);
+}
+
+.df-field {
+  width: 100%;
+  height: 44px;
+  min-width: 0;
+  padding: 0 10px;
+  border-radius: var(--df-in);
+  border: 1px solid var(--df-border);
+  background: #fffdf8;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.df-field:disabled {
+  cursor: not-allowed;
+}
+
+.df-field::placeholder {
+  color: var(--ink-3);
+}
+
+.df-hint,
+.df-error {
+  margin: 0;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.df-hint {
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.df-error {
+  color: var(--df-no);
+}
+
+.df-job .df-error {
+  color: #ff8f7a;
+}
+
+/* Setup action */
+
+.df-go {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.df-primary,
+.df-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms, opacity 150ms;
+}
+
+.df .df-primary {
+  border: 0;
+  background: var(--ink);
+  color: var(--paper-lift);
+  min-width: 200px;
+}
+
+.df .df-primary:disabled {
+  background: var(--paper-deep);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.df .df-primary:not(:disabled):active,
+.df .df-text:active,
+.df-secondary:active {
+  transform: scale(0.96);
+}
+
+.df-need {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 14px;
+  color: var(--ink-3);
+  text-align: center;
+  max-width: 36ch;
+}
+
+.df-need [role="alert"] {
+  color: var(--df-no);
+}
+
+/* Once both picks are in, the match button stays in reach. 72px clears the proto picker bar. */
+
+.df-go:has(> button:enabled) {
+  position: sticky;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  z-index: 30;
+}
+
+.df-need:not(:empty) {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--paper) 92%, transparent);
+}
+
+:where(.df) :is(button, a, input, label) {
+  touch-action: manipulation;
+}
+
+/* Result */
+
+.df-result {
+  width: min(100%, 560px);
+  display: grid;
+  gap: 20px;
+  scroll-margin-top: 24px;
+}
+
+.df-score {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.df-percent {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--df-tone);
+}
+
+.df-percent-n {
+  font: 400 clamp(64px, 16vw, 104px) / 0.9 var(--serif);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.df-percent-unit {
+  font: 500 14px/1 var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.df-verdict {
+  margin: 8px 0 0;
+  font: 500 22px/1.1 var(--sans);
+  letter-spacing: -0.01em;
+}
+
+.df-tone {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.df-why {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--df-border);
+  font: 400 19px/1.45 var(--serif);
+  text-wrap: pretty;
+}
+
+.df-reads > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.df-reads {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 16px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.df-reads strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.df-result .ev {
+  --ev-bg: var(--paper);
+}
+
+.df-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.df-secondary {
+  border: 1px solid var(--df-border);
+  background: transparent;
+}
+
+.df-text {
+  height: 48px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: transform 120ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .df .df-primary:not(:disabled):hover {
+    background: color-mix(in oklch, var(--ink) 85%, var(--paper));
+  }
+
+  .df-secondary:hover {
+    background: var(--paper-deep);
+  }
+
+  .df-text:hover {
+    color: var(--ink);
+  }
+}
+
+/* Motion */
+
+@media (prefers-reduced-motion: no-preference) {
+  .df-scan {
+    animation: df-scan 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  .df-stage[data-phase="busy"] .df-you {
+    animation: df-bob 1.4s ease-in-out infinite;
+  }
+
+  .df-stage[data-phase="busy"] .df-job {
+    animation: df-bob 1.4s ease-in-out 0.7s infinite;
+  }
+
+  .df-stage[data-choice="mismatch"] .df-card {
+    animation: df-apart 480ms ease-out both;
+  }
+
+  .df-stage[data-phase="result"] {
+    animation: df-shake 380ms ease-out calc(var(--df-t) + 300ms);
+  }
+
+  .df-stamp {
+    animation: df-slam 560ms var(--df-spring) var(--df-t) both;
+  }
+
+  .df-deciding {
+    animation: df-in 240ms var(--ease) both;
+  }
+
+  .df-result > * {
+    animation: df-in 480ms var(--ease) both;
+  }
+
+  .df-result > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .df-result > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .df-result > :nth-child(n + 4) {
+    animation-delay: 200ms;
+  }
+}
+
+@keyframes df-scan {
+  from {
+    background-position: 0 120%;
+  }
+  to {
+    background-position: 0 -20%;
+  }
+}
+
+@keyframes df-bob {
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes df-apart {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  40% {
+    translate: calc(var(--dir) * -24px) 0;
+  }
+  70% {
+    translate: calc(var(--dir) * -6px) 0;
+  }
+}
+
+@keyframes df-shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  15% {
+    translate: 7px -4px;
+  }
+  30% {
+    translate: -6px 3px;
+  }
+  45% {
+    translate: 4px -2px;
+  }
+  60% {
+    translate: -3px 2px;
+  }
+  80% {
+    translate: 1px -1px;
+  }
+}
+
+@keyframes df-slam {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.6) rotate(-22deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.94) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+  }
+}
+
+@keyframes df-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .df-card,
+  .df-foot,
+  .df-close,
+  .df-sample,
+  .df-shot > img {
+    transition: none;
+  }
+
+  .df-dialog,
+  .df-dialog::backdrop {
+    transition: none;
+    transform: none;
+  }
+
+  .df-scan {
+    animation: none;
+  }
+}
+
+/* Small screens: one column, the preview sits below the faces and the dialog scrolls */
+
+@media (max-width: 640px) {
+  .df {
+    --df-pad: 12px;
+    --df-r: 20px;
+    padding-inline: 12px;
+  }
+
+  .df-stage {
+    --df-gap: 10px;
+  }
+
+  .df-dialog {
+    max-height: 92svh;
+  }
+
+  .df-panel {
+    padding: 8px 16px 16px;
+  }
+
+  .df-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .df-people,
+  .df-people-jobs {
+    --cols: 3;
+  }
+
+  .df-face .df-avatar,
+  .df-logo {
+    --s: 72px;
+    font-size: 26px;
+  }
+
+  .df-logo-lg {
+    --s: 96px;
+    font-size: 36px;
+  }
+
+  .df-shot {
+    width: min(100%, 300px);
+  }
+
+  .df-shot-job {
+    width: 100%;
+  }
+
+  .df-actions > * {
+    flex: 1 1 auto;
+  }
+}

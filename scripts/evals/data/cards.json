@@ -1,0 +1,100 @@
+{
+  "bentlegen": {
+    "image": "public/top9/bentlegen.jpg",
+    "titles": [
+      "Final Fantasy III",
+      "Theme Park",
+      "Super Metroid",
+      "Sid Meier's Civilization II",
+      "Counter-Strike",
+      "System Shock 2",
+      "StarCraft II: Wings of Liberty",
+      "SubSpace",
+      "Fallout: A Post Nuclear Role Playing Game"
+    ]
+  },
+  "dorryspears": {
+    "image": "public/top9/dorryspears.jpg",
+    "titles": [
+      "Factorio",
+      "Terraria",
+      "Pokémon HeartGold Version",
+      "Minecraft: Java Edition",
+      "Offworld Trading Company",
+      "Dyson Sphere Program",
+      "Super Smash Bros. Ultimate",
+      "Satisfactory",
+      "Counter-Strike: Global Offens..."
+    ]
+  },
+  "grichadev": {
+    "image": "public/top9/grichadev.jpg",
+    "titles": [
+      "RuneScape 2",
+      "StarCraft",
+      "Portal",
+      "Pokémon Crystal Version",
+      "Counter-Strike: Source",
+      "Heroes of Might and Magic III Remake",
+      "Quake III Arena",
+      "The Settlers III",
+      "The Legend of Zelda: Ocarina of Time"
+    ]
+  },
+  "theo": {
+    "image": "public/top9/theo.jpg",
+    "titles": [
+      "Outer Wilds",
+      "Skate",
+      "Minecraft: Java Edition",
+      "Mass Effect 2",
+      "Undertale",
+      "Kingdom Hearts II",
+      "Portal",
+      "Garry's Mod",
+      "Persona 5"
+    ]
+  },
+  "sergical": {
+    "image": "public/top9/sergical.jpg",
+    "titles": [
+      "Hitman: Blood Money",
+      "Heroes of Might and Magic III: Armageddo...",
+      "Warcraft III: The Frozen Throne",
+      "Diablo II",
+      "StarCraft",
+      "Space Rangers",
+      "Counter-Strike",
+      "Cossacks: European Wars",
+      "Need for Speed: Most Wanted"
+    ]
+  },
+  "justalexoki": {
+    "image": "public/top9/justalexoki.jpg",
+    "titles": [
+      "RuneScape Classic",
+      "Counter-Strike: Source",
+      "Warcraft III: Reign of Chaos",
+      "Halo 3",
+      "Age of Empires II: The Age of Kings",
+      "The Sims",
+      "Skate",
+      "Assassin's Creed",
+      "Need for Speed: Carbon"
+    ]
+  },
+  "linkofsunshine": {
+    "image": "public/top9/linkofsunshine.jpg",
+    "titles": [
+      "Minecraft: Java Edition",
+      "The Legend of Zelda: Breath of the Wild",
+      "Persona 3 Portable",
+      "NieR: Automata",
+      "Europa Universalis IV",
+      "NBA 2K14",
+      "Madden NFL 11",
+      "Pokémon Platinum Version",
+      "PokéPark Wii: Pikachu's Adventure"
+    ]
+  }
+}

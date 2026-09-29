@@ -1,0 +1,506 @@
+{
+  "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+    "title": "Software Engineer - Platforms & Productivity",
+    "description": "Software Engineer - Platforms & Productivity\nCloudflare\n\nAbout Us\n\n At Cloudflare, we are on a mission to help build a better Internet. Today the company runs one of the world’s largest networks that powers millions of websites and other Internet properties for customers ranging from individual bloggers to SMBs to Fortune 500 companies. Cloudflare protects and accelerates any Internet application online without adding hardware, installing software, or changing a line of code. Internet properties powered by Cloudflare all have web traffic routed through its intelligent global network, which gets smarter with every request. As a result, they see significant improvement in performance and a decrease in spam and other attacks. Cloudflare was named to Entrepreneur Magazine’s Top Company Cultures list and ranked among the World’s Most Innovative Companies by Fast Company.\n\n At Cloudflare, we’re not looking for people who wait for a polished roadmap; we’re looking for the builders who see the cracks in the Internet that everyone else has simply learned to live with. We value candidates who have the instinct to spot a \"normalized\" problem and the AI-native curiosity to create a solution using the latest tools. Our culture is built on iteration, leveraging AI to ship faster today to make it better tomorrow, while ensuring that every improvement, no matter how small, is shared across the team to lift everyone up. If you’re the type of person who values curiosity over bureaucracy, and that AI is a partner in solving tough problems to keep the Internet moving forward, you’ll fit right in.\n\n About the Team and Role\n The Developer Productivity team builds internal tools and platforms that improve the velocity and developer experience of Cloudflare's engineering teams. We own developer productivity (code commit to production), developer insights and ADLC metrics, developer infrastructure (CI/CD, build systems), AI-assisted development, and Cloudflare-on-Cloudflare dogfooding.\n This team is responsible for AI-assisted development across all of Cloudflare engineering. Adoption has grown 4–6x in the last year. It's a small team, so you'll have a big surface area and real ownership from day one.\n As a Software Engineer, you will help build and operate internal platforms that help Cloudflare engineers develop, deploy, and run software safely and efficiently. You’ll work across developer tooling, CI/CD, GitOps, and AI-assisted development, including MCP servers, agents, evals, and context engineering.\n You’ll also help govern and enforce Cloudflare’s Engineering Codex by turning engineering standards into automated guardrails, paved paths, and actionable feedback.\n What You’ll Do\n - Build developer productivity tools, MCP servers, and AI agents.\n - Automate Engineering Codex controls through CI/CD checks, templates, and policy-as-code.\n - Monitor Codex adoption, improve controls, and support remediation and exception workflows.\n - Improve GitOps, developer experience, platform security, and reliability.\n - Partner with product teams on architecture and platform adoption.\n - Respond to and prevent incidents affecting internal platforms.\n What We’re Looking For\n - Experience with TypeScript, Go, or Bash.\n - Strong debugging and source-control skills.\n - Experience with CI/CD, GitOps, or developer platforms.\n - Ability to break down complex problems and evaluate trade-offs.\n - Clear communication and a strong focus on developer experience.\n Bonus Points\n - Experience with AI agents, MCP, evals, or LLM-based tooling.\n - Experience with policy-as-code or compliance automation.\n - Background in platform engineering or developer productivity.\n - Experience operating distributed or Kubernetes-based systems.\n What Makes Cloudflare Special?\n\n We’re not just a highly ambitious, large-scale technology company. We’re a highly ambitious, large-scale technology company with a soul. Fundamental to our mission to help build a better Internet is protecting the free and open Internet.\n\n Project Galileo : Since 2014, we've equipped more than 2,400 journalism and civil society organizations in 111 countries with powerful tools to defend themselves against attacks that would otherwise censor their work, technology already used by Cloudflare’s enterprise customers--at no cost.\n\n Athenian Project : In 2017, we created the Athenian Project to ensure that state and local governments have the highest level of protection and reliability for free, so that their constituents have access to election information and voter registration. Since the project, we've provided services to more than 425 local government election websites in 33 states.\n\n 1.1.1.1 : We released 1.1.1.1 to help fix the foundation of the Internet by building a faster, more secure and privacy-centric public DNS resolver. This is available publicly for everyone to use - it is the first consumer-focused service Cloudflare has ever released. Here’s the deal - we don’t store client IP addresses never, ever. We will continue to abide by our privacy commitment and ensure that no user data is sold to advertisers or used to target consumers.\n\n Sound like something you’d like to be a part of? We’d love to hear from you!\n\n Please note that applicants who progress to the offer stage of the interview process may be asked to attend an in-person interview within one of the Cloudflare Offices or Cloudflare Hubs. More details about this will be available at that stage of the interview process.\n\n This position may require access to information protected under U.S. export control laws, including the U.S. Export Administration Regulations. Please note that any offer of employment may be conditioned on your authorization to receive software or technology controlled under these U.S. export laws without sponsorship for an export license.\n\n Cloudflare is proud to be an equal opportunity employer. We are committed to providing equal employment opportunity for all people and place great value in both diversity and inclusiveness. All qualified applicants will be considered for employment without regard to their, or any other person's, perceived or actual race, color, religion, sex, gender, gender identity, gender expression, sexual orientation, national origin, ancestry, citizenship, age, physical or mental disability, medical condition, family care status, or any other basis protected by law. We are an AA/Veterans/Disabled Employer.\n\n Cloudflare provides reasonable accommodations to qualified individuals with disabilities. Please tell us if you require a reasonable accommodation to apply for a job. Examples of reasonable accommodations include, but are not limited to, changing the application process, providing documents in an alternate format, using a sign language interpreter, or using specialized equipment. If you require a reasonable accommodation to apply for a job, please contact us via e-mail at hr@cloudflare.com or via mail at 101 Townsend St. San Francisco, CA 94107.",
+    "needs": {
+      "planning": 2.23,
+      "reflexes": 1.5,
+      "teamwork": 2.48,
+      "optimizing": 0.46,
+      "building": 2.97,
+      "exploring": 2.5,
+      "storytelling": 0,
+      "persistence": 2.26
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "reflexes",
+        "text": "Reacts fast under pressure",
+        "kind": "nice",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+    "title": "Design Engineer",
+    "description": "Design Engineer\nRoblox\n\nEvery day, tens of millions of people come to Roblox to explore, create, play, learn, and connect with friends in 3D immersive digital experiences– all created by our global community of developers and creators.\n\n At Roblox, we’re building the tools and platform that empower our community to bring any experience that they can imagine to life. Our vision is to reimagine the way people come together, from anywhere in the world, and on any device. We’re on a mission to connect a billion people with optimism and civility, and looking for amazing talent to help us get there.\n\n A career at Roblox means you’ll be working to shape the future of human interaction, solving unique technical challenges at scale, and helping to create safer, more civil shared experiences for everyone.\n\n As a Design Engineer on the Design Acceleration team, you’ll be an individual contributor focused on evolving the systems and processes which power Roblox’s design organization through scalable systems, AI integrations, and custom tooling. Our team is responsible for building the orchestration layers and internal tools that empower designers and engineers to work faster and more cohesively. You will help build internal tools, like Figma plugins and design utilities, that empower designers and engineers to work faster and more cohesively.\n\n You have experience at the intersection of systems engineering and design tooling. You understand design systems, but your superpower is building the backend services, APIs, and data models that allow those systems to scale. Your work will help ensure our design tools, AI agents, and prototypes not only inspire—but deploy seamlessly into production environments.\n\n You will:\n\n- Architect and build scalable backend services and APIs that connect our design tools to AI models and production environments (Roblox Studio).\n\n- Develop agentic workflows and orchestration layers (such as Model Context Protocol servers) to enable natural language generation of UI components, layouts, and prototypes.\n\n- Build automated CI/CD pipelines and infrastructure to abstract away complex DevOps workflows, creating \"zero-config\" development environments for non-technical designers.\n\n- Design and maintain the data architecture that connects our design system to our AI data sources, ensuring design tokens and components are programmatically accessible and synced across multiple platforms.\n\n- Create internal tools, develop plugins for tools like Figma and Cursor, and build web apps focused on design linting, code generation, and automated compliance at scale.\n\n- Serve as the deeply technical bridge between core engineering, AI research, and product design, ensuring our design acceleration tools are secure, performant, and structurally sound.\n\n- You will report to the Manager of Design Acceleration.\n\n You have:\n\n- 3+ years of software engineering experience with a strong focus on full-stack or backend development, systems architecture, and API design.\n\n- Demonstrated experience building scalable internal services, not just frontend interfaces.\n\n- Familiarity with LLM orchestration, agentic workflows, and AI protocols (e.g., MCP).\n\n- Experience with cloud infrastructure, feature-flag management, version control (GitHub Enterprise), and automated deployment pipelines.\n\n- Strong understanding of Figma plugin architecture and how to programmatically parse and manipulate design data at scale.\n\n- (Nice to have) Experience with Roblox development, Lua/React-Lua, or game-engine UI architecture.\n\n- (Nice to have) Experience with ASTs (Abstract Syntax Trees), compiler logic, or automated code generation.\n\n For roles that are based at our headquarters in San Mateo, CA: The starting base pay for this position is as shown below. The actual base pay is dependent upon a variety of job-related factors such as professional background, training, work experience, location, business needs and market demand. Therefore, in some circumstances, the actual salary could fall outside of this expected range. This pay range is subject to change and may be modified in the future. All full-time employees are also eligible for equity compensation and for benefits as described on this page .\n\n Annual Salary Range\n $176,940 &mdash; $214,710 USD\n\n Roles that are based in an office are onsite Tuesday, Wednesday, and Thursday, with optional presence on Monday and Friday (unless otherwise noted).\n\n Roblox provides equal employment opportunities to all employees and applicants for employment and prohibits discrimination and harassment of any type without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by federal, state or local laws. Roblox also provides reasonable accommodations to candidates with qualifying disabilities or religious beliefs during the recruiting process.\n\n For US based roles only, please note the Company may not be able to employ candidates for this role who have United States work authorization related to certain U.S. visa categories, or support future H-1B sponsorship at this time.",
+    "needs": {
+      "planning": 2.7,
+      "reflexes": 0.47,
+      "teamwork": 2.37,
+      "optimizing": 0.11,
+      "building": 2.8,
+      "exploring": 2.3,
+      "storytelling": 0,
+      "persistence": 2.38
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+    "title": "Senior / Staff Product Engineer",
+    "description": "Senior / Staff Product Engineer\n\nAt Linear, we're building the product development system for teams and agents. AI is fundamentally changing how software gets built, and we’re shaping the tools this new era requires.\n Founded in 2019, Linear has become the platform of choice for more than 40,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products. Today, our team is distributed across North America, Europe, and Australia, and we’re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.\n As a small team, we’re all generalists that work across the full stack (built in Typescript end-to-end). We’re looking for experienced engineers that thrive in an environment of autonomy and individual responsibility to help us build the future of product development.\n Location & work mode\n Linear is a remote-first company, with optional co-working offices in San Francisco, New York, and London. This role is open to candidates based in the US and Europe. You can work from anywhere within these regions. We value deep focus and async collaboration, with intentional moments to connect in person through team off-sites, optional co-working, and occasional travel.\n What you'll do\n\n- Work closely with founders and design to implement new concepts and ideas\n\n- Build AI-powered functionality into the core of Linear\n\n- Update our realtime collaborative content editor used across all internal surfaces\n\n- Build new user-facing features with beautiful and scalable UI components\n\n- Obsessively improve application performance\n\n- Refine our software development processes to keep the team operating at high velocity\n\n What we're looking for\n\n- 5+ years of experience building customer-facing products at a high-quality software company\n\n- Strong React and TypeScript fundamentals, with experience across the full stack (Browser technologies, Node, GraphQL, PostgreSQL)\n\n- Track record of driving complex, end-to-end features (not just incremental improvements and refactors) with visible impact on the product\n\n- Product sensibility: you care about UX, speed, and polish, and you push back when something doesn't feel right\n\n- Comfortable working without heavy PM overhead; you can help to shape the problem, not just implement a solution\n\n- High ownership mentality: self-directed, full-lifecycle builder who takes a feature from idea to shipped\n\n- Thrives in a remote, async-first environment with a lean, high-output team\n\n- Experience at a startup or a company with a genuinely high engineering bar\n\n Our tech\n This stack reflects the systems we build and operate. You’re not expected to have experience with everything listed, but you should be excited to work close to product, performance, and real-world scale.\n\n- Agentic workload system utilizing temporal, operating at production scale\n\n- Proprietary websocket data sync framework built for speed and offline support\n\n- React, MobX, styled-components on the frontend\n\n- Extensive, widely used, GraphQL API and SDK\n\n- Node, Postgres, Temporal, and Redis in the backend\n\n- Hosted on Google Cloud with k8s\n\n- GitHub, Slack, Notion\n\n What we offer\n We're a small, focused team that cares deeply about the quality of our work and the people we do it with. Here's what you can expect:\n\n- Competitive salary and equity\n\n- Employee-friendly equity terms including early exercise in the US and extended exercise windows\n\n- Daily meal and coffee stipend on every workday\n\n- Paid co-working space or desk\n\n- Health coverage (based on country requirements)\n\n- 5 weeks paid vacation, plus local statutory holidays\n\n- 4 months paid parental leave\n\n- Paid month off after 4 years & every 2 years thereafter\n\n- Regular team events and off-sites\n\n- Remote-first with no required commute\n\n Learn how we think and work\n\n- Read Me a story about our mission\n\n- Our hiring process: How we hire at Linear\n\n- How we work: Designing remote work at Linear\n\n- Why and how we do work trials Linear blog post\n\n- How we use AI in design feature of Linear's design team\n\n- Scaling our real-time sync engine t alk by our cofounder, Tuomas Artman, at Linear's 2023 offsite\n\n- Our recent tender offer: Sharing Linear’s growth with the people building it\n\n Linear is an equal opportunity employer. We do not discriminate based on race, color, religion, gender identity or expression, sexual orientation, national origin, age, disability, veteran status, or any other protected characteristic under applicable law.\n A note on recruitment fraud: all official Linear hiring communication comes from an @ linear.app email address, and all open roles are listed at linear.app/careers . We never ask candidates for payment or financial information. Suspicious messages can be reported to security@linear.app .",
+    "needs": {
+      "planning": 2.17,
+      "reflexes": 0.97,
+      "teamwork": 1.74,
+      "optimizing": 0.51,
+      "building": 2.99,
+      "exploring": 2.58,
+      "storytelling": 0.01,
+      "persistence": 2.68
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "nice",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+    "title": "Senior Developer Experience Engineer",
+    "description": "Senior Developer Experience Engineer\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About the role\n The Developer Experience team is growing in San Francisco! This is a hybrid role out of our main headquarters and must be based there. We’re looking for a hands-on builder with strong opinions on great developer docs.\n Are you someone who loves tinkering with the newest features in your favorite products? Do you enjoy taking the next random JavaScript framework for a spin and figuring out how to make them tick? Does it especially irk you when the code snippets are wrong, or the only docs for a feature are on X? Developer Experience at Sentry lives in the intersection of shipping really cool products and getting developers set up to use them.\n If you’re someone who is confident in partnering with Product and Engineering to test and ship the latest features, not afraid to jump in and go hands-on to solve problems for our biggest customers, and a good eye for what good docs looks like - this is a dream role.\n Developer Experience at Sentry is a team of builders who are constantly looking for ways to make it easier for every developer to use Sentry. We engage with the challenges facing technical communities, to support developers, gather feedback, and help our product and engineering teams ship new capabilities.\n An engineer in this role should be confident to “come with an answer,\" propose the product solutions, identify the content and/or execution plans and people to partner with, and go execute.\n\n In this role you will\n\n- Attend and even host events and meetups in the developer community\n\n- Have a point of view and aren’t shy about expressing it. You get your energy from both knowing the latest trends and having a POV on which ones to ignore. Who’s working on something interesting, who influences the conversation, and who’s going to help drive the conversation forward - while linking all this back to the core problems that Sentry is solving\n\n- Build content that gets people excited to build their software alongside Sentry\n\n- Have an ear to the street. You get excited about gathering insights from users, the developer tool world, and what's currently happening in software development.\n\n- Ride side by side with Engineering, Product, Design, Sales Engineering, Business Ops, and nearly every function in Marketing from Comms to Product Marketing to develop the best content and great product narratives.\n\n You’ll love this job if you\n\n- Are someone who loves taking new features for a spin, learning how they tick, and testing them against your own projects\n\n- Are an educator, a builder, and a human router. And you know that the best way to get people excited about your product is to show, not sell, through cool concepts, useful technical tutorials, and by bringing brilliant people together\n\n- Are a “meh… not bad” writer who understands how to tell a useful and relevant story in 30 words as well as weave together questions to panelists for 30 minutes\n\n- Get excited when you hear that your job is to do ⅓ of each: Educating through useful and timely content + building community through live and virtual gatherings + Being customer-to-product influence\n\n- Listen as much as you talk. And you know how to build a community organically by lifting up and promoting others.\n\n Qualifications\n\n- 5+ years as a developer and 3+ years in an advocacy or educational role such as developer relations/evangelism, creating technical content, leading a community of developers via forums or events\n\n- You have 3+ examples of technical educational content aimed for professional developers (e.g. tutorial, video series, blog series, course)\n\n- At least one example of your own dedicated blogs, forum or sites with a developer-focused audience and can speak to how you measured success and what promotional mechanisms you used to drive top of funnel visibility\n\n- At least one project using a common modern development language or framework\n\n- You have been an active member and contributor of technical communities, on any platform (e.g. Discord, Stack Overflow, Reddit, Twitter, TikTok)\n\n- Ability to prioritize competing opportunities and balance customer needs versus business priorities\n\n- Stellar written and verbal communication skills\n\n- A down-to-earth attitude, a good amount of humility, and dry sense of humor are a huge plus\n\n The base salary range (or hourly wage range, if applicable) that Sentry reasonably expects to pay for this position is $150,000 to $190,000 USD . A successful candidate’s actual base salary (or hourly wage) amount will be determined by a variety of relevant factors including, without limitation, the candidate’s work location, education, work and other relevant experience, skills, and job-related knowledge. A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.35,
+      "reflexes": 0.88,
+      "teamwork": 3,
+      "optimizing": 0.1,
+      "building": 2.88,
+      "exploring": 2.89,
+      "storytelling": 0.54,
+      "persistence": 1.75
+    },
+    "wants": "co_op_cleric",
+    "requirements": [
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "nice",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+    "title": "Senior Software Engineer, AI Evals",
+    "description": "Senior Software Engineer, AI Evals\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About the role\n As a Senior Software Engineer on Sentry’s AI/ML team, you’ll be responsible for building the evaluation infrastructure that measures the accuracy, reliability, and real-world performance of our AI systems. This role is critical to ensuring that our debugging agents and AI-powered features behave correctly, safely, and predictably as they scale. You’ll design datasets, benchmarks, and test harnesses that turn ambiguous AI behavior into measurable signals, helping the team ship AI with confidence.\n\n In this role you will\n\n- Design and build robust evaluation frameworks to measure accuracy, reliability, regressions, and edge cases in AI systems\n\n- Create and curate high-quality datasets, golden test cases, and benchmarks grounded in real production data\n\n- Build automated test harnesses and metrics pipelines to continuously evaluate models, prompts, and agentic workflows\n\n- Partner closely with applied AI engineers and product leaders to define what “good” looks like and translate it into measurable criteria\n\n- Own the evaluation lifecycle for major AI initiatives, from early experimentation through production monitoring\n\n You’ll love this job if you\n\n- Care deeply about correctness, rigor, and measurement in AI systems\n\n- Enjoy turning fuzzy product goals and model behavior into concrete tests and metrics\n\n- Like building foundational infrastructure that unlocks faster iteration and higher confidence for the entire AI team\n\n- Thrive in cross-functional environments and enjoy influencing model design through better evaluation\n\n Qualifications\n\n- Minimum 5+ years of professional experience with a Bachelor’s degree in computer science, machine learning, or a related field\n\n- Experience building testing, evaluation, or data infrastructure for complex systems (AI/ML experience strongly preferred)\n\n- Comfort writing production-quality code (we use Python and TypeScript)\n\n- Experience working with structured and unstructured datasets, labeling workflows, or data quality pipelines\n\n- Familiarity with modern ML systems and evaluation techniques (e.g., offline metrics, online evaluation, regression testing for models or prompts)\n\n- Bonus: experience evaluating LLMs, agentic systems, or AI-assisted developer tools\n\n The base salary range (or hourly wage range, if applicable) that Sentry reasonably expects to pay for this position is $155,000 to $400,000 USD . A successful candidate’s actual base salary (or hourly wage) amount will be determined by a variety of relevant factors including, without limitation, the candidate’s work location, education, work and other relevant experience, skills, and job-related knowledge. A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.66,
+      "reflexes": 0.6,
+      "teamwork": 2.37,
+      "optimizing": 1.47,
+      "building": 2.97,
+      "exploring": 2.26,
+      "storytelling": 0,
+      "persistence": 2.39
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "optimizing",
+        "text": "Tunes the numbers until it hums",
+        "kind": "nice",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+    "title": "Security Engineer, Detection & Response",
+    "description": "Security Engineer, Detection & Response\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About The Role\n The Security Team is responsible for securing all things Sentry: our customers, our code, and everything in between. We are a small but growing team with broad scope, high trust, and the autonomy to tackle hard security problems with creativity and an engineering mindset. We work at a company with a strong developer culture, building a product that millions of developers genuinely love and rely on. That context shapes everything about how we operate.\n We take a pragmatic approach to preventing and responding to security risks. In this role not only will you build and contribute to systems which detect malicious activity, you will have the unique opportunity to implement new controls to prevent future incidents. You will work across detection and response and corporate security domains. You'll contribute to practices that keep Sentry secure as we grow: alert triage for corporate and production, detection engineering, deploying preventative controls, identity and access management, investigations and incident response, and more.\n You'll partner with teams across the company to prevent and respond to security incidents. You will work as a technical collaborator who prioritizes preventative controls, defense in depth, and high signal alerting practices. As Sentry expands our agentic product capabilities and development practices, you'll also find yourself at the frontier of a new set of security approaches and challenges.\n\n In this role, you will\n\n- Maintain, improve, and own detection engineering systems. We own and operate our own detection stack and are building agentic triage with thoughtful security response and orchestration automation.\n\n- Perform investigations, and contribute to security incident response. You will assist and contribute to a breadth of incident types, or Sentry and our customers.\n\n- Contribute to, maintain, and operate identity and access management systems. Access management is a critical component of our security program.\n\n- Have a lot of opportunity to grow and learn across many security domains. We are a highly cross-functional team and you will have opportunities to touch adjacent security projects spanning appsec, infrasec, governance, and privacy.\n\n- Research, identify, and respond to emerging threats relevant to Sentry. We build and operate a complex application and cloud environment, including the novel attack surface introduced by Sentry's agentic product features and AI-assisted engineering practices.\n\n You’ll thrive in this role if you\n\n- Enjoy operating cross-functionally, building relationships, and influencing with technical expertise as you protect a fast-moving engineering organization.\n\n- Get excited when something new lands on your desk, be it an interesting breach, a sweet exploit, a novel agentic architecture, an unfamiliar cloud primitive, or a bug class you haven't seen before.\n\n- Love working in a developer-forward culture where your colleagues are builders who care deeply about code quality and customer satisfaction.\n\n- Reach for automation first, you'd rather build a scalable, systematic solution to a security problem than make a noisy reactive solution which requires manual triage.\n\n- Thrive with ownership and want more of it, you prefer to drive work end-to-end, and you're energized by the autonomy — and the mentorship — that comes with being on a small, high-trust team.\n\n Qualifications\n\n- 2+ years of industry experience in a detection and response, corporate security, or generalist security engineering role\n\n- Degree in Computer Science or a related field, equivalent training, or professional experience\n\n- Hands-on experience with several of the following: alert triage, detection tuning and writing, detection-as-code, security log ingestion, investigations and security incident response, identity and access management (IAM), phishing response, user access reviews, managing endpoint detection and response tooling\n\n- Experienced and comfortable programing in at least one language (Python preferred) and comfortable using agentic development workflows\n\n- Familiarity with operating distributed cloud technology (AWS, CICD, GCP, Azure, Kubernetes, Docker, Terraform, etc.) and experience with corporate (SSO, SAML, IAM) and defensive security tooling (EDR, SIEM, CNAPP, ZTNA, etc.)\n\n- A collaborative approach to problem solving paired with strong written and verbal communication\n\n Not sure if you meet 100% of the qualifications? We encourage you to apply anyway. We're interested in people are excited about this opportunity and eager to grow.\n\n The base salary range (or hourly wage range, if applicable) that Sentry reasonably expects to pay for this position is $155,000 to $400,000 USD . A successful candidate’s actual base salary (or hourly wage) amount will be determined by a variety of relevant factors including, without limitation, the candidate’s work location, education, work and other relevant experience, skills, and job-related knowledge. A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.26,
+      "reflexes": 2.34,
+      "teamwork": 2.75,
+      "optimizing": 0.95,
+      "building": 2.74,
+      "exploring": 2.84,
+      "storytelling": 0.01,
+      "persistence": 2.39
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "reflexes",
+        "text": "Reacts fast under pressure",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+    "title": "Senior Staff Software Engineer, Platform",
+    "description": "Senior Staff Software Engineer, Platform\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About the Role\n A strong and reliable platform is essential to scaling Sentry for the future. Our Platform organization is responsible for everything that powers Sentry—from cloud infrastructure and streaming systems to storage, deployment, and security. We own the core services and technical foundations that enable every product and engineering team at Sentry to move fast and build with confidence.\n\n We're looking for a passionate and pragmatic Senior Staff Software Engineer to help lead this evolution. In this role, you’ll report directly to the VP of Engineering and collaborate with teams across the company to shape the future of Sentry’s platform.\n\n What You’ll Do\n\n- Architect the future of Sentry by translating business needs and product strategy into clear, scalable technical blueprints.\n\n- Partner with product and engineering leaders to align technical roadmaps with company goals.\n\n- Lead cross-cutting initiatives across the Platform org—owning them end-to-end and driving meaningful outcomes.\n\n- Promote engineering excellence by mentoring platform engineers, sharing best practices, and setting high standards for system design, scalability, and operational quality.\n\n- Review major architectural proposals and help ensure consistency, maintainability, and long-term technical health across the company.\n\n You’ll Love This Job If You...\n\n- Enjoy designing and building platforms that help teams move faster and scale safely.\n\n- Thrive on solving complex, multi-dimensional problems across product, infrastructure, and organizational layers.\n\n- Want to make architectural decisions that shape Sentry’s long-term success.\n\n- Bring new ideas, tools, and frameworks to the table—and know when to optimize for simplicity over novelty.\n\n- Enjoy working closely with senior leadership and cross-functional partners to drive company-wide initiatives.\n\n Qualifications\n\n- 12+ years of experience building large-scale distributed systems.\n\n- 5+ years working in cloud-based environments (AWS, GCP, etc.).\n\n- 3+ years in a technical architecture or equivalent leadership role.\n\n- Proven track record of leading cross-team, high-impact engineering projects.\n\n- Ability to create production-quality proof-of-concept architectures and write high-quality code.\n\n- Deep knowledge of modern infrastructure technologies, including:\n\n- Kubernetes, Terraform, Service Mesh\n\n- Kafka and real-time streaming frameworks (e.g., Flink, Beam)\n\n- OLAP/OLTP databases, blob storage, caching\n\n- Excellent communication skills, with the ability to clearly explain complex technical concepts to a range of stakeholders.\n\n- Experience mentoring senior/staff-level engineers.\n\n The base salary range that Sentry reasonably expects to pay for this position is $260,000 to $400,000 plus up to 20% bonus. A successful candidate’s actual base salary (or hourly wage) amount will be determined by a variety of relevant factors including, without limitation, the candidate’s work location, education, work and other relevant experience, skills, and job-related knowledge. A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.99,
+      "reflexes": 0.57,
+      "teamwork": 3,
+      "optimizing": 0.45,
+      "building": 2.6,
+      "exploring": 2.24,
+      "storytelling": 0,
+      "persistence": 2.49
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+    "title": "Staff Software Engineer, Issues",
+    "description": "Staff Software Engineer, Issues\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About the role\n Issue Workflow is Sentry's primary product surface. Our issue platform processes billions events daily and turns them into actionable insights that help millions of developers fix bugs faster.\n As a Staff Software Engineer on the Issues team, you'll architect the systems that power this experience. You'll work at the intersection of high-scale distributed systems and product engineering, building real-time data pipelines, search backends, and analysis systems that surface signal from noise. This is product engineering at massive scale—where every architectural decision impacts millions of debugging sessions.\n You'll be the technical leader who shapes how Sentry groups issues, how we make search lightning-fast, how we enable sophisticated agentic workflows, and how we ensure that the product is performant even at billions-of-events scale. Your work will define what's possible for the most trafficked part of Sentry's platform.\n\n In this role you will\n\n- Drive technical strategy and roadmap. Partner with engineering leadership, product, and design to shape the multi-quarter technical vision for Issue Workflow platform. Make strategic calls about architectural direction, technology choices, and technical debt. Ensure the team is building a strong foundation to scale with Sentry's growth.\n\n- Solve complex performance and scalability challenges.\n\n- Champion product quality and user experience. Build features that don't just work—they delight. You understand that milliseconds matter in the developer experience. You sweat the details of interfaces, error messages, loading states, and edge cases. You instrument everything so the team can measure and improve.\n\n- Mentor and elevate others . You've helped engineers grow their skills. You celebrate wins and learn from failures alongside your teammates.\n\n You’ll love this job if you\n\n- Are a distributed systems engineer who understands the realities of high-scale architectures. You know about eventual consistency, partitioning strategies, caching layers, and query optimization. You've debugged enough systems at scale that you now know to design for failure and build systems that degrade gracefully.\n\n- Are product-minded and understand that great engineering serves users. You collaborate effectively with Product and Design, offering technical perspectives that shape better products. You can explain technical constraints in user-centric terms. You get excited about making developers' lives better, not just solving technical puzzles.\n\n- Have strong full-stack instincts . While this role is backend-heavy, you understand the entire system from data ingestion to what renders in the browser. You know enough about frontend performance, API design, and user experience to make good architectural decisions that consider the whole picture.\n\n- Include and uplift others. You've helped engineers grow their skills in systems design, coding practices, and product thinking. You're generous with knowledge and patient in explaining complex concepts. You celebrate wins and learn from failures alongside your teammates.\n\n Qualifications\n\n- 10+ years in full-stack software engineering, ideally Python and Typescript\n\n- Expertise in domain modeling, distributed systems, data stores, message queues\n\n- Excellent written and verbal communication skills\n\n- Experience with PostgreSQL, ClickHouse, and Kafka is preferred\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.98,
+      "reflexes": 1,
+      "teamwork": 2.98,
+      "optimizing": 1.42,
+      "building": 2.87,
+      "exploring": 2.5,
+      "storytelling": 0,
+      "persistence": 2.69
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "optimizing",
+        "text": "Tunes the numbers until it hums",
+        "kind": "nice",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+    "title": "Senior Software Engineer, Agent Tracing",
+    "description": "Senior Software Engineer, Agent Tracing\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n About the role\n Agents are becoming the default way developers ship LLM-powered software, and they are miserable to debug. A single run fans out across model calls, tool calls, retries, handoffs between agents, and multi-turn conversations that only make sense as a whole. When one goes wrong, the developer usually has a log line and a shrug.\n Sentry's Agent Tracing turns that into something you can actually inspect: agent runs, tool calls, model interactions, token usage and cost, conversations you can replay message by message.\n As a Senior Software Engineer on the Telemetry Experience team, you'll own that product surface - Python/Django and Postgres on the backend, React and TypeScript on the frontend, sitting on top of Sentry's trace storage. You'll work with the SDK engineers who instrument the agent frameworks upstream and own everything customers touch downstream: the dashboards, the conversation views, the APIs, and the workflows that turn a confusing agent run into an obvious fix.\n\n In this role you will\n\n- Own projects end to end. Take a problem from a rough customer complaint through scoping, design, implementation across the stack, rollout, and measurement. You'll write the design doc, cut the work into shippable pieces, and stay with it until the numbers move\n\n- Build the views developers debug agents in. Multi-agent workflows, conversation replay, cost and token breakdowns, the moment where a run failed and why. Making a deeply nested, wildly variable trace legible is a genuinely hard interface problem\n\n- Make the data underneath fast and queryable. Filtering and sorting millions of conversations, getting cost calculation right, and designing APIs that both humans and other people's agents can use well\n\n- Detect the failures worth flagging. We're expanding from showing developers what happened to telling them what went wrong - common agent failure classes surfaced as issues, not as something you have to go looking for\n\n- Take the friction out of getting started. Setup should be trivial on any stack, whether a developer wires it up by hand or asks their coding agent to do it\n\n- Collaborate daily with product managers, designers, SDK engineers, and other product engineers. You'll bring the technical perspective that makes a design better, explain constraints in terms of what they cost the user, and sweat the details other people skip: empty states, error messages, loading behavior, the edge case that only bites 2% of accounts\n\n You’ll love this job if you\n\n- You'd rather own an outcome than a ticket. You take ambiguous problems, decide what to build, drive it across team boundaries, and follow through after launch. Nobody has to hand you a spec\n\n- You're obsessed with making an experience smooth. Friction offends you. You notice the extra click, the confusing label, the query that takes 400ms too long - and you fix them instead of filing them\n\n- You solve problems for customers, not for the codebase. Sentry's users are developers, so you can read their bug reports, sit in their tooling, and tell the difference between what they asked for and what they need\n\n- You communicate well in writing. Working across SDK teams, product, and design in a distributed company means your docs, PR descriptions, and updates do a lot of the work\n\n- You want to build in a space that's still being figured out. Nobody has settled what agent observability should look like. You'd rather help decide that than implement someone else's finished answer.\n\n Qualifications\n\n- 5+ years of professional experience building and shipping full-stack web applications\n\n- Strong experience with React and TypeScript, and with Python (Django or similar) backed by a relational database such as PostgreSQL - depth in one side and real competence in the other is fine\n\n- You've built something real with LLMs or agent frameworks and know their failure modes first-hand\n\n- A track record of driving non-trivial projects end to end, including the parts that require getting other teams to agree with you\n\n- Comfort designing and building data-heavy interfaces where the shape of the data is messy and the volume is large\n\n- Excellent written and spoken English communication skills\n\n- Experience leveraging AI-powered development tools to enhance productivity and code quality\n\n- You live in the Vienna area or are willing to relocate for this role\n\n Bonus points\n\n- Familiarity with the application monitoring and observability space, or with OpenTelemetry\n\n- Experience querying large-scale analytical data stores (ClickHouse, or similar)\n\n- Experience building developer-facing products, SDKs, or public APIs\n\n- A track record of contributing to open-source projects\n\n We are obliged by law to quote the minimum wage of EUR 60,844,-- gross per year for this position, in accordance with the respective collective agreement (IT-KV). The salary that Sentry offers you is adjusted to the current market situation and will be above the IT-KV.\n A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.93,
+      "reflexes": 0.79,
+      "teamwork": 2.91,
+      "optimizing": 0.75,
+      "building": 2.99,
+      "exploring": 2.93,
+      "storytelling": 0.01,
+      "persistence": 2.84
+    },
+    "wants": "product_bard",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  },
+  "https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+    "title": "Senior Software Engineer (iOS), SDK",
+    "description": "Senior Software Engineer (iOS), SDK\n\nAbout Sentry\n Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building.\n Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future.\n\n Ready to build the future of mobile app monitoring?\n This is no ordinary engineering role. At Sentry, our Mobile SDK team creates the next generation of tools for developers worldwide, processing over a billion events every single day. We're looking for a talented Senior iOS SDK Engineer to join our team of experts.\n You'll dive deep into Apple's most advanced technology, from powerful new APIs and SwiftUI to Foundation Models. If you love using cutting-edge tech to solve complex challenges, you've found your team.\n\n What you will achieve in this role\n As the owner of our iOS SDK, you will guide its development from the core architecture to the final product experience. You'll pioneer exciting new features like Session Replay and next-generation performance monitoring, all while mastering Apple's latest innovations like modern concurrency and on-device AI.\n You will design robust, high-quality APIs built to handle massive scale, and you'll get to shape the overall vision for mobile at Sentry. Ultimately, you will be the go-to expert, helping our teams solve the most complex and interesting customer challenges.\n\n Why you will love this role\n We're looking for someone who is passionate about their craft and loves building elegant, intuitive tools that other developers are excited to use. You'll have the chance to contribute full-time to a major open-source project and see the immediate impact of your work in our fast-paced environment.\n You will be surrounded by thoughtful, collaborative engineers who are dedicated to a culture of excellence, constantly pushing each other to learn, grow, and produce their best work.\n\n Qualifications\n\n- 5+ years of professional experience as a Software Engineer, with a strong focus on mobile platforms, and ideally in SDK development and/or developer tooling\n\n- Deep experience developing for the iOS platform using Swift and Objective-C\n\n- A strong understanding of mobile architecture, patterns, and best practices\n\n- Experience leveraging AI-powered development tools to enhance productivity and code quality\n\n- Excellent written and spoken English communication skills\n\n- Well-organized with a high level of attention to detail and accuracy\n\n- You live in the Vienna area or are willing to relocate for this incredible opportunity\n\n Bonus Points\n\n- Knowledge of the app monitoring and observability space\n\n- Familiarity with low-level programming (C/C++)\n\n- A track record of maintaining or contributing to open-source libraries\n\n- Experience with other mobile platforms or frameworks (Android + Kotlin/Java, React Native + JavaScript/TypeScript, Flutter + Dart)\n\n We are obliged by law to quote the minimum wage of EUR 60,844,-- gross per year for this position, in accordance with the respective collective agreement (IT-KV). The salary that Sentry offers you is adjusted to the current market situation and will be above the IT-KV.\n A successful candidate will be eligible to participate in Sentry’s employee benefit plans/programs applicable to the candidate’s position (including incentive compensation, equity grants, paid time off, and group health insurance coverage). See Sentry Benefits for more details about the Company’s benefit plans/programs.\n\n Equal Opportunity at Sentry\n Sentry is committed to providing equal employment opportunities to its employees and candidates for employment regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, or other legally-protected characteristic. This commitment includes the provision of reasonable accommodations to employees and candidates for employment with physical or mental disabilities who require such accommodations in order to (a) perform the essential functions of their jobs, or (b) seek employment with Sentry. We strive to build a diverse team, with an inclusive culture where every teammate can thrive. Sentry is an open-source company because we believe that everyone, everywhere, should have the ability and tools to make great software. Software should be accessible. That starts with making our industry accessible.\n If you need assistance or an accommodation due to a disability, you may contact us at accommodations@sentry.io .\n Want to learn more about how Sentry handles applicant data? Get the details in our Applicant Privacy Policy .",
+    "needs": {
+      "planning": 2.63,
+      "reflexes": 0.78,
+      "teamwork": 2.46,
+      "optimizing": 0.52,
+      "building": 2.99,
+      "exploring": 2.76,
+      "storytelling": 0,
+      "persistence": 2.4
+    },
+    "wants": "systems_necromancer",
+    "requirements": [
+      {
+        "id": "building",
+        "text": "Builds new things from scratch",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "exploring",
+        "text": "Pokes at the unknown for fun",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "planning",
+        "text": "Plans several steps ahead",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "teamwork",
+        "text": "Plays well with a squad",
+        "kind": "must",
+        "evidence": ""
+      },
+      {
+        "id": "persistence",
+        "text": "Keeps grinding until it is done",
+        "kind": "must",
+        "evidence": ""
+      }
+    ],
+    "dropped": []
+  }
+}

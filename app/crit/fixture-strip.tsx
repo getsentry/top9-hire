@@ -13,7 +13,7 @@ export function FixtureStrip({
   return (
     <section className="strip" aria-labelledby="strip-title">
       <p className="field-label" id="strip-title">
-        Fixtures · {examples.length} real cards, captured {CAPTURED_AT}
+        Candidates · {examples.length} real cards, captured {CAPTURED_AT}
       </p>
       <ul className="strip-row">
         {examples.map((example) => (
