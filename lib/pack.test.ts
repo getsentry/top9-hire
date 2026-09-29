@@ -108,14 +108,14 @@ test("the share blurb carries the archetype, signal line, score, and role read",
     handle: "dorryspears",
     plate: "T9-07",
     card,
-    match: { choice: "match", jobTitle: "Design Engineer", company: "Vercel" },
+    match: { choice: "stretch", percent: 75, jobTitle: "Software Engineer, Platform", company: "Vercel" },
   });
   assert.equal(
     blurb,
     [
       "@dorryspears: Systems necromancer. Strong signal, 8.4/10.",
       '"Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own."',
-      "Role read: match for Vercel Design Engineer.",
+      "Role read: stretch, 75% aligned for Vercel Software Engineer, Platform.",
       "Top9 Hire crit T9-07",
     ].join("\n"),
   );

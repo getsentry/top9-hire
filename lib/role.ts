@@ -34,7 +34,65 @@ export const matchSchema = z.object({
   why: z.string().trim().min(1).max(500),
 });
 
-export type HireJobMatch = z.infer<typeof matchSchema>;
+export type MatchChoice = (typeof MATCH_CHOICES)[number];
+
+/** A gap of this many levels or more on one axis counts as diverging. */
+export const DIVERGE_AT = 2;
+
+export type AxisFacet = {
+  id: AxisId;
+  axis: string;
+  left: string;
+  right: string;
+  hire: number;
+  role: number;
+  gap: number;
+  read: "aligned" | "adjacent" | "diverges";
+};
+
+export type Alignment = {
+  percent: number;
+  choice: MatchChoice;
+  diverging: number;
+  facets: AxisFacet[];
+  archetypes: { hire: string; role: string; same: boolean };
+};
+
+export type HireJobMatch = z.infer<typeof matchSchema> & { alignment: Alignment };
+
+/**
+ * The match choice is a rule on the axis gaps, not a model mood:
+ * no diverging axes is a match, one or two is a stretch, three or four is a mismatch.
+ */
+export function alignment(hire: Pick<Judgment, "archetype" | "scores">, role: Pick<Judgment, "archetype" | "scores">): Alignment {
+  const ids = Object.keys(AXES) as AxisId[];
+  const facets = ids.map((id): AxisFacet => {
+    const gap = Math.abs(hire.scores[id].level - role.scores[id].level);
+    return {
+      id,
+      axis: `${AXES[id].left} vs ${AXES[id].right}`,
+      left: AXES[id].left,
+      right: AXES[id].right,
+      hire: hire.scores[id].level,
+      role: role.scores[id].level,
+      gap,
+      read: gap === 0 ? "aligned" : gap < DIVERGE_AT ? "adjacent" : "diverges",
+    };
+  });
+  const totalGap = facets.reduce((sum, facet) => sum + facet.gap, 0);
+  const diverging = facets.filter((facet) => facet.read === "diverges").length;
+  return {
+    percent: Math.round(100 * (1 - totalGap / (ids.length * 3))),
+    choice: diverging === 0 ? "match" : diverging <= 2 ? "stretch" : "mismatch",
+    diverging,
+    facets,
+    archetypes: {
+      hire: ARCHETYPES[hire.archetype].label,
+      role: ARCHETYPES[role.archetype].label,
+      same: hire.archetype === role.archetype,
+    },
+  };
+}
 
 function axisGuide(): string {
   return (Object.keys(AXES) as AxisId[])
@@ -80,11 +138,10 @@ export function matchInstructions(): string {
   return [
     "Compare a person's hire judgment with a role judgment.",
     "Both use the same axes. Level 1 is the left pole and level 4 is the right pole.",
-    "choice is exactly one of match, stretch, mismatch.",
-    "match: the archetype family and the axis levels sit close. This taste would recognize the work.",
-    "stretch: some axes agree and one or two diverge. The gap is real and adjacent.",
-    "mismatch: the axes or archetypes pull apart. The taste and the work do not line up.",
-    "why is one or two sentences for a hiring manager. Name the axes that agree or diverge.",
+    "choice is exactly one of match, stretch, mismatch, and the app has already fixed it from the axis gaps in alignment.",
+    `An axis diverges when the two levels are ${DIVERGE_AT} or more apart. No diverging axes is match, one or two is stretch, three or four is mismatch.`,
+    "Return alignment.choice as choice. Do not overrule it with the archetype labels.",
+    "why is one or two sentences for a hiring manager that explain that choice. Name the axes that align or diverge.",
     "In why, call an archetype by its label and an axis by its poles, like Systems vs Product. Never print ids such as systems_vs_product or co_op_cleric.",
     "Use only the JSON you are given. Do not invent scores, titles, or job duties.",
     "This is a hire signal for a conversation. It is not a hiring decision.",
@@ -92,6 +149,7 @@ export function matchInstructions(): string {
 }
 
 export function matchState(hire: Judgment, role: Judgment, job?: { title: string; url: string }) {
+  const aligned = alignment(hire, role);
   const axes = (judgment: Judgment) =>
     (Object.keys(AXES) as AxisId[]).map((id) => ({
       id,
@@ -114,6 +172,12 @@ export function matchState(hire: Judgment, role: Judgment, job?: { title: string
       label: ARCHETYPES[role.archetype].label,
       confidence: role.confidence,
       scores: axes(role),
+    },
+    alignment: {
+      choice: aligned.choice,
+      percent: aligned.percent,
+      diverging: aligned.facets.filter((f) => f.read === "diverges").map((f) => f.axis),
+      aligned: aligned.facets.filter((f) => f.read === "aligned").map((f) => f.axis),
     },
   };
 }
@@ -204,6 +268,7 @@ const MATCH_SCORE: Record<HireJobMatch["choice"], number> = {
 export async function evaluateMatch(hire: Judgment, role: Judgment, job?: { title: string; url: string }): Promise<HireJobMatch> {
   await requireGateway();
   const instructions = matchInstructions();
+  const aligned = alignment(hire, role);
   const prompt = JSON.stringify(matchState(hire, role, job));
   const match = await Sentry.startSpan(
     {
@@ -237,13 +302,16 @@ export async function evaluateMatch(hire: Judgment, role: Judgment, job?: { titl
       });
       if (!output) throw new Error("Model returned an empty match");
       const parsed = matchSchema.parse(output);
-      span.setAttribute("gen_ai.evaluation.score.value", MATCH_SCORE[parsed.choice]);
-      span.setAttribute("gen_ai.evaluation.score.label", parsed.choice);
+      span.setAttribute("gen_ai.evaluation.score.value", MATCH_SCORE[aligned.choice]);
+      span.setAttribute("gen_ai.evaluation.score.label", aligned.choice);
       span.setAttribute("gen_ai.evaluation.explanation", parsed.why);
       span.setAttribute("gen_ai.output.messages", outputMessages(JSON.stringify(parsed)));
       span.setAttribute("hire.scores", JSON.stringify(hire.scores));
       span.setAttribute("role.scores", JSON.stringify(role.scores));
-      return parsed;
+      span.setAttribute("hire_job_match.alignment_percent", aligned.percent);
+      span.setAttribute("hire_job_match.model_choice", parsed.choice);
+      span.setAttribute("hire_job_match.model_agrees", parsed.choice === aligned.choice);
+      return { choice: aligned.choice, why: parsed.why, alignment: aligned };
     },
   );
   // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
