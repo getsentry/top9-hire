@@ -12,13 +12,6 @@ export function fixtureSource(example: Top9Example): PlateSource {
   return { kind: "fixture", id: example.id, tweetUrl: example.tweetUrl, image: example.image };
 }
 
-export function sourceLabel(source: PlateSource) {
-  if (source.kind === "fixture") return "Real card";
-  if (source.kind === "upload") return "Uploaded card";
-  if (source.kind === "post") return "From post";
-  return "Typed by hand";
-}
-
 function cardImage(source: PlateSource): { src: string; width?: number; height?: number } | null {
   if (source.kind === "fixture") return source.image;
   if (source.kind === "post" && source.src) return { src: source.src };

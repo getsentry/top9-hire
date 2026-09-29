@@ -3,7 +3,7 @@ import { DISCLAIMER, type HireCard } from "@/lib/hire";
 import { sealScore, signalStrength } from "@/lib/pack";
 import { AxisTrack } from "./axis";
 import { renderCritPng } from "./export-png";
-import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
+import { PlateArt, type PlateSource } from "./plate-art";
 import { Seal } from "./seal";
 
 type Props = {
@@ -57,16 +57,14 @@ export function Crit({ source, titles, handle, roleLabel, card, blurb, onEdit }:
       aria-busy={card ? undefined : true}
     >
       <p className="section-meta">
-        {sourceLabel(source)}
         {tweetUrl ? (
           <>
-            {" · "}
             <a href={tweetUrl} target="_blank" rel="noreferrer">
               source post ↗
             </a>
+            {" · "}
           </>
         ) : null}
-        {" · "}
         <button type="button" className="link-button small" onClick={onEdit} disabled={!card}>
           Edit titles
         </button>
