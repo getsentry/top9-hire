@@ -132,7 +132,7 @@ export function JobRail({
 
       <fieldset className="job-pack" disabled={locked}>
         <legend className="field-label">
-          Role pack <span className="count">{jobs.length}</span>
+          Open roles <span className="count">{jobs.length}</span>
         </legend>
         {visible.map((job) => {
           const checked = selectedUrl === job.url;
@@ -161,7 +161,7 @@ export function JobRail({
         })}
         {collapsed ? (
           <button type="button" className="link-button small job-more" onClick={() => setExpanded(true)}>
-            Try another role · {jobs.length} in the pack
+            Try another role
           </button>
         ) : null}
         <label className="job-custom" hidden={collapsed}>

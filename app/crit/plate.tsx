@@ -101,7 +101,7 @@ export function Plate({
               {roleLabel ? (
                 <span>{roleLabel}</span>
               ) : (
-                <span className="muted">None. Pick one from the role pack for a match read.</span>
+                <span className="muted">None. Pick an open role for a match read.</span>
               )}
             </p>
             <button type="submit" className="btn-primary" disabled={disabled}>
