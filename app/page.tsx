@@ -24,16 +24,22 @@ import {
 import { FixtureStrip } from "./crit/fixture-strip";
 import { Intake } from "./crit/intake";
 import { JobRail, type RailResult } from "./crit/job-rail";
+import { Crit } from "./crit/crit";
 import { Plate, type PlateSource } from "./crit/plate";
-import { Verdict, VerdictPending } from "./crit/verdict";
 
 const EMPTY = Array<string>(9).fill("");
 
 type Reading = {
   plate: string;
+  titles: string[];
   handle?: string;
   job?: { title?: string; url: string; company?: string };
 };
+
+function jobLabel(job: { title?: string; company?: string; url: string }) {
+  const title = job.title ?? job.url.replace(/^https?:\/\//, "");
+  return job.company ? `${job.company} · ${title}` : title;
+}
 
 function reducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -59,6 +65,7 @@ export default function CritSheet() {
   const [customUrl, setCustomUrl] = useState("");
   const [result, setResult] = useState<SignalResult | null>(null);
   const [reading, setReading] = useState<Reading | null>(null);
+  const [editing, setEditing] = useState(false);
   const [isReading, startReading] = useTransition();
   const titlesRef = useRef(titles);
   const extractGen = useRef(0);
@@ -83,6 +90,7 @@ export default function CritSheet() {
       setResult(null);
       setReading(null);
     }
+    setEditing(false);
     setTitles(next);
     setSource(nextSource);
     if (nextHandle !== undefined) setHandle(nextHandle);
@@ -175,6 +183,7 @@ export default function CritSheet() {
   function submit() {
     const request: Reading = {
       plate,
+      titles: titles.map((t) => t.trim()),
       handle: handle.trim() || undefined,
       job: jobUrl
         ? { url: jobUrl, title: packJob?.title, company: packJob?.company }
@@ -183,6 +192,8 @@ export default function CritSheet() {
     const paste = titles.map((t) => t.trim()).join("\n");
     setResult(null);
     setReading(request);
+    setEditing(false);
+    scrollToId("plate");
     startReading(async () => {
       const next = await readSignal({ paste, handle, jobUrl });
       setResult(next);
@@ -190,10 +201,13 @@ export default function CritSheet() {
   }
 
   const ok = result?.ok ? result : null;
+  const showCrit = Boolean(source && reading && (isReading || ok) && !editing);
+  const canReturn =
+    editing && ok && reading ? !titlesChanged(reading.titles, titles.map((t) => t.trim())) : false;
 
   useEffect(() => {
-    if (isReading || ok) scrollToId("verdict");
-  }, [isReading, ok]);
+    if (ok) scrollToId("plate");
+  }, [ok]);
   const rail: RailResult | null = ok
     ? {
         hire: ok.card,
@@ -215,7 +229,12 @@ export default function CritSheet() {
           card: ok.card,
           match:
             ok.match && rail?.job
-              ? { choice: ok.match.choice, jobTitle: rail.job.title, company: rail.job.company }
+              ? {
+                  choice: ok.match.choice,
+                  percent: ok.match.alignment.percent,
+                  jobTitle: rail.job.title,
+                  company: rail.job.company,
+                }
               : undefined,
         })
       : "";
@@ -263,7 +282,21 @@ export default function CritSheet() {
 
       <div className="desk">
         <div className="desk-main">
-          {source ? (
+          {source && reading && showCrit ? (
+            <Crit
+              source={source}
+              titles={reading.titles}
+              plate={reading.plate}
+              handle={reading.handle}
+              roleLabel={rail?.job ? jobLabel(rail.job) : reading.job ? jobLabel(reading.job) : null}
+              card={ok && !isReading ? ok.card : null}
+              blurb={blurb}
+              onEdit={() => {
+                setEditing(true);
+                scrollToId("plate");
+              }}
+            />
+          ) : source ? (
             <Plate
               source={source}
               plate={plate}
@@ -272,6 +305,7 @@ export default function CritSheet() {
               onTitle={updateTitle}
               onHandle={setHandle}
               onSubmit={submit}
+              onBack={canReturn ? () => setEditing(false) : undefined}
               reading={isReading}
               disabled={isReading || extracting || filled !== 9}
               roleLabel={roleLabel}
@@ -293,21 +327,16 @@ export default function CritSheet() {
                   <dd>The card, the candidate, and nine titles you can correct.</dd>
                 </div>
                 <div>
-                  <dt className="mono">04 Signal</dt>
-                  <dd>A seal, the archetype, one hire-signal line, and a blurb to share.</dd>
+                  <dt className="mono">03 Crit</dt>
+                  <dd>After the read, the plate becomes one sheet: the card under a seal, the archetype, the hire-signal line, and four axes. Save it as a PNG.</dd>
                 </div>
                 <div>
-                  <dt className="mono">05 Role match</dt>
-                  <dd>Optional. The same signal read against a real role from the pack.</dd>
+                  <dt className="mono">04 Role match</dt>
+                  <dd>Optional. The same signal lined up against a real role from the pack, with an alignment percent and the axes that agree or diverge.</dd>
                 </div>
               </dl>
             </section>
           )}
-
-          {isReading && reading ? <VerdictPending plate={reading.plate} /> : null}
-          {ok && reading && !isReading ? (
-            <Verdict card={ok.card} plate={reading.plate} handle={reading.handle} blurb={blurb} />
-          ) : null}
         </div>
 
         <JobRail

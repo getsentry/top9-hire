@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { ScoreBar } from "@/lib/hire";
 
 function position(level: number) {
@@ -8,15 +9,18 @@ export function AxisTrack({
   score,
   compare,
   showCriterion = true,
+  note,
 }: {
   score: ScoreBar;
   compare?: ScoreBar;
   showCriterion?: boolean;
+  note?: ReactNode;
 }) {
   return (
     <div className="axis" data-fuzzy={score.fuzzy || undefined}>
       <div className="axis-poles">
         <span>{score.left}</span>
+        {note ? <span className="axis-note">{note}</span> : null}
         <span>{score.right}</span>
       </div>
       <div

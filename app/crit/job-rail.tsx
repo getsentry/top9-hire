@@ -14,6 +14,8 @@ export type RailResult = {
 
 function MatchCard({ result }: { result: RailResult }) {
   const { role, match, job, jobError, hire } = result;
+  const facets = match?.alignment.facets;
+  const sameArchetype = role ? role.archetype === hire.archetype : false;
   return (
     <div className="match-card" data-slot="hire-job-match">
       {job ? (
@@ -26,9 +28,15 @@ function MatchCard({ result }: { result: RailResult }) {
       ) : null}
       {match ? (
         <>
-          <p className="match-stamp" data-choice={match.choice}>
-            {match.choice}
-          </p>
+          <div className="match-head">
+            <p className="match-stamp" data-choice={match.choice}>
+              {match.choice}
+            </p>
+            <p className="match-percent">
+              <span className="mono-figure">{match.alignment.percent}%</span>
+              <span className="mono">aligned</span>
+            </p>
+          </div>
           <p className="match-why">{match.why}</p>
         </>
       ) : null}
@@ -39,19 +47,42 @@ function MatchCard({ result }: { result: RailResult }) {
       ) : null}
       {role ? (
         <div className="match-role" data-slot="role-card">
-          <p className="field-label">Role reads as</p>
-          <p className="match-role-label">{role.label}</p>
-          <div className="match-axes">
+          <p className="field-label match-facets-head">
+            Facets
+            <span className="match-legend mono">
+              <span className="dot hire" /> Top9 <span className="dot role" /> Role
+            </span>
+          </p>
+          <ol className="match-facets">
             {hire.scores.map((score, i) => {
               const compare = role.scores[i];
+              const facet = facets?.[i];
               return (
-                <AxisTrack key={score.id} score={score} compare={compare} showCriterion={false} />
+                <li key={score.id} data-read={facet?.read}>
+                  <AxisTrack
+                    score={score}
+                    compare={compare}
+                    showCriterion={false}
+                    note={facet ? facet.read : undefined}
+                  />
+                </li>
               );
             })}
-          </div>
-          <p className="match-legend mono">
-            <span className="dot hire" /> Top9 <span className="dot role" /> Role
-          </p>
+            <li className="facet-archetype" data-read={sameArchetype ? "aligned" : "diverges"}>
+              <p className="axis-poles">
+                <span>Archetype</span>
+                <span className="axis-note">{sameArchetype ? "same" : "differs"}</span>
+              </p>
+              <p className="facet-arch">
+                <span>
+                  <span className="dot hire" /> {hire.label}
+                </span>
+                <span>
+                  <span className="dot role" /> {role.label}
+                </span>
+              </p>
+            </li>
+          </ol>
         </div>
       ) : null}
     </div>
@@ -90,7 +121,7 @@ export function JobRail({
     <aside className="rail" aria-labelledby="rail-title" data-slot="job-url">
       <header className="section-head">
         <p className="eyebrow" id="rail-title">
-          <span>05</span> Role match
+          <span>04</span> Role match
         </p>
         {selectedUrl ? (
           <button type="button" className="link-button small" onClick={() => onSelect("")} disabled={locked}>

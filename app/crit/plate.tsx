@@ -1,53 +1,6 @@
-import Image from "next/image";
-import { CardBitmap } from "./card-bitmap";
+import { PlateArt, sourceLabel, type PlateSource } from "./plate-art";
 
-export type PlateSource =
-  | { kind: "fixture"; id: string; tweetUrl: string; image: { src: string; width: number; height: number } | null }
-  | { kind: "upload"; file: File }
-  | { kind: "post"; src?: string }
-  | { kind: "typed" };
-
-function sourceLabel(source: PlateSource) {
-  if (source.kind === "fixture") return "Fixture";
-  if (source.kind === "upload") return "Uploaded card";
-  if (source.kind === "post") return "From post";
-  return "Typed by hand";
-}
-
-function PlateArt({ source, titles }: { source: PlateSource; titles: string[] }) {
-  if (source.kind === "fixture" && source.image) {
-    return (
-      <Image
-        className="plate-image"
-        src={source.image.src}
-        width={source.image.width}
-        height={source.image.height}
-        sizes="(max-width: 720px) 70vw, 320px"
-        priority
-        alt={`Top9 card: ${titles.join(", ")}`}
-      />
-    );
-  }
-  if (source.kind === "upload") {
-    return <CardBitmap className="plate-image" file={source.file} label={`Top9 card: ${titles.join(", ")}`} />;
-  }
-  if (source.kind === "post" && source.src) {
-    return <img className="plate-image" src={source.src} alt={`Top9 card: ${titles.join(", ")}`} />;
-  }
-  return (
-    <div className="plate-typeset" aria-hidden>
-      <span className="plate-typeset-head">My 9 Games</span>
-      <span className="plate-typeset-grid">
-        {titles.map((title, i) => (
-          <span key={i} data-empty={!title.trim() || undefined}>
-            <span className="mono">{String(i + 1).padStart(2, "0")}</span>
-            {title.trim() || "—"}
-          </span>
-        ))}
-      </span>
-    </div>
-  );
-}
+export type { PlateSource };
 
 export function Plate({
   source,
@@ -57,6 +10,7 @@ export function Plate({
   onTitle,
   onHandle,
   onSubmit,
+  onBack,
   reading,
   disabled,
   roleLabel,
@@ -69,6 +23,7 @@ export function Plate({
   onTitle: (index: number, value: string) => void;
   onHandle: (value: string) => void;
   onSubmit: () => void;
+  onBack?: () => void;
   reading: boolean;
   disabled: boolean;
   roleLabel: string | null;
@@ -91,6 +46,14 @@ export function Plate({
               <a href={tweetUrl} target="_blank" rel="noreferrer">
                 source post ↗
               </a>
+            </>
+          ) : null}
+          {onBack ? (
+            <>
+              {" · "}
+              <button type="button" className="link-button small" onClick={onBack}>
+                Back to crit
+              </button>
             </>
           ) : null}
         </p>
