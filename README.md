@@ -23,10 +23,10 @@ Open http://localhost:3000.
 
 ## The sheet
 
-1. **Intake.** Drop a PNG, JPEG, or WebP card on the card silhouette, paste an `x.com` / `twitter.com` status URL, or type nine titles by hand.
+1. **Intake.** Paste an `x.com` / `twitter.com` status URL in the hero field, drop a PNG, JPEG, or WebP card on the card silhouette, or type nine titles by hand. The silhouette sits on a table of four real fixture cards; clicking one loads it. The proof row under the field prints the fixture capture date, the role pack check date, and where reads are traced.
 2. **Fixtures.** Eight public Top9s from tech Twitter, hardcoded in `lib/__fixtures__/top9-examples.ts`. Their card images live in `public/top9/`. Picking one fills the plate with no network call and no vision call.
 3. **Plate.** The card, the candidate handle, and the nine editable titles. Every plate gets a stable id (`T9-01` for fixtures, a four-hex hash for anything else).
-4. **Crit.** Reading the signal turns the plate into one sheet in place: a numbered header (crit no, candidate, role), the card with the seal stamped on its corner, the archetype, one hire-signal line, and the four axes. The seal prints the confidence as a score out of 10. Save PNG draws the same sheet to a 1600×900 image; Copy blurb and Post on X share the text. Edit titles goes back to the plate.
+4. **Crit.** Reading the signal turns the plate into one sheet in place: a numbered header (crit no, candidate, role), the card with the seal stamped on its corner, the archetype, one hire-signal line, the four axes, and a provenance line (read time, Gateway model, raw confidence). The seal prints the confidence as a score out of 10. Save PNG draws the same sheet to a 1600×900 image; Copy blurb and Post on X share the text. Edit titles goes back to the plate.
 5. **Role match.** A secondary rail with the twelve-role pack from `lib/jobs.json`, plus a field for any other public posting. The result is `match`, `stretch`, or `mismatch`, an alignment percent, a short why, and one facet per axis marked aligned, adjacent, or diverges.
 
 The match choice is a rule, not a model mood. An axis diverges when the two levels are two or more apart. No diverging axes is `match`, one or two is `stretch`, three or four is `mismatch`. The alignment percent is one minus the summed axis gaps over the largest possible gap. The model writes the why and is told the choice; its own choice is kept on the span as `hire_job_match.model_choice`.
