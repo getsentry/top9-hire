@@ -154,7 +154,7 @@ export async function evaluateHire(top9: Top9): Promise<Judgment> {
       const card = toCard(judgment);
       span.setAttribute("gen_ai.evaluation.score.value", judgment.confidence);
       span.setAttribute("gen_ai.evaluation.score.label", judgment.archetype);
-      span.setAttribute("gen_ai.evaluation.explanation", card.roast);
+      span.setAttribute("gen_ai.evaluation.explanation", card.signal);
       span.setAttribute(
         "gen_ai.output.messages",
         JSON.stringify([

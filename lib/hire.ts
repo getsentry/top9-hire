@@ -3,59 +3,67 @@ export const ARCHETYPES = {
     label: "Systems necromancer",
     criterion:
       "Simulation / engineering / hard-systems titles (Factorio, Kerbal, Dwarf Fortress energy)",
-    roast:
-      "You would automate the coffee machine and then argue with it about throughput.",
+    signal:
+      "Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own.",
   },
   product_bard: {
     label: "Product bard",
     criterion: "Player-delight, polish, cozy or design-forward games",
-    roast: "You rate a game by how the pause menu feels.",
+    signal:
+      "Judges a game by how the pause menu feels. That instinct ships the details users notice.",
   },
   speedrun_gremlin: {
     label: "Speedrun gremlin",
     criterion: "Frame-shave, WR chase, precision platformers / time-attack",
-    roast: "Your whole personality is one frame-perfect input.",
+    signal: "Shaves frames for fun. Point them at the p99 and the cold start.",
   },
   solo_queue_demon: {
-    label: "Solo queue demon",
+    label: "Solo-queue climber",
     criterion: "Ranked PvP, fighting games, Elo grind",
-    roast: "You queue alone and still blame the lobby.",
+    signal:
+      "Climbs ranked alone. Give them a hard problem with a clear scoreboard and room to own it.",
   },
   co_op_cleric: {
     label: "Co-op cleric",
     criterion: "Team PvE, healers/supports, wins by enabling others",
-    roast: "You keep the team alive and resent the people dealing damage.",
+    signal:
+      "Wins by keeping the party alive. Signal for DX, tooling, and the glue work that unblocks a team.",
   },
   sandbox_builder: {
     label: "Sandbox builder",
     criterion: "Craft, colony, city-builder, creative sandbox",
-    roast: "You have not finished a game. You have founded a city.",
+    signal:
+      "Founds cities instead of finishing campaigns. Put them on zero-to-one work and a blank repo.",
   },
   meta_spreadsheet: {
     label: "Meta spreadsheet",
     criterion: "Theorycraft, builds, grand strategy, spreadsheet brain",
-    roast: "Your idea of fun is a spreadsheet with a boss.",
+    signal:
+      "Theorycrafts before the first move. Signal for capacity plans, pricing, and anything with a model behind it.",
   },
   lore_monk: {
     label: "Lore monk",
     criterion:
       "Deep single-player, FromSoft/CRPG/story epics, mastery over dopamine",
-    roast: "You read every item description and call that a build.",
+    signal:
+      "Reads every item description. Signal for deep specs, long-horizon systems, and docs people trust.",
   },
   chaos_indie: {
-    label: "Chaos indie",
+    label: "Outsider indie",
     criterion: "Weird / experimental / obscure taste, horror or avant-garde",
-    roast: "Your library looks like a dare.",
+    signal:
+      "Finds the strange game before anyone else. Signal for R&D, prototypes, and taste calls under ambiguity.",
   },
   completionist_hoarder: {
-    label: "Completionist hoarder",
+    label: "Completionist",
     criterion: "100%, collectathons, achievement hunting",
-    roast: "You clear the tutorial at 100 percent and then the credits.",
+    signal:
+      "Clears the map to 100 percent. Signal for migrations, launch checklists, and the last ten percent.",
   },
   no_match: {
-    label: "No match",
+    label: "No clear read",
     criterion: "Too mixed, thin, or contradictory for a clean label",
-    roast: "Nine titles, and none of them agree.",
+    signal: "Nine titles pull in different directions. Read the person, not the pile.",
   },
 } as const;
 
@@ -136,7 +144,7 @@ export type Judgment = {
 export type HireBadge =
   | { kind: "primary"; label: string }
   | { kind: "soft"; label: string; runnerUp?: string }
-  | { kind: "chaos" };
+  | { kind: "unclear" };
 
 export type ScoreBar = {
   id: AxisId;
@@ -148,20 +156,23 @@ export type ScoreBar = {
 };
 
 export type HireCard = {
+  archetype: Archetype;
+  label: string;
+  confidence: number;
   badge: HireBadge;
-  roast: string;
+  signal: string;
   scores: ScoreBar[];
   disclaimer: string;
 };
 
 export const DISCLAIMER =
-  "Entertainment only. This card roasts taste. It is not a hiring decision.";
+  "A hire signal from nine games. It starts a conversation. It is not a hiring decision.";
 
 const ARCHETYPE_QUESTION =
   "Which hire archetype best fits this person's taste, judging only from `top9`?";
 
 const ARCHETYPE_RULES = [
-  "Playful roast of taste, not a hiring recommendation",
+  "Read the taste as a hire signal: the kind of work this person would recognize and do well. It is not a hiring decision",
   "Prefer the clearest cluster over averaging everything",
   "Use no_match when the list is contradictory or too thin to label",
 ] as const;
@@ -255,7 +266,7 @@ export function judgmentInstructions(): string {
     "",
     "hire_archetype.confidence is 0 to 1 for the chosen label.",
     "alternatives is required. Send [] when no other label competes. At most 3 items. probability is 0 to 1.",
-    "Do not write a roast. The app writes that from the archetype.",
+    "Do not write the signal line. The app writes it from the archetype.",
   ].join("\n");
 }
 
@@ -267,7 +278,7 @@ export function toCard(judgment: Judgment): HireCard {
       : undefined;
   let badge: HireBadge;
   if (judgment.archetype === "no_match" || judgment.confidence < 0.4) {
-    badge = { kind: "chaos" };
+    badge = { kind: "unclear" };
   } else if (judgment.confidence >= 0.65) {
     badge = { kind: "primary", label: archetype.label };
   } else {
@@ -288,8 +299,11 @@ export function toCard(judgment: Judgment): HireCard {
     };
   });
   return {
+    archetype: judgment.archetype,
+    label: archetype.label,
+    confidence: judgment.confidence,
     badge,
-    roast: archetype.roast,
+    signal: archetype.signal,
     scores,
     disclaimer: DISCLAIMER,
   };
