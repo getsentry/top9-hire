@@ -70,8 +70,8 @@ test("confidence 0.9 on systems taste is a primary badge and a clear bar", () =>
     label: "Systems necromancer",
   });
   assert.equal(
-    card.roast,
-    "You would automate the coffee machine and then argue with it about throughput.",
+    card.signal,
+    "Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own.",
   );
   assert.equal(card.scores[0]?.fuzzy, false);
   assert.equal(
@@ -84,7 +84,7 @@ test("confidence 0.9 on systems taste is a primary badge and a clear bar", () =>
   );
   assert.equal(
     card.disclaimer,
-    "Entertainment only. This card roasts taste. It is not a hiring decision.",
+    "A hire signal from nine games. It starts a conversation. It is not a hiring decision.",
   );
 });
 
@@ -119,23 +119,28 @@ test("a runner-up at 0.20 stays hidden and a low score at 0.35 stays clear", () 
   assert.equal(card.scores[0]?.fuzzy, false);
 });
 
-test("no_match is chaos even when confidence is high", () => {
+test("no_match is an unclear signal even when confidence is high", () => {
   const card = toCard({
     archetype: "no_match",
     confidence: 0.9,
     scores: scores(0.9),
   });
-  assert.deepEqual(card.badge, { kind: "chaos" });
-  assert.equal(card.roast, "Nine titles, and none of them agree.");
+  assert.deepEqual(card.badge, { kind: "unclear" });
+  assert.equal(card.label, "No clear read");
+  assert.equal(card.signal, "Nine titles pull in different directions. Read the person, not the pile.");
 });
 
-test("confidence under 0.40 is chaos and the score bars remain", () => {
+test("confidence under 0.40 is an unclear signal and the score bars remain", () => {
   const card = toCard({
     archetype: "chaos_indie",
     confidence: 0.39,
     scores: scores(0.9),
   });
-  assert.deepEqual(card.badge, { kind: "chaos" });
+  assert.deepEqual(card.badge, { kind: "unclear" });
   assert.equal(card.scores.length, 4);
-  assert.equal(card.roast, "Your library looks like a dare.");
+  assert.equal(card.confidence, 0.39);
+  assert.equal(
+    card.signal,
+    "Finds the strange game before anyone else. Signal for R&D, prototypes, and taste calls under ambiguity.",
+  );
 });

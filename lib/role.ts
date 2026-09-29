@@ -55,7 +55,7 @@ function archetypeGuide(): string {
 export function roleInstructions(): string {
   return [
     "Score this job description on the same four axes used for a nine-title game library.",
-    "The axes are an entertainment metaphor for working style. This is not a hiring rubric.",
+    "The axes are a hire-signal metaphor for working style. This is not a hiring rubric.",
     "Level 1 is the left pole and level 4 is the right pole. Use the numbered game criteria as that scale, applied to the work in the description.",
     "systems_vs_product: hard systems, infrastructure, and engineering internals versus product, docs, developer-delight, and player-facing polish.",
     "competitive_vs_collaborative: solo climb or individual performance versus team, community, and enabling others.",
@@ -63,7 +63,7 @@ export function roleInstructions(): string {
     "builder_vs_optimizer: creating new tools or products versus tuning, scaling, and min-maxing what already exists.",
     "role_archetype.choice is the closest archetype metaphor for that work. Use no_match when the description is too thin or too mixed.",
     "Do not invent duties that are not in the description.",
-    "Do not write a roast. The app writes that from the archetype.",
+    "Do not write the signal line. The app writes it from the archetype.",
     "",
     "Archetypes",
     archetypeGuide(),
@@ -86,7 +86,7 @@ export function matchInstructions(): string {
     "mismatch: the axes or archetypes pull apart. The taste and the work do not line up.",
     "why is one or two sentences. Name the axes that agree or diverge.",
     "Use only the JSON you are given. Do not invent scores, titles, or job duties.",
-    "Entertainment only. This is not a hiring decision.",
+    "This is a hire signal for a conversation. It is not a hiring decision.",
   ].join("\n");
 }
 
@@ -180,7 +180,7 @@ export async function evaluateRole(posting: JobPosting): Promise<Judgment> {
       const card = toCard(next);
       span.setAttribute("gen_ai.evaluation.score.value", next.confidence);
       span.setAttribute("gen_ai.evaluation.score.label", next.archetype);
-      span.setAttribute("gen_ai.evaluation.explanation", card.roast);
+      span.setAttribute("gen_ai.evaluation.explanation", card.signal);
       span.setAttribute("gen_ai.output.messages", outputMessages(JSON.stringify(next)));
       span.setAttribute("role.scores", JSON.stringify(next.scores));
       return next;

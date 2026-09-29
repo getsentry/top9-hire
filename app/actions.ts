@@ -17,7 +17,7 @@ import {
 } from "@/lib/job";
 import { evaluateMatch, evaluateRole, type HireJobMatch } from "@/lib/role";
 
-export type RoastResult =
+export type SignalResult =
   | {
       ok: true;
       card: HireCard;
@@ -29,7 +29,7 @@ export type RoastResult =
   | { ok: false; error: "need_nine" | "missing_key" | "model_failed"; message: string };
 
 export type ExtractActionResult =
-  | { ok: true; games: string[] }
+  | { ok: true; games: string[]; imageUrl?: string }
   | {
       ok: false;
       error:
@@ -41,11 +41,11 @@ export type ExtractActionResult =
       message: string;
     };
 
-export async function roastLibrary(input: {
+export async function readSignal(input: {
   paste: string;
   handle: string;
   jobUrl?: string;
-}): Promise<RoastResult> {
+}): Promise<SignalResult> {
   const parsed = parsePaste(input.paste, input.handle);
   if (!parsed.ok) {
     return {
@@ -143,7 +143,7 @@ export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActi
     const resolved = await resolveTweetMedia(tweetUrl.trim());
     const imageInput = await fetchImageBytesFromUrl(resolved.mediaUrl);
     const result = await extractGamesFromImage(imageInput);
-    return { ok: true, games: result.games };
+    return { ok: true, games: result.games, imageUrl: resolved.mediaUrl };
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
       await Sentry.flush(2000);
