@@ -8,9 +8,14 @@
     "test": "node --experimental-strip-types --test lib/*.test.ts"
   },
   "dependencies": {
+    "@sentry/core": "^11.1.0",
     "@sentry/nextjs": "^11.1.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.8.0",
+    "@vercel/firewall": "^1.2.5",
     "@vercel/oidc": "^3.2.0",
     "ai": "^7.0.118",
+    "botid": "^1.5.11",
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",

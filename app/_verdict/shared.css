@@ -1,0 +1,169 @@
+.ev {
+  --ev-you: var(--ink);
+  --ev-line: var(--rule);
+  --ev-muted: var(--ink-3);
+  display: grid;
+  gap: 12px;
+}
+
+.ev-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ev-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ev-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.ev-tag {
+  flex: none;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 7px;
+  border-radius: 999px;
+  color: var(--ev-muted);
+  background: color-mix(in oklch, var(--ev-muted) 12%, transparent);
+}
+
+.ev-tag[data-kind="must"] {
+  color: var(--ev-you);
+  background: color-mix(in oklch, var(--ev-you) 12%, transparent);
+}
+
+.ev-meter {
+  flex: none;
+  display: flex;
+  gap: 4px;
+}
+
+.ev-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ev-line);
+}
+
+.ev-dot[data-on] {
+  background: var(--ev-you);
+}
+
+.ev-quote {
+  margin: 3px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ev-muted);
+}
+
+.ev-cant {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ev-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ev-row {
+    animation: ev-in 420ms var(--ease) both;
+    animation-delay: calc(var(--i) * 70ms);
+  }
+
+  @keyframes ev-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+}
+
+.sh-spin {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: sh-spin 700ms linear infinite;
+  flex: none;
+}
+
+@keyframes sh-spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-spin {
+    animation-duration: 2s;
+  }
+}
+
+.sh-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sh-confetti span {
+  position: absolute;
+  top: var(--oy);
+  left: var(--ox);
+  width: var(--w);
+  height: calc(var(--w) * 0.42);
+  border-radius: 1px;
+  animation: sh-confetti var(--d) cubic-bezier(0.12, 0.7, 0.3, 1) var(--delay) both;
+}
+
+@keyframes sh-confetti {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--x)), var(--y)) rotate(calc(var(--r) * 0.5));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x) * 1.2), calc(var(--y) + 70vh)) rotate(var(--r));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-confetti {
+    display: none;
+  }
+}
+
+/* Once both picks are in, the match button stays in reach. */
+:is(.dl-go, .sw-go, .fp-go):has(> button:enabled) {
+  position: sticky;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  z-index: 30;
+}
+
+:is(.dl-need, .sw-need, .fp-need):not(:empty) {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--paper) 92%, transparent);
+}
+
+:where(.dl, .sw, .fp) :is(button, a, input, label) {
+  touch-action: manipulation;
+}

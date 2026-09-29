@@ -8,6 +8,8 @@ import { ARCHETYPES, DISCLAIMER } from "./hire.ts";
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const SELF = fileURLToPath(import.meta.url);
 const BANNED = /roast|entertainment/i;
+/** Wikipedia text (publisher names such as "Blizzard Entertainment"), not shipped copy. */
+const DATA = join(ROOT, "lib", "game-breakdowns.json");
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -21,7 +23,7 @@ function walk(dir: string, out: string[] = []): string[] {
 test("no shipped copy, prompt, or doc frames the product as a roast", () => {
   const files = [...walk(join(ROOT, "app")), ...walk(join(ROOT, "lib")), join(ROOT, "README.md")];
   const hits = files
-    .filter((file) => file !== SELF)
+    .filter((file) => file !== SELF && file !== DATA)
     .flatMap((file) =>
       readFileSync(file, "utf8")
         .split("\n")

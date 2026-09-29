@@ -5,8 +5,16 @@ import {
   type Top9Example,
 } from "./__fixtures__/top9-examples.ts";
 import type { HireCard } from "./hire.ts";
+import type { MatchChoice } from "./fit.ts";
 
 export { CAPTURED_AT, TOP9_EXAMPLES, type Top9Example };
+
+/** The match choice in hiring-committee words: the panel decision on the crit. */
+export const DECISION: Record<MatchChoice, string> = {
+  match: "Strong hire",
+  stretch: "Lean hire",
+  mismatch: "No hire",
+};
 
 export type PackJob = {
   id: string;
@@ -52,36 +60,27 @@ export function plateId(titles: readonly string[]): string {
   return `T9-${(hash & 0xffff).toString(16).toUpperCase().padStart(4, "0")}`;
 }
 
-/** Confidence on the seal, printed like a review score: 0.84 → "8.4". */
-export function sealScore(confidence: number): string {
-  const clamped = Math.min(1, Math.max(0, confidence));
-  return (Math.round(clamped * 100) / 10).toFixed(1);
-}
-
-export function signalStrength(card: Pick<HireCard, "badge">): string {
-  if (card.badge.kind === "primary") return "Strong signal";
-  if (card.badge.kind === "soft") return "Soft signal";
-  return "No clear signal";
-}
-
 export function shareBlurb(input: {
   handle?: string;
   plate: string;
-  card: Pick<HireCard, "label" | "signal" | "confidence" | "badge">;
-  match?: { choice: string; percent?: number; jobTitle: string; company?: string };
+  card: Pick<HireCard, "label" | "signal">;
+  match?: { choice: MatchChoice; percent?: number; jobTitle: string; company?: string };
 }): string {
   const who = input.handle ? `@${input.handle.replace(/^@/, "")}` : "This Top9";
-  const lines = [
-    `${who}: ${input.card.label}. ${signalStrength(input.card)}, ${sealScore(input.card.confidence)}/10.`,
-    `"${input.card.signal}"`,
-  ];
-  if (input.match) {
-    const role = input.match.company
-      ? `${input.match.company} ${input.match.jobTitle}`
-      : input.match.jobTitle;
-    const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
-    lines.push(`Role read: ${input.match.choice}${aligned} for ${role}.`);
+  if (!input.match) {
+    return [
+      `${who}: ${input.card.label}.`,
+      `"${input.card.signal}"`,
+      `top9.wtf crit ${input.plate}`,
+    ].join("\n");
   }
-  lines.push(`Top9 Hire crit ${input.plate}`);
-  return lines.join("\n");
+  const role = input.match.company
+    ? `${input.match.company} ${input.match.jobTitle}`
+    : input.match.jobTitle;
+  const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
+  return [
+    `${who} for ${role}: ${DECISION[input.match.choice]}.`,
+    `Evidence: ${input.card.label}${aligned}.`,
+    `Nine games instead of a leetcode round. top9.wtf crit ${input.plate}`,
+  ].join("\n");
 }

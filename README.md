@@ -44,7 +44,7 @@ Extract and the signal read call the paid AI Gateway and do not check a session.
 | `AI_GATEWAY_API_KEY` | Static AI Gateway key. Server only. |
 | `VERCEL_OIDC_TOKEN` | Short-lived gateway token from `vercel env pull`. Server only. |
 | `VERCEL` | Set to `1` by Vercel. With OIDC enabled, the request header supplies the token. |
-| `TOP9_EXTRACT_MODEL` | Optional model override for image extraction (defaults to `google/gemini-3.8-flash`). |
+| `TOP9_EXTRACT_MODEL` | Optional model override for image extraction (defaults to `openai/gpt-5.4-mini`). |
 | `TWITTER_BEARER_TOKEN` / `X_BEARER_TOKEN` | Optional official X API bearer token. Falls back to fxtwitter helper if omitted. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Browser Sentry DSN. |
 | `SENTRY_DSN` | Server and edge Sentry DSN. Falls back to the public DSN. |
@@ -52,7 +52,7 @@ Extract and the signal read call the paid AI Gateway and do not check a session.
 | `SENTRY_ORG` | Defaults to `sentry-developer-experience`. |
 | `SENTRY_PROJECT` | Defaults to `top9-hire`. |
 
-The classification model id is `openai/gpt-5.4-mini`, exported as `CLASSIFY_MODEL` from `lib/models.ts` and used by `lib/classify.ts`. Role judgment and hire/job match use that same id. The default extraction vision model is `google/gemini-3.8-flash` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
+The classification model id is `openai/gpt-5.4-mini`, exported as `CLASSIFY_MODEL` from `lib/models.ts` and used by `lib/classify.ts`. Role judgment and hire/job match use that same id. The default extraction vision model is `openai/gpt-5.4-mini` in `lib/extract.ts`. A plain `provider/model` string goes through AI Gateway. There is no provider SDK and no `TYPESAFE_API_KEY`.
 
 Without a gateway credential the page returns an error and does not invent a signal. A Vercel deployment with OIDC does not need a static `AI_GATEWAY_API_KEY`.
 
@@ -75,7 +75,7 @@ Manual checks, in order.
 4. Remove the gateway keys and leave `VERCEL` unset. Read the signal. The page says there is no AI Gateway credential and stamps nothing.
    With DevTools set to offline, Read the signal instead says the read did not come back. The desk stays up and the button re-enables.
 5. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Read the signal. The plate becomes the crit: the card with a seal and score, the archetype, one signal line, four axes, Save PNG, Copy blurb, and the disclaimer. Save PNG downloads `top9-hire-crit-<id>.png`.
-6. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Read the signal. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate hire_archetype`. The AI SDK call is a child span with function id `hire-archetype`.
+6. Set `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_DSN` for a project in `sentry-developer-experience`. Read the signal. In Sentry Trace Explorer, find a span with op `gen_ai.evaluate` and name `evaluate top9.fit`. The AI SDK call is a child span with function id `top9.fit`.
 7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The drop row shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.
 8. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract. The plate fills with the post's card image. A URL that is not a status link shows an error and does not invent titles.
 9. Pick `@dorryspears`. Roles that suggest that fixture carry a "Suggested for @dorryspears" tag. Pick one and read the signal. The rail shows the role title, a `match`, `stretch`, or `mismatch` stamp, an alignment percent, a short why, and a facet per axis plus the two archetypes.

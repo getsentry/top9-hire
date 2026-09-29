@@ -1,5 +1,6 @@
+import type { HireJobMatch } from "@/lib/fit";
 import type { HireCard } from "@/lib/hire";
-import { sealScore, signalStrength } from "@/lib/pack";
+import { DECISION } from "@/lib/pack";
 import type { PlateSource } from "./plate-art";
 
 const W = 1600;
@@ -140,54 +141,40 @@ function drawSeal(ctx: CanvasRenderingContext2D, fonts: Fonts, cx: number, cy: n
   ctx.font = `400 ${Math.round(r * 0.6)}px ${fonts.serif}`;
   ctx.fillText(score, 0, -r * 0.04);
   ctx.font = `400 ${Math.round(r * 0.12)}px ${fonts.mono}`;
-  ctx.fillText("/ 10", 0, r * 0.36);
+  ctx.fillText("%", 0, r * 0.36);
   ctx.restore();
 }
 
-function drawAxis(
+function drawRequirement(
   ctx: CanvasRenderingContext2D,
   fonts: Fonts,
-  score: HireCard["scores"][number],
+  row: HireJobMatch["fit"]["rows"][number],
   x: number,
   y: number,
   w: number,
 ) {
-  ctx.fillStyle = INK_2;
-  ctx.font = `400 15px ${fonts.mono}`;
-  ctx.textBaseline = "alphabetic";
+  const dots = 4;
+  const dotsW = dots * 22;
   ctx.textAlign = "left";
-  ctx.fillText(score.left.toUpperCase(), x, y);
-  ctx.textAlign = "right";
-  ctx.fillText(score.right.toUpperCase(), x + w, y);
-  const ty = y + 24;
-  const tx = x + 8;
-  const tw = w - 16;
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(tx, ty);
-  ctx.lineTo(tx + tw, ty);
-  for (let i = 0; i < 4; i++) {
-    const px = tx + (tw * i) / 3;
-    ctx.moveTo(px, ty - 6);
-    ctx.lineTo(px, ty + 6);
-  }
-  ctx.stroke();
-  const px = tx + (tw * (score.level - 1)) / 3;
-  ctx.fillStyle = PAPER;
-  ctx.beginPath();
-  ctx.arc(px, ty, 12, 0, Math.PI * 2);
-  ctx.fill();
+  ctx.textBaseline = "alphabetic";
   ctx.fillStyle = INK;
-  ctx.beginPath();
-  ctx.arc(px, ty, 9, 0, Math.PI * 2);
-  ctx.fill();
+  ctx.font = `400 24px ${fonts.sans}`;
+  let text = row.text;
+  while (text.length > 4 && ctx.measureText(text).width > w - dotsW - 24) text = `${text.slice(0, -2)}…`;
+  ctx.fillText(text, x, y);
+  for (let i = 0; i < dots; i++) {
+    ctx.fillStyle = i < row.level ? INK : RULE;
+    ctx.beginPath();
+    ctx.arc(x + w - dotsW + 8 + i * 22, y - 8, 7, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }
 
 export async function renderCritPng(input: {
   source: PlateSource;
   titles: readonly string[];
   card: HireCard;
+  match?: HireJobMatch;
   plate: string;
   handle?: string;
   roleLabel?: string | null;
@@ -230,7 +217,9 @@ export async function renderCritPng(input: {
   else drawTypeset(ctx, fonts, input.titles, cardW, cardH);
   ctx.restore();
 
-  drawSeal(ctx, fonts, cardX + cardW - 6, cardY + cardH - 40, 104, sealScore(input.card.confidence), input.plate);
+  if (input.match) {
+    drawSeal(ctx, fonts, cardX + cardW - 6, cardY + cardH - 40, 104, String(input.match.alignment.percent), input.plate);
+  }
 
   const x0 = cardX + cardW + 150;
   const colW = W - 104 - x0;
@@ -268,7 +257,11 @@ export async function renderCritPng(input: {
   let y = 250;
   ctx.fillStyle = STAMP;
   ctx.font = `400 17px ${fonts.mono}`;
-  ctx.fillText(signalStrength(input.card).toUpperCase(), x0, y);
+  ctx.fillText(
+    (input.match ? `${DECISION[input.match.choice]} · ${input.match.alignment.percent}%` : "Library read").toUpperCase(),
+    x0,
+    y,
+  );
 
   ctx.fillStyle = INK;
   ctx.font = `400 96px ${fonts.serif}`;
@@ -286,11 +279,14 @@ export async function renderCritPng(input: {
     y += 44;
   }
 
-  const axisW = (colW - 56) / 2;
-  const axisTop = Math.max(y + 24, 640);
-  input.card.scores.forEach((score, i) => {
-    drawAxis(ctx, fonts, score, x0 + (i % 2) * (axisW + 56), axisTop + Math.floor(i / 2) * 76, axisW);
-  });
+  const listTop = Math.max(y + 24, 640);
+  if (input.match) {
+    input.match.fit.rows.slice(0, 3).forEach((row, i) => drawRequirement(ctx, fonts, row, x0, listTop + i * 52, colW));
+  } else {
+    ctx.fillStyle = INK_2;
+    ctx.font = `400 24px ${fonts.sans}`;
+    ctx.fillText(input.card.skills.map((entry) => entry.skill).join(" · "), x0, listTop);
+  }
 
   ctx.strokeStyle = RULE;
   ctx.beginPath();

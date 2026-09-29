@@ -3,9 +3,11 @@ import * as Sentry from "@sentry/nextjs";
 import { z } from "zod";
 import { MissingGatewayKey, requestOidcToken } from "./classify.ts";
 import { gatewayReady } from "./hire.ts";
-import { MAX_IMAGE_BYTES } from "./image-limit.ts";
+import { MAX_IMAGE_BYTES, rejectImageFile } from "./image-limit.ts";
 
-export const DEFAULT_EXTRACT_MODEL = "google/gemini-3.8-flash";
+export const DEFAULT_EXTRACT_MODEL = "google/gemini-3.5-flash-lite";
+/** Tried by the gateway when the default model errors or is down. */
+const FALLBACK_EXTRACT_MODEL = "openai/gpt-6-luna-fast";
 
 export const extractSchema = z.object({
   games: z.array(z.string().min(1)).length(9),
@@ -27,6 +29,7 @@ export function parseTweetUrl(url: string): { statusId: string } | null {
     const host = parsed.hostname.toLowerCase();
     if (
       host !== "twitter.com" &&
+      host !== "mobile.twitter.com" &&
       host !== "www.twitter.com" &&
       host !== "x.com" &&
       host !== "www.x.com" &&
@@ -53,12 +56,41 @@ const NUMERIC_STATUS_ID = /^\d+$/;
 const TWITTER_API_HOST = "api.twitter.com";
 const FXTWITTER_API_HOST = "api.fxtwitter.com";
 
-/** Tweet photos are served from Twitter/X image CDNs. */
-const ALLOWED_MEDIA_HOSTS = new Set([
-  "pbs.twimg.com",
-  "video.twimg.com",
-  "ton.twimg.com",
-]);
+/** Tweet photos are served from the Twitter/X image CDN. */
+const ALLOWED_MEDIA_HOSTS = new Set(["pbs.twimg.com"]);
+
+const FETCH_TIMEOUT_MS = 8000;
+const MAX_JSON_BYTES = 2 * 1024 * 1024;
+
+/** Every outbound call times out and never follows a redirect off the checked host. */
+const fetchOptions = (headers?: Record<string, string>): RequestInit => ({
+  redirect: "manual",
+  headers,
+  signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+});
+
+/** Reads the body, stopping as soon as it passes the cap. Returns null when it does. */
+async function readCapped(res: Response, maxBytes: number): Promise<Uint8Array | null> {
+  const reader = res.body?.getReader();
+  if (!reader) return new Uint8Array();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  for (let part = await reader.read(); !part.done; part = await reader.read()) {
+    size += part.value.byteLength;
+    if (size > maxBytes) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(part.value);
+  }
+  return new Uint8Array(Buffer.concat(chunks));
+}
+
+async function readJsonCapped<T>(res: Response): Promise<T> {
+  const bytes = await readCapped(res, MAX_JSON_BYTES);
+  if (!bytes) throw new Error("Tweet resolver answer was too large.");
+  return JSON.parse(Buffer.from(bytes).toString("utf8")) as T;
+}
 
 function assertNumericStatusId(statusId: string): string {
   if (!NUMERIC_STATUS_ID.test(statusId)) {
@@ -122,11 +154,9 @@ export async function resolveTweetMedia(
   if (bearerToken) {
     try {
       const apiUrl = twitterStatusUrl(statusId);
-      const res = await fetch(apiUrl, {
-        headers: { Authorization: `Bearer ${bearerToken}` },
-      });
+      const res = await fetch(apiUrl, fetchOptions({ Authorization: `Bearer ${bearerToken}` }));
       if (res.ok) {
-        const data = (await res.json()) as {
+        const data = await readJsonCapped<{
           includes?: {
             media?: Array<{
               url?: string;
@@ -136,7 +166,7 @@ export async function resolveTweetMedia(
               height?: number;
             }>;
           };
-        };
+        }>(res);
         const photos = data.includes?.media?.filter(
           (m) => (m.type === "photo" || !m.type) && (m.url || m.preview_image_url),
         );
@@ -156,9 +186,7 @@ export async function resolveTweetMedia(
   const fxUrl = fxStatusUrl(statusId);
   let fxRes: Response;
   try {
-    fxRes = await fetch(fxUrl, {
-      headers: { "User-Agent": "top9-hire/1.0" },
-    });
+    fxRes = await fetch(fxUrl, fetchOptions({ "User-Agent": "top9-hire/1.0" }));
   } catch (err) {
     throw new Error(
       `Failed to reach tweet resolver: ${err instanceof Error ? err.message : String(err)}`,
@@ -171,7 +199,7 @@ export async function resolveTweetMedia(
     );
   }
 
-  const fxData = (await fxRes.json()) as {
+  const fxData = await readJsonCapped<{
     code?: number;
     message?: string;
     tweet?: {
@@ -180,7 +208,7 @@ export async function resolveTweetMedia(
         all?: Array<{ url: string; type?: string; width?: number; height?: number }>;
       };
     };
-  };
+  }>(fxRes);
 
   const photos =
     fxData.tweet?.media?.photos ||
@@ -207,7 +235,7 @@ export async function fetchImageBytesFromUrl(
   const mediaUrl = allowlistedMediaUrl(url);
   let res: Response;
   try {
-    res = await fetch(mediaUrl);
+    res = await fetch(mediaUrl, fetchOptions());
   } catch (err) {
     throw new Error(
       `Failed to download image from URL: ${err instanceof Error ? err.message : String(err)}`,
@@ -221,24 +249,21 @@ export async function fetchImageBytesFromUrl(
   const contentType = res.headers.get("content-type") || "image/jpeg";
   const mediaType = contentType.split(";")[0]?.trim() || "image/jpeg";
 
-  const arrayBuffer = await res.arrayBuffer();
-  if (arrayBuffer.byteLength > maxSizeBytes) {
-    throw new Error(
-      `Image size (${Math.round(arrayBuffer.byteLength / 1024)}KB) exceeds limit of ${Math.round(
-        maxSizeBytes / (1024 * 1024),
-      )}MB.`,
-    );
+  const rejected = rejectImageFile({ size: 0, type: mediaType });
+  if (rejected) throw new Error(rejected.message);
+
+  const bytes = await readCapped(res, maxSizeBytes);
+  if (!bytes) {
+    throw new Error(`Image exceeds limit of ${Math.round(maxSizeBytes / (1024 * 1024))}MB.`);
   }
 
-  return {
-    bytes: new Uint8Array(arrayBuffer),
-    mediaType,
-  };
+  return { bytes, mediaType };
 }
 
 export async function extractGamesFromImage(
   image: ImageInput,
   overrideModel?: string,
+  opts: { beforeModel?: () => Promise<void> } = {},
 ): Promise<ExtractResult> {
   const oidcToken = await requestOidcToken(process.env);
   if (!gatewayReady(process.env, oidcToken)) {
@@ -248,12 +273,13 @@ export async function extractGamesFromImage(
   const model =
     overrideModel || process.env.TOP9_EXTRACT_MODEL || DEFAULT_EXTRACT_MODEL;
 
+  await opts.beforeModel?.();
+
   const extracted = await Sentry.startSpan(
     {
-      op: "gen_ai.extract",
-      name: "extract top9 games from card",
+      op: "top9.extract",
+      name: "read 9 titles from card",
       attributes: {
-        "gen_ai.operation.name": "extract",
         "gen_ai.request.model": model,
         "gen_ai.provider.name": "vercel.ai_gateway",
       },
@@ -261,6 +287,7 @@ export async function extractGamesFromImage(
     async (span) => {
       const { output } = await generateText({
         model,
+        providerOptions: { gateway: { models: [FALLBACK_EXTRACT_MODEL] } },
         messages: [
           {
             role: "user",
@@ -299,7 +326,8 @@ export async function extractGamesFromImage(
       }
 
       const result = extractSchema.parse(output);
-      span.setAttribute("extract.games_count", result.games.length);
+      span.setAttribute("top9.games.count", result.games.length);
+      span.updateName("read 9 titles from card · model");
       return result;
     },
   );

@@ -1,0 +1,7933 @@
+{
+ "games": {
+  "Final Fantasy III": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 2,
+    "building": 0,
+    "exploring": 2,
+    "storytelling": 2,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "persistence",
+    "planning",
+    "optimizing"
+   ]
+  },
+  "Theme Park": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 0.6666666666666666,
+    "storytelling": 0,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "planning",
+    "building",
+    "optimizing"
+   ]
+  },
+  "Super Metroid": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 2.6666666666666665,
+    "teamwork": 0,
+    "optimizing": 1.3333333333333333,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "reflexes",
+    "persistence"
+   ]
+  },
+  "Sid Meier's Civilization II": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 2.6666666666666665,
+    "building": 2,
+    "exploring": 2,
+    "storytelling": 1,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "persistence"
+   ]
+  },
+  "Counter-Strike": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 3,
+    "teamwork": 3,
+    "optimizing": 1.3333333333333333,
+    "building": 0,
+    "exploring": 0.6666666666666666,
+    "storytelling": 0,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "planning"
+   ]
+  },
+  "System Shock 2": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 2,
+    "building": 1,
+    "exploring": 3,
+    "storytelling": 3,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "storytelling",
+    "planning"
+   ]
+  },
+  "StarCraft II: Wings of Liberty": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 3,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 3,
+    "building": 2,
+    "exploring": 1,
+    "storytelling": 2,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "reflexes",
+    "optimizing"
+   ]
+  },
+  "SubSpace": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 3,
+    "teamwork": 2.3333333333333335,
+    "optimizing": 1,
+    "building": 0,
+    "exploring": 1,
+    "storytelling": 0,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "persistence"
+   ]
+  },
+  "Fallout: A Post Nuclear Role Playing Game": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 2.3333333333333335,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 3,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "storytelling",
+    "optimizing"
+   ]
+  },
+  "Factorio": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1,
+    "teamwork": 1.6666666666666667,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Terraria": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 2,
+    "optimizing": 2,
+    "building": 3,
+    "exploring": 3,
+    "storytelling": 1,
+    "persistence": 3
+   },
+   "top3": [
+    "building",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "Pokémon HeartGold Version": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 1,
+    "optimizing": 2.6666666666666665,
+    "building": 0,
+    "exploring": 2,
+    "storytelling": 2,
+    "persistence": 3
+   },
+   "top3": [
+    "persistence",
+    "optimizing",
+    "planning"
+   ]
+  },
+  "Minecraft: Java Edition": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 2,
+    "optimizing": 1.6666666666666667,
+    "building": 3,
+    "exploring": 3,
+    "storytelling": 1,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "building",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "Offworld Trading Company": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 3,
+    "building": 1.6666666666666667,
+    "exploring": 1.3333333333333333,
+    "storytelling": 0.3333333333333333,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Dyson Sphere Program": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Super Smash Bros. Ultimate": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 3,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 1.6666666666666667,
+    "building": 0,
+    "exploring": 1,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "persistence",
+    "planning"
+   ]
+  },
+  "Satisfactory": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0.6666666666666666,
+    "teamwork": 1.6666666666666667,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 2.3333333333333335,
+    "storytelling": 1,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Counter-Strike: Global Offens...": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 3,
+    "teamwork": 3,
+    "optimizing": 1.6666666666666667,
+    "building": 0,
+    "exploring": 0.6666666666666666,
+    "storytelling": 0,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "planning"
+   ]
+  },
+  "RuneScape 2": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 1,
+    "teamwork": 2,
+    "optimizing": 2.3333333333333335,
+    "building": 2,
+    "exploring": 2.3333333333333335,
+    "storytelling": 2,
+    "persistence": 3
+   },
+   "top3": [
+    "persistence",
+    "optimizing",
+    "exploring"
+   ]
+  },
+  "StarCraft": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 3,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 2.6666666666666665,
+    "building": 2,
+    "exploring": 1.6666666666666667,
+    "storytelling": 2,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "planning",
+    "reflexes",
+    "optimizing"
+   ]
+  },
+  "Portal": {
+   "levels": {
+    "planning": 2.3333333333333335,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 0,
+    "optimizing": 0.6666666666666666,
+    "building": 0,
+    "exploring": 2.3333333333333335,
+    "storytelling": 2.3333333333333335,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "planning",
+    "exploring",
+    "storytelling"
+   ]
+  },
+  "Pokémon Crystal Version": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 2,
+    "building": 0,
+    "exploring": 2.6666666666666665,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "planning",
+    "optimizing"
+   ]
+  },
+  "Counter-Strike: Source": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 3,
+    "teamwork": 3,
+    "optimizing": 1.6666666666666667,
+    "building": 0,
+    "exploring": 0.6666666666666666,
+    "storytelling": 0,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "planning"
+   ]
+  },
+  "Heroes of Might and Magic III Remake": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 1,
+    "optimizing": 2.6666666666666665,
+    "building": 1.6666666666666667,
+    "exploring": 2.6666666666666665,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "exploring"
+   ]
+  },
+  "Quake III Arena": {
+   "levels": {
+    "planning": 1,
+    "reflexes": 3,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 1.3333333333333333,
+    "building": 0,
+    "exploring": 0.6666666666666666,
+    "storytelling": 0,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "persistence",
+    "teamwork"
+   ]
+  },
+  "The Settlers III": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0.6666666666666666,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "building",
+    "optimizing"
+   ]
+  },
+  "The Legend of Zelda: Ocarina of Time": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 2,
+    "teamwork": 0,
+    "optimizing": 0.6666666666666666,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 2,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "reflexes",
+    "storytelling"
+   ]
+  },
+  "Outer Wilds": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 1.6666666666666667,
+    "teamwork": 0,
+    "optimizing": 0.3333333333333333,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 3,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "storytelling",
+    "planning"
+   ]
+  },
+  "Skate": {
+   "levels": {
+    "planning": 1,
+    "reflexes": 3,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 1,
+    "building": 0.3333333333333333,
+    "exploring": 1.6666666666666667,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "reflexes",
+    "persistence",
+    "exploring"
+   ]
+  },
+  "Mass Effect 2": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 1.6666666666666667,
+    "building": 0.3333333333333333,
+    "exploring": 1.6666666666666667,
+    "storytelling": 3,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "storytelling",
+    "planning",
+    "reflexes"
+   ]
+  },
+  "Undertale": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 2.3333333333333335,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 0.6666666666666666,
+    "building": 0,
+    "exploring": 2,
+    "storytelling": 3,
+    "persistence": 2
+   },
+   "top3": [
+    "storytelling",
+    "reflexes",
+    "exploring"
+   ]
+  },
+  "Kingdom Hearts II": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 3,
+    "teamwork": 1,
+    "optimizing": 2,
+    "building": 0.6666666666666666,
+    "exploring": 1.6666666666666667,
+    "storytelling": 3,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "storytelling",
+    "optimizing"
+   ]
+  },
+  "Garry's Mod": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 1,
+    "teamwork": 2,
+    "optimizing": 0.6666666666666666,
+    "building": 3,
+    "exploring": 2.6666666666666665,
+    "storytelling": 1,
+    "persistence": 0.6666666666666666
+   },
+   "top3": [
+    "building",
+    "exploring",
+    "teamwork"
+   ]
+  },
+  "Persona 5": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 1,
+    "optimizing": 2.6666666666666665,
+    "building": 1,
+    "exploring": 1.6666666666666667,
+    "storytelling": 3,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "storytelling",
+    "optimizing"
+   ]
+  },
+  "Hitman: Blood Money": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 0,
+    "optimizing": 1.3333333333333333,
+    "building": 0,
+    "exploring": 2.3333333333333335,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "Heroes of Might and Magic III: Armageddo...": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 2.6666666666666665,
+    "building": 2.3333333333333335,
+    "exploring": 2,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Warcraft III: The Frozen Throne": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 2.6666666666666665,
+    "teamwork": 2,
+    "optimizing": 2.6666666666666665,
+    "building": 2.3333333333333335,
+    "exploring": 1.3333333333333333,
+    "storytelling": 2.3333333333333335,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "reflexes",
+    "optimizing"
+   ]
+  },
+  "Diablo II": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 2,
+    "teamwork": 2,
+    "optimizing": 3,
+    "building": 1,
+    "exploring": 2,
+    "storytelling": 1.3333333333333333,
+    "persistence": 3
+   },
+   "top3": [
+    "optimizing",
+    "persistence",
+    "reflexes"
+   ]
+  },
+  "Space Rangers": {
+   "levels": {
+    "planning": 2.6666666666666665,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 0,
+    "optimizing": 2.3333333333333335,
+    "building": 1.3333333333333333,
+    "exploring": 3,
+    "storytelling": 2,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "exploring",
+    "planning",
+    "optimizing"
+   ]
+  },
+  "Cossacks: European Wars": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1.6666666666666667,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 2,
+    "building": 2.6666666666666665,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "building",
+    "optimizing"
+   ]
+  },
+  "Need for Speed: Most Wanted": {
+   "levels": {
+    "planning": 0.6666666666666666,
+    "reflexes": 3,
+    "teamwork": 0,
+    "optimizing": 2,
+    "building": 1,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "optimizing",
+    "persistence"
+   ]
+  },
+  "RuneScape Classic": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 1,
+    "teamwork": 2,
+    "optimizing": 2.3333333333333335,
+    "building": 1.6666666666666667,
+    "exploring": 2.3333333333333335,
+    "storytelling": 1.3333333333333333,
+    "persistence": 3
+   },
+   "top3": [
+    "persistence",
+    "optimizing",
+    "exploring"
+   ]
+  },
+  "Warcraft III: Reign of Chaos": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 2.3333333333333335,
+    "teamwork": 2,
+    "optimizing": 2.6666666666666665,
+    "building": 2.3333333333333335,
+    "exploring": 1.3333333333333333,
+    "storytelling": 2.3333333333333335,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "reflexes"
+   ]
+  },
+  "Halo 3": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 3,
+    "teamwork": 3,
+    "optimizing": 1,
+    "building": 1,
+    "exploring": 1,
+    "storytelling": 2,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "storytelling"
+   ]
+  },
+  "Age of Empires II: The Age of Kings": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 2,
+    "teamwork": 2,
+    "optimizing": 3,
+    "building": 2.6666666666666665,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "The Sims": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 1.6666666666666667,
+    "building": 3,
+    "exploring": 1.6666666666666667,
+    "storytelling": 2.3333333333333335,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "building",
+    "storytelling",
+    "planning"
+   ]
+  },
+  "Assassin's Creed": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 2,
+    "teamwork": 0,
+    "optimizing": 0.6666666666666666,
+    "building": 0,
+    "exploring": 2.3333333333333335,
+    "storytelling": 2.6666666666666665,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "storytelling",
+    "exploring",
+    "reflexes"
+   ]
+  },
+  "Need for Speed: Carbon": {
+   "levels": {
+    "planning": 1,
+    "reflexes": 3,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 2,
+    "building": 1,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "optimizing",
+    "persistence"
+   ]
+  },
+  "The Legend of Zelda: Breath of the Wild": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 0,
+    "optimizing": 1.6666666666666667,
+    "building": 1.3333333333333333,
+    "exploring": 3,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2
+   },
+   "top3": [
+    "exploring",
+    "planning",
+    "reflexes"
+   ]
+  },
+  "Persona 3 Portable": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 2.3333333333333335,
+    "building": 1.3333333333333333,
+    "exploring": 1.6666666666666667,
+    "storytelling": 3,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "storytelling",
+    "persistence"
+   ]
+  },
+  "NieR: Automata": {
+   "levels": {
+    "planning": 1,
+    "reflexes": 2.6666666666666665,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 2,
+    "building": 0.6666666666666666,
+    "exploring": 2,
+    "storytelling": 3,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "storytelling",
+    "reflexes",
+    "persistence"
+   ]
+  },
+  "Europa Universalis IV": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 3,
+    "building": 1.6666666666666667,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "persistence"
+   ]
+  },
+  "NBA 2K14": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2.6666666666666665,
+    "teamwork": 2,
+    "optimizing": 2,
+    "building": 0.6666666666666666,
+    "exploring": 0,
+    "storytelling": 1,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "planning",
+    "teamwork"
+   ]
+  },
+  "Madden NFL 11": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 2,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 2,
+    "building": 0.6666666666666666,
+    "exploring": 0,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "reflexes",
+    "optimizing"
+   ]
+  },
+  "Pokémon Platinum Version": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 3,
+    "building": 0.3333333333333333,
+    "exploring": 2.3333333333333335,
+    "storytelling": 2,
+    "persistence": 3
+   },
+   "top3": [
+    "optimizing",
+    "persistence",
+    "exploring"
+   ]
+  },
+  "PokéPark Wii: Pikachu's Adventure": {
+   "levels": {
+    "planning": 0.6666666666666666,
+    "reflexes": 2,
+    "teamwork": 0.3333333333333333,
+    "optimizing": 0.3333333333333333,
+    "building": 0,
+    "exploring": 2.6666666666666665,
+    "storytelling": 1.6666666666666667,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "exploring",
+    "reflexes",
+    "storytelling"
+   ]
+  },
+  "Stardew Valley": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 2.3333333333333335,
+    "building": 2.6666666666666665,
+    "exploring": 2,
+    "storytelling": 2,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "building",
+    "persistence"
+   ]
+  },
+  "Animal Crossing: New Horizons": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 1,
+    "optimizing": 1.3333333333333333,
+    "building": 3,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "building",
+    "persistence",
+    "planning"
+   ]
+  },
+  "Minecraft": {
+   "levels": {
+    "planning": 2.3333333333333335,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 2,
+    "optimizing": 1.6666666666666667,
+    "building": 3,
+    "exploring": 3,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "building",
+    "exploring",
+    "planning"
+   ]
+  },
+  "Overcooked! 2": {
+   "levels": {
+    "planning": 2.3333333333333335,
+    "reflexes": 3,
+    "teamwork": 3,
+    "optimizing": 2,
+    "building": 0,
+    "exploring": 0,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "reflexes",
+    "teamwork",
+    "planning"
+   ]
+  },
+  "It Takes Two": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 3,
+    "optimizing": 0,
+    "building": 0.6666666666666666,
+    "exploring": 1.6666666666666667,
+    "storytelling": 3,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "teamwork",
+    "storytelling",
+    "planning"
+   ]
+  },
+  "Spiritfarer": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 1,
+    "teamwork": 0.6666666666666666,
+    "optimizing": 1.3333333333333333,
+    "building": 2.6666666666666665,
+    "exploring": 2.3333333333333335,
+    "storytelling": 3,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "storytelling",
+    "building",
+    "exploring"
+   ]
+  },
+  "Untitled Goose Game": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 1,
+    "teamwork": 1.3333333333333333,
+    "optimizing": 0.3333333333333333,
+    "building": 0,
+    "exploring": 2,
+    "storytelling": 1,
+    "persistence": 1.3333333333333333
+   },
+   "top3": [
+    "planning",
+    "exploring",
+    "teamwork"
+   ]
+  },
+  "Portal 2": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 2.3333333333333335,
+    "optimizing": 1,
+    "building": 0.6666666666666666,
+    "exploring": 1.3333333333333333,
+    "storytelling": 2.3333333333333335,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "teamwork",
+    "storytelling"
+   ]
+  },
+  "Oxygen Not Included": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.6666666666666666,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Dwarf Fortress": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 3,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "building",
+    "storytelling"
+   ]
+  },
+  "Kerbal Space Program": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 1.3333333333333333,
+    "teamwork": 0,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 3,
+    "storytelling": 0.6666666666666666,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "building",
+    "exploring"
+   ]
+  },
+  "Opus Magnum": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Shapez": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 1.3333333333333333,
+    "storytelling": 0,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Cities: Skylines": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 1,
+    "storytelling": 0.3333333333333333,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "planning",
+    "building",
+    "optimizing"
+   ]
+  },
+  "SpaceChem": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 3,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "building"
+   ]
+  },
+  "Hades": {
+   "levels": {
+    "planning": 1.6666666666666667,
+    "reflexes": 3,
+    "teamwork": 0,
+    "optimizing": 2,
+    "building": 0.6666666666666666,
+    "exploring": 1.6666666666666667,
+    "storytelling": 2.6666666666666665,
+    "persistence": 3
+   },
+   "top3": [
+    "reflexes",
+    "persistence",
+    "storytelling"
+   ]
+  },
+  "Celeste": {
+   "levels": {
+    "planning": 1,
+    "reflexes": 3,
+    "teamwork": 0,
+    "optimizing": 1,
+    "building": 0,
+    "exploring": 1.6666666666666667,
+    "storytelling": 2,
+    "persistence": 3
+   },
+   "top3": [
+    "reflexes",
+    "persistence",
+    "storytelling"
+   ]
+  },
+  "Disco Elysium": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 1,
+    "building": 0,
+    "exploring": 2.6666666666666665,
+    "storytelling": 3,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "storytelling",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "Hollow Knight": {
+   "levels": {
+    "planning": 1.3333333333333333,
+    "reflexes": 3,
+    "teamwork": 0,
+    "optimizing": 1,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 2.3333333333333335,
+    "persistence": 3
+   },
+   "top3": [
+    "reflexes",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "The Witness": {
+   "levels": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 0,
+    "building": 0,
+    "exploring": 3,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "exploring",
+    "persistence",
+    "planning"
+   ]
+  },
+  "Baba Is You": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 1,
+    "building": 1,
+    "exploring": 3,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "exploring",
+    "persistence"
+   ]
+  },
+  "Slay the Spire": {
+   "levels": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 0,
+    "optimizing": 3,
+    "building": 2,
+    "exploring": 1.6666666666666667,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2.6666666666666665
+   },
+   "top3": [
+    "planning",
+    "optimizing",
+    "persistence"
+   ]
+  }
+ },
+ "jobs": {
+  "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "needs": {
+    "planning": 1.6666666666666667,
+    "reflexes": 0.6666666666666666,
+    "teamwork": 3,
+    "optimizing": 0.6666666666666666,
+    "building": 2.6666666666666665,
+    "exploring": 3,
+    "storytelling": 3,
+    "persistence": 1.3333333333333333
+   },
+   "top3": [
+    "teamwork",
+    "exploring",
+    "storytelling"
+   ],
+   "wants": "product_bard"
+  },
+  "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "needs": {
+    "planning": 2,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 2,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "building",
+    "optimizing",
+    "planning"
+   ],
+   "wants": "product_bard"
+  },
+  "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "needs": {
+    "planning": 2.6666666666666665,
+    "reflexes": 0,
+    "teamwork": 2,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 1.6666666666666667,
+    "storytelling": 0,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "building",
+    "planning",
+    "optimizing"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 3,
+    "optimizing": 2.3333333333333335,
+    "building": 2.6666666666666665,
+    "exploring": 1.3333333333333333,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "teamwork",
+    "building"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "needs": {
+    "planning": 2,
+    "reflexes": 1,
+    "teamwork": 2.6666666666666665,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "building",
+    "teamwork",
+    "optimizing"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "needs": {
+    "planning": 2.6666666666666665,
+    "reflexes": 1,
+    "teamwork": 3,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2
+   },
+   "top3": [
+    "teamwork",
+    "building",
+    "planning"
+   ],
+   "wants": "product_bard"
+  },
+  "https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "needs": {
+    "planning": 2,
+    "reflexes": 0,
+    "teamwork": 2,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 3,
+    "storytelling": 0,
+    "persistence": 2.3333333333333335
+   },
+   "top3": [
+    "building",
+    "exploring",
+    "optimizing"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "needs": {
+    "planning": 2,
+    "reflexes": 2,
+    "teamwork": 3,
+    "optimizing": 2.6666666666666665,
+    "building": 2.3333333333333335,
+    "exploring": 2,
+    "storytelling": 0.6666666666666666,
+    "persistence": 2
+   },
+   "top3": [
+    "teamwork",
+    "optimizing",
+    "building"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "needs": {
+    "planning": 2.6666666666666665,
+    "reflexes": 0,
+    "teamwork": 3,
+    "optimizing": 1.6666666666666667,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 2.3333333333333335,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "teamwork",
+    "building",
+    "planning"
+   ],
+   "wants": "product_bard"
+  },
+  "https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 3,
+    "optimizing": 2.6666666666666665,
+    "building": 1.6666666666666667,
+    "exploring": 2,
+    "storytelling": 1,
+    "persistence": 1.6666666666666667
+   },
+   "top3": [
+    "planning",
+    "teamwork",
+    "optimizing"
+   ],
+   "wants": "product_bard"
+  },
+  "https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 1,
+    "teamwork": 3,
+    "optimizing": 2.3333333333333335,
+    "building": 2,
+    "exploring": 1.6666666666666667,
+    "storytelling": 2,
+    "persistence": 3
+   },
+   "top3": [
+    "planning",
+    "teamwork",
+    "persistence"
+   ],
+   "wants": "co_op_cleric"
+  },
+  "https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "needs": {
+    "planning": 2.6666666666666665,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 3,
+    "optimizing": 2.6666666666666665,
+    "building": 0.3333333333333333,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2
+   },
+   "top3": [
+    "teamwork",
+    "planning",
+    "optimizing"
+   ],
+   "wants": "co_op_cleric"
+  },
+  "https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 0,
+    "teamwork": 2.6666666666666665,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 1.3333333333333333,
+    "storytelling": 1.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "building",
+    "teamwork"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 0.3333333333333333,
+    "teamwork": 2.6666666666666665,
+    "optimizing": 2.3333333333333335,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "building",
+    "teamwork"
+   ],
+   "wants": "systems_necromancer"
+  },
+  "https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "needs": {
+    "planning": 3,
+    "reflexes": 1,
+    "teamwork": 3,
+    "optimizing": 1.6666666666666667,
+    "building": 2,
+    "exploring": 1.6666666666666667,
+    "storytelling": 1.6666666666666667,
+    "persistence": 2
+   },
+   "top3": [
+    "planning",
+    "teamwork",
+    "building"
+   ],
+   "wants": "co_op_cleric"
+  },
+  "https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "needs": {
+    "planning": 2.6666666666666665,
+    "reflexes": 1,
+    "teamwork": 2.6666666666666665,
+    "optimizing": 2.6666666666666665,
+    "building": 3,
+    "exploring": 2,
+    "storytelling": 0.3333333333333333,
+    "persistence": 2
+   },
+   "top3": [
+    "building",
+    "planning",
+    "teamwork"
+   ],
+   "wants": "systems_necromancer"
+  }
+ },
+ "pairs": {
+  "bentlegen|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 60.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "match",
+   "fit": 73.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 54.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "match",
+   "fit": 69,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 67,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "stretch",
+   "fit": 65,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "match",
+   "fit": 70.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 56,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 68,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 43,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "match",
+   "fit": 66.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 57.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 51.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 60.5,
+   "votes": [
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 52,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 66,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  },
+  "dorryspears|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "match",
+   "fit": 72,
+   "votes": [
+    "match",
+    "match",
+    "stretch"
+   ]
+  },
+  "dorryspears|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "match",
+   "fit": 83.66666666666667,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "match",
+   "fit": 83.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "match",
+   "fit": 84,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "match",
+   "fit": 86.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 82.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "match",
+   "fit": 77.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "match",
+   "fit": 71.66666666666667,
+   "votes": [
+    "match",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "match",
+   "fit": 80.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 49,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 68.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 55.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "match",
+   "fit": 66,
+   "votes": [
+    "match",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "match",
+   "fit": 77,
+   "votes": [
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 56.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "match",
+   "fit": 85.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "grichadev|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 60.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "stretch",
+   "fit": 70,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 48,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 64,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 62,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 70.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "stretch",
+   "fit": 59.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 53,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 69,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 50,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 62.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 54.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 47,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 53.5,
+   "votes": [
+    "stretch",
+    "stretch"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 66.33333333333333,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 64,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  },
+  "theo|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "match",
+   "fit": 80.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "match",
+   "fit": 70.33333333333333,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 60.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 50,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 61,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 79.66666666666667,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "match",
+   "fit": 68.66666666666667,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 48,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "match",
+   "fit": 75,
+   "votes": [
+    "match",
+    "match",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 47,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 40.666666666666664,
+   "votes": [
+    "stretch",
+    "mismatch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 60,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 54,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 47,
+   "votes": [
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 55,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 52.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 49.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "stretch",
+   "fit": 68.33333333333333,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 43,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergical|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "match",
+   "fit": 65.66666666666667,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 57.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "stretch",
+   "fit": 56.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "stretch",
+   "fit": 61.666666666666664,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 55,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 57,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 45,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "match",
+   "fit": 66.66666666666667,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 47,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 41,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 56.5,
+   "votes": [
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 51.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 60.333333333333336,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 54,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "stretch",
+   "fit": 55.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 40.666666666666664,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 51.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 46,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "stretch",
+   "fit": 67,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "stretch",
+   "fit": 48.666666666666664,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 46,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 69,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 62.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 65,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 55.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 40.333333333333336,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 40,
+   "votes": [
+    "mismatch",
+    "stretch"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 67.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 49,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 56,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "stretch",
+   "fit": 60.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 50.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 54.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 50.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 74,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "stretch",
+   "fit": 54,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 41.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 68.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 51.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 53,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 62.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 46,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 41,
+   "votes": [
+    "mismatch",
+    "stretch"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 57,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 53.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "match",
+   "fit": 81.66666666666667,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "stretch",
+   "fit": 55,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 46,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 44,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "mismatch",
+   "fit": 43.333333333333336,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 87,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "mismatch",
+   "fit": 42,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "mismatch",
+   "fit": 40,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "match",
+   "fit": 79.66666666666667,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "stretch",
+   "fit": 56.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 42,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "match",
+   "fit": 71.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 51.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "mismatch",
+   "fit": 29.5,
+   "votes": [
+    "mismatch",
+    "mismatch"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "match",
+   "fit": 70,
+   "votes": [
+    "stretch",
+    "match",
+    "match"
+   ]
+  },
+  "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 45.666666666666664,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "match",
+   "fit": 72,
+   "votes": [
+    "match",
+    "match",
+    "stretch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "match",
+   "fit": 88.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "match",
+   "fit": 93.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "match",
+   "fit": 94,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "match",
+   "fit": 95.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "stretch",
+   "fit": 61,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "match",
+   "fit": 90,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "match",
+   "fit": 79.33333333333333,
+   "votes": [
+    "match",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 72.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "mismatch",
+   "fit": 26.666666666666668,
+   "votes": [
+    "mismatch",
+    "mismatch",
+    "mismatch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "stretch",
+   "fit": 45.666666666666664,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 47.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "mismatch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "match",
+   "fit": 74,
+   "votes": [
+    "match",
+    "stretch",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "match",
+   "fit": 87.5,
+   "votes": [
+    "match",
+    "match"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "mismatch",
+   "fit": 28,
+   "votes": [
+    "mismatch",
+    "mismatch",
+    "mismatch"
+   ]
+  },
+  "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "match",
+   "fit": 95,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+   "verdict": "stretch",
+   "fit": 67.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+   "verdict": "match",
+   "fit": 80.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+   "verdict": "stretch",
+   "fit": 63.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+   "verdict": "stretch",
+   "fit": 62.333333333333336,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+   "verdict": "stretch",
+   "fit": 67.66666666666667,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+   "verdict": "match",
+   "fit": 74.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+   "verdict": "match",
+   "fit": 82.33333333333333,
+   "votes": [
+    "match",
+    "match",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+   "verdict": "stretch",
+   "fit": 58.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+   "verdict": "stretch",
+   "fit": 70,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+   "verdict": "mismatch",
+   "fit": 36.333333333333336,
+   "votes": [
+    "mismatch",
+    "mismatch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+   "verdict": "mismatch",
+   "fit": 40.333333333333336,
+   "votes": [
+    "mismatch",
+    "mismatch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+   "verdict": "stretch",
+   "fit": 59.333333333333336,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+   "verdict": "stretch",
+   "fit": 60.666666666666664,
+   "votes": [
+    "stretch",
+    "stretch",
+    "match"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+   "verdict": "stretch",
+   "fit": 60.5,
+   "votes": [
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+   "verdict": "stretch",
+   "fit": 41.333333333333336,
+   "votes": [
+    "mismatch",
+    "stretch",
+    "stretch"
+   ]
+  },
+  "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+   "verdict": "stretch",
+   "fit": 70,
+   "votes": [
+    "stretch",
+    "match",
+    "stretch"
+   ]
+  }
+ },
+ "agreement": {
+  "gameSpearman": 0.8843998626192359,
+  "jobSpearman": 0.8637065908847256,
+  "jobArchetypeAgree": 0.9166666666666666,
+  "pairVerdictAgree": 0.6859722222222221,
+  "pairWeightedKappa": 0.524986654917205,
+  "pairFitSpearman": 0.7021631581360067,
+  "gamesScored": 78,
+  "jobsScored": 16,
+  "pairsScored": 160
+ },
+ "raw": {
+  "jurorGames": {
+   "anthropic/claude-opus-5.5": {
+    "Cossacks: European Wars": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Need for Speed: Most Wanted": {
+     "planning": 0,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "RuneScape Classic": {
+     "planning": 1,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Warcraft III: Reign of Chaos": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Halo 3": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Age of Empires II: The Age of Kings": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "The Sims": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 1
+    },
+    "Assassin's Creed": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 1
+    },
+    "Need for Speed: Carbon": {
+     "planning": 0,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "The Legend of Zelda: Breath of the Wild": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Persona 3 Portable": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "NieR: Automata": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Europa Universalis IV": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Offworld Trading Company": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Dyson Sphere Program": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Super Smash Bros. Ultimate": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Satisfactory": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Counter-Strike: Global Offens...": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "RuneScape 2": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "StarCraft": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Portal": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 1
+    },
+    "Pokémon Crystal Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Counter-Strike: Source": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III Remake": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Quake III Arena": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "The Settlers III": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "NBA 2K14": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 0,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Madden NFL 11": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Pokémon Platinum Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "PokéPark Wii: Pikachu's Adventure": {
+     "planning": 0,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Stardew Valley": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Animal Crossing: New Horizons": {
+     "planning": 1,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Minecraft": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Overcooked! 2": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "It Takes Two": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 3,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 1
+    },
+    "Spiritfarer": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 1
+    },
+    "Untitled Goose Game": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Portal 2": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Oxygen Not Included": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Final Fantasy III": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Theme Park": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 1
+    },
+    "Super Metroid": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Sid Meier's Civilization II": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Counter-Strike": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "System Shock 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "StarCraft II: Wings of Liberty": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "SubSpace": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Fallout: A Post Nuclear Role Playing Game": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Factorio": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Terraria": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Pokémon HeartGold Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Minecraft: Java Edition": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Dwarf Fortress": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Kerbal Space Program": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Opus Magnum": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Shapez": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Cities: Skylines": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 1
+    },
+    "SpaceChem": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Hades": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Celeste": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Disco Elysium": {
+     "planning": 1,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 1
+    },
+    "Hollow Knight": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "The Witness": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Baba Is You": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Slay the Spire": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "The Legend of Zelda: Ocarina of Time": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Outer Wilds": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Skate": {
+     "planning": 0,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Mass Effect 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 1
+    },
+    "Undertale": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Kingdom Hearts II": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Garry's Mod": {
+     "planning": 1,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 0,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 0
+    },
+    "Persona 5": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Hitman: Blood Money": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III: Armageddo...": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Warcraft III: The Frozen Throne": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Diablo II": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Space Rangers": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    }
+   },
+   "openai/gpt-6.1-sol": {
+    "Offworld Trading Company": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Dyson Sphere Program": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Super Smash Bros. Ultimate": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Satisfactory": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Counter-Strike: Global Offens...": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "RuneScape 2": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "StarCraft": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Portal": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Pokémon Crystal Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Counter-Strike: Source": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III Remake": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Quake III Arena": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "The Settlers III": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Final Fantasy III": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Theme Park": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Super Metroid": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Sid Meier's Civilization II": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Counter-Strike": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "System Shock 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "StarCraft II: Wings of Liberty": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "SubSpace": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Fallout: A Post Nuclear Role Playing Game": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Factorio": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Terraria": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Pokémon HeartGold Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Minecraft: Java Edition": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Cossacks: European Wars": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Need for Speed: Most Wanted": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "RuneScape Classic": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Warcraft III: Reign of Chaos": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Halo 3": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Age of Empires II: The Age of Kings": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "The Sims": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Assassin's Creed": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Need for Speed: Carbon": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "The Legend of Zelda: Breath of the Wild": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Persona 3 Portable": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "NieR: Automata": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Europa Universalis IV": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "The Legend of Zelda: Ocarina of Time": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Outer Wilds": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Skate": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Mass Effect 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Undertale": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Kingdom Hearts II": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Garry's Mod": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Persona 5": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Hitman: Blood Money": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III: Armageddo...": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Warcraft III: The Frozen Throne": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Diablo II": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Space Rangers": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "NBA 2K14": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Madden NFL 11": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Pokémon Platinum Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "PokéPark Wii: Pikachu's Adventure": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Stardew Valley": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Animal Crossing: New Horizons": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Minecraft": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Overcooked! 2": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "It Takes Two": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 3,
+     "optimizing": 0,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Spiritfarer": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Untitled Goose Game": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Portal 2": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Oxygen Not Included": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Dwarf Fortress": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Kerbal Space Program": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Opus Magnum": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Shapez": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Cities: Skylines": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "SpaceChem": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Hades": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Celeste": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Disco Elysium": {
+     "planning": 1,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Hollow Knight": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "The Witness": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Baba Is You": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Slay the Spire": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    }
+   },
+   "spacexai/grok-4.7": {
+    "The Legend of Zelda: Ocarina of Time": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Outer Wilds": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Skate": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Mass Effect 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Undertale": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Kingdom Hearts II": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Garry's Mod": {
+     "planning": 1,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Persona 5": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Hitman: Blood Money": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III: Armageddo...": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Warcraft III: The Frozen Throne": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Diablo II": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Space Rangers": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Cossacks: European Wars": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Need for Speed: Most Wanted": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "RuneScape Classic": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Warcraft III: Reign of Chaos": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Halo 3": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Age of Empires II: The Age of Kings": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "The Sims": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Assassin's Creed": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Need for Speed: Carbon": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "The Legend of Zelda: Breath of the Wild": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Persona 3 Portable": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "NieR: Automata": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Europa Universalis IV": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Offworld Trading Company": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Dyson Sphere Program": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Super Smash Bros. Ultimate": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Satisfactory": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Counter-Strike: Global Offens...": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "RuneScape 2": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "StarCraft": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Portal": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Pokémon Crystal Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Counter-Strike: Source": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Heroes of Might and Magic III Remake": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Quake III Arena": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "The Settlers III": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Final Fantasy III": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Theme Park": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Super Metroid": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Sid Meier's Civilization II": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Counter-Strike": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "System Shock 2": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "StarCraft II: Wings of Liberty": {
+     "planning": 3,
+     "reflexes": 3,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "SubSpace": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 1
+    },
+    "Fallout: A Post Nuclear Role Playing Game": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Factorio": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 0,
+     "persistence": 3
+    },
+    "Terraria": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Pokémon HeartGold Version": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Minecraft: Java Edition": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "NBA 2K14": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 0,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Madden NFL 11": {
+     "planning": 3,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 0,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Pokémon Platinum Version": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 1,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "PokéPark Wii: Pikachu's Adventure": {
+     "planning": 1,
+     "reflexes": 2,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Stardew Valley": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Animal Crossing: New Horizons": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 1,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Minecraft": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Overcooked! 2": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 3,
+     "optimizing": 2,
+     "building": 0,
+     "exploring": 0,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "It Takes Two": {
+     "planning": 2,
+     "reflexes": 2,
+     "teamwork": 3,
+     "optimizing": 0,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Spiritfarer": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Untitled Goose Game": {
+     "planning": 2,
+     "reflexes": 1,
+     "teamwork": 1,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 1
+    },
+    "Portal 2": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 2,
+     "optimizing": 1,
+     "building": 1,
+     "exploring": 1,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Oxygen Not Included": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Dwarf Fortress": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Kerbal Space Program": {
+     "planning": 3,
+     "reflexes": 1,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Opus Magnum": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "Shapez": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 0,
+     "persistence": 2
+    },
+    "Cities: Skylines": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 2
+    },
+    "SpaceChem": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 3,
+     "exploring": 1,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Hades": {
+     "planning": 2,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 2,
+     "building": 1,
+     "exploring": 2,
+     "storytelling": 3,
+     "persistence": 3
+    },
+    "Celeste": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 2,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "Disco Elysium": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 3,
+     "persistence": 2
+    },
+    "Hollow Knight": {
+     "planning": 1,
+     "reflexes": 3,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 3
+    },
+    "The Witness": {
+     "planning": 2,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 0,
+     "building": 0,
+     "exploring": 3,
+     "storytelling": 2,
+     "persistence": 2
+    },
+    "Baba Is You": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 1,
+     "building": 2,
+     "exploring": 3,
+     "storytelling": 1,
+     "persistence": 3
+    },
+    "Slay the Spire": {
+     "planning": 3,
+     "reflexes": 0,
+     "teamwork": 0,
+     "optimizing": 3,
+     "building": 2,
+     "exploring": 2,
+     "storytelling": 1,
+     "persistence": 3
+    }
+   }
+  },
+  "jurorJobs": {
+   "anthropic/claude-opus-5.5": {
+    "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "needs": {
+      "planning": 1,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 0,
+      "building": 2,
+      "exploring": 3,
+      "storytelling": 3,
+      "persistence": 1
+     },
+     "wants": "product_bard"
+    },
+    "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 1
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 1,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 1
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 2,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 1,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 1
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 1,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 1
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 1,
+      "storytelling": 2,
+      "persistence": 3
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 0,
+      "exploring": 1,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 1,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 1,
+      "building": 2,
+      "exploring": 1,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    }
+   },
+   "openai/gpt-6.1-sol": {
+    "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 1,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 3,
+      "persistence": 1
+     },
+     "wants": "product_bard"
+    },
+    "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 2,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 3
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 0,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    }
+   },
+   "spacexai/grok-4.7": {
+    "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 1,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 3,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 1,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 1,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 0,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 0,
+      "teamwork": 2,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 0,
+      "persistence": 3
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "needs": {
+      "planning": 2,
+      "reflexes": 2,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 3,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "product_bard"
+    },
+    "https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 1,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 1,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 3
+     },
+     "wants": "meta_spreadsheet"
+    },
+    "https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 0,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    },
+    "https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 2,
+      "building": 2,
+      "exploring": 2,
+      "storytelling": 2,
+      "persistence": 2
+     },
+     "wants": "co_op_cleric"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "needs": {
+      "planning": 3,
+      "reflexes": 1,
+      "teamwork": 3,
+      "optimizing": 3,
+      "building": 3,
+      "exploring": 2,
+      "storytelling": 1,
+      "persistence": 2
+     },
+     "wants": "systems_necromancer"
+    }
+   }
+  },
+  "jurorPairs": {
+   "anthropic/claude-opus-5.5": {
+    "bentlegen|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 70
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 68
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "bentlegen|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "dorryspears|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "grichadev|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "theo|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "sergical|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "justalexoki|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 82
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 75
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 38
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "mismatch",
+     "fit": 30
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 90
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 92
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 70
+    },
+    "bentlegen|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "dorryspears|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "grichadev|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "theo|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "sergical|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 37
+    },
+    "justalexoki|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "mismatch",
+     "fit": 28
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 38
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 91
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 47
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "mismatch",
+     "fit": 38
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "mismatch",
+     "fit": 28
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 82
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 38
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "mismatch",
+     "fit": 28
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "match",
+     "fit": 92
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 70
+    },
+    "grichadev|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "theo|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "sergical|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 35
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 47
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "mismatch",
+     "fit": 28
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "mismatch",
+     "fit": 22
+    },
+    "bentlegen|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "grichadev|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "theo|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergical|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "justalexoki|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 66
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "bentlegen|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "grichadev|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "theo|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "sergical|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "justalexoki|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "match",
+     "fit": 85
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "grichadev|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "theo|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergical|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "mismatch",
+     "fit": 25
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "match",
+     "fit": 88
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 44
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 30
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 47
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 54
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 24
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 29
+    },
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 38
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "mismatch",
+     "fit": 28
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 92
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 38
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 46
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "mismatch",
+     "fit": 18
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "mismatch",
+     "fit": 30
+    }
+   },
+   "openai/gpt-6.1-sol": {
+    "bentlegen|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 82
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 86
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 61
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 73
+    },
+    "bentlegen|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "dorryspears|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 90
+    },
+    "grichadev|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 73
+    },
+    "theo|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "sergical|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 74
+    },
+    "justalexoki|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 72
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 93
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 85
+    },
+    "bentlegen|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "dorryspears|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 91
+    },
+    "grichadev|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "theo|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "sergical|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "justalexoki|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 97
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 67
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 91
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 71
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 97
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 72
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 89
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 85
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 92
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 72
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 93
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 53
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 97
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 73
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 79
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 71
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 94
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 86
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 44
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 43
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 54
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 35
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 38
+    },
+    "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 83
+    },
+    "grichadev|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 67
+    },
+    "theo|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 85
+    },
+    "sergical|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 76
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 77
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "mismatch",
+     "fit": 43
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "mismatch",
+     "fit": 46
+    },
+    "bentlegen|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "dorryspears|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 67
+    },
+    "grichadev|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "theo|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "sergical|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "justalexoki|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 61
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "bentlegen|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "grichadev|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "sergical|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "justalexoki|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 71
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 73
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "mismatch",
+     "fit": 39
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 94
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 69
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 79
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 98
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 81
+    }
+   },
+   "spacexai/grok-4.7": {
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 88
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 65
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 61
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 54
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "mismatch",
+     "fit": 36
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "match",
+     "fit": 97
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 86
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "match",
+     "fit": 95
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "bentlegen|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "dorryspears|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "grichadev|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 73
+    },
+    "theo|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "sergical|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "justalexoki|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "stretch",
+     "fit": 51
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 90
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+     "verdict": "match",
+     "fit": 84
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 83
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 40
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 52
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 47
+    },
+    "sergiy-sentry-dx|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "match",
+     "fit": 90
+    },
+    "dorryspears-cloudflare-platforms|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 67
+    },
+    "theo-cloudflare-load-balancing|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "bentlegen|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "dorryspears|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 83
+    },
+    "grichadev|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 41
+    },
+    "theo|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "sergical|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "justalexoki|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "match",
+     "fit": 92
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 64
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 86
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 51
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 79
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 89
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6006487004": {
+     "verdict": "match",
+     "fit": 75
+    },
+    "bentlegen|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "dorryspears|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 83
+    },
+    "grichadev|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "theo|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 81
+    },
+    "sergical|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 62
+    },
+    "justalexoki|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "mismatch",
+     "fit": 34
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 94
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/epicgames/jobs/6141143004": {
+     "verdict": "match",
+     "fit": 89
+    },
+    "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 79
+    },
+    "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 88
+    },
+    "grichadev|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "theo|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "sergical|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 84
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8595014002": {
+     "verdict": "match",
+     "fit": 77
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 41
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 37
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 56
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "match",
+     "fit": 66
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "mismatch",
+     "fit": 21
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8073566": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 70
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 53
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "mismatch",
+     "fit": 37
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "mismatch",
+     "fit": 42
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "match",
+     "fit": 96
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8784354002": {
+     "verdict": "stretch",
+     "fit": 68
+    },
+    "bentlegen|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "dorryspears|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 41
+    },
+    "grichadev|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 50
+    },
+    "theo|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 69
+    },
+    "sergical|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "mismatch",
+     "fit": 33
+    },
+    "justalexoki|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "stretch",
+     "fit": 53
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 75
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "mismatch",
+     "fit": 23
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/stripe/jobs/8170772": {
+     "verdict": "match",
+     "fit": 82
+    },
+    "bentlegen|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 78
+    },
+    "dorryspears|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 86
+    },
+    "grichadev|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "theo|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 44
+    },
+    "sergical|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "justalexoki|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "match",
+     "fit": 80
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "mismatch",
+     "fit": 32
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/duolingo/jobs/8705196002": {
+     "verdict": "stretch",
+     "fit": 53
+    },
+    "bentlegen|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "dorryspears|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "grichadev|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "match",
+     "fit": 71
+    },
+    "theo|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 58
+    },
+    "sergical|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 53
+    },
+    "justalexoki|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "match",
+     "fit": 74
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "match",
+     "fit": 67
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "match",
+     "fit": 83
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "mismatch",
+     "fit": 27
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/riotgames/jobs/8194780": {
+     "verdict": "stretch",
+     "fit": 42
+    },
+    "bentlegen|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 66
+    },
+    "dorryspears|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "match",
+     "fit": 82
+    },
+    "grichadev|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 55
+    },
+    "theo|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 49
+    },
+    "sergical|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "justalexoki|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 47
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "mismatch",
+     "fit": 34
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/discord/jobs/8769799002": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "bentlegen|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 54
+    },
+    "dorryspears|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "match",
+     "fit": 76
+    },
+    "grichadev|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 43
+    },
+    "theo|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "sergical|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "mismatch",
+     "fit": 31
+    },
+    "justalexoki|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 39
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 48
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "stretch",
+     "fit": 59
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "match",
+     "fit": 87
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/anthropic/jobs/5370615008": {
+     "verdict": "match",
+     "fit": 72
+    },
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 63
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 84
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 60
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 43
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 54
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 45
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 57
+    },
+    "sergiy-sentry-dx|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 39
+    },
+    "dorryspears-cloudflare-platforms|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "match",
+     "fit": 95
+    },
+    "theo-cloudflare-load-balancing|https://job-boards.greenhouse.io/cloudflare/jobs/8212352": {
+     "verdict": "stretch",
+     "fit": 67
+    }
+   }
+  }
+ }
+}

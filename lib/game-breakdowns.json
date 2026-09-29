@@ -1,0 +1,1122 @@
+{
+  "age of empires ii the age of kings": {
+    "title": "Age of Empires II: The Age of Kings",
+    "summary": "Age of Empires II: The Age of Kings is a real-time strategy video game developed by Ensemble Studios and published by Microsoft. Released in 1999 for Microsoft Windows and Macintosh in 2001, it is the second game in the Age of Empires series. The Age of Kings is set in the Middle Ages and contains 13 playable civilizations. Players aim to gather resources, which they use to build towns, create armies, and defeat their enemies. There are 5 historically based campaigns, which conscript the player to specialized and story-backed conditions, and 3 additional single-player game modes; multiplayer is also supported.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 2.04,
+      "teamwork": 1.49,
+      "optimizing": 2.36,
+      "building": 2.53,
+      "exploring": 1.68,
+      "storytelling": 1.15,
+      "persistence": 2.09
+    },
+    "skills": [
+      "planning",
+      "building",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "assassins creed": {
+    "title": "Assassin's Creed",
+    "summary": "Assassin's Creed is a 2007 action-adventure game developed by Ubisoft Montreal and published by Ubisoft. It is the first installment in the Assassin's Creed series. The game was released for PlayStation 3 and Xbox 360 in November 2007. A Microsoft Windows version titled Assassin's Creed: Director's Cut Edition containing additional content was released in April 2008.",
+    "levels": {
+      "planning": 1.48,
+      "reflexes": 1.67,
+      "teamwork": 0.03,
+      "optimizing": 0.44,
+      "building": 0.16,
+      "exploring": 2.47,
+      "storytelling": 1.86,
+      "persistence": 1.45
+    },
+    "skills": [
+      "exploring",
+      "storytelling",
+      "reflexes"
+    ],
+    "traits": []
+  },
+  "cossacks european wars": {
+    "title": "Cossacks: European Wars",
+    "summary": "Cossacks: European Wars is a real-time strategy video game for Microsoft Windows made by the Ukrainian developer GSC Game World. It was released on 28 November 2000. The game has an isometric view and is set in the 17th and 18th centuries of Europe. It features sixteen playable nations each with its own architectural styles, technologies and no limit on unit numbers.",
+    "levels": {
+      "planning": 2.94,
+      "reflexes": 1.71,
+      "teamwork": 1.08,
+      "optimizing": 1.78,
+      "building": 1.55,
+      "exploring": 1.59,
+      "storytelling": 0.32,
+      "persistence": 1.8
+    },
+    "skills": [
+      "planning",
+      "persistence",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "counterstrike": {
+    "title": "Counter-Strike",
+    "summary": "Counter-Strike is a 2000 tactical first-person shooter game developed by Valve Corporation and published by Sierra Studios. It is the first installment in the Counter-Strike series.",
+    "levels": {
+      "planning": 2.86,
+      "reflexes": 2.93,
+      "teamwork": 2.94,
+      "optimizing": 0.8,
+      "building": 0.04,
+      "exploring": 1.07,
+      "storytelling": 0.12,
+      "persistence": 2.17
+    },
+    "skills": [
+      "teamwork",
+      "reflexes",
+      "planning"
+    ],
+    "traits": []
+  },
+  "counterstrike global offens": {
+    "title": "Counter-Strike: Global Offens...",
+    "summary": "Counter-Strike: Global Offensive (CS:GO) is a multiplayer tactical first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for OS X, PlayStation 3, Windows, and Xbox 360 in August 2012, and for Linux in 2014. In December 2018, Valve transitioned the game to a free-to-play model, focusing on revenue from cosmetic items.",
+    "levels": {
+      "planning": 2.92,
+      "reflexes": 2.96,
+      "teamwork": 2.97,
+      "optimizing": 0.82,
+      "building": 0.04,
+      "exploring": 0.92,
+      "storytelling": 0.07,
+      "persistence": 2.31
+    },
+    "skills": [
+      "teamwork",
+      "reflexes",
+      "planning"
+    ],
+    "traits": []
+  },
+  "counterstrike source": {
+    "title": "Counter-Strike: Source",
+    "summary": "Counter-Strike is a 2000 tactical first-person shooter game developed by Valve Corporation and published by Sierra Studios. It is the first installment in the Counter-Strike series.",
+    "levels": {
+      "planning": 2.82,
+      "reflexes": 2.91,
+      "teamwork": 2.94,
+      "optimizing": 0.79,
+      "building": 0.05,
+      "exploring": 1,
+      "storytelling": 0.11,
+      "persistence": 2.11
+    },
+    "skills": [
+      "teamwork",
+      "reflexes",
+      "planning"
+    ],
+    "traits": []
+  },
+  "diablo ii": {
+    "title": "Diablo II",
+    "summary": "Diablo II is a 2000 action role-playing game developed by Blizzard North and published by Blizzard Entertainment for Microsoft Windows, Classic Mac OS, and OS X. The game, with its dark fantasy and horror themes, was conceptualized and designed by David Brevik and Erich Schaefer, who, with Max Schaefer, acted as project leads on the game. The senior producers were Matthew Householder and Bill Roper. The game was developed over a three-year period, with a crunch time of a year and a half.",
+    "levels": {
+      "planning": 2.04,
+      "reflexes": 1.72,
+      "teamwork": 1.31,
+      "optimizing": 2.88,
+      "building": 0.66,
+      "exploring": 2.63,
+      "storytelling": 1,
+      "persistence": 2.98
+    },
+    "skills": [
+      "persistence",
+      "optimizing",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "dyson sphere program": {
+    "title": "Dyson Sphere Program",
+    "summary": "Dyson Sphere Program is an upcoming factory simulation game developed by Youthcat Studio and published by Gamera Games. It was released in early access in January 2021 for Windows on Steam and WeGame.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 0.37,
+      "teamwork": 0.19,
+      "optimizing": 2.83,
+      "building": 3,
+      "exploring": 2.09,
+      "storytelling": 0.11,
+      "persistence": 2.92
+    },
+    "skills": [
+      "planning",
+      "building",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "europa universalis iv": {
+    "title": "Europa Universalis IV",
+    "summary": "Europa Universalis IV is a 2013 grand strategy video game in the Europa Universalis series, developed and published by Paradox Interactive as a sequel to Europa Universalis III (2007). The game was released on 25 August 2013 for Windows, OS X, and Linux. It is a strategy game where players can control a nation leading up to and during the early modern period of history. Players navigate their nations through trade, administration, diplomacy, colonization, and warfare. The game has sold over 4 million copies as of February 2024.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 0.23,
+      "teamwork": 0.81,
+      "optimizing": 2.67,
+      "building": 0.64,
+      "exploring": 2.18,
+      "storytelling": 1.02,
+      "persistence": 2.64
+    },
+    "skills": [
+      "planning",
+      "optimizing",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "factorio": {
+    "title": "Factorio",
+    "summary": "Factorio is a factory simulation game developed and published by Czech studio Wube Software. The game follows an engineer crash landing on an alien planet who must harvest resources and create automated industry to build a rocket; players can continue the game after achieving the end goal. There are both single-player and multiplayer modes, as well as eight additional game scenarios.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 0.57,
+      "teamwork": 1.34,
+      "optimizing": 2.96,
+      "building": 3,
+      "exploring": 2.5,
+      "storytelling": 0.27,
+      "persistence": 2.88
+    },
+    "skills": [
+      "planning",
+      "building",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "fallout a post nuclear role playing game": {
+    "title": "Fallout: A Post Nuclear Role Playing Game",
+    "summary": "Fallout is a 1997 role-playing video game developed and published by Interplay Productions, set in a mid-22nd century post-apocalyptic and retro-futuristic world, decades after a global nuclear war led by the United States and China. Fallout's protagonist, the Vault Dweller, inhabits an underground nuclear shelter. The player must scour the surrounding wasteland for a computer chip that can fix the Vault's failed water supply system. They interact with other survivors, some of whom give them quests, and engage in turn-based combat.",
+    "levels": {
+      "planning": 2.33,
+      "reflexes": 0.12,
+      "teamwork": 0.09,
+      "optimizing": 1.96,
+      "building": 0.41,
+      "exploring": 2.94,
+      "storytelling": 2.1,
+      "persistence": 2.03
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "storytelling"
+    ],
+    "traits": []
+  },
+  "final fantasy iii": {
+    "title": "Final Fantasy III",
+    "summary": "Final Fantasy III is a 2006 role-playing video game developed by Matrix Software and published by Square Enix for the Nintendo DS. It is a remake of the 1990 Famicom game Final Fantasy III, and marks the first time the game was released outside of Japan since its original launch.",
+    "levels": {
+      "planning": 2.22,
+      "reflexes": 0.46,
+      "teamwork": 0.48,
+      "optimizing": 1.81,
+      "building": 0.45,
+      "exploring": 2.46,
+      "storytelling": 1.89,
+      "persistence": 2.17
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "garrys mod": {
+    "title": "Garry's Mod",
+    "summary": "Garry's Mod, commonly clipped as GMod, is a 2006 sandbox game developed by Facepunch Studios and published by Valve. The base game mode of Garry's Mod has no set objectives and provides the player with a world in which to freely manipulate objects. Other game modes, notably Trouble in Terrorist Town and Prop Hunt, are created by other developers as mods and are installed separately, by means such as the Steam Workshop. Garry's Mod was created by Garry Newman as a mod for Valve's Source game engine and released in December 2004, before being expanded into a standalone release that was published by Valve in November 2006. Ports of the original Windows version for Mac OS X and Linux followed in September 2010 and June 2013, respectively. As of September 2021, Garry's Mod has sold more than 2…",
+    "levels": {
+      "planning": 0.67,
+      "reflexes": 0.47,
+      "teamwork": 1.08,
+      "optimizing": 0.27,
+      "building": 2.98,
+      "exploring": 3,
+      "storytelling": 0.91,
+      "persistence": 0.37
+    },
+    "skills": [
+      "exploring",
+      "building",
+      "teamwork"
+    ],
+    "traits": []
+  },
+  "halo 3": {
+    "title": "Halo 3",
+    "summary": "Halo 3 is a 2007 first-person shooter video game developed by Bungie for the Xbox 360 console. The third installment in the Halo franchise following Halo: Combat Evolved (2001) and Halo 2 (2004), the game's story centers on the interstellar war between 26th-century humanity, a collection of alien races known as the Covenant, and the alien parasite known as the Flood. The player assumes the role of the Master Chief, a cybernetically enhanced supersoldier, as he battles the Covenant and the Flood. In cooperative play, other human players assume the role of allied alien soldiers. The game features vehicles, weapons, and gameplay elements familiar and new to the series, as well as the addition of saved gameplay films, file sharing, and the Forge map editor—a utility which allows the player to…",
+    "levels": {
+      "planning": 1.38,
+      "reflexes": 2.84,
+      "teamwork": 1.95,
+      "optimizing": 0.63,
+      "building": 1.03,
+      "exploring": 1.25,
+      "storytelling": 1.07,
+      "persistence": 1.63
+    },
+    "skills": [
+      "reflexes",
+      "teamwork",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "heroes of might and magic iii armageddo": {
+    "title": "Heroes of Might and Magic III: Armageddo...",
+    "summary": "Heroes of Might and Magic III: Armageddon's Blade is the first of two expansion packs for the turn-based strategy game Heroes of Might and Magic III. It was developed by New World Computing for Microsoft Windows and released by The 3DO Company in 1999.",
+    "levels": {
+      "planning": 2.99,
+      "reflexes": 0.13,
+      "teamwork": 0.66,
+      "optimizing": 2.25,
+      "building": 1.02,
+      "exploring": 2.34,
+      "storytelling": 0.89,
+      "persistence": 2.34
+    },
+    "skills": [
+      "planning",
+      "exploring",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "heroes of might and magic iii remake": {
+    "title": "Heroes of Might and Magic III Remake",
+    "summary": "Heroes of Might and Magic III: The Restoration of Erathia is a turn-based strategy game, developed by Jon Van Caneghem through New World Computing and originally released for Microsoft Windows by The 3DO Company in 1999. Its ports to several computer and console systems followed over the next year. The third installment of the Heroes of Might and Magic series, the game was released to universal acclaim and is regarded as a cult classic.",
+    "levels": {
+      "planning": 2.99,
+      "reflexes": 0.11,
+      "teamwork": 0.74,
+      "optimizing": 2.37,
+      "building": 1.05,
+      "exploring": 2.41,
+      "storytelling": 0.87,
+      "persistence": 2.33
+    },
+    "skills": [
+      "planning",
+      "exploring",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "hitman blood money": {
+    "title": "Hitman: Blood Money",
+    "summary": "Hitman: Blood Money is a 2006 stealth video game developed by IO Interactive and published by Eidos Interactive. It was released in May 2006 for Microsoft Windows, PlayStation 2, Xbox and Xbox 360. It is the fourth installment in the Hitman video game series, and the sequel to 2004's Hitman: Contracts. The story follows cloned assassin Agent 47's efforts to bring down the Franchise, a rival contract killing organization that is threatening his employers, the International Contract Agency (ICA), and seeking to obtain the same cloning technology that created 47. Meanwhile, a frame story presents 47's life and various contracts he carried out, as narrated by a former FBI director to a journalist.",
+    "levels": {
+      "planning": 2.98,
+      "reflexes": 0.85,
+      "teamwork": 0,
+      "optimizing": 0.66,
+      "building": 0.45,
+      "exploring": 2.92,
+      "storytelling": 1.17,
+      "persistence": 2
+    },
+    "skills": [
+      "planning",
+      "exploring",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "kingdom hearts ii": {
+    "title": "Kingdom Hearts II",
+    "summary": "Kingdom Hearts II is a 2005 action role-playing game developed and published by Square Enix in collaboration with Buena Vista Games for the PlayStation 2. The game is a sequel to Kingdom Hearts, and like the original game, combines characters and settings from Disney films with those of Square Enix's Final Fantasy series. An expanded re-release of the game featuring new and additional content, Kingdom Hearts II Final Mix, was released exclusively in Japan in March 2007. The Final Mix version of the game was later remastered in high definition and released globally as part of the Kingdom Hearts HD 2.5 Remix collection for the PlayStation 3, PlayStation 4, Xbox One, Windows, and Nintendo Switch.",
+    "levels": {
+      "planning": 1.61,
+      "reflexes": 1.94,
+      "teamwork": 0.27,
+      "optimizing": 1.13,
+      "building": 0.31,
+      "exploring": 1.83,
+      "storytelling": 1.86,
+      "persistence": 1.83
+    },
+    "skills": [
+      "reflexes",
+      "storytelling",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "madden nfl 11": {
+    "title": "Madden NFL 11",
+    "summary": "Madden NFL 11 is an American football video game based on the National Football League, published by EA Sports and developed by EA Tiburon. It is the 21st annual installment in the bestselling Madden NFL video game franchise. It was released in 2010 for the PlayStation 3, PlayStation 2, Wii, Xbox 360, PlayStation Portable, BlackBerry, and iOS platforms. The PS3 and Xbox 360 demos were released July 27, 2010.",
+    "levels": {
+      "planning": 1.85,
+      "reflexes": 2.11,
+      "teamwork": 0.82,
+      "optimizing": 1.21,
+      "building": 0.11,
+      "exploring": 0.53,
+      "storytelling": 0.24,
+      "persistence": 1.07
+    },
+    "skills": [
+      "reflexes",
+      "planning",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "mass effect 2": {
+    "title": "Mass Effect 2",
+    "summary": "Mass Effect 2 is a 2010 action role-playing game developed by BioWare and published by Microsoft Game Studios and Electronic Arts. It was released for Windows and the Xbox 360 in January 2010, as well as the PlayStation 3 the following year. It is the second installment in the Mass Effect series and a sequel to the original Mass Effect. The game takes place within the Milky Way galaxy during the 22nd century, where humanity is threatened by an insectoid alien race known as the Collectors. The player assumes the role of Commander Shepard, an elite human soldier who must assemble and gain the loyalty of a diverse team to stop the Collectors in a suicide mission. Using a completed saved game of its predecessor, the player can impact the game's story in numerous ways.",
+    "levels": {
+      "planning": 1.94,
+      "reflexes": 1.6,
+      "teamwork": 0.65,
+      "optimizing": 1.73,
+      "building": 0.32,
+      "exploring": 1.74,
+      "storytelling": 2.56,
+      "persistence": 1.67
+    },
+    "skills": [
+      "storytelling",
+      "planning",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "minecraft java edition": {
+    "title": "Minecraft: Java Edition",
+    "summary": "Minecraft is a sandbox video game developed and published by the Swedish company Mojang Studios. Following its initial public alpha release as an early access title in 2009, it was formally released in November 2011 for personal computers. The game has since been ported to numerous platforms, including mobile devices and various video game consoles.",
+    "levels": {
+      "planning": 2.62,
+      "reflexes": 0.86,
+      "teamwork": 1.22,
+      "optimizing": 0.89,
+      "building": 3,
+      "exploring": 3,
+      "storytelling": 0.84,
+      "persistence": 2.28
+    },
+    "skills": [
+      "building",
+      "exploring",
+      "planning"
+    ],
+    "traits": []
+  },
+  "nba 2k14": {
+    "title": "NBA 2K14",
+    "summary": "NBA 2K14 is a 2013 basketball video game developed by Visual Concepts and published by 2K. The fifteenth installment in the series, it was released on October 1, 2013, for Windows, PlayStation 3, and Xbox 360, and the PlayStation 4 and the Xbox One versions were released on the consoles' respective launch dates. LeBron James of the Miami Heat became the cover athlete, and also served as the music curator for the game. 2K Sports also released the DLC pack that as a bonus for pre-ordering the game, they would receive 10,000 VC, bonus content for \"Path to Greatness\" mode, adding James in the Blacktop mode and a signature skill for MyCareer mode. On August 14, 2013, 2K Sports announced that Crew Mode would return to this year's installment of NBA 2K. NBA 2K14 is the successor to NBA 2K13 and…",
+    "levels": {
+      "planning": 1.49,
+      "reflexes": 1.98,
+      "teamwork": 1.53,
+      "optimizing": 1.4,
+      "building": 0.17,
+      "exploring": 0.72,
+      "storytelling": 1.25,
+      "persistence": 2.02
+    },
+    "skills": [
+      "persistence",
+      "reflexes",
+      "teamwork"
+    ],
+    "traits": []
+  },
+  "need for speed carbon": {
+    "title": "Need for Speed: Carbon",
+    "summary": "Need for Speed: Carbon is a 2006 racing video game and the tenth installment in the Need for Speed series. Developed by EA Black Box, Rovio Mobile and published by Electronic Arts, it was released on October 31, 2006, for the PlayStation 2, Xbox, Xbox 360, GameCube, Windows, and Mac OS X, on November 17, 2006 as a launch title for the PlayStation 3, and November 19, 2006 as a launch title for the Wii and in 2008 for arcade cabinets. A portable version, Need for Speed: Carbon – Own the City, was released for the PlayStation Portable, Game Boy Advance, Nintendo DS and Zeebo. While it featured similar gameplay to the console versions, the portable versions included new or modified gameplay elements, a different setting and storyline, and a different selection of teammates. Own the City is th…",
+    "levels": {
+      "planning": 1.08,
+      "reflexes": 2.7,
+      "teamwork": 0.63,
+      "optimizing": 1.3,
+      "building": 0.41,
+      "exploring": 1.22,
+      "storytelling": 0.7,
+      "persistence": 2.02
+    },
+    "skills": [
+      "reflexes",
+      "persistence",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "need for speed most wanted": {
+    "title": "Need for Speed: Most Wanted",
+    "summary": "Need for Speed: Most Wanted is a 2005 racing video game, and the ninth installment in the Need for Speed series following Underground 2. Developed and published by Electronic Arts (EA), it was released in November 2005 for GameCube, PlayStation 2, Windows, Xbox, and Xbox 360 alongside two distinct versions for Nintendo DS and Game Boy Advance. Another version for PlayStation Portable titled Need for Speed: Most Wanted 5-1-0, was released at the same time and featured alternative gameplay.",
+    "levels": {
+      "planning": 1.15,
+      "reflexes": 2.69,
+      "teamwork": 0.18,
+      "optimizing": 0.94,
+      "building": 0.16,
+      "exploring": 1.54,
+      "storytelling": 0.32,
+      "persistence": 2.09
+    },
+    "skills": [
+      "reflexes",
+      "persistence",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "nier automata": {
+    "title": "NieR: Automata",
+    "summary": "Nier: Automata is a 2017 action role-playing game developed by PlatinumGames and published by Square Enix. It is the sequel to Nier (2010). Nier: Automata was originally released for the PlayStation 4 and Windows via Steam. It was ported to Xbox One in June 2018, and Nintendo Switch in October 2022.",
+    "levels": {
+      "planning": 1.5,
+      "reflexes": 2.4,
+      "teamwork": 0.41,
+      "optimizing": 1.37,
+      "building": 0.41,
+      "exploring": 2.27,
+      "storytelling": 2.33,
+      "persistence": 2.03
+    },
+    "skills": [
+      "reflexes",
+      "storytelling",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "offworld trading company": {
+    "title": "Offworld Trading Company",
+    "summary": "Offworld Trading Company is a real-time strategy (RTS) tycoon video game developed by Mohawk Games and published by Stardock. The game was released for Microsoft Windows and OS X in April 2016.",
+    "levels": {
+      "planning": 2.97,
+      "reflexes": 1.33,
+      "teamwork": 0.49,
+      "optimizing": 2.57,
+      "building": 2.36,
+      "exploring": 1.39,
+      "storytelling": 0.21,
+      "persistence": 1.82
+    },
+    "skills": [
+      "planning",
+      "optimizing",
+      "building"
+    ],
+    "traits": []
+  },
+  "outer wilds": {
+    "title": "Outer Wilds",
+    "summary": "Outer Wilds is a 2019 action-adventure game developed by Mobius Digital and published by Annapurna Interactive. The game follows the player character as they explore a planetary system stuck in a 22-minute time loop that resets after the sun goes supernova and destroys the system. Through repeated attempts, they investigate the alien ruins of the Nomai to discover their history and the cause of the time loop.",
+    "levels": {
+      "planning": 2.37,
+      "reflexes": 0.8,
+      "teamwork": 0,
+      "optimizing": 0.05,
+      "building": 0.27,
+      "exploring": 3,
+      "storytelling": 2.54,
+      "persistence": 2.84
+    },
+    "skills": [
+      "exploring",
+      "persistence",
+      "storytelling"
+    ],
+    "traits": []
+  },
+  "persona 3 portable": {
+    "title": "Persona 3 Portable",
+    "summary": "Persona 3, released outside Japan as Shin Megami Tensei: Persona 3, is a 2006 role-playing video game developed by Atlus. It is the fourth main installment in the Persona series, which is part of the larger Megami Tensei franchise. It was originally released for the PlayStation 2 in Japan in 2006 and in North America in 2007. It has received several enhanced re-releases and ports: Persona 3 FES, an extended version featuring a new playable epilogue and other changes, was released for the PlayStation 2 in Japan in 2007 and worldwide in 2008. A PlayStation Portable version, Persona 3 Portable, was released in Japan in 2009, North America in 2010, and Europe in 2011, and ported to the Nintendo Switch, PlayStation 4, Windows, Xbox One and Xbox Series X/S in 2023. Persona 3 Reload, a remake of…",
+    "levels": {
+      "planning": 2.37,
+      "reflexes": 0.78,
+      "teamwork": 0.58,
+      "optimizing": 1.7,
+      "building": 0.74,
+      "exploring": 2.25,
+      "storytelling": 2.34,
+      "persistence": 2.06
+    },
+    "skills": [
+      "planning",
+      "storytelling",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "persona 5": {
+    "title": "Persona 5",
+    "summary": "Persona 5 is a 2016 role-playing video game developed by P-Studio. The game is the sixth installment in the Persona series, itself a spin-off from the Megami Tensei franchise. Published by Atlus in Japan and North America, and Deep Silver in PAL territories, it was released for PlayStation 3 and PlayStation 4 in Japan on September 15, 2016 and worldwide on April 4, 2017. An enhanced version featuring new content, Persona 5 Royal, was released by Atlus for PlayStation 4 in Japan on October 31, 2019, while parent company Sega published the game worldwide on March 31, 2020. Royal was released on the PlayStation 5, Xbox One, Xbox Series X/S, Nintendo Switch, and Windows on October 21, 2022.",
+    "levels": {
+      "planning": 2.4,
+      "reflexes": 0.75,
+      "teamwork": 0.4,
+      "optimizing": 1.6,
+      "building": 0.7,
+      "exploring": 2.27,
+      "storytelling": 2.25,
+      "persistence": 1.73
+    },
+    "skills": [
+      "planning",
+      "exploring",
+      "storytelling"
+    ],
+    "traits": []
+  },
+  "pokémon crystal version": {
+    "title": "Pokémon Crystal Version",
+    "summary": "Pokémon Crystal Version is a role-playing video game developed by Game Freak and published by Nintendo for the Game Boy Color, released in Japan in December 2000 and internationally throughout 2001. Serving as an enhanced edition of the 1999 titles Pokémon Gold and Silver, it is the final entry in the second generation of the Pokémon game series. The game introduced several new features, including additional story elements, a Battle Tower area, the option to play as a female protagonist, animated Pokémon sprites during battles, and various minor improvements. The Japanese version of the game also utilized the capabilities of the Mobile Adapter GB, a peripheral that allowed players to trade and battle over cell phones and a paid subscription service called \"Mobile System GB\". These enhance…",
+    "levels": {
+      "planning": 1.91,
+      "reflexes": 0.49,
+      "teamwork": 0.85,
+      "optimizing": 1.48,
+      "building": 0.22,
+      "exploring": 2.8,
+      "storytelling": 1.49,
+      "persistence": 2.27
+    },
+    "skills": [
+      "exploring",
+      "persistence",
+      "planning"
+    ],
+    "traits": []
+  },
+  "pokémon heartgold version": {
+    "title": "Pokémon HeartGold Version",
+    "summary": "Pokémon HeartGold Version and Pokémon SoulSilver Version are 2009 remakes of the 1999 Game Boy Color role-playing video games Pokémon Gold and Silver, also including features from Pokémon Crystal. The games are part of the fourth generation of the Pokémon video game series, developed by Game Freak and published by The Pokémon Company and Nintendo for the Nintendo DS. In commemoration of the 10th anniversary of Gold and Silver, the games were released in Japan on September 12, 2009, and were later released in other regions during March 2010.",
+    "levels": {
+      "planning": 2.02,
+      "reflexes": 0.49,
+      "teamwork": 0.72,
+      "optimizing": 1.44,
+      "building": 0.38,
+      "exploring": 2.76,
+      "storytelling": 1.55,
+      "persistence": 2.36
+    },
+    "skills": [
+      "exploring",
+      "persistence",
+      "planning"
+    ],
+    "traits": []
+  },
+  "pokémon platinum version": {
+    "title": "Pokémon Platinum Version",
+    "summary": "Pokémon Platinum Version is a 2008 role-playing video game developed by Game Freak and published by The Pokémon Company and Nintendo for the Nintendo DS. The game is an enhanced version of the 2006 titles Pokémon Diamond and Pearl and is part of the fourth generation of the Pokémon video game series. It was released in Japan in September 2008 and internationally throughout 2009.",
+    "levels": {
+      "planning": 1.96,
+      "reflexes": 0.52,
+      "teamwork": 0.82,
+      "optimizing": 1.55,
+      "building": 0.34,
+      "exploring": 2.68,
+      "storytelling": 1.44,
+      "persistence": 2.42
+    },
+    "skills": [
+      "exploring",
+      "persistence",
+      "planning"
+    ],
+    "traits": []
+  },
+  "poképark wii pikachus adventure": {
+    "title": "PokéPark Wii: Pikachu's Adventure",
+    "summary": "PokéPark Wii: Pikachu's Adventure is a spin-off video game in the Pokémon series for the Wii, developed by Creatures Inc. and published by The Pokémon Company and Nintendo. It was released on December 5, 2009, in Japan, on July 9, 2010, in Europe, on September 23, 2010, in Australia, and on November 1, 2010, in North America. It was re-released on the Wii U's eShop service in Europe and Australia on July 16, 2015.",
+    "levels": {
+      "planning": 0.94,
+      "reflexes": 0.85,
+      "teamwork": 0.78,
+      "optimizing": 0.22,
+      "building": 0.6,
+      "exploring": 2.19,
+      "storytelling": 0.98,
+      "persistence": 1.18
+    },
+    "skills": [
+      "exploring",
+      "persistence",
+      "storytelling"
+    ],
+    "traits": []
+  },
+  "portal": {
+    "title": "Portal",
+    "summary": "Portal is a 2007 puzzle-platform game developed and published by Valve. It was originally released in a bundle, The Orange Box, for Windows, Xbox 360 and PlayStation 3, and has been ported to other systems, including Mac OS X, Linux, Android, and Nintendo Switch.",
+    "levels": {
+      "planning": 2.63,
+      "reflexes": 0.8,
+      "teamwork": 0.25,
+      "optimizing": 0.26,
+      "building": 0.81,
+      "exploring": 2.97,
+      "storytelling": 0.75,
+      "persistence": 1.35
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "quake iii arena": {
+    "title": "Quake III Arena",
+    "summary": "Quake III Arena is a 1999 first-person shooter game developed by id Software. The third installment of the Quake series, Arena differs from previous games by excluding a story-based single-player mode and focusing primarily on multiplayer gameplay. The single-player mode is played against computer-controlled bots. It features music composed by Sonic Mayhem and Front Line Assembly founder Bill Leeb.",
+    "levels": {
+      "planning": 1.55,
+      "reflexes": 3,
+      "teamwork": 0.91,
+      "optimizing": 0.58,
+      "building": 0.02,
+      "exploring": 1,
+      "storytelling": 0.01,
+      "persistence": 1.48
+    },
+    "skills": [
+      "reflexes",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "runescape 2": {
+    "title": "RuneScape 2",
+    "summary": "RuneScape is a fantasy massively multiplayer online role-playing game (MMORPG) developed and published by Jagex. Created by Andrew Gower with assistance from his brother Paul Gower, it was first released on 4 January 2001 as a Java-based browser game; the original Java client was later largely replaced by the standalone C++ NXT client in 2016. The game is set in the medieval fantasy world of Gielinor, where players control customisable avatars and pursue open-ended activities such as questing, combat, skill training, trading, socialising, minigames and cooperative play.",
+    "levels": {
+      "planning": 2.44,
+      "reflexes": 0.91,
+      "teamwork": 1.79,
+      "optimizing": 1.9,
+      "building": 1.68,
+      "exploring": 2.65,
+      "storytelling": 1.32,
+      "persistence": 2.98
+    },
+    "skills": [
+      "persistence",
+      "exploring",
+      "planning"
+    ],
+    "traits": []
+  },
+  "runescape classic": {
+    "title": "RuneScape Classic",
+    "summary": "RuneScape is a fantasy massively multiplayer online role-playing game (MMORPG) developed and published by Jagex. Created by Andrew Gower with assistance from his brother Paul Gower, it was first released on 4 January 2001 as a Java-based browser game; the original Java client was later largely replaced by the standalone C++ NXT client in 2016. The game is set in the medieval fantasy world of Gielinor, where players control customisable avatars and pursue open-ended activities such as questing, combat, skill training, trading, socialising, minigames and cooperative play.",
+    "levels": {
+      "planning": 2.49,
+      "reflexes": 0.88,
+      "teamwork": 1.72,
+      "optimizing": 1.74,
+      "building": 1.64,
+      "exploring": 2.55,
+      "storytelling": 1.24,
+      "persistence": 2.97
+    },
+    "skills": [
+      "persistence",
+      "exploring",
+      "planning"
+    ],
+    "traits": []
+  },
+  "satisfactory": {
+    "title": "Satisfactory",
+    "summary": "Satisfactory is a 2024 factory simulation game by Coffee Stain Studios for Windows, Xbox, and PlayStation. The player is dropped onto an alien planet with a handful of tools and must use the planet's natural resources to construct increasingly complex factories. The initial goal is to construct a space elevator, through which the Pioneer begins supplying the megacorp the player works for with increasingly numerous and complex components for their unknown, but stated to be prudent, purposes. These exports unlock access to new technology that in turn unlocks a new tier of manufacturing and refinement machines to support the production of the next phase of parts to be delivered to FICSIT.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 0.23,
+      "teamwork": 0.55,
+      "optimizing": 2.72,
+      "building": 3,
+      "exploring": 2.43,
+      "storytelling": 0.44,
+      "persistence": 2.89
+    },
+    "skills": [
+      "planning",
+      "building",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "sid meiers civilization ii": {
+    "title": "Sid Meier's Civilization II",
+    "summary": "Sid Meier's Civilization II is a turn-based strategy video game in the Civilization series, developed and published by MicroProse. It was released in 1996 for PCs, and later ported to the PlayStation by Activision.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 0.05,
+      "teamwork": 0.72,
+      "optimizing": 2.2,
+      "building": 1.78,
+      "exploring": 2.42,
+      "storytelling": 0.48,
+      "persistence": 2.53
+    },
+    "skills": [
+      "planning",
+      "persistence",
+      "exploring"
+    ],
+    "traits": []
+  },
+  "skate": {
+    "title": "Skate",
+    "summary": "Skate is a 2007 skateboarding video game developed by EA Black Box and published by Electronic Arts for Xbox 360, PlayStation 3 and mobile phones. Two sequels, Skate 2 and Skate 3, were released for PlayStation 3 and Xbox 360, with a reboot, Skate (2025) releasing on Windows, PlayStation 4, PlayStation 5, Xbox One, and Xbox Series X/S, as well as Skate It, a spin-off for Wii, Nintendo DS and iOS platforms. It received positive reviews from critics.",
+    "levels": {
+      "planning": 1.34,
+      "reflexes": 1.78,
+      "teamwork": 0.12,
+      "optimizing": 0.2,
+      "building": 0.36,
+      "exploring": 2.27,
+      "storytelling": 0.23,
+      "persistence": 2.85
+    },
+    "skills": [
+      "persistence",
+      "exploring",
+      "reflexes"
+    ],
+    "traits": []
+  },
+  "space rangers": {
+    "title": "Space Rangers",
+    "summary": "Space Rangers is a multi-genre computer game by the Russian company Elemental Games, released by 1C Company in 2002. It is critically acclaimed and popular in its home country, Finland and parts of Eastern Europe, although not so popular elsewhere due to lack of marketing. In 2004, 1C Company published a sequel, Space Rangers 2: Dominators.",
+    "levels": {
+      "planning": 2.29,
+      "reflexes": 1.23,
+      "teamwork": 0.42,
+      "optimizing": 1.68,
+      "building": 1.52,
+      "exploring": 2.55,
+      "storytelling": 1.03,
+      "persistence": 1.98
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "starcraft": {
+    "title": "StarCraft",
+    "summary": "StarCraft is a real-time strategy video game developed and published by Blizzard Entertainment for Microsoft Windows. The first installment of the video game series of the same name, it was released in 1998. A Classic Mac OS version was released in 1999, and a Nintendo 64 port co-developed with Mass Media and published by Nintendo was released in 2000.",
+    "levels": {
+      "planning": 3,
+      "reflexes": 2.93,
+      "teamwork": 1.28,
+      "optimizing": 2.47,
+      "building": 1.98,
+      "exploring": 1.94,
+      "storytelling": 0.73,
+      "persistence": 2.1
+    },
+    "skills": [
+      "planning",
+      "reflexes",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "starcraft ii wings of liberty": {
+    "title": "StarCraft II: Wings of Liberty",
+    "summary": "StarCraft II: Wings of Liberty is a science fiction real-time strategy video game developed and published by Blizzard Entertainment. It was released worldwide in July 2010 for Microsoft Windows and Mac OS X. A sequel to the 1998 video game StarCraft and the Brood War expansion pack, the game is best known as the original installment of StarCraft II which was later followed by a number of expansion packs. Wings of Liberty has been free-to-play since November 2017.",
+    "levels": {
+      "planning": 2.99,
+      "reflexes": 2.76,
+      "teamwork": 0.96,
+      "optimizing": 2.31,
+      "building": 1.97,
+      "exploring": 1.54,
+      "storytelling": 1.42,
+      "persistence": 1.82
+    },
+    "skills": [
+      "planning",
+      "reflexes",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "subspace": {
+    "title": "SubSpace",
+    "summary": "SubSpace is a 2D space shooter video game created in 1995 and released in 1997 by Virgin Interactive which was a finalist for the Academy of Interactive Arts & Sciences Online Game of the Year Award in 1998. SubSpace incorporates quasi-realistic zero-friction physics into a massively multiplayer online game.",
+    "levels": {
+      "planning": 1.78,
+      "reflexes": 2.63,
+      "teamwork": 2.39,
+      "optimizing": 0.91,
+      "building": 0.04,
+      "exploring": 1.41,
+      "storytelling": 0.08,
+      "persistence": 1.78
+    },
+    "skills": [
+      "reflexes",
+      "teamwork",
+      "planning"
+    ],
+    "traits": []
+  },
+  "super metroid": {
+    "title": "Super Metroid",
+    "summary": "Super Metroid is a 1994 action-adventure game developed by Nintendo and Intelligent Systems and published by Nintendo for the Super Nintendo Entertainment System (SNES). It is the third Metroid game, following the Game Boy game Metroid II: Return of Samus (1991). The player controls bounty hunter Samus Aran, who travels to the planet Zebes to retrieve an infant Metroid creature stolen by the Space Pirate leader Ridley.",
+    "levels": {
+      "planning": 2.55,
+      "reflexes": 1.96,
+      "teamwork": 0,
+      "optimizing": 0.66,
+      "building": 0.07,
+      "exploring": 2.99,
+      "storytelling": 0.86,
+      "persistence": 2.01
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "super smash bros ultimate": {
+    "title": "Super Smash Bros. Ultimate",
+    "summary": "Super Smash Bros. Ultimate is a 2018 crossover fighting game developed by Bandai Namco Studios and Sora Ltd. and published by Nintendo for the Nintendo Switch. It is the fifth installment in the Super Smash Bros. series, succeeding Super Smash Bros. for Nintendo 3DS and Wii U (2014). The game follows the series' traditional style of gameplay, in which players control one of the various characters and use attacks to weaken their opponents and knock them out of an arena. It features a wide variety of game modes, including a single-player campaign and multiplayer versus modes. Ultimate features 74 playable fighters, including all characters from previous Super Smash Bros. games as well as newcomers. The roster ranges from Nintendo characters to those from third-party franchises.",
+    "levels": {
+      "planning": 1.72,
+      "reflexes": 2.87,
+      "teamwork": 0.62,
+      "optimizing": 0.93,
+      "building": 0.03,
+      "exploring": 1.31,
+      "storytelling": 0.27,
+      "persistence": 1.53
+    },
+    "skills": [
+      "reflexes",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "system shock 2": {
+    "title": "System Shock 2",
+    "summary": "System Shock 2 is a 1999 action role-playing and survival horror video game designed by Ken Levine and co-developed by Irrational Games and Looking Glass Studios. Originally intended to be a standalone title, its story was changed during production into a sequel to the 1994 game System Shock. The alterations were made when Electronic Arts—who owned the System Shock franchise rights—signed on as publisher.",
+    "levels": {
+      "planning": 2.1,
+      "reflexes": 1.5,
+      "teamwork": 0.08,
+      "optimizing": 1.52,
+      "building": 0.49,
+      "exploring": 2.9,
+      "storytelling": 1.92,
+      "persistence": 2
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "terraria": {
+    "title": "Terraria",
+    "summary": "Terraria is a 2011 action-adventure video game developed by Re-Logic and published by 505 Games. As a sandbox game, Terraria has no set goals. After creating the player character and choosing the game's difficulty, the player is placed in a two-dimensional, procedurally generated world where they explore, fight enemies, gather resources, and craft equipment. Players beat bosses, a tougher variety of enemies, to gain access to more items, resources, and equipment. By completing select goals, players receive access to non-player characters (NPCs) who sell items and offer services, such as healing and fishing quests. Terraria can be played alone or with others, and features support for modding.",
+    "levels": {
+      "planning": 2.48,
+      "reflexes": 1.4,
+      "teamwork": 1.05,
+      "optimizing": 1.53,
+      "building": 2.94,
+      "exploring": 3,
+      "storytelling": 0.55,
+      "persistence": 2.75
+    },
+    "skills": [
+      "exploring",
+      "building",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "the legend of zelda breath of the wild": {
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "summary": "The Legend of Zelda: Breath of the Wild is a 2017 action-adventure game developed by Nintendo EPD for the Wii U and Nintendo Switch. Set near the end of the Zelda timeline, it follows Link as he sets out to save Princess Zelda and prevent Calamity Ganon from destroying the world. The player explores the open world of Hyrule, collects items, and completes objectives such as puzzles and side quests. Breath of the Wild's world is unstructured and encourages exploration and experimentation; the story can be completed in a nonlinear fashion.",
+    "levels": {
+      "planning": 1.89,
+      "reflexes": 1.06,
+      "teamwork": 0.09,
+      "optimizing": 0.74,
+      "building": 1.17,
+      "exploring": 3,
+      "storytelling": 1.05,
+      "persistence": 1.52
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "the legend of zelda ocarina of time": {
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "summary": "The Legend of Zelda: Ocarina of Time is a 1998 action-adventure game developed and published by Nintendo for the Nintendo 64. It was the first Legend of Zelda game with 3D graphics. It was released in Japan and North America in November 1998 and in PAL regions the following month.",
+    "levels": {
+      "planning": 2.09,
+      "reflexes": 1.49,
+      "teamwork": 0.02,
+      "optimizing": 0.29,
+      "building": 0.2,
+      "exploring": 2.93,
+      "storytelling": 1.4,
+      "persistence": 1.48
+    },
+    "skills": [
+      "exploring",
+      "planning",
+      "reflexes"
+    ],
+    "traits": []
+  },
+  "the settlers iii": {
+    "title": "The Settlers III",
+    "summary": "The Settlers III is a 1998 real-time strategy video game with city-building elements for Windows. Developed and published by Blue Byte, it was released worldwide in November 1998. It is the third game in The Settlers series. In 1999, Blue Byte released two expansions, The Settlers III Mission CD and The Settlers III: Quest of the Amazons, in April and October respectively, featuring new single-player campaign missions, new maps for both single-player and multiplayer modes, and a map editor. In June 2000, The Settlers III: Gold Edition was released, containing the original game and both expansions. In 2013, the Gold Edition was released on GOG.com, and in 2018, it was re-released as The Settlers III: History Edition.",
+    "levels": {
+      "planning": 2.95,
+      "reflexes": 1.08,
+      "teamwork": 1.24,
+      "optimizing": 1.66,
+      "building": 2.81,
+      "exploring": 1.5,
+      "storytelling": 0.62,
+      "persistence": 2.15
+    },
+    "skills": [
+      "planning",
+      "building",
+      "persistence"
+    ],
+    "traits": []
+  },
+  "the sims": {
+    "title": "The Sims",
+    "summary": "The Sims is a 2000 social simulation video game developed by Maxis and published by Electronic Arts. Designed by Will Wright, the game allows players to create and control virtual people called Sims, build and furnish homes, and manage the Sims' needs, relationships, careers, and household finances. Its open-ended gameplay has no fixed win condition.",
+    "levels": {
+      "planning": 2.25,
+      "reflexes": 0.13,
+      "teamwork": 0.16,
+      "optimizing": 0.84,
+      "building": 2.54,
+      "exploring": 2.49,
+      "storytelling": 2.19,
+      "persistence": 1.04
+    },
+    "skills": [
+      "building",
+      "exploring",
+      "planning"
+    ],
+    "traits": []
+  },
+  "theme park": {
+    "title": "Theme Park",
+    "summary": "Theme Park is a construction and management simulation video game developed by Bullfrog Productions and published by Electronic Arts in 1994. The game is the first installment in Bullfrog's Theme series and their Designer Series. The player designs and operates an amusement park, with the goal of making money and creating theme parks worldwide. Development took about a year and a half, with the team aiming for as much realism as possible. Certain features, including multiplayer, were dropped.",
+    "levels": {
+      "planning": 2.97,
+      "reflexes": 0.36,
+      "teamwork": 0,
+      "optimizing": 2.11,
+      "building": 2.94,
+      "exploring": 1.78,
+      "storytelling": 0.21,
+      "persistence": 2.02
+    },
+    "skills": [
+      "planning",
+      "building",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "undertale": {
+    "title": "Undertale",
+    "summary": "Undertale is a 2015 role-playing video game created by American indie developer Toby Fox. The player controls a child who has fallen into the Underground: a large, secluded region under the surface of the Earth, separated by a magical barrier. The player meets various monsters during the journey back to the surface, some of which may engage in combat. The combat system involves the player navigating through mini–bullet hell attacks by the opponent. They can opt to appease monsters in order to spare them instead of killing them. These choices affect the game, with the dialogue, characters, and story changing based on outcomes.",
+    "levels": {
+      "planning": 1.48,
+      "reflexes": 2.14,
+      "teamwork": 0.02,
+      "optimizing": 0.43,
+      "building": 0.05,
+      "exploring": 2.66,
+      "storytelling": 2.13,
+      "persistence": 1.6
+    },
+    "skills": [
+      "exploring",
+      "reflexes",
+      "storytelling"
+    ],
+    "traits": []
+  },
+  "warcraft iii reign of chaos": {
+    "title": "Warcraft III: Reign of Chaos",
+    "summary": "Warcraft III: Reign of Chaos is a high fantasy real-time strategy computer video game developed and published by Blizzard Entertainment released in July 2002. It is the second sequel to Warcraft: Orcs & Humans, after Warcraft II: Tides of Darkness, the third game set in the Warcraft fictional universe, and the first to be rendered in three dimensions. An expansion pack, The Frozen Throne, was released in July 2003. Warcraft III is set several years after the events of Warcraft II, and tells the story of the Burning Legion's attempt to conquer the fictional world of Azeroth with the help of an army of the Undead known as the Scourge, led by the fallen paladin Arthas Menethil. It chronicles the combined efforts of the Human Alliance, Orcish Horde, and Night Elves to stop them before they ca…",
+    "levels": {
+      "planning": 2.97,
+      "reflexes": 2.53,
+      "teamwork": 1.78,
+      "optimizing": 2.22,
+      "building": 1.79,
+      "exploring": 1.73,
+      "storytelling": 1.71,
+      "persistence": 1.76
+    },
+    "skills": [
+      "planning",
+      "reflexes",
+      "optimizing"
+    ],
+    "traits": []
+  },
+  "warcraft iii the frozen throne": {
+    "title": "Warcraft III: The Frozen Throne",
+    "summary": "Warcraft III: The Frozen Throne  is an expansion pack for Warcraft III: Reign of Chaos, a real-time strategy video game by Blizzard Entertainment. It was released worldwide on July 1, 2003, for Microsoft Windows and Mac OS X. The Frozen Throne builds upon the story of Reign of Chaos, and depicts the events after the main game's conclusion. The single-player unfolds from the perspective of two new protagonists, the Night Elf warden Maiev Shadowsong and the Blood Elf prince Kael'thas Sunstrider, as well as returning protagonist Arthas Menethil. Additionally, the expansion contains Act I of a separate Horde campaign that is independent from the main storyline with Blizzard releasing Acts II and III via patch in December 2003, taking in player feedback of Act I when developing these chapters.",
+    "levels": {
+      "planning": 2.98,
+      "reflexes": 2.42,
+      "teamwork": 1.59,
+      "optimizing": 2.22,
+      "building": 1.7,
+      "exploring": 1.55,
+      "storytelling": 1.65,
+      "persistence": 1.75
+    },
+    "skills": [
+      "planning",
+      "reflexes",
+      "optimizing"
+    ],
+    "traits": []
+  }
+}

@@ -1,0 +1,4381 @@
+{
+  "cards": {
+    "bentlegen": {
+      "titles": [
+        "Final Fantasy III",
+        "Theme Park",
+        "Super Metroid",
+        "Sid Meier's Civilization II",
+        "Counter-Strike",
+        "System Shock 2",
+        "StarCraft II: Wings of Liberty",
+        "SubSpace",
+        "Fallout: A Post Nuclear Role Playing Game"
+      ]
+    },
+    "dorryspears": {
+      "titles": [
+        "Factorio",
+        "Terraria",
+        "Pokémon HeartGold Version",
+        "Minecraft: Java Edition",
+        "Offworld Trading Company",
+        "Dyson Sphere Program",
+        "Super Smash Bros. Ultimate",
+        "Satisfactory",
+        "Counter-Strike: Global Offens..."
+      ]
+    },
+    "grichadev": {
+      "titles": [
+        "RuneScape 2",
+        "StarCraft",
+        "Portal",
+        "Pokémon Crystal Version",
+        "Counter-Strike: Source",
+        "Heroes of Might and Magic III Remake",
+        "Quake III Arena",
+        "The Settlers III",
+        "The Legend of Zelda: Ocarina of Time"
+      ]
+    },
+    "theo": {
+      "titles": [
+        "Outer Wilds",
+        "Skate",
+        "Minecraft: Java Edition",
+        "Mass Effect 2",
+        "Undertale",
+        "Kingdom Hearts II",
+        "Portal",
+        "Garry's Mod",
+        "Persona 5"
+      ]
+    },
+    "sergical": {
+      "titles": [
+        "Hitman: Blood Money",
+        "Heroes of Might and Magic III: Armageddo...",
+        "Warcraft III: The Frozen Throne",
+        "Diablo II",
+        "StarCraft",
+        "Space Rangers",
+        "Counter-Strike",
+        "Cossacks: European Wars",
+        "Need for Speed: Most Wanted"
+      ]
+    },
+    "justalexoki": {
+      "titles": [
+        "RuneScape Classic",
+        "Counter-Strike: Source",
+        "Warcraft III: Reign of Chaos",
+        "Halo 3",
+        "Age of Empires II: The Age of Kings",
+        "The Sims",
+        "Skate",
+        "Assassin's Creed",
+        "Need for Speed: Carbon"
+      ]
+    },
+    "linkofsunshine": {
+      "titles": [
+        "Minecraft: Java Edition",
+        "The Legend of Zelda: Breath of the Wild",
+        "Persona 3 Portable",
+        "NieR: Automata",
+        "Europa Universalis IV",
+        "NBA 2K14",
+        "Madden NFL 11",
+        "Pokémon Platinum Version",
+        "PokéPark Wii: Pikachu's Adventure"
+      ]
+    }
+  },
+  "jobs": {
+    "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "title": "Senior Developer Experience Engineer",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f"
+    },
+    "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "title": "Senior / Staff Product Engineer",
+      "pageUrl": "https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076"
+    },
+    "https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "title": "Design Engineer",
+      "pageUrl": "https://job-boards.greenhouse.io/roblox/jobs/7826363"
+    },
+    "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "title": "Senior Staff Software Engineer, Platform",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953"
+    },
+    "https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "title": "Software Engineer - Platforms & Productivity",
+      "pageUrl": "https://job-boards.greenhouse.io/cloudflare/jobs/8168623"
+    },
+    "https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "title": "Senior Software Engineer, AI Evals",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad"
+    },
+    "https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "title": "Security Engineer, Detection & Response",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7"
+    },
+    "https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "title": "Staff Software Engineer, Issues",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda"
+    },
+    "https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "title": "Senior Software Engineer (iOS), SDK",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4"
+    },
+    "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "title": "Senior Software Engineer, Agent Tracing",
+      "pageUrl": "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e"
+    }
+  },
+  "fits": {
+    "bentlegen|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.77,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 55
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.1,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: StarCraft II: Wings of Liberty",
+            "level": 4,
+            "expected": 2.21,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.77,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 4,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: StarCraft II: Wings of Liberty",
+            "level": 4,
+            "expected": 2.21,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "bentlegen|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Theme Park",
+            "level": 3,
+            "expected": 2.23,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Super Metroid",
+            "level": 4,
+            "expected": 2.94,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 2.1,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Sid Meier's Civilization II",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 73
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 4,
+            "expected": 2.41,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 69
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "match",
+      "why": "Solid across the board, including “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 70
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 4,
+            "expected": 1.84,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 64
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 68
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 2.84,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 65
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 4,
+            "expected": 2.41,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "match",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 70
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "match",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 69
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 2.84,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 66
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "dorryspears|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "match",
+      "why": "Strong on “Builds new things from scratch”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 65
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Terraria",
+            "level": 4,
+            "expected": 2.92,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Factorio",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Global Offens...",
+            "level": 3,
+            "expected": 1.84,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Dyson Sphere Program",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: Quake III Arena",
+            "level": 4,
+            "expected": 2.95,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.25,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: Quake III Arena",
+            "level": 4,
+            "expected": 2.95,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.25,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "grichadev|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Settlers III",
+            "level": 3,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.9,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.98,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape 2",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 39
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.82,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.22,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.11,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.82,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 4,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 33
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.11,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 3,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "justalexoki|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "mismatch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 39
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: The Sims",
+            "level": 3,
+            "expected": 2.29,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Age of Empires II: The Age of Kings",
+            "level": 4,
+            "expected": 2.93,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike: Source",
+            "level": 4,
+            "expected": 2.22,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: RuneScape Classic",
+            "level": 4,
+            "expected": 2.64,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: NieR: Automata",
+            "level": 4,
+            "expected": 2.16,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 3,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 55
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: NBA 2K14",
+            "level": 3,
+            "expected": 1.19,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 57
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 56
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 3,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 1.97,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: NieR: Automata",
+            "level": 4,
+            "expected": 2.16,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 1.97,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "linkofsunshine|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "mismatch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 44
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 1.64,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.89,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: NBA 2K14",
+            "level": 2,
+            "expected": 1.19,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Europa Universalis IV",
+            "level": 4,
+            "expected": 2.45,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.85,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 50
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Counter-Strike",
+            "level": 4,
+            "expected": 1.95,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 56
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 58
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.85,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 55
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 53
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.53,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "sergical|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "stretch",
+      "why": "Strong on “Plans several steps ahead”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 51
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 3,
+            "expected": 1.74,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Hitman: Blood Money",
+            "level": 4,
+            "expected": 2.7,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: StarCraft",
+            "level": 4,
+            "expected": 2.99,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Counter-Strike",
+            "level": 3,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Diablo II",
+            "level": 4,
+            "expected": 2.5,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://job-boards.greenhouse.io/cloudflare/jobs/8168623": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 59
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "nice",
+            "evidence": "Best here: Undertale",
+            "level": 4,
+            "expected": 1.95,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://job-boards.greenhouse.io/roblox/jobs/7826363": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 59
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/linear/069c4628-88d7-4e4d-b393-c996fc7f3076": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Builds new things from scratch”.",
+      "alignment": {
+        "percent": 61
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "nice",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 0.98,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f": {
+      "choice": "match",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 62
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "nice",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/95d2eeab-291d-40ad-97a2-86b104f3c7ad": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 61
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Mass Effect 2",
+            "level": 4,
+            "expected": 1.49,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/ac1cb3c4-5408-4912-8591-eea2a84480b7": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 56
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "reflexes",
+            "text": "Reacts fast under pressure",
+            "kind": "must",
+            "evidence": "Best here: Undertale",
+            "level": 4,
+            "expected": 1.95,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 56
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 4,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/c3ed6481-f031-4fe9-a456-775b7b3d2eda": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 55
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "optimizing",
+            "text": "Tunes the numbers until it hums",
+            "kind": "nice",
+            "evidence": "Best here: Mass Effect 2",
+            "level": 4,
+            "expected": 1.49,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 58
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    },
+    "theo|https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4": {
+      "choice": "stretch",
+      "why": "Strong on “Pokes at the unknown for fun”. Thin on “Plays well with a squad”.",
+      "alignment": {
+        "percent": 54
+      },
+      "fit": {
+        "rows": [
+          {
+            "id": "building",
+            "text": "Builds new things from scratch",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 3,
+            "expected": 2.26,
+            "confidence": 1
+          },
+          {
+            "id": "exploring",
+            "text": "Pokes at the unknown for fun",
+            "kind": "must",
+            "evidence": "Best here: Outer Wilds",
+            "level": 4,
+            "expected": 3,
+            "confidence": 1
+          },
+          {
+            "id": "planning",
+            "text": "Plans several steps ahead",
+            "kind": "must",
+            "evidence": "Best here: Portal",
+            "level": 4,
+            "expected": 2.55,
+            "confidence": 1
+          },
+          {
+            "id": "teamwork",
+            "text": "Plays well with a squad",
+            "kind": "must",
+            "evidence": "Best here: Minecraft: Java Edition",
+            "level": 2,
+            "expected": 0.98,
+            "confidence": 1
+          },
+          {
+            "id": "persistence",
+            "text": "Keeps grinding until it is done",
+            "kind": "must",
+            "evidence": "Best here: Skate",
+            "level": 4,
+            "expected": 2.66,
+            "confidence": 1
+          }
+        ],
+        "dropped": []
+      }
+    }
+  }
+}

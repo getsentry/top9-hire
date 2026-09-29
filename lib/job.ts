@@ -288,11 +288,19 @@ async function readCapped(response: Response): Promise<Uint8Array> {
   if (Number.isFinite(declared) && declared > MAX_JOB_BYTES) {
     throw new JobFetchError("That job page was too large to read. No description was invented.");
   }
-  const buffer = await response.arrayBuffer();
-  if (buffer.byteLength > MAX_JOB_BYTES) {
-    throw new JobFetchError("That job page was too large to read. No description was invented.");
+  const reader = response.body?.getReader();
+  if (!reader) return new Uint8Array();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  for (let part = await reader.read(); !part.done; part = await reader.read()) {
+    size += part.value.byteLength;
+    if (size > MAX_JOB_BYTES) {
+      await reader.cancel();
+      throw new JobFetchError("That job page was too large to read. No description was invented.");
+    }
+    chunks.push(part.value);
   }
-  return new Uint8Array(buffer);
+  return new Uint8Array(Buffer.concat(chunks));
 }
 
 export async function fetchJobPosting(
@@ -318,7 +326,7 @@ export async function fetchJobPosting(
         accept: job.source === "greenhouse" ? "application/json" : "text/html",
         "user-agent": "top9-hire/1.0",
       },
-      signal: AbortSignal.timeout(10_000),
+      signal: AbortSignal.timeout(8000),
     });
   } catch (error) {
     if (error instanceof JobFetchError) throw error;

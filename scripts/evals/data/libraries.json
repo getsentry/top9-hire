@@ -1,0 +1,158 @@
+[
+  {
+    "id": "bentlegen",
+    "source": "card",
+    "titles": [
+      "Final Fantasy III",
+      "Theme Park",
+      "Super Metroid",
+      "Sid Meier's Civilization II",
+      "Counter-Strike",
+      "System Shock 2",
+      "StarCraft II: Wings of Liberty",
+      "SubSpace",
+      "Fallout: A Post Nuclear Role Playing Game"
+    ]
+  },
+  {
+    "id": "dorryspears",
+    "source": "card",
+    "titles": [
+      "Factorio",
+      "Terraria",
+      "Pokémon HeartGold Version",
+      "Minecraft: Java Edition",
+      "Offworld Trading Company",
+      "Dyson Sphere Program",
+      "Super Smash Bros. Ultimate",
+      "Satisfactory",
+      "Counter-Strike: Global Offens..."
+    ]
+  },
+  {
+    "id": "grichadev",
+    "source": "card",
+    "titles": [
+      "RuneScape 2",
+      "StarCraft",
+      "Portal",
+      "Pokémon Crystal Version",
+      "Counter-Strike: Source",
+      "Heroes of Might and Magic III Remake",
+      "Quake III Arena",
+      "The Settlers III",
+      "The Legend of Zelda: Ocarina of Time"
+    ]
+  },
+  {
+    "id": "theo",
+    "source": "card",
+    "titles": [
+      "Outer Wilds",
+      "Skate",
+      "Minecraft: Java Edition",
+      "Mass Effect 2",
+      "Undertale",
+      "Kingdom Hearts II",
+      "Portal",
+      "Garry's Mod",
+      "Persona 5"
+    ]
+  },
+  {
+    "id": "sergical",
+    "source": "card",
+    "titles": [
+      "Hitman: Blood Money",
+      "Heroes of Might and Magic III: Armageddo...",
+      "Warcraft III: The Frozen Throne",
+      "Diablo II",
+      "StarCraft",
+      "Space Rangers",
+      "Counter-Strike",
+      "Cossacks: European Wars",
+      "Need for Speed: Most Wanted"
+    ]
+  },
+  {
+    "id": "justalexoki",
+    "source": "card",
+    "titles": [
+      "RuneScape Classic",
+      "Counter-Strike: Source",
+      "Warcraft III: Reign of Chaos",
+      "Halo 3",
+      "Age of Empires II: The Age of Kings",
+      "The Sims",
+      "Skate",
+      "Assassin's Creed",
+      "Need for Speed: Carbon"
+    ]
+  },
+  {
+    "id": "linkofsunshine",
+    "source": "card",
+    "titles": [
+      "Minecraft: Java Edition",
+      "The Legend of Zelda: Breath of the Wild",
+      "Persona 3 Portable",
+      "NieR: Automata",
+      "Europa Universalis IV",
+      "NBA 2K14",
+      "Madden NFL 11",
+      "Pokémon Platinum Version",
+      "PokéPark Wii: Pikachu's Adventure"
+    ]
+  },
+  {
+    "id": "sergiy-sentry-dx",
+    "source": "fixture",
+    "titles": [
+      "Stardew Valley",
+      "Animal Crossing: New Horizons",
+      "Minecraft",
+      "Overcooked! 2",
+      "It Takes Two",
+      "Spiritfarer",
+      "Untitled Goose Game",
+      "Portal 2",
+      "The Legend of Zelda: Breath of the Wild"
+    ],
+    "intended": "match",
+    "jobUrl": "https://jobs.ashbyhq.com/sentry/7ed2b263-3873-44c6-a730-2ca96100c58f"
+  },
+  {
+    "id": "dorryspears-cloudflare-platforms",
+    "source": "fixture",
+    "titles": [
+      "Factorio",
+      "Satisfactory",
+      "Oxygen Not Included",
+      "Dwarf Fortress",
+      "Kerbal Space Program",
+      "Opus Magnum",
+      "Shapez",
+      "Cities: Skylines",
+      "SpaceChem"
+    ],
+    "intended": "match",
+    "jobUrl": "https://boards.greenhouse.io/cloudflare/jobs/8168623"
+  },
+  {
+    "id": "theo-cloudflare-load-balancing",
+    "source": "fixture",
+    "titles": [
+      "Hades",
+      "Celeste",
+      "Disco Elysium",
+      "Hollow Knight",
+      "Undertale",
+      "Outer Wilds",
+      "The Witness",
+      "Baba Is You",
+      "Slay the Spire"
+    ],
+    "intended": "stretch-or-mismatch",
+    "jobUrl": "https://boards.greenhouse.io/cloudflare/jobs/8212352"
+  }
+]

@@ -1,0 +1,1115 @@
+.ds {
+  --ds-ok: #1f7a4d;
+  --ds-lean: #9a5608;
+  --ds-no: var(--stamp);
+  --ds-tone: var(--ink);
+  --ds-border: rgba(26, 26, 26, 0.1);
+  --ds-spring: cubic-bezier(0.2, 0.9, 0.25, 1.12);
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: clamp(16px, 4svh, 48px) 16px 112px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: clamp(12px, 2.4svh, 28px);
+  overflow-x: clip;
+}
+
+:where(.ds) button,
+:where(.ds) input {
+  font: inherit;
+  color: inherit;
+}
+
+.ds :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.ds > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.ds-head {
+  text-align: center;
+  display: grid;
+  gap: clamp(4px, 1svh, 8px);
+  max-width: 36rem;
+}
+
+.ds-mark {
+  margin: 0;
+  font: 500 12px/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.ds-title {
+  margin: 0;
+  font: 400 clamp(30px, 6svh, 56px) / 1 var(--serif);
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.ds-lede {
+  margin: 0;
+  font-size: clamp(14px, 1.8svh, 16px);
+  line-height: 1.4;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* Stage */
+
+.ds-stage {
+  --ds-t: 240ms;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  width: 100%;
+  padding: 4px 0;
+}
+
+.ds-stage[data-choice="mismatch"] {
+  --ds-t: 600ms;
+}
+
+.ds-stage[data-choice="match"],
+.ds-result[data-choice="match"] {
+  --ds-tone: var(--ds-ok);
+}
+
+.ds-stage[data-choice="stretch"],
+.ds-result[data-choice="stretch"] {
+  --ds-tone: var(--ds-lean);
+}
+
+.ds-stage[data-choice="mismatch"],
+.ds-result[data-choice="mismatch"] {
+  --ds-tone: var(--ds-no);
+}
+
+.ds-card {
+  --tilt: 0deg;
+  --dir: 1;
+  position: relative;
+  width: clamp(148px, min(44vw, 32svh), 280px);
+  aspect-ratio: var(--card-ratio);
+  border-radius: clamp(14px, 2.4vw, 22px);
+  overflow: hidden;
+  flex: none;
+  transform: translateX(calc(var(--overlap) * 100% * var(--dir))) rotate(var(--tilt));
+  transition: transform 520ms var(--ds-spring);
+  box-shadow: 0 1px 2px rgba(40, 30, 10, 0.06), 0 12px 32px -12px rgba(40, 30, 10, 0.25);
+}
+
+.ds-you {
+  background: #fffdf8;
+  border: 1px solid var(--ds-border);
+}
+
+.ds-you[data-state="empty"] {
+  box-shadow: none;
+  background: transparent;
+  border: 1.5px dashed var(--rule-2);
+}
+
+.ds-you[data-drag] {
+  border: 2px solid var(--ink);
+  background: var(--paper-lift);
+}
+
+.ds-job {
+  --dir: -1;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 1;
+}
+
+.ds-job[data-state="empty"] {
+  box-shadow: none;
+}
+
+.ds-stage[data-phase="result"] .ds-you {
+  --tilt: -6deg;
+}
+
+.ds-stage[data-phase="result"] .ds-job {
+  --tilt: 6deg;
+}
+
+.ds-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  margin: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.ds-you[data-state="empty"] .ds-tag {
+  box-shadow: none;
+  background: var(--paper-deep);
+}
+
+.ds-job .ds-tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
+  box-shadow: none;
+}
+
+.ds-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--paper-deep);
+}
+
+.ds-art-empty {
+  display: grid;
+  place-items: center;
+}
+
+.ds-handle {
+  font: 400 22px/1 var(--serif);
+}
+
+.ds-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 248, 0.55) 48%, rgba(255, 253, 248, 0.9) 50%, transparent 52%) 0 0 / 100% 240% no-repeat;
+}
+
+.ds-foot {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+  transition: opacity 200ms;
+}
+
+.ds-stage:not([data-phase="setup"]) .ds-foot {
+  opacity: 0;
+}
+
+.ds-slot-empty {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 40px 10px 10px;
+  text-align: center;
+}
+
+.ds-you-empty {
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
+  justify-items: stretch;
+}
+
+.ds-drop {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 8px;
+  border: 1.5px dashed var(--rule-2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 150ms, border-color 150ms;
+}
+
+.ds-drop[data-drag] {
+  border-color: var(--ink);
+  background: var(--paper-lift);
+}
+
+.ds-drop:has(.ds-file:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.ds-file {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ds-plus {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 300 22px/1 var(--sans);
+}
+
+.ds-slot-title {
+  font: 400 clamp(16px, 2.4vw, 20px) / 1.15 var(--serif);
+  text-wrap: balance;
+}
+
+.ds-slot-sub {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--ink-3);
+  text-wrap: balance;
+}
+
+.ds-job-body {
+  height: 100%;
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  padding: 16px;
+  background: radial-gradient(120% 70% at 100% 0%, color-mix(in oklch, var(--ds-tone) 45%, transparent), transparent 60%);
+}
+
+.ds-job-org {
+  font: 400 clamp(30px, 6vw, 48px) / 0.95 var(--serif);
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+.ds-job-title {
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(243, 239, 230, 0.8);
+  text-wrap: balance;
+}
+
+.ds-job-reads {
+  font: 500 11px/1.3 var(--mono);
+  letter-spacing: 0.04em;
+  color: rgba(243, 239, 230, 0.6);
+}
+
+.ds-deciding {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.ds-stamp {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 46%;
+  margin: 0;
+  padding: 10px 18px 8px;
+  border: 3px solid currentColor;
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.94);
+  font: 600 clamp(22px, 4.6vw, 34px) / 1 var(--serif);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* Fields, inside the empty cards */
+
+.ds-or {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+}
+
+.ds-or-label {
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.ds-job .ds-or-label,
+.ds-job .ds-hint {
+  color: rgba(243, 239, 230, 0.7);
+}
+
+.ds-or-label-lg {
+  font-size: 12px;
+}
+
+.ds-field {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--ds-border);
+  background: #fffdf8;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.ds .ds-field:focus-visible {
+  outline-offset: -2px;
+}
+
+.ds-field::placeholder {
+  color: var(--ink-3);
+}
+
+.ds-hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.ds-error {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ds-no);
+  text-align: center;
+}
+
+.ds-job .ds-error {
+  color: #ff9d8f;
+}
+
+/* Setup action */
+
+.ds-go {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: min(100%, 420px);
+}
+
+.ds-go-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.ds-go-row > * {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-inline: 12px;
+}
+
+.ds-go-row > .ds-primary {
+  flex-grow: 1.3;
+}
+
+.ds-primary,
+.ds-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms, opacity 150ms;
+}
+
+.ds .ds-primary {
+  border: 0;
+  background: var(--ink);
+  color: var(--paper-lift);
+}
+
+.ds .ds-primary:disabled {
+  background: var(--paper-deep);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.ds .ds-primary:not(:disabled):active,
+.ds .ds-text:active,
+.ds-secondary:active {
+  transform: scale(0.96);
+}
+
+.ds-need {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 14px;
+  color: var(--ink-3);
+  text-align: center;
+  max-width: 36ch;
+}
+
+.ds-need [role="alert"] {
+  color: var(--ds-no);
+}
+
+/* Once both picks are in, the match button stays in reach. 72px clears the proto picker bar. */
+
+.ds-go:has(.ds-primary:enabled) {
+  position: sticky;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  z-index: 30;
+}
+
+.ds-need:not(:empty) {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--paper) 92%, transparent);
+}
+
+:where(.ds) :is(button, a, input, label) {
+  touch-action: manipulation;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ds .ds-primary:not(:disabled):hover {
+    background: color-mix(in oklch, var(--ink) 85%, var(--paper));
+  }
+
+  .ds-drop:hover {
+    background: var(--paper-lift);
+    border-color: var(--ink-3);
+  }
+}
+
+/* Result */
+
+.ds-result {
+  width: min(100%, 560px);
+  display: grid;
+  gap: 20px;
+  scroll-margin-top: 24px;
+}
+
+.ds-score {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.ds-percent {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--ds-tone);
+}
+
+.ds-percent-n {
+  font: 400 clamp(64px, 16vw, 104px) / 0.9 var(--serif);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-percent-unit {
+  font: 500 14px/1 var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.ds-verdict {
+  margin: 8px 0 0;
+  font: 500 22px/1.1 var(--sans);
+  letter-spacing: -0.01em;
+}
+
+.ds-tone {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.ds-why {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--ds-border);
+  font: 400 19px/1.45 var(--serif);
+  text-wrap: pretty;
+}
+
+.ds-reads {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 16px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.ds-reads strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.ds-result .ev {
+  --ev-bg: var(--paper);
+}
+
+.ds-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.ds-secondary {
+  border: 1px solid var(--ds-border);
+  background: transparent;
+}
+
+.ds-text {
+  height: 48px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: transform 120ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ds-secondary:hover {
+    background: var(--paper-deep);
+  }
+
+  .ds-text:hover {
+    color: var(--ink);
+  }
+}
+/* Motion */
+
+@media (prefers-reduced-motion: no-preference) {
+  .ds-scan {
+    animation: ds-scan 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  .ds-art,
+  .ds-job-body {
+    animation: ds-pop 180ms ease-out;
+  }
+
+  .ds-stage[data-phase="busy"] .ds-you {
+    animation: ds-bob 1.4s ease-in-out infinite;
+  }
+
+  .ds-stage[data-phase="busy"] .ds-job {
+    animation: ds-bob 1.4s ease-in-out 0.7s infinite;
+  }
+
+  .ds-stage[data-choice="mismatch"] .ds-card {
+    animation: ds-apart 480ms ease-out both;
+  }
+
+  .ds-stage[data-phase="result"] {
+    animation: ds-shake 380ms ease-out calc(var(--ds-t) + 300ms);
+  }
+
+  .ds-stamp {
+    animation: ds-slam 560ms var(--ds-spring) var(--ds-t) both;
+  }
+
+  .ds-deciding {
+    animation: ds-in 240ms var(--ease) both;
+  }
+
+  .ds-result > * {
+    animation: ds-in 480ms var(--ease) both;
+  }
+
+  .ds-result > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .ds-result > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .ds-result > :nth-child(n + 4) {
+    animation-delay: 200ms;
+  }
+
+  /* Stagger only while the sheet is opening; tab switches stay instant. */
+  .ds-sheet[data-fresh] :is(.ds-tile, .ds-row-item) {
+    animation: ds-tile-in 280ms cubic-bezier(0.32, 0.72, 0, 1) backwards;
+    animation-delay: calc(var(--i) * 30ms + 60ms);
+  }
+}
+
+@keyframes ds-pop {
+  from {
+    transform: scale(0.96);
+  }
+}
+
+@keyframes ds-tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes ds-scan {
+  from {
+    background-position: 0 120%;
+  }
+  to {
+    background-position: 0 -20%;
+  }
+}
+
+@keyframes ds-bob {
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes ds-apart {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  40% {
+    translate: calc(var(--dir) * -24px) 0;
+  }
+  70% {
+    translate: calc(var(--dir) * -6px) 0;
+  }
+}
+
+@keyframes ds-shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  15% {
+    translate: 7px -4px;
+  }
+  30% {
+    translate: -6px 3px;
+  }
+  45% {
+    translate: 4px -2px;
+  }
+  60% {
+    translate: -3px 2px;
+  }
+  80% {
+    translate: 1px -1px;
+  }
+}
+
+@keyframes ds-slam {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.6) rotate(-22deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.94) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+  }
+}
+
+@keyframes ds-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-card,
+  .ds-foot,
+  .ds-drop {
+    transition: none;
+  }
+
+  .ds-scan {
+    animation: none;
+  }
+}
+
+/* Sample sheet: a native dialog pinned to the bottom */
+
+.ds-sheet {
+  --ds-sheet-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ds-ok: #1f7a4d;
+  --ds-border: rgba(26, 26, 26, 0.1);
+  position: fixed;
+  inset: auto 0 0;
+  margin: 0 auto;
+  width: min(100%, 720px);
+  max-width: none;
+  height: auto;
+  max-height: 70svh;
+  padding: 0;
+  border: 0;
+  border-radius: 22px 22px 0 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  overflow: hidden;
+  box-shadow: 0 -12px 40px -12px rgba(40, 30, 10, 0.35);
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 200ms ease-in,
+    transform 200ms ease-in,
+    overlay 200ms allow-discrete,
+    display 200ms allow-discrete;
+}
+
+.ds-sheet[open] {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: none;
+  transition-duration: 280ms;
+  transition-timing-function: var(--ds-sheet-ease);
+}
+
+@starting-style {
+  .ds-sheet[open] {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.ds-sheet::backdrop {
+  background: rgba(26, 26, 26, 0.42);
+  opacity: 0;
+  transition:
+    opacity 200ms ease-in,
+    overlay 200ms allow-discrete,
+    display 200ms allow-discrete;
+}
+
+.ds-sheet[open]::backdrop {
+  opacity: 1;
+  transition-duration: 280ms;
+  transition-timing-function: var(--ds-sheet-ease);
+}
+
+@starting-style {
+  .ds-sheet[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.ds-sheet :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.ds-sheet button {
+  font: inherit;
+  color: inherit;
+  touch-action: manipulation;
+}
+
+.ds-sheet-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.ds-grab {
+  align-self: center;
+  flex: none;
+  width: 40px;
+  height: 5px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--rule-2);
+}
+
+.ds-sheet-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 8px 4px 16px;
+}
+
+.ds-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.ds-tab {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-size: 15px;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.ds-tab[aria-selected="true"] {
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom-color: var(--ink);
+}
+
+.ds-close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background-color 150ms, transform 120ms;
+}
+
+.ds-close:active {
+  transform: scale(0.94);
+}
+
+.ds-panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 16px 20px;
+}
+
+.ds-panel[hidden] {
+  display: none;
+}
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 12px;
+}
+
+.ds-tile,
+.ds-row {
+  position: relative;
+  cursor: pointer;
+  transition: transform 120ms, box-shadow 150ms;
+}
+
+.ds-tile {
+  aspect-ratio: var(--card-ratio);
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--paper-deep);
+  box-shadow: 0 1px 2px rgba(40, 30, 10, 0.1), 0 8px 18px -8px rgba(40, 30, 10, 0.35);
+}
+
+.ds-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ds-tile-handle {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 18px 8px 8px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78));
+  color: #fff;
+  font: 500 11px/1.1 var(--mono);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-row {
+  width: 100%;
+  min-height: 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "org check" "title check";
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--ds-border);
+  border-radius: 14px;
+  background: #fffdf8;
+  text-align: left;
+}
+
+.ds-row-org {
+  grid-area: org;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.ds-row-title {
+  grid-area: title;
+  font: 400 17px/1.2 var(--serif);
+}
+
+.ds-check {
+  display: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ds-ok);
+  color: #fff;
+}
+
+.ds-row .ds-check {
+  grid-area: check;
+}
+
+.ds-tile .ds-check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+:is(.ds-tile, .ds-row)[aria-pressed="true"] .ds-check {
+  display: grid;
+}
+
+.ds-tile[aria-pressed="true"] {
+  outline: 2px solid var(--ds-ok);
+  outline-offset: -2px;
+}
+
+.ds-row[aria-pressed="true"] {
+  border-color: var(--ds-ok);
+}
+
+:is(.ds-tile, .ds-row):active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ds-tile:hover {
+    transform: translateY(-3px);
+  }
+
+  .ds-row:hover,
+  .ds-close:hover {
+    background: var(--paper-deep);
+  }
+
+  .ds-tab:hover {
+    color: var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-sheet,
+  .ds-sheet::backdrop,
+  .ds-tile,
+  .ds-row,
+  .ds-close {
+    transition: none;
+  }
+
+  .ds-sheet,
+  .ds-sheet[open] {
+    opacity: 1;
+    transform: none;
+  }
+
+  :is(.ds-tile, .ds-row):active,
+  .ds-tile:hover {
+    transform: none;
+  }
+}
+
+/* Small screens: cards stay side by side; the sheet goes full width */
+
+@media (max-width: 640px) {
+  .ds-tag {
+    top: 8px;
+    left: 8px;
+  }
+
+  .ds-actions > * {
+    flex: 1 1 auto;
+  }
+
+  .ds-sheet {
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .ds-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
