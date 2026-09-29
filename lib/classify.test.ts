@@ -10,7 +10,15 @@ import {
   judgmentQuestions,
   type JudgmentAnswers,
 } from "./classify.ts";
-import { ARCHETYPES, AXES, modelState, toCard, type Top9 } from "./hire.ts";
+import {
+  ARCHETYPE_QUESTION,
+  ARCHETYPE_RULES,
+  ARCHETYPES,
+  AXES,
+  modelState,
+  toCard,
+  type Top9,
+} from "./hire.ts";
 
 const TOP9: Top9 = {
   titles: [
@@ -63,14 +71,7 @@ test("hire and role ask one archetype choice and four ordered axis scores, each 
   assert.deepEqual(Object.keys(hire), ids);
   assert.deepEqual(Object.keys(role), ids);
   assert.equal(hire.archetype.type, "choice");
-  assert.equal(
-    hire.archetype.instructions.split("\n")[0],
-    "Which hire archetype best fits this person's taste, judging only from `top9`?",
-  );
-  assert.match(
-    role.depth_vs_breadth.instructions,
-    /The first level is the Depth pole and the last level is the Breadth pole\./,
-  );
+  assert.deepEqual(hire.archetype.instructions.split("\n"), [ARCHETYPE_QUESTION, ...ARCHETYPE_RULES]);
   assert.deepEqual(Object.keys(hire.archetype.criteria), Object.keys(ARCHETYPES));
   assert.equal(hire.archetype.criteria.lore_monk, ARCHETYPES.lore_monk.criterion);
   assert.equal(hire.depth_vs_breadth.type, "score");
