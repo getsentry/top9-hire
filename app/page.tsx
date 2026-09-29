@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useRef, useState, useTransition } from "react";
+import { TextMorph } from "torph/react";
 import {
   roastLibrary,
   extractFromTweetUrl,
   type RoastResult,
   type ExtractActionResult,
 } from "./actions";
-import { AXES, DISCLAIMER, type HireCard } from "@/lib/hire";
+import { DISCLAIMER, type HireCard } from "@/lib/hire";
 import {
   MAX_IMAGE_LABEL,
   interpretExtractResponse,
@@ -23,6 +24,7 @@ import {
   formatCount,
   type Top9Example,
 } from "@/lib/examples";
+import { VerdictField } from "./verdict-field";
 
 const EMPTY_TITLES: string[] = Array(9).fill("");
 const LEVELS = [1, 2, 3, 4] as const;
@@ -99,31 +101,21 @@ function CardView({
 
 function EmptyVerdict({ busy }: { busy: boolean }) {
   return (
-    <article className={busy ? "card ghost busy" : "card ghost"} aria-live="polite">
-      <p className="card-kicker">{busy ? "Reading" : "Verdict"}</p>
-      <p className="ghost-title">
-        {busy ? "Reading the pile…" : "Your card lands here."}
-      </p>
-      <p className="ghost-copy">
-        {busy
-          ? "One structured judgment from the model. No roast is written until the archetype is chosen."
-          : "One archetype, four axes, one roast line. Load an example or fill the nine slots to start."}
-      </p>
-      <ul className="scores ghost-scores" aria-hidden>
-        {Object.values(AXES).map((axis) => (
-          <li key={axis.left}>
-            <div className="axis">
-              <span className="pole">{axis.left}</span>
-              <span className="pole">{axis.right}</span>
-            </div>
-            <div className="track">
-              {LEVELS.map((level) => (
-                <span key={level} className="seg" />
-              ))}
-            </div>
-          </li>
-        ))}
-      </ul>
+    <article className={busy ? "field-card busy" : "field-card"} aria-live="polite">
+      <VerdictField active={busy} />
+      <div className="field-copy">
+        <p className="card-kicker">
+          <TextMorph>{busy ? "Reading" : "Verdict"}</TextMorph>
+        </p>
+        <p className="ghost-title">
+          <TextMorph>{busy ? "Reading the pile" : "The card lands here"}</TextMorph>
+        </p>
+        <p className="ghost-copy">
+          {busy
+            ? "One structured judgment. The roast is written from the archetype."
+            : "One archetype, four axes, one roast. The nine titles appear once a card is loaded."}
+        </p>
+      </div>
     </article>
   );
 }
@@ -166,6 +158,7 @@ export default function HomePage() {
   const [isExtracting, setIsExtracting] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [titlesOpen, setTitlesOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const titlesRef = useRef(titles);
   const extractBusy = useRef(false);
@@ -213,12 +206,19 @@ export default function HomePage() {
     replaceTitles(exampleTitles(example));
     setHandle(example.handle);
     if (example.jobUrl) setJobUrl(example.jobUrl);
+    setTitlesOpen(true);
+  }
+
+  function typeTitles() {
+    if (busy) return;
+    setTitlesOpen(true);
   }
 
   function clearAll() {
     replaceTitles(EMPTY_TITLES);
     setHandle("");
     setExtractError(null);
+    setTitlesOpen(false);
   }
 
   async function runExtract(task: () => Promise<ExtractActionResult>) {
@@ -232,6 +232,7 @@ export default function HomePage() {
       if (gen !== extractGen.current) return;
       if (res.ok) {
         replaceTitles(res.games);
+        setTitlesOpen(true);
       } else {
         setExtractError(res.message);
       }
@@ -279,6 +280,7 @@ export default function HomePage() {
   }
 
   const paired = Boolean(result?.ok && (result.role || result.jobError));
+  const showTitles = titlesOpen && !isExtracting;
 
   return (
     <main className="shell">
@@ -332,7 +334,7 @@ export default function HomePage() {
                   aria-controls="more-examples"
                   onClick={() => setShowMore((open) => !open)}
                 >
-                  {showMore ? "Fewer" : `+${more.length} more`}
+                  <TextMorph>{showMore ? "Fewer" : `+${more.length} more`}</TextMorph>
                 </button>
               ) : null}
             </div>
@@ -349,15 +351,20 @@ export default function HomePage() {
                 ))}
               </div>
             ) : null}
-            {activeExample ? (
-              <p className="example-source">
-                Loaded @{activeExample.handle}&rsquo;s card.{" "}
-                <a href={activeExample.tweetUrl} target="_blank" rel="noreferrer">
-                  View the post
-                  <span aria-hidden> ↗</span>
-                </a>
-              </p>
-            ) : null}
+            <p className="example-source" role="status">
+              <TextMorph>
+                {activeExample ? `Loaded @${activeExample.handle}` : "No card loaded"}
+              </TextMorph>
+              {activeExample ? (
+                <>
+                  {" "}
+                  <a href={activeExample.tweetUrl} target="_blank" rel="noreferrer">
+                    View the post
+                    <span aria-hidden> ↗</span>
+                  </a>
+                </>
+              ) : null}
+            </p>
           </section>
 
           <section className="panel" aria-labelledby="own-heading">
@@ -407,17 +414,11 @@ export default function HomePage() {
                   if (file) handleImageFile(file);
                 }}
               />
-              <span className="drop-glyph" aria-hidden>
-                {isExtracting ? <span className="spinner" /> : "⌗"}
-              </span>
+              <p className="drop-status" role="status">
+                <TextMorph>{isExtracting ? "Extracting titles" : "Drop a card"}</TextMorph>
+              </p>
               <p className="drop-label">
-                {isExtracting ? (
-                  <span>Extracting titles with Gemini…</span>
-                ) : (
-                  <span>
-                    Drop a My9Games card here, or <u>browse</u>
-                  </span>
-                )}
+                Drop a My9Games card here, or <u>browse</u>
               </p>
               <span className="drop-hint">PNG, JPEG, WebP up to {MAX_IMAGE_LABEL}</span>
             </div>
@@ -436,7 +437,7 @@ export default function HomePage() {
                 className="secondary"
                 disabled={isExtracting || !tweetUrl.trim()}
               >
-                {isExtracting ? "Extracting…" : "Extract from post"}
+                <TextMorph>{isExtracting ? "Extracting" : "Extract from post"}</TextMorph>
               </button>
             </form>
 
@@ -445,8 +446,15 @@ export default function HomePage() {
                 {extractError}
               </p>
             ) : null}
+
+            {!titlesOpen && !isExtracting ? (
+              <button type="button" className="text-button" onClick={typeTitles}>
+                Type nine titles instead
+              </button>
+            ) : null}
           </section>
 
+          {showTitles ? (
           <form onSubmit={onClassifySubmit} className="panel classify-form">
             <div className="panel-head titles-header">
               <div>
@@ -455,7 +463,7 @@ export default function HomePage() {
               </div>
               <div className="titles-tools">
                 <span className={filledCount === 9 ? "count ready" : "count"}>
-                  <span className="count-num">{filledCount}</span> / 9
+                  <TextMorph className="count-num">{String(filledCount)}</TextMorph> / 9
                 </span>
                 <button
                   type="button"
@@ -522,20 +530,15 @@ export default function HomePage() {
               <button
                 type="submit"
                 className="primary"
+                aria-busy={isClassifying}
                 disabled={isClassifying || isExtracting || filledCount !== 9}
               >
-                {isClassifying ? (
-                  <>
-                    <span className="spinner" aria-hidden /> Reading
-                  </>
-                ) : (
-                  "Read the pile"
-                )}
+                <TextMorph>{isClassifying ? "Reading" : "Read the pile"}</TextMorph>
               </button>
-              <span className="submit-hint">
-                {filledCount === 9
-                  ? "One model call. Titles go to the gateway."
-                  : `${9 - filledCount} more to go.`}
+              <span className="submit-hint" role="status">
+                <TextMorph>
+                  {filledCount === 9 ? "Ready to read" : `${9 - filledCount} more to go`}
+                </TextMorph>
               </span>
             </div>
 
@@ -545,6 +548,7 @@ export default function HomePage() {
               </p>
             ) : null}
           </form>
+          ) : null}
         </div>
 
         <div className="pane pane-result">

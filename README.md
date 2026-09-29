@@ -17,11 +17,9 @@ For local runs, fill `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`. On Vercel, OID
 npm run dev
 ```
 
-Open http://localhost:3000. Fill the nine slots, or paste a whole list into any slot and it fills forward. A slot may add a note after `|`. The handle field can stay empty. The job URL field is optional. It accepts a public Greenhouse or Ashby posting and, when the fetch works, adds a role card and a match choice next to the hire card.
+Open http://localhost:3000. The nine title slots stay hidden until a card is loaded. Pick an example chip, or drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL and wait for extract to finish. `Type nine titles instead` opens the empty slots for a paste. A slot may add a note after `|`, and a multi-line paste fills forward. The handle field can stay empty. The job URL field is optional. It accepts a public Greenhouse or Ashby posting and, when the fetch works, adds a role card and a match choice next to the hire card.
 
-The example chips at the top load nine titles from a card someone posted publicly. Those cards are hardcoded in `lib/__fixtures__/top9-examples.ts` with the post URL and the engagement counts at capture time. Picking a chip fills the slots and the handle without calling the extract route, the vision model, or X. Prominent handles lead the row; the rest sit behind `more`. Real cards come from https://my9games.com/en.
-
-Drop a PNG, JPEG, or WebP card, or paste an `x.com` / `twitter.com` status URL. The page fills the nine title fields. Edit them, then submit the roast.
+The example chips load nine titles from a card someone posted publicly. Those cards are hardcoded in `lib/__fixtures__/top9-examples.ts` with the post URL and the engagement counts at capture time. Picking a chip fills the slots and the handle without calling the extract route, the vision model, or X. Prominent handles lead the row; the rest sit behind `more`. A helper link points at https://my9games.com/en for making a real card.
 
 Image bytes go to `POST /api/extract` as `multipart/form-data`. A Server Action body stops at 1MB, and a real My9Games PNG is often larger than that, so the card does not travel through an action. The upload cap is 4MB. That stays under Vercel's 4.5MB function payload limit after multipart framing. Tweet URLs stay on the `extractFromTweetUrl` Server Action. That body is only the URL.
 
@@ -55,7 +53,7 @@ npm run build
 
 Manual checks, in order.
 
-1. Pick the `@theo` chip. The nine slots fill with Outer Wilds through Persona 5, the handle reads `theo`, the counter reads 9 / 9, and no network request leaves the browser. Open `more`, pick `@dorryspears`, and the first slot changes to Factorio. Clear empties the slots and the handle.
+1. Load the page. The nine title slots are hidden. Pick the `@theo` chip. The slots appear, filled with Outer Wilds through Persona 5, the handle reads `theo`, the counter reads 9 / 9, and no network request leaves the browser. Open `more`, pick `@dorryspears`, and the first slot changes to Factorio. Clear hides the slots again.
 2. Paste 8 titles and submit. The page says it found 8.
 3. Remove the gateway keys and leave `VERCEL` unset. Paste 9 titles and submit. The page says there is no AI Gateway credential and shows no card.
 4. Set `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN`, or deploy on Vercel with OIDC. Paste 9 titles and submit. The card shows one badge, four score bars, one roast line, and the entertainment disclaimer.
@@ -71,6 +69,8 @@ Titles are sent to the gateway and, when a DSN is set, to Sentry on that evaluat
 Job URL fetches are rebuilt onto `boards-api.greenhouse.io` or `jobs.ashbyhq.com`. Other hosts, redirects, and non-posting paths are refused. The page does not invent a description when the fetch fails.
 
 Layout slots: `[data-slot="examples"]`, `[data-slot="job-url"]`, `[data-slot="hire-card"]`, `[data-slot="role-card"]`, `[data-slot="hire-job-match"]`.
+
+The unread verdict pane is one mesh gradient from `@paper-design/shaders-react`. It sits in that pane only, speeds up while a judgment is in flight, and holds a single frame when the user prefers reduced motion. Loading, button, and status lines morph with Torph. Type is Instrument Serif for the headline, roast, and match line, and Instrument Sans for the rest.
 
 ## Example cards
 
