@@ -4,13 +4,17 @@ import { test } from "node:test";
 import { PROOF_CASES } from "./__fixtures__/proof-cases.ts";
 import { parsePaste } from "./hire.ts";
 import {
+  JOB_PAGE_UNREADABLE,
   JOB_URL_REJECTED,
   JobFetchError,
   fetchJobPosting,
   htmlToText,
+  jobUrlProblem,
   parseJobUrl,
   postingFromAshby,
   postingFromGreenhouse,
+  postingFromLever,
+  postingFromWebPage,
 } from "./job.ts";
 
 const ASHBY_ID = "7ed2b263-3873-44c6-a730-2ca96100c58f";
@@ -48,7 +52,7 @@ test("proof job URLs lock to Greenhouse API or Ashby", () => {
     balancing?.fetchUrl,
     "https://boards-api.greenhouse.io/v1/boards/cloudflare/jobs/8212352",
   );
-  assert.equal(JOB_URL_REJECTED.includes("No description was fetched"), true);
+  assert.equal(JOB_URL_REJECTED, "Paste a public https link to the job posting.");
 });
 
 test("greenhouse page hosts and the embed form share one API url", () => {
@@ -73,10 +77,6 @@ test("ashby application links drop the extra segment", () => {
 
 test("disallowed job URLs are rejected and not fetched", () => {
   const rejected = [
-    "https://example.com/jobs/1",
-    "https://boards.greenhouse.io.evil.com/cloudflare/jobs/1",
-    "https://evil.boards.greenhouse.io/cloudflare/jobs/1",
-    "https://boards-api.greenhouse.io/v1/boards/cloudflare/jobs/1",
     "http://boards.greenhouse.io/cloudflare/jobs/1",
     "https://user:pass@boards.greenhouse.io/cloudflare/jobs/1",
     "https://boards.greenhouse.io:444/cloudflare/jobs/1",
@@ -215,4 +215,148 @@ test("greenhouse fetch parses the api body", async () => {
   });
   assert.equal(posting.source, "greenhouse");
   assert.match(posting.text, /internal tools/);
+});
+
+const LEVER_ID = "2193db3f-77c5-43b8-b030-8f92c9882bf1";
+
+test("lever links normalize to the posting page and the public api", () => {
+  for (const input of [
+    `https://jobs.lever.co/spotify/${LEVER_ID}`,
+    `https://jobs.lever.co/spotify/${LEVER_ID}/apply`,
+    `https://jobs.lever.co/spotify/${LEVER_ID}?lever-source=x`,
+  ]) {
+    const locked = parseJobUrl(input);
+    assert.equal(locked?.source, "lever", input);
+    assert.equal(locked?.pageUrl, `https://jobs.lever.co/spotify/${LEVER_ID}`, input);
+    assert.equal(locked?.fetchUrl, `https://api.lever.co/v0/postings/spotify/${LEVER_ID}`, input);
+  }
+  assert.equal(parseJobUrl(`https://jobs.lever.co/spotify/${LEVER_ID}/other`), null);
+  assert.equal(parseJobUrl("https://jobs.lever.co/spotify"), null);
+});
+
+test("lever api body becomes a posting from text, description, lists, and additional", () => {
+  const posting = postingFromLever(
+    {
+      text: "Android Engineer",
+      descriptionPlain: "Build the listening client for millions of people.",
+      lists: [{ text: "What You'll Do", content: "<li>Write Kotlin</li><li>Ship weekly</li>" }],
+      additionalPlain: "We are an equal opportunity employer.",
+    },
+    "https://jobs.lever.co/spotify/x",
+  );
+  assert.equal(posting.source, "lever");
+  assert.equal(posting.title, "Android Engineer");
+  assert.match(posting.text, /listening client/);
+  assert.match(posting.text, /What You'll Do\n+- Write Kotlin/);
+  assert.match(posting.text, /equal opportunity/);
+  assert.throws(() => postingFromLever({ descriptionPlain: "x".repeat(80) }, "u"), JobFetchError);
+});
+
+test("lever fetch calls only the api host", async () => {
+  const locked = parseJobUrl(`https://jobs.lever.co/spotify/${LEVER_ID}`);
+  assert.ok(locked);
+  const posting = await fetchJobPosting(locked, async (input) => {
+    assert.equal(input.toString(), `https://api.lever.co/v0/postings/spotify/${LEVER_ID}`);
+    return new Response(
+      JSON.stringify({ text: "Android Engineer", descriptionPlain: "Build the listening client for everyone." }),
+      { status: 200 },
+    );
+  });
+  assert.equal(posting.title, "Android Engineer");
+});
+
+test("any public https dns name is a web job with the hash stripped and the query kept", () => {
+  const locked = parseJobUrl("https://careers.example.com/jobs/42?gh_jid=42#apply");
+  assert.equal(locked?.source, "web");
+  assert.equal(locked?.pageUrl, "https://careers.example.com/jobs/42?gh_jid=42");
+  assert.equal(locked?.fetchUrl, locked?.pageUrl);
+  for (const input of [
+    "https://example.com/jobs/1",
+    "https://boards.greenhouse.io.evil.com/cloudflare/jobs/1",
+    "https://evil.boards.greenhouse.io/cloudflare/jobs/1",
+  ]) {
+    assert.equal(parseJobUrl(input)?.source, "web", input);
+  }
+});
+
+test("generic job URLs refuse non-https, literals, private names, credentials, and ports", () => {
+  for (const input of [
+    "http://example.com/jobs/1",
+    "https://127.0.0.1/",
+    "https://10.0.0.1/jobs",
+    "https://[::1]/jobs",
+    "https://2130706433/",
+    "https://localhost/jobs",
+    "https://intranet/jobs",
+    "https://db.internal/jobs",
+    "https://printer.local/jobs",
+    "https://app.localhost/jobs",
+    "https://site.test/jobs",
+    "https://user:pass@example.com/jobs",
+    "https://example.com:8443/jobs",
+    "https://www.linkedin.com/jobs/view/1",
+    "javascript:alert(1)",
+  ]) {
+    assert.equal(parseJobUrl(input), null, input);
+  }
+});
+
+test("linkedin and post links get their own message; junk gets none", () => {
+  assert.match(jobUrlProblem("https://www.linkedin.com/jobs/view/1") ?? "", /LinkedIn job pages need a login/);
+  assert.match(jobUrlProblem("https://linkedin.com/jobs/view/1") ?? "", /LinkedIn/);
+  assert.match(jobUrlProblem("https://x.com/someone") ?? "", /post link/);
+  assert.equal(jobUrlProblem("https://example.com/jobs/1"), null);
+  assert.equal(jobUrlProblem("not a url"), null);
+});
+
+test("post links never parse as jobs", () => {
+  assert.equal(parseJobUrl("https://x.com/someone/status/123"), null);
+  assert.equal(parseJobUrl("https://twitter.com/someone/status/123"), null);
+});
+
+const DESCRIPTION = "You will build and run the payments platform for millions of customers.";
+
+test("web page JSON-LD JobPosting supplies title and description", () => {
+  const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: "Payments Engineer",
+    description: `<p>${DESCRIPTION}</p>`,
+    hiringOrganization: { "@type": "Organization", name: "Acme" },
+  })}</script></head><body>nav</body></html>`;
+  const posting = postingFromWebPage(html, "https://example.com/j/1");
+  assert.equal(posting.source, "web");
+  assert.equal(posting.title, "Payments Engineer");
+  assert.match(posting.text, /^Payments Engineer\nAcme\n\nYou will build/);
+});
+
+test("web page JSON-LD is found in @graph and top-level arrays", () => {
+  const job = { "@type": "JobPosting", title: "SRE", description: DESCRIPTION };
+  for (const data of [{ "@graph": [{ "@type": "WebSite" }, job] }, [{ "@type": "Organization" }, job]]) {
+    const html = `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+    assert.equal(postingFromWebPage(html, "https://example.com/j/2").title, "SRE");
+  }
+});
+
+test("web page without JSON-LD falls back to og:title and main text", () => {
+  const html = `<html><head><title>Ignored</title><meta content="Staff Designer" property="og:title"></head>
+    <body><nav>Home Jobs About us and many other links</nav><main><h1>Staff Designer</h1><p>${DESCRIPTION}</p></main><footer>Copyright</footer></body></html>`;
+  const posting = postingFromWebPage(html, "https://example.com/j/3");
+  assert.equal(posting.title, "Staff Designer");
+  assert.match(posting.text, /payments platform/);
+  assert.doesNotMatch(posting.text, /Home Jobs/);
+});
+
+test("web page fallback uses <title> and the body when there is no main", () => {
+  const html = `<title>Data Analyst</title><body><div>${DESCRIPTION}</div></body>`;
+  const posting = postingFromWebPage(html, "https://example.com/j/4");
+  assert.equal(posting.title, "Data Analyst");
+  assert.match(posting.text, /payments platform/);
+});
+
+test("a page with too little text throws the unreadable message", () => {
+  assert.throws(
+    () => postingFromWebPage("<title>Jobs</title><body><div id=root></div></body>", "https://example.com/j/5"),
+    (error: unknown) => error instanceof JobFetchError && error.message === JOB_PAGE_UNREADABLE,
+  );
 });

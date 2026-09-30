@@ -1,0 +1,36 @@
+name: Add a job to the picker
+description: Suggest a live job posting for the top9.wtf job picker.
+title: "Add job: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Send us a public job posting and we may add it to the "Pick a job" list on top9.wtf.
+        Any public posting link works; LinkedIn needs a login, so use the company's own link.
+  - type: input
+    id: company
+    attributes:
+      label: Company
+      placeholder: Sentry
+    validations:
+      required: true
+  - type: input
+    id: job_title
+    attributes:
+      label: Job title
+      placeholder: Senior Developer Experience Engineer
+    validations:
+      required: true
+  - type: input
+    id: job_url
+    attributes:
+      label: Job posting URL
+      description: A public link that opens without a login.
+      placeholder: https://jobs.ashbyhq.com/...
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Optional. Tell us why this role would be fun to match against a Top 9.

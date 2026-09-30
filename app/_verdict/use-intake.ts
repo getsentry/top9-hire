@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { extractFromTweetUrl, type SignalResult } from "@/app/actions";
 import { matchSignal } from "./actions";
 import { interpretExtractResponse, postImageUrl, rejectImageFile } from "@/lib/image-limit";
-import { JOB_URL_REJECTED, parseJobUrl } from "@/lib/job";
+import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job";
 
 export type CardSource =
   | { kind: "file"; name: string; preview: string }
@@ -27,12 +27,13 @@ export function sniff(text: string): "tweet" | "job" | "other" {
   return "other";
 }
 
+/** The employer shown on the job card: the board's org segment, or the company's own host without its careers prefix. */
 export function jobLabel(url: string): string {
   try {
     const { hostname, pathname } = new URL(url);
-    const org = pathname.split("/").filter(Boolean)[0] ?? "";
-    const board = hostname.includes("ashby") ? "Ashby" : "Greenhouse";
-    return org ? `${org} · ${board}` : board;
+    const board = /(^|\.)(ashbyhq|greenhouse|lever)\.(io|co)$/.test(hostname);
+    if (board) return pathname.split("/").filter(Boolean)[0] ?? hostname;
+    return hostname.replace(/^(www|jobs|careers)\./, "");
   } catch {
     return url;
   }
@@ -58,7 +59,7 @@ export function useIntake() {
     [],
   );
 
-  const jobError = jobUrl.trim() && !parseJobUrl(jobUrl) ? JOB_URL_REJECTED : null;
+  const jobError = jobUrl.trim() && !parseJobUrl(jobUrl) ? (jobUrlProblem(jobUrl) ?? JOB_URL_REJECTED) : null;
 
   const extract = useCallback(async (run: () => Promise<{ ok: true; games: string[]; imageUrl?: string } | { ok: false; message: string }>, onImage?: (url?: string) => void) => {
     const mine = ++gen.current;
@@ -121,7 +122,7 @@ export function useIntake() {
     [extract],
   );
 
-  /** Routes any pasted text: a post link becomes the card, a Greenhouse or Ashby link becomes the job. */
+  /** Routes any pasted text: a post link becomes the card, any other public job link becomes the job. */
   const addText = useCallback(
     (text: string): "tweet" | "job" | "other" => {
       const kind = sniff(text);

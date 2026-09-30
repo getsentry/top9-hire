@@ -44,6 +44,7 @@ Extract and the signal read call the paid AI Gateway and do not check a session.
 | `AI_GATEWAY_API_KEY` | Static AI Gateway key. Server only. |
 | `VERCEL_OIDC_TOKEN` | Short-lived gateway token from `vercel env pull`. Server only. |
 | `VERCEL` | Set to `1` by Vercel. With OIDC enabled, the request header supplies the token. |
+| `SHARE_SECRET` | Signs `/v/<token>` share links. Server only. Without it, production shares no link. |
 | `TOP9_EXTRACT_MODEL` | Optional model override for image extraction (defaults to `openai/gpt-5.4-mini`). |
 | `TWITTER_BEARER_TOKEN` / `X_BEARER_TOKEN` | Optional official X API bearer token. Falls back to fxtwitter helper if omitted. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Browser Sentry DSN. |
@@ -79,12 +80,12 @@ Manual checks, in order.
 7. Drop or upload a PNG, JPEG, or WebP 3×3 card (4MB or smaller). The drop row shows the card while it is read, then the plate fills. A larger file or a non-image shows an error and does not fill the plate.
 8. Paste a public `x.com` or `twitter.com` status URL whose post has a card image and choose Extract. The plate fills with the post's card image. A URL that is not a status link shows an error and does not invent titles.
 9. Pick `@dorryspears`. Roles that suggest that fixture carry a "Suggested for @dorryspears" tag. Pick one and read the signal. The rail shows the role title, a `match`, `stretch`, or `mismatch` stamp, an alignment percent, a short why, and a facet per axis plus the two archetypes.
-10. Paste a job URL that is not a public Greenhouse or Ashby posting. The sheet still stamps the signal, and the rail shows a role error with no invented description.
+10. Paste a job URL that is not a public posting, such as a LinkedIn link or a page with no job description. The sheet still stamps the signal, and the rail shows a role error with no invented description.
 11. With the Sentry DSNs set, a role read also produces spans named `evaluate role_archetype` and `evaluate hire_job_match` (op `gen_ai.evaluate`). The role call's function id is `role-archetype`. The match call's function id is `hire-job-match`. The match span also carries `hire_job_match.alignment_percent`, `hire_job_match.model_choice`, and `hire_job_match.model_agrees`.
 
 Titles are sent to the gateway and, when a DSN is set, to Sentry on that evaluation span. A fetched job description is sent the same way on the role span.
 
-Job URL fetches are rebuilt onto `boards-api.greenhouse.io` or `jobs.ashbyhq.com`. Other hosts, redirects, and non-posting paths are refused. The page does not invent a description when the fetch fails.
+Greenhouse, Ashby, and Lever links are rebuilt onto their fixed API hosts (`boards-api.greenhouse.io`, `jobs.ashbyhq.com`, `api.lever.co`). Any other public https link is fetched as a web page: the host must resolve only to public addresses, up to 3 redirects are followed with the same check on each hop, and pages that are not HTML are refused. The page does not invent a description when the fetch fails.
 
 ## Data
 
