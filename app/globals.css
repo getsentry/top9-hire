@@ -1,15 +1,19 @@
 :root {
   color-scheme: light;
-  --paper: #f3efe6;
-  --paper-deep: #e9e2d3;
-  --paper-lift: #faf8f3;
-  --ink: #121212;
-  --ink-2: #4b473f;
-  --ink-3: #6b6560;
-  --rule: rgba(26, 26, 26, 0.14);
-  --rule-2: rgba(26, 26, 26, 0.3);
+  --paper: #f5f2e9;
+  --paper-deep: #ece9df;
+  --paper-lift: #fffdf7;
+  --ink: #171815;
+  --ink-2: #42463f;
+  --ink-3: #6e746b;
+  --rule: rgba(23, 24, 21, 0.12);
+  --rule-2: rgba(23, 24, 21, 0.26);
+  --mint: oklch(0.772 0.155 153);
+  --mint-body: oklch(0.866 0.109 153);
+  --mint-wash: oklch(0.979 0.014 153);
+  --lime: #caff4a;
   --stamp: #e23d28;
-  --serif: var(--font-serif), "Iowan Old Style", Georgia, serif;
+  --serif: var(--sans);
   --sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);

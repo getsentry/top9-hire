@@ -1,14 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Fragment_Mono, Geist, Newsreader } from "next/font/google";
+import { Fragment_Mono, Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-
-const serif = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
 
 const sans = Geist({
   subsets: ["latin"],
@@ -25,19 +18,29 @@ const mono = Fragment_Mono({
 
 export const metadata: Metadata = {
   title: "top9.wtf — Is it a match?",
-  description:
-    "Nine games are a hire signal. Drop a Top9 card, read the archetype, and check it against a real role.",
+  description: "Forget LeetCode. Drop your Top 9 and a job link, and Jev decides whether you fit the role.",
+  openGraph: {
+    title: "Nine games. Zero LeetCode.",
+    description: "Match your Top 9 with a real job posting and get a hiring verdict.",
+    siteName: "top9.wtf",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nine games. Zero LeetCode.",
+    description: "Match your Top 9 with a real job posting and get a hiring verdict.",
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F3EFE6",
+  themeColor: "#F5F2E9",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body>
         {children}
         <Analytics />
