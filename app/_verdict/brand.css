@@ -1,0 +1,234 @@
+/*
+ * Brand layer from the codex/top9-shareable worktree: the controller mascot,
+ * Geist in place of the serif, mint and lime accents, raised pill buttons and a
+ * round seal. It only restyles. The #top9 scope outranks the class selectors in
+ * dialog-posts.css, so this file wins without !important.
+ */
+
+/* Wordmark: mascot plus name, in place of the mono eyebrow */
+
+#top9 .dp-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  gap: 10px;
+  font: 650 clamp(19px, 2.8svh, 24px) / 1 var(--sans);
+  letter-spacing: -0.04em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+#top9 .dp-mark::before {
+  content: "";
+  width: clamp(48px, 7.5svh, 72px);
+  height: clamp(48px, 7.5svh, 72px);
+  background: url("/brand/top9-mascot.png") center / contain no-repeat;
+  rotate: -6deg;
+}
+
+#top9 .dp-title {
+  font-style: normal;
+  font-weight: 650;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+  text-decoration: underline 0.3em var(--lime);
+  text-underline-offset: -0.16em;
+  text-decoration-skip-ink: none;
+}
+
+#top9 .dp-lede strong {
+  font-weight: 650;
+}
+
+#top9 .dp-dialog-title {
+  font-style: normal;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+}
+
+/* Cards */
+
+#top9 .dp-card {
+  --dp-r: 22px;
+  border-radius: 22px;
+}
+
+#top9 .dp-card:not([data-state="empty"]) {
+  box-shadow: 0 24px 48px -12px rgba(23, 24, 21, 0.24), 0 0 0 1px var(--rule);
+}
+
+#top9 .dp-drop {
+  background: var(--paper);
+  transition-property: border-color, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #top9 .dp-drop:not([data-disabled]):hover {
+    border-color: var(--mint);
+    background: var(--mint-wash);
+  }
+}
+
+#top9 .dp-drop[data-drag] {
+  border-color: var(--mint);
+  background: var(--mint-wash);
+}
+
+#top9 .dp-plus {
+  background: var(--mint);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+
+/* Fields: the focus ring becomes an ink inset, so it stays clear on cream and on mint */
+
+#top9 .dp-field {
+  border-radius: 14px;
+  border-color: var(--rule);
+  background: var(--paper);
+  transition: box-shadow 150ms var(--ease);
+}
+
+#top9 .dp-job .dp-field {
+  background: var(--paper-lift);
+}
+
+#top9 .dp-field:focus-visible {
+  outline: none;
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+
+/*
+ * Pill buttons share one physical model: a solid edge under the pill, which
+ * grows as the pill lifts on hover and shrinks as it presses down. --edge sets
+ * the resting depth; the ink pill sits deeper than the cream ones.
+ */
+
+#top9 :is(.dp-primary, .dp-secondary, .dp-sample) {
+  --edge: 3px;
+  --edge-color: color-mix(in oklch, var(--ink) 20%, transparent);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 var(--edge) 0 var(--edge-color);
+  transition-property: transform, box-shadow, background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease);
+}
+
+#top9 .dp-primary {
+  --edge: 5px;
+  min-height: 48px;
+  background: var(--ink);
+  color: var(--paper-lift);
+}
+
+#top9 :is(.dp-secondary, .dp-sample) {
+  border: 1px solid var(--rule-2);
+  background: var(--paper-lift);
+  color: var(--ink);
+}
+
+/* On the mint card the cream pill needs the ink outline to separate from the fill */
+#top9 .dp-job .dp-sample {
+  border-color: var(--ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #top9 :is(.dp-primary, .dp-secondary, .dp-sample):not(:disabled):not([aria-disabled="true"]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 calc(var(--edge) + 2px) 0 var(--edge-color);
+  }
+
+  #top9 :is(.dp-secondary, .dp-sample):not(:disabled):hover {
+    border-color: var(--ink);
+  }
+}
+
+#top9 :is(.dp-primary, .dp-secondary, .dp-sample):not(:disabled):not([aria-disabled="true"]):active {
+  transform: translateY(calc(var(--edge) - 1px));
+  box-shadow: 0 1px 0 var(--edge-color);
+}
+
+#top9 :is(.dp-primary, .dp-sample):is(:disabled, [aria-disabled="true"]) {
+  border-color: transparent;
+  background: var(--paper-deep);
+  color: var(--ink-3);
+  box-shadow: none;
+  opacity: 1;
+}
+
+@media (min-width: 561px) {
+  /* Above the org name, in the empty top of the job card, so the seal never covers the company */
+  #top9 .dp-stamp {
+    top: 36%;
+  }
+}
+
+/* Dialogs */
+
+#top9 .dp-dialog {
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: 0 25px 70px rgba(23, 24, 21, 0.18), 0 0 0 1px var(--rule);
+}
+
+/* Verdict: the rubber stamp becomes a round seal */
+
+#top9 .dp-stamp {
+  display: grid;
+  place-content: center;
+  width: clamp(112px, 24vw, 150px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  background: var(--paper-lift);
+  box-shadow: inset 0 0 0 5px var(--paper-lift), inset 0 0 0 6px currentColor, 0 14px 30px -10px rgba(23, 24, 21, 0.35);
+  font: 650 clamp(17px, 3.4vw, 22px) / 1 var(--sans);
+  letter-spacing: 0.04em;
+  text-align: center;
+  white-space: normal;
+}
+
+#top9 .dp-percent-n {
+  font-weight: 650;
+  letter-spacing: -0.07em;
+}
+
+#top9 .dp-percent-unit {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#top9 .dp-verdict {
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+#top9 .dp-why {
+  font-style: normal;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #top9 .dp-mark::before {
+    animation: codex-mascot-in 480ms cubic-bezier(0.2, 0.9, 0.25, 1.12) both;
+  }
+}
+
+@keyframes codex-mascot-in {
+  from {
+    opacity: 0;
+    scale: 0.6;
+    rotate: -24deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #top9 * {
+    transition: none;
+  }
+}
