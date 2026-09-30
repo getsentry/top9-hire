@@ -3,7 +3,7 @@
   --dp-lean: #9a5608;
   --dp-no: var(--stamp);
   --dp-tone: var(--ink);
-  --dp-border: rgba(26, 26, 26, 0.1);
+  --dp-border: var(--rule);
   --dp-spring: cubic-bezier(0.2, 0.9, 0.25, 1.12);
   min-height: 100dvh;
   background: var(--paper);
@@ -71,6 +71,23 @@
   color: var(--ink);
 }
 
+.dp-origin {
+  padding-block: 12px;
+  margin-block: -12px;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-decoration: underline 1px color-mix(in oklch, var(--ink) 30%, transparent);
+  text-underline-offset: 3px;
+  transition: color 150ms var(--ease), text-decoration-color 150ms var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dp-origin:hover {
+    color: var(--ink);
+    text-decoration-color: var(--ink);
+  }
+}
+
 .dp-title {
   text-wrap: balance;
 }
@@ -93,9 +110,13 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--ink-2);
-  transition-property: background-color, color, border-color;
+  transition-property: background-color, color, border-color, transform;
   transition-duration: 150ms;
   transition-timing-function: ease-out;
+}
+
+.dp .dp-repo:active {
+  transform: scale(0.96);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -184,8 +205,9 @@
 
 .dp-job {
   --dir: -1;
-  --dp-bg: var(--ink);
-  color: var(--paper);
+  --dp-bg: var(--mint-body);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
   z-index: 1;
 }
 
@@ -199,25 +221,6 @@
 
 .dp-stage[data-phase="result"] .dp-job {
   --tilt: 6deg;
-}
-
-.dp-tag {
-  grid-row: 1;
-  justify-self: start;
-  align-self: center;
-  margin: 0;
-  padding: 5px 9px;
-  border-radius: 999px;
-  font: 500 11px/1 var(--mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--paper-deep);
-  color: var(--ink);
-}
-
-.dp-job .dp-tag {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--paper);
 }
 
 /* Filled You card: owner row, art, foot */
@@ -299,8 +302,19 @@
 .dp-scan {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 248, 0.55) 48%, rgba(255, 253, 248, 0.9) 50%, transparent 52%) 0 0 / 100% 240% no-repeat;
+}
+
+/* The band moves with translate, not background-position, so each frame is composited instead of repainted */
+.dp-scan::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 240%;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 248, 0.55) 48%, rgba(255, 253, 248, 0.9) 50%, transparent 52%);
+  translate: 0 -70%;
 }
 
 .dp-foot {
@@ -343,7 +357,7 @@
 
 .dp-replace:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  color: var(--ink-3);
 }
 
 .dp-stage:not([data-phase="setup"]) .dp-foot {
@@ -356,21 +370,21 @@
 }
 
 .dp-job :focus-visible {
-  outline-color: var(--paper);
+  outline-color: var(--ink);
 }
 
 .dp-job-hero {
-  grid-row: 2;
+  grid-row: 1 / 3;
   display: grid;
   place-content: center;
   justify-items: center;
   gap: 6px;
-  color: rgba(243, 239, 230, 0.75);
+  color: var(--ink-2);
   text-align: center;
 }
 
 .dp-job-body {
-  grid-row: 2 / 6;
+  grid-row: 1 / 6;
   display: grid;
   align-content: end;
   gap: 6px;
@@ -378,7 +392,10 @@
   margin: calc(var(--dp-pad) * -1);
   margin-top: 0;
   padding: var(--dp-pad);
-  background: radial-gradient(120% 70% at 100% 0%, color-mix(in oklch, var(--dp-tone) 45%, transparent), transparent 60%);
+}
+
+.dp-stage[data-choice] .dp-job-body {
+  background: radial-gradient(140% 90% at 100% 100%, color-mix(in oklch, var(--dp-tone) 28%, transparent), transparent 70%);
 }
 
 .dp-job-org {
@@ -391,24 +408,37 @@
 .dp-job-title {
   font-size: 14px;
   line-height: 1.3;
-  color: rgba(243, 239, 230, 0.8);
+  color: var(--ink-2);
   text-wrap: balance;
 }
 
 .dp-job-reads {
   font: 500 11px/1.3 var(--mono);
   letter-spacing: 0.04em;
-  color: rgba(243, 239, 230, 0.6);
+  color: var(--ink-2);
+}
+
+.dp-job-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+  margin-bottom: -10px;
+}
+
+/* No posting link to show: keep Replace on the right, as on the You card */
+.dp-job-foot .dp-replace:only-child {
+  margin-left: auto;
 }
 
 .dp-job-link {
-  justify-self: start;
-  padding-block: 10px;
-  margin-block: -10px;
+  padding-block: 14px;
+  margin-block: -14px;
   font: 500 12px/1.3 var(--sans);
-  color: rgba(243, 239, 230, 0.85);
+  color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: rgba(243, 239, 230, 0.35);
+  text-decoration-color: color-mix(in oklch, var(--ink) 35%, transparent);
   text-underline-offset: 3px;
   transition-property: color, text-decoration-color;
   transition-duration: 150ms;
@@ -418,7 +448,6 @@
 
 @media (hover: hover) and (pointer: fine) {
   .dp-job-link:hover {
-    color: #f3efe6;
     text-decoration-color: currentColor;
   }
 }
@@ -475,7 +504,7 @@
 }
 
 .dp-ghost-job {
-  background: #1a1a1a;
+  background: var(--mint-body);
 }
 
 /* Sample picker dialog */
@@ -572,7 +601,7 @@
 }
 
 .dp-close:active {
-  transform: scale(0.94);
+  transform: scale(0.96);
 }
 
 /* Post tiles */
@@ -601,7 +630,7 @@
 }
 
 .dp-tile:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 .dp-tile-head {
@@ -643,27 +672,51 @@
 }
 
 .dp-grid-jobs .dp-tile {
-  align-content: center;
-  min-height: 96px;
-  padding: 14px;
-  gap: 6px;
+  align-content: start;
+  min-height: 76px;
+  padding: 12px 14px;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
 }
 
+/* The org is the eyebrow; the title is what people read to choose */
 .dp-job-pick-org {
-  font: 400 clamp(22px, 4vw, 28px) / 1 var(--serif);
-  letter-spacing: -0.01em;
+  font: 600 12px / 1.2 var(--sans);
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
   overflow-wrap: anywhere;
 }
 
 .dp-job-pick-title {
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1.3;
-  color: var(--ink-2);
+  letter-spacing: -0.01em;
+  color: var(--ink);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+}
+
+.dp-grid .dp-ask {
+  border: 1.5px dashed var(--rule-2);
+  background: transparent;
+  box-shadow: none;
+}
+
+.dp-ask :is(.dp-job-pick-title, .dp-ask-hint) {
+  color: var(--ink-2);
+}
+
+/* Two columns leave it alone on the last row, so it takes the whole row */
+@media (max-width: 640px) {
+  .dp-grid-jobs .dp-ask {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -673,7 +726,7 @@
   }
 
   .dp-tile:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
   }
 
   .dp-close:hover {
@@ -684,16 +737,13 @@
     color: var(--ink);
   }
 
-  .dp-sample:not(:disabled):hover {
-    background: color-mix(in oklch, currentColor 10%, transparent);
-  }
 }
 
 /* Empty-card inputs */
 
 .dp-drop {
   position: relative;
-  grid-row: 2;
+  grid-row: 1 / 3;
   min-height: 0;
   display: grid;
   place-content: center;
@@ -726,6 +776,26 @@
   height: 100%;
   opacity: 0;
   cursor: inherit;
+}
+
+/* Same footprint as a sample card, so the grid keeps its rhythm */
+.dp-ask-card {
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dp-ask-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.dp-ask-hint {
+  font-size: 13px;
 }
 
 .dp-plus {
@@ -761,15 +831,11 @@
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color 150ms, transform 120ms;
+  transition: background-color 150ms, transform 120ms, box-shadow 120ms;
 }
 
 .dp-job .dp-sample {
-  border-color: rgba(243, 239, 230, 0.4);
-}
-
-.dp-sample:active {
-  transform: scale(0.96);
+  border-color: var(--ink);
 }
 
 .dp-sample:disabled {
@@ -796,7 +862,7 @@
 }
 
 .dp-job .dp-or-label {
-  color: rgba(243, 239, 230, 0.75);
+  color: var(--ink-2);
 }
 
 .dp-field {
@@ -839,7 +905,7 @@
 }
 
 .dp-job .dp-error {
-  color: #ff8f7a;
+  color: oklch(0.48 0.17 29);
 }
 
 /* Setup action */
@@ -879,9 +945,7 @@
   cursor: not-allowed;
 }
 
-.dp .dp-primary:not([aria-disabled="true"]):active,
-.dp .dp-text:active,
-.dp-secondary:active {
+.dp .dp-text:active {
   transform: scale(0.96);
 }
 
@@ -1066,18 +1130,12 @@
   font-size: 15px;
   color: var(--ink-2);
   cursor: pointer;
-  transition: transform 120ms;
+  transition-property: color, transform;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .dp .dp-primary:not([aria-disabled="true"]):hover {
-    background: color-mix(in oklch, var(--ink) 85%, var(--paper));
-  }
-
-  .dp-secondary:hover {
-    background: var(--paper-deep);
-  }
-
   .dp-text:hover {
     color: var(--ink);
   }
@@ -1086,38 +1144,43 @@
 /* Motion */
 
 @media (prefers-reduced-motion: no-preference) {
-  .dp-scan {
+  .dp-scan::before {
     animation: dp-scan 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   }
 
-  /* First-run entrance: header, then the two cards dealt in, then Match */
-  .dp-head > * {
-    animation: dp-rise 420ms var(--ease) both;
+  /* One load sequence: the header reads in top to bottom, the cards are dealt, then Match arrives.
+     The individual translate property leaves transform free for the hover and press states. Backwards fill,
+     so no filter or translate stays after the end: that would trap the Match tooltip under the cards */
+  .dp-head > *,
+  .dp .dp-repo,
+  .dp-go {
+    animation: dp-rise 400ms cubic-bezier(0.32, 0.72, 0, 1) var(--dp-delay, 0ms) backwards;
   }
 
-  .dp-head > :nth-child(2) {
-    animation-delay: 60ms;
+  .dp-title {
+    --dp-delay: 60ms;
   }
 
-  .dp-head > :nth-child(3) {
-    animation-delay: 120ms;
+  .dp-lede {
+    --dp-delay: 120ms;
   }
 
-  .dp-repo {
-    animation: dp-in 420ms var(--ease) 240ms both;
+  .dp-origin,
+  .dp .dp-repo {
+    --dp-delay: 180ms;
+  }
+
+  .dp-go {
+    --dp-delay: 420ms;
   }
 
   /* Individual translate/rotate/scale, because transform already carries the overlap */
   .dp-stage[data-phase="setup"] .dp-card {
-    animation: dp-card-in 560ms var(--dp-spring) 160ms both;
+    animation: dp-card-in 560ms var(--dp-spring) 240ms both;
   }
 
   .dp-stage[data-phase="setup"] .dp-job {
-    animation-delay: 240ms;
-  }
-
-  .dp-go {
-    animation: dp-rise 420ms var(--ease) 340ms both;
+    animation-delay: 310ms;
   }
 
   .dp[data-ready] .dp-primary {
@@ -1130,7 +1193,7 @@
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    animation: dp-ring 900ms ease-out 120ms both;
+    animation: dp-ring 700ms ease-out 120ms both;
   }
 
   .dp-dialog[open] .dp-tile {
@@ -1163,28 +1226,28 @@
   }
 
   .dp-result > * {
-    animation: dp-in 480ms var(--ease) both;
+    animation: dp-in 320ms var(--ease) both;
   }
 
   .dp-result > :nth-child(2) {
-    animation-delay: 80ms;
+    animation-delay: 50ms;
   }
 
   .dp-result > :nth-child(3) {
-    animation-delay: 140ms;
+    animation-delay: 100ms;
   }
 
   .dp-result > :nth-child(n + 4) {
-    animation-delay: 200ms;
+    animation-delay: 150ms;
   }
 }
 
 @keyframes dp-scan {
   from {
-    background-position: 0 120%;
+    translate: 0 -70%;
   }
   to {
-    background-position: 0 -20%;
+    translate: 0 11.67%;
   }
 }
 
@@ -1251,13 +1314,6 @@
   }
 }
 
-@keyframes dp-rise {
-  from {
-    opacity: 0;
-    translate: 0 10px;
-  }
-}
-
 @keyframes dp-card-in {
   from {
     opacity: 0;
@@ -1295,6 +1351,14 @@
   }
 }
 
+@keyframes dp-rise {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+    filter: blur(2px);
+  }
+}
+
 @keyframes dp-in {
   from {
     opacity: 0;
@@ -1323,7 +1387,7 @@
     transform: none;
   }
 
-  .dp-scan {
+  .dp-scan::before {
     animation: none;
   }
 
@@ -1421,7 +1485,7 @@
     --tilt: 3deg;
   }
 
-  :is(.dp-tag, .dp-owner, .dp-job-body) {
+  :is(.dp-owner, .dp-job-body) {
     grid-column: 1 / -1;
   }
 
@@ -1430,12 +1494,16 @@
     grid-row: 2 / -1;
   }
 
+  :is(.dp-drop, .dp-job-hero) {
+    grid-row: 1 / -1;
+  }
+
   :is(.dp-or-label, .dp-field, .dp-sample, .dp-error, .dp-foot) {
     grid-column: 2;
   }
 
   .dp-job-body {
-    grid-row: 2 / -1;
+    grid-row: 1 / -1;
   }
 
   .dp-foot {
