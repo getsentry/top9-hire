@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { existsSync, readFileSync } from "node:fs";
 import { roleCard } from "./hire.ts";
-import { parseJobUrl } from "./job.ts";
+import { parseJobUrl } from "./job-url.ts";
 import {
   JOB_PACK,
   TOP9_EXAMPLES,

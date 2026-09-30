@@ -4,24 +4,21 @@ import * as Sentry from "@sentry/nextjs";
 import { breakdownGames, breakdownJob, lastSource, libraryCard, type JobBreakdown } from "@/lib/breakdown";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
+  extractGamesFromImage,
+  fetchImageBytesFromUrl,
+} from "@/lib/extract";
+import {
   RESOLVER_BUSY_COPY,
   ResolverBusyError,
   TweetNotFoundError,
-  extractGamesFromImage,
-  fetchImageBytesFromUrl,
   resolveTweetMedia,
-} from "@/lib/extract";
+} from "@/lib/tweet-media";
 import { judgeFit, toMatch, type FitGame, type FitJob, type HireJobMatch } from "@/lib/fit";
 import { LIMITED_COPY, Limited, limitedFromGateway, modelGate } from "@/lib/guard";
 import { GATEWAY_MISSING, parsePaste, roleCard, type HireCard, type RoleCard } from "@/lib/hire";
-import {
-  JOB_URL_REJECTED,
-  JobFetchError,
-  jobUrlProblem,
-  parseJobUrl,
-  type JobPosting,
-} from "@/lib/job";
+import { JobFetchError, type JobPosting } from "@/lib/job";
 import { fetchAnyJob } from "@/lib/job-fetch";
+import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job-url";
 
 export type SignalResult =
   | {

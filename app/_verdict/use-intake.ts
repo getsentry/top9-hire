@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { extractFromTweetUrl, type SignalResult } from "@/app/actions";
 import { matchSignal } from "./actions";
 import { interpretExtractResponse, postImageUrl, rejectImageFile } from "@/lib/image-limit";
-import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job";
+import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job-url";
 
 export type CardSource =
   | { kind: "file"; name: string; preview: string }
