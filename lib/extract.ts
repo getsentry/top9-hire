@@ -139,6 +139,77 @@ function allowlistedMediaUrl(raw: string): URL {
   return parsed;
 }
 
+export class TweetNotFoundError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "TweetNotFoundError";
+  }
+}
+
+/** A tweet provider is rate limiting us or down. Not the user's fault, so callers report it apart from user errors. */
+export class ResolverBusyError extends Error {
+  source: "fxtwitter" | "x-api";
+  status: number;
+  retryAfter?: number;
+  /** True when we refused locally inside a known cool-down window, without calling the provider. */
+  shortCircuit: boolean;
+
+  constructor(init: {
+    source: "fxtwitter" | "x-api";
+    status: number;
+    retryAfter?: number;
+    shortCircuit?: boolean;
+  }) {
+    super(`Tweet resolver ${init.source} is busy (${init.status}).`);
+    this.name = "ResolverBusyError";
+    this.source = init.source;
+    this.status = init.status;
+    this.retryAfter = init.retryAfter;
+    this.shortCircuit = init.shortCircuit ?? false;
+  }
+}
+
+export const RESOLVER_BUSY_COPY = "X lookups are busy right now. Upload the card image instead.";
+
+const DEFAULT_COOLDOWN_SECONDS = 60;
+const CACHE_TTL_MS = 60 * 60 * 1000;
+const CACHE_MAX_ENTRIES = 500;
+
+// Per server instance only; a cold start forgets both.
+let busyUntil = 0;
+const resolvedCache = new Map<string, { result: ResolvedTweetMedia; expires: number }>();
+
+/** Test-only. */
+export function resetResolverState(): void {
+  busyUntil = 0;
+  resolvedCache.clear();
+}
+
+/** Retry-After is delta-seconds or an HTTP date. */
+function parseRetryAfter(header: string | null): number | undefined {
+  if (!header) return undefined;
+  const value = header.trim();
+  let seconds: number;
+  if (/^\d+$/.test(value)) {
+    seconds = Number(value);
+  } else {
+    const at = Date.parse(value);
+    if (Number.isNaN(at)) return undefined;
+    seconds = Math.ceil((at - Date.now()) / 1000);
+  }
+  return Math.min(3600, Math.max(1, seconds));
+}
+
+function cacheResult(statusId: string, result: ResolvedTweetMedia): ResolvedTweetMedia {
+  resolvedCache.delete(statusId);
+  resolvedCache.set(statusId, { result, expires: Date.now() + CACHE_TTL_MS });
+  if (resolvedCache.size > CACHE_MAX_ENTRIES) {
+    const oldest = resolvedCache.keys().next().value;
+    if (oldest !== undefined) resolvedCache.delete(oldest);
+  }
+  return result;
+}
+
 export async function resolveTweetMedia(
   tweetUrl: string,
   env: { [key: string]: string | undefined } = process.env,
@@ -148,6 +219,12 @@ export async function resolveTweetMedia(
     throw new Error("Invalid X/Twitter URL. Please provide a link to a tweet/post.");
   }
   const statusId = assertNumericStatusId(parsed.statusId);
+
+  const cached = resolvedCache.get(statusId);
+  if (cached) {
+    if (cached.expires > Date.now()) return cached.result;
+    resolvedCache.delete(statusId);
+  }
 
   // 1. Try official X API if bearer token or API credentials exist
   const bearerToken = env.TWITTER_BEARER_TOKEN || env.X_BEARER_TOKEN;
@@ -174,7 +251,7 @@ export async function resolveTweetMedia(
           // Pick largest image if multiple
           photos.sort((a, b) => (b.width || 0) * (b.height || 0) - (a.width || 0) * (a.height || 0));
           const chosen = photos[0]?.url || photos[0]?.preview_image_url;
-          if (chosen) return { mediaUrl: chosen };
+          if (chosen) return cacheResult(statusId, { mediaUrl: chosen });
         }
       }
     } catch {
@@ -183,6 +260,14 @@ export async function resolveTweetMedia(
   }
 
   // 2. Reliable public tweet->media helper (fxtwitter API)
+  if (Date.now() < busyUntil) {
+    throw new ResolverBusyError({
+      source: "fxtwitter",
+      status: 429,
+      retryAfter: Math.max(1, Math.ceil((busyUntil - Date.now()) / 1000)),
+      shortCircuit: true,
+    });
+  }
   const fxUrl = fxStatusUrl(statusId);
   let fxRes: Response;
   try {
@@ -193,8 +278,16 @@ export async function resolveTweetMedia(
     );
   }
 
+  if (fxRes.status === 429 || fxRes.status >= 500) {
+    const retryAfter = parseRetryAfter(fxRes.headers.get("retry-after"));
+    if (fxRes.status === 429) {
+      busyUntil = Date.now() + (retryAfter ?? DEFAULT_COOLDOWN_SECONDS) * 1000;
+    }
+    throw new ResolverBusyError({ source: "fxtwitter", status: fxRes.status, retryAfter });
+  }
+
   if (!fxRes.ok) {
-    throw new Error(
+    throw new TweetNotFoundError(
       `Tweet not found or could not be loaded (${fxRes.status}). Ensure the tweet is public and exists.`,
     );
   }
@@ -215,7 +308,7 @@ export async function resolveTweetMedia(
     fxData.tweet?.media?.all?.filter((m) => m.type === "photo" || !m.type);
 
   if (!photos || photos.length === 0) {
-    throw new Error("No image found attached to this tweet.");
+    throw new TweetNotFoundError("No image found attached to this tweet.");
   }
 
   // Pick largest image if multiple
@@ -225,7 +318,7 @@ export async function resolveTweetMedia(
     throw new Error("Tweet image URL could not be resolved.");
   }
 
-  return { mediaUrl: chosen.url };
+  return cacheResult(statusId, { mediaUrl: chosen.url });
 }
 
 export async function fetchImageBytesFromUrl(

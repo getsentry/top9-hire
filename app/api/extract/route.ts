@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import * as Sentry from "@sentry/nextjs";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
+  RESOLVER_BUSY_COPY,
+  ResolverBusyError,
+  TweetNotFoundError,
   extractGamesFromImage,
   fetchImageBytesFromUrl,
   resolveTweetMedia,
@@ -82,6 +85,31 @@ export async function POST(request: NextRequest) {
         { error: "missing_key", message: GATEWAY_MISSING },
         { status: 503 },
       );
+    }
+    if (error instanceof ResolverBusyError) {
+      // A short-circuit repeats a limit already reported when it began.
+      if (!error.shortCircuit) {
+        Sentry.captureException(error, {
+          level: "warning",
+          fingerprint: ["fxtwitter-limited"],
+          tags: {
+            resolver: error.source,
+            resolver_status: String(error.status),
+            resolver_limited: "true",
+          },
+          extra: { retryAfter: error.retryAfter },
+        });
+      }
+      return NextResponse.json(
+        { error: "extract_failed", message: RESOLVER_BUSY_COPY },
+        {
+          status: 503,
+          ...(error.retryAfter && { headers: { "Retry-After": String(error.retryAfter) } }),
+        },
+      );
+    }
+    if (error instanceof TweetNotFoundError) {
+      return NextResponse.json({ error: "extract_failed", message: error.message }, { status: 422 });
     }
 
     const message = error instanceof Error ? error.message : "Failed to extract games from image";
