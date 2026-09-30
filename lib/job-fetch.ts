@@ -7,12 +7,11 @@ import { Readable } from "node:stream";
 import {
   JobFetchError,
   fetchJobPosting,
-  parseJobUrl,
   postingFromWebPage,
-  readCapped,
+  readJobBodyCapped,
   type JobPosting,
-  type LockedJob,
 } from "./job.ts";
+import { parseJobUrl, type LockedJob } from "./job-url.ts";
 
 export type Lookup = (host: string) => Promise<{ address: string }[]>;
 
@@ -222,7 +221,7 @@ export async function fetchWebPosting(
     if (!/\b(text\/html|application\/xhtml\+xml)\b/i.test(type)) {
       throw new JobFetchError("That link is not a web page. No description was invented.");
     }
-    const html = new TextDecoder().decode(await readCapped(response));
+    const html = new TextDecoder().decode(await readJobBodyCapped(response));
     return postingFromWebPage(html, pageUrl);
   }
 }

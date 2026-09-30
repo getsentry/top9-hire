@@ -2,7 +2,8 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { normalizeTitle } from "../../lib/breakdown.ts";
 import { readGames } from "../../lib/hire.ts";
-import { fetchJobPosting, parseJobUrl } from "../../lib/job.ts";
+import { fetchJobPosting } from "../../lib/job.ts";
+import { parseJobUrl } from "../../lib/job-url.ts";
 import { PROOF_CASES } from "../../lib/__fixtures__/proof-cases.ts";
 import { SAMPLE_JOBS } from "../../app/_verdict/sample-data.ts";
 import { clip } from "../../lib/text.ts";

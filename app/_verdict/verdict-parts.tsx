@@ -5,7 +5,7 @@ import { flushSync } from "react-dom";
 import { DECISION, shareBlurb } from "@/lib/pack";
 import type { HireJobMatch, MatchChoice } from "@/lib/fit";
 import type { Verdict } from "./use-intake";
-import "./shared.css";
+import "./verdict-parts.css";
 
 export { DECISION };
 

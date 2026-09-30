@@ -7,9 +7,11 @@ import { JEV_STATE_CHARS, askJev, expectedLevel, libraryStrength, type AskJev } 
 import { cacheKey, readJson, writeJson } from "./store.ts";
 import { clip, normalizeTitle } from "./text.ts";
 
+/** How well the library covers one requirement: 1 (not at all) to 4 (very well). */
 export type FitLevel = 1 | 2 | 3 | 4;
 /** `level` is the library's coverage of the need in four steps; `expected` is the library's strength at the skill, 0 to 3. */
 export type FitRow = Requirement & { level: FitLevel; expected: number; confidence: number };
+/** The verdict word for a match percent. */
 export type FitChoice = "match" | "stretch" | "mismatch";
 
 const FIT_LEVELS = [
@@ -24,11 +26,15 @@ const judgeQuestions: Record<string, EvaluationQuestion> = {
   fit: { type: "score", instructions: JUDGE_INSTRUCTIONS, criteria: FIT_LEVELS },
 };
 
+/** Lowest match percent (0-100) that reads as "match". */
 export const MATCH_AT = 62;
+/** Lowest match percent (0-100) that reads as "stretch"; below it is "mismatch". */
 export const STRETCH_AT = 50;
 
 // Cut points on Jev's raw 0-100 fit score, from scripts/evals/thresholds.ts over 320 pairs (F3, both runs of e2e2).
+/** Raw Jev score (0-100) that calibrates to STRETCH_AT. */
 export const JEV_STRETCH_RAW = 9;
+/** Raw Jev score (0-100) that calibrates to MATCH_AT. */
 export const JEV_MATCH_RAW = 21;
 
 /** Piecewise linear map that puts the raw cut points on STRETCH_AT and MATCH_AT: the number and the word always agree. */
@@ -44,6 +50,7 @@ export function calibrate(raw: number, stretchRaw = JEV_STRETCH_RAW, matchRaw = 
   return Math.min(100, Math.max(0, Math.round(value)));
 }
 
+/** Turns a match percent (0-100) into a choice; `capped` blocks "match" and yields at most "stretch". */
 export function choiceFor(percent: number, capped: boolean, matchAt = MATCH_AT, stretchAt = STRETCH_AT): FitChoice {
   if (percent >= matchAt && !capped) return "match";
   return percent >= stretchAt ? "stretch" : "mismatch";
@@ -76,6 +83,7 @@ function pickExtremes(rows: FitRow[]): { strongest: FitRow; weakest: FitRow } {
 
 const MAX_WHY = 160;
 
+/** One line (at most 160 characters) naming the strongest and weakest requirement, or a fallback when the posting has none. */
 export function fitWhy(rows: FitRow[]): string {
   if (rows.length === 0) return "No single skill stands out in this posting.";
   const { strongest, weakest } = pickExtremes(rows);
@@ -93,6 +101,7 @@ export function fitWhy(rows: FitRow[]): string {
   return clip(`Strong on “${quote(strongest.text)}”. Thin on “${quote(weakest.text)}”.`, MAX_WHY);
 }
 
+/** Alias of FitChoice for the UI. */
 export type MatchChoice = FitChoice;
 
 /** What the UI reads: the choice, one line why, the percent, and the rows behind it. */
@@ -115,7 +124,9 @@ export function toMatch(raw: number, games: GameBreakdown[], job: JobBreakdown):
   };
 }
 
+/** A library game as Jev reads it: title plus a summary. */
 export type FitGame = { title: string; summary: string };
+/** A job posting as Jev reads it: title plus the full description text. */
 export type FitJob = { title: string; description: string };
 
 /** Returns Jev's raw 0-100 fit score. Model, messages and usage live on the SDK's own gen_ai.evaluate child span; copying them onto the step would double-count tokens in Sentry's AI views. */
@@ -145,6 +156,7 @@ export function clearFitCache(): void {
   rawCache.clear();
 }
 
+/** Options for judgeFit. */
 export type FitOptions = {
   ask?: AskJev;
   /** false skips the memory and blob writes; reads stay on. For a library judged on incomplete game data. */

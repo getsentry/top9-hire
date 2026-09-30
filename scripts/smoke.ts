@@ -3,7 +3,8 @@
 import { readFileSync } from "node:fs";
 import { breakdownGames, breakdownJob, libraryCard } from "../lib/breakdown.ts";
 import { fitMatch } from "../lib/fit.ts";
-import { fetchJobPosting, parseJobUrl } from "../lib/job.ts";
+import { fetchJobPosting } from "../lib/job.ts";
+import { parseJobUrl } from "../lib/job-url.ts";
 
 const reads = JSON.parse(readFileSync(new URL("../app/_verdict/sample-reads.json", import.meta.url), "utf8")) as {
   cards: Record<string, { titles: string[] }>;

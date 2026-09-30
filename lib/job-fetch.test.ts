@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { PrivateAddressError, fetchAnyJob, fetchWebPosting, guardedLookup, isPublicAddress, type Lookup } from "./job-fetch.ts";
-import { JOB_PAGE_UNREADABLE, JobFetchError, parseJobUrl } from "./job.ts";
+import { JOB_PAGE_UNREADABLE, JobFetchError } from "./job.ts";
+import { parseJobUrl } from "./job-url.ts";
 
 const PAGE =
   "<html><head><title>Payments Engineer</title></head><body><main>You will build and run the payments platform for millions.</main></body></html>";

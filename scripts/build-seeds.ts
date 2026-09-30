@@ -5,7 +5,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { breakdownGames, breakdownJob, chunk, normalizeTitle, type GameBreakdown, type JobBreakdown } from "../lib/breakdown.ts";
 import { fitMatch, type HireJobMatch } from "../lib/fit.ts";
 import { SAMPLE_JOBS } from "../app/_verdict/sample-data.ts";
-import { fetchJobPosting, parseJobUrl } from "../lib/job.ts";
+import { fetchJobPosting } from "../lib/job.ts";
+import { parseJobUrl } from "../lib/job-url.ts";
 
 const file = (path: string) => new URL(path, import.meta.url);
 const save = (path: string, value: unknown) => writeFileSync(file(path), `${JSON.stringify(value, null, 2)}\n`);

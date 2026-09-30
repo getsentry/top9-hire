@@ -2,14 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import * as Sentry from "@sentry/nextjs";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
+  extractGamesFromImage,
+  fetchImageBytesFromUrl,
+  type ImageInput,
+} from "@/lib/extract";
+import {
   RESOLVER_BUSY_COPY,
   ResolverBusyError,
   TweetNotFoundError,
-  extractGamesFromImage,
-  fetchImageBytesFromUrl,
   resolveTweetMedia,
-  type ImageInput,
-} from "@/lib/extract";
+} from "@/lib/tweet-media";
 import { LIMITED_COPY, Limited, limitedFromGateway, modelGate } from "@/lib/guard";
 import { GATEWAY_MISSING } from "@/lib/hire";
 import { acceptedMediaType, rejectImageFile } from "@/lib/image-limit";

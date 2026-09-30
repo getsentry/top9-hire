@@ -6,7 +6,7 @@ import { breakdownGames, cachedJobBreakdowns, libraryCard } from "@/lib/breakdow
 import { MissingGatewayKey } from "@/lib/classify";
 import type { HireJobMatch } from "@/lib/fit";
 import { GATEWAY_MISSING, parsePaste, roleCard } from "@/lib/hire";
-import { parseJobUrl } from "@/lib/job";
+import { parseJobUrl } from "@/lib/job-url";
 import { signShare } from "@/lib/share";
 import reads from "./sample-reads.json";
 

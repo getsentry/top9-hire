@@ -17,6 +17,7 @@ const mono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://top9.wtf"),
   title: "top9.wtf — Is it a match?",
   description: "Forget LeetCode. Drop your Top 9 and a job link, and Jev decides whether you fit the role.",
   openGraph: {

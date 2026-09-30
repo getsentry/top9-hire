@@ -1,74 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode, type Ref } from "react";
-import { Confetti, DECISION, Evidence, Spinner, TONE, VERDICT_COLOR, jobName, useCountUp, useShare } from "./shared";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
+import { Confetti, DECISION, Evidence, Spinner, TONE, VERDICT_COLOR, jobName, useCountUp, useShare } from "./verdict-parts";
 import { JOB_REQUEST_URL, SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor, usePickSample, type SampleCard, type SampleJob } from "./samples";
 import { imageFrom, jobLabel, sniff, useIntake, type Intake, type Verdict } from "./use-intake";
-import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job";
+import { FLIGHT_MS, fly, sourceOf } from "./card-flight";
+import { JobField, PostField } from "./link-fields";
 import "./dialog-posts.css";
 import "./brand.css";
 
-const FLIGHT_MS = 560;
 const REPO_URL = "https://github.com/getsentry/top9-hire";
 const ORIGIN_POST_URL = "https://x.com/dillon_mulroy/status/2104334305346634142";
 const MAKER_URL = "https://my9games.net/en";
-const SPRING = "cubic-bezier(0.2, 0.9, 0.25, 1.12)";
-
-/** Where a flight starts. Captured before the source unmounts or its dialog closes. */
-type FlySource = { rect: DOMRect; angle: number; width: number; height: number };
-
-function sourceOf(el: HTMLElement): FlySource {
-  const m = new DOMMatrixReadOnly(getComputedStyle(el).transform);
-  return {
-    rect: el.getBoundingClientRect(),
-    angle: (Math.atan2(m.b, m.a) * 180) / Math.PI,
-    width: el.offsetWidth,
-    height: el.offsetHeight,
-  };
-}
-
-/**
- * FLIP with a ghost: a fixed-position copy sits at the slot's layout box and is
- * transformed back onto the source rect, then animated to identity.
- */
-function fly(from: FlySource, to: HTMLElement | null, src?: string) {
-  if (!to || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const a = from.rect;
-  const b = to.getBoundingClientRect();
-  const w = to.offsetWidth;
-  const h = to.offsetHeight;
-  const dx = a.left + a.width / 2 - (b.left + b.width / 2);
-  const dy = a.top + a.height / 2 - (b.top + b.height / 2);
-  const sx = from.width / w;
-  const sy = from.height / h;
-
-  const ghost = document.createElement(src ? "img" : "div");
-  ghost.className = src ? "dp-ghost" : "dp-ghost dp-ghost-job";
-  if (ghost instanceof HTMLImageElement && src) {
-    ghost.src = src;
-    ghost.alt = "";
-  }
-  Object.assign(ghost.style, {
-    left: `${b.left + b.width / 2 - w / 2}px`,
-    top: `${b.top + b.height / 2 - h / 2}px`,
-    width: `${w}px`,
-    height: `${h}px`,
-  });
-  document.body.append(ghost);
-
-  const flight = ghost.animate(
-    [
-      { transform: `translate(${dx}px, ${dy}px) rotate(${from.angle}deg) scale(${sx}, ${sy})` },
-      { transform: "translate(0, 0) rotate(0deg) scale(1, 1)" },
-    ],
-    { duration: FLIGHT_MS, easing: SPRING, fill: "forwards" },
-  );
-  // The slot fills in underneath once the image is read, so the ghost fades instead of vanishing.
-  flight.finished
-    .then(() => ghost.animate({ opacity: [1, 0] }, { duration: 240, fill: "forwards" }).finished)
-    .catch(() => {})
-    .finally(() => ghost.remove());
-}
 
 export function DialogPosts() {
   const intake = useIntake();
@@ -497,110 +440,6 @@ function JobSlot({
         </>
       )}
     </section>
-  );
-}
-
-function PostField({ intake, locked, onAdd, error }: { intake: Intake; locked: boolean; onAdd: () => void; error: string | null }) {
-  const [link, setLink] = useState("");
-  const [hint, setHint] = useState<string | null>(null);
-
-  function submit() {
-    if (sniff(link) === "tweet") {
-      onAdd();
-      intake.addTweet(link);
-      setLink("");
-      setHint(null);
-    } else if (link.trim()) {
-      setHint("Use a post link like x.com/name/status/123.");
-    }
-  }
-
-  const message = hint ?? error;
-
-  return (
-    <div className="dp-or">
-      <label htmlFor="dp-post" className="dp-or-label">
-        or an X post link
-      </label>
-      <input
-        id="dp-post"
-        className="dp-field"
-        inputMode="url"
-        autoComplete="off"
-        spellCheck={false}
-        data-1p-ignore
-        data-lpignore="true"
-        placeholder="x.com/…"
-        value={link}
-        disabled={locked}
-        aria-invalid={message ? true : undefined}
-        aria-describedby={message ? "dp-post-note" : undefined}
-        onChange={(e) => {
-          setLink(e.target.value);
-          if (hint && sniff(e.target.value) === "tweet") setHint(null);
-        }}
-        onKeyDown={(e) => e.key === "Enter" && submit()}
-        onBlur={submit}
-      />
-      {message ? (
-        <p className="dp-error" id="dp-post-note" role="alert">
-          {message}
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
-function JobField({ intake, locked }: { intake: Intake; locked: boolean }) {
-  const [value, setValue] = useState("");
-  // After a failed commit, judge the text as it is typed, so the error clears the moment the link is fixed
-  const draft = value.trim();
-  const error = intake.jobError && draft ? (parseJobUrl(draft) ? null : (jobUrlProblem(draft) ?? JOB_URL_REJECTED)) : null;
-
-  function commit() {
-    if (value.trim()) intake.setJobUrl(value.trim());
-  }
-
-  function onKey(e: KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") commit();
-  }
-
-  return (
-    <div className="dp-or">
-      <label htmlFor="dp-job" className="dp-or-label">
-        Paste a job link
-      </label>
-      <input
-        id="dp-job"
-        className="dp-field"
-        inputMode="url"
-        autoComplete="off"
-        spellCheck={false}
-        data-1p-ignore
-        data-lpignore="true"
-        placeholder="https://…"
-        value={value}
-        disabled={locked}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={error ? "dp-job-note" : undefined}
-        onChange={(e) => setValue(e.target.value)}
-        onPaste={(e) => {
-          const text = e.clipboardData.getData("text").trim();
-          if (sniff(text) === "job") {
-            e.preventDefault();
-            setValue(text);
-            intake.setJobUrl(text);
-          }
-        }}
-        onKeyDown={onKey}
-        onBlur={commit}
-      />
-      {error ? (
-        <p className="dp-error" id="dp-job-note" role="alert">
-          {error}
-        </p>
-      ) : null}
-    </div>
   );
 }
 
