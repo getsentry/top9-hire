@@ -2,12 +2,16 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode, type Ref } from "react";
 import { Confetti, DECISION, Evidence, Spinner, TONE, VERDICT_COLOR, jobName, useCountUp, useShare } from "./shared";
-import { SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor, usePickSample, type SampleCard, type SampleJob } from "./samples";
+import { JOB_REQUEST_URL, SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor, usePickSample, type SampleCard, type SampleJob } from "./samples";
 import { imageFrom, jobLabel, sniff, useIntake, type Intake, type Verdict } from "./use-intake";
+import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job";
 import "./dialog-posts.css";
+import "./brand.css";
 
 const FLIGHT_MS = 560;
 const REPO_URL = "https://github.com/getsentry/top9-hire";
+const ORIGIN_POST_URL = "https://x.com/dillon_mulroy/status/2104334305346634142";
+const MAKER_URL = "https://my9games.net/en";
 const SPRING = "cubic-bezier(0.2, 0.9, 0.25, 1.12)";
 
 /** Where a flight starts. Captured before the source unmounts or its dialog closes. */
@@ -150,13 +154,16 @@ export function DialogPosts() {
   } as CSSProperties;
 
   return (
-    <main className="dp" data-ready={(phase === "setup" && intake.ready) || undefined}>
+    <main id="top9" className="dp" data-ready={(phase === "setup" && intake.ready) || undefined}>
       <header className="dp-head">
         <p className="dp-mark">top9.wtf</p>
         <h1 className="dp-title">Is it a match?</h1>
         <p className="dp-lede">
           <strong>Forget LeetCode.</strong> Jev decides whether you are a good fit for the role.
         </p>
+        <a className="dp-origin" href={ORIGIN_POST_URL} target="_blank" rel="noreferrer">
+          Why does this exist? ↗
+        </a>
       </header>
       <a className="dp-repo" href={REPO_URL} target="_blank" rel="noreferrer" aria-label="top9.wtf source on GitHub">
         <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -218,6 +225,19 @@ export function DialogPosts() {
               <img className="dp-tile-art" src={card.src} alt="" draggable={false} />
             </button>
           ))}
+          <a
+            className="dp-tile dp-ask dp-ask-card"
+            style={{ "--i": SAMPLE_CARDS.length } as CSSProperties}
+            href={MAKER_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="dp-plus" aria-hidden="true">
+              +
+            </span>
+            <span className="dp-ask-title">Make your own Top 9</span>
+            <span className="dp-ask-hint">my9games.net ↗</span>
+          </a>
         </div>
       </PickerDialog>
 
@@ -235,6 +255,16 @@ export function DialogPosts() {
               <span className="dp-job-pick-title">{job.title}</span>
             </button>
           ))}
+          <a
+            className="dp-tile dp-job-pick dp-ask"
+            style={{ "--i": SAMPLE_JOBS.length } as CSSProperties}
+            href={JOB_REQUEST_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="dp-job-pick-org">Want to see yours?</span>
+            <span className="dp-job-pick-title">Send us the posting on GitHub ↗</span>
+          </a>
         </div>
       </PickerDialog>
 
@@ -363,7 +393,6 @@ function YouSlot({
         </>
       ) : (
         <>
-          <p className="dp-tag">You</p>
           <label className="dp-drop" data-disabled={locked || undefined}>
             <input
               type="file"
@@ -380,7 +409,8 @@ function YouSlot({
             <span className="dp-plus" aria-hidden="true">
               +
             </span>
-            <span className="dp-drop-text">Drop or choose image</span>
+            <span className="dp-drop-text">Add your Top 9</span>
+            <span className="dp-drop-hint">Drop or choose the image</span>
           </label>
           <PostField intake={intake} locked={locked} onAdd={onClearPicked} error={titlesError} />
           <button type="button" className="dp-sample" disabled={locked} onClick={onOpenSamples}>
@@ -421,21 +451,34 @@ function JobSlot({
 }) {
   const has = Boolean(intake.jobUrl) && !intake.jobError;
   const known = sampleJobFor(intake.jobUrl);
-  const [org, board] = jobLabel(intake.jobUrl).split(" · ");
+  const org = jobLabel(intake.jobUrl);
 
   return (
     <section ref={ref} className="dp-card dp-job" aria-label="The job" data-state={has ? "ok" : "empty"}>
-      <p className="dp-tag">The job</p>
       {has ? (
         <div className="dp-job-body">
           <span className="dp-job-org">{known?.org ?? org}</span>
-          <span className="dp-job-title">{known?.title ?? (verdict ? jobName(verdict) : `${board} posting`)}</span>
+          <span className="dp-job-title">{known?.title ?? (verdict ? jobName(verdict) : "Job posting")}</span>
           {verdict?.role ? <span className="dp-job-reads">Reads as {verdict.role.label}</span> : null}
-          {/^https:\/\//.test(intake.jobUrl) ? (
-            <a className="dp-job-link" href={intake.jobUrl} target="_blank" rel="noreferrer">
-              View posting ↗
-            </a>
-          ) : null}
+          <div className="dp-job-foot">
+            {/^https:\/\//.test(intake.jobUrl) ? (
+              <a className="dp-job-link" href={intake.jobUrl} target="_blank" rel="noreferrer">
+                View posting ↗
+              </a>
+            ) : null}
+            <button
+              type="button"
+              className="dp-replace"
+              disabled={locked}
+              onClick={() => {
+                intake.setJobUrl("");
+                // The field replaces this button, so focus would drop to the page. On touch, focusing would open the keyboard
+                if (matchMedia("(pointer: fine)").matches) requestAnimationFrame(() => document.getElementById("dp-job")?.focus());
+              }}
+            >
+              Replace
+            </button>
+          </div>
         </div>
       ) : (
         <>
@@ -445,7 +488,7 @@ function JobSlot({
               <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 13h18" />
             </svg>
             <span className="dp-drop-text">Add the role</span>
-            <span className="dp-drop-hint">Greenhouse or Ashby</span>
+            <span className="dp-drop-hint">Paste its posting link</span>
           </div>
           <JobField intake={intake} locked={locked} />
           <button type="button" className="dp-sample" disabled={locked} onClick={onOpenSamples}>
@@ -477,7 +520,7 @@ function PostField({ intake, locked, onAdd, error }: { intake: Intake; locked: b
   return (
     <div className="dp-or">
       <label htmlFor="dp-post" className="dp-or-label">
-        or a post link
+        or an X post link
       </label>
       <input
         id="dp-post"
@@ -485,15 +528,22 @@ function PostField({ intake, locked, onAdd, error }: { intake: Intake; locked: b
         inputMode="url"
         autoComplete="off"
         spellCheck={false}
+        data-1p-ignore
+        data-lpignore="true"
         placeholder="x.com/…"
         value={link}
         disabled={locked}
-        onChange={(e) => setLink(e.target.value)}
+        aria-invalid={message ? true : undefined}
+        aria-describedby={message ? "dp-post-note" : undefined}
+        onChange={(e) => {
+          setLink(e.target.value);
+          if (hint && sniff(e.target.value) === "tweet") setHint(null);
+        }}
         onKeyDown={(e) => e.key === "Enter" && submit()}
         onBlur={submit}
       />
       {message ? (
-        <p className="dp-error" role="alert">
+        <p className="dp-error" id="dp-post-note" role="alert">
           {message}
         </p>
       ) : null}
@@ -503,6 +553,9 @@ function PostField({ intake, locked, onAdd, error }: { intake: Intake; locked: b
 
 function JobField({ intake, locked }: { intake: Intake; locked: boolean }) {
   const [value, setValue] = useState("");
+  // After a failed commit, judge the text as it is typed, so the error clears the moment the link is fixed
+  const draft = value.trim();
+  const error = intake.jobError && draft ? (parseJobUrl(draft) ? null : (jobUrlProblem(draft) ?? JOB_URL_REJECTED)) : null;
 
   function commit() {
     if (value.trim()) intake.setJobUrl(value.trim());
@@ -515,7 +568,7 @@ function JobField({ intake, locked }: { intake: Intake; locked: boolean }) {
   return (
     <div className="dp-or">
       <label htmlFor="dp-job" className="dp-or-label">
-        Paste the job link
+        Paste a job link
       </label>
       <input
         id="dp-job"
@@ -523,10 +576,13 @@ function JobField({ intake, locked }: { intake: Intake; locked: boolean }) {
         inputMode="url"
         autoComplete="off"
         spellCheck={false}
-        placeholder="Job link"
+        data-1p-ignore
+        data-lpignore="true"
+        placeholder="https://…"
         value={value}
         disabled={locked}
-        aria-describedby={intake.jobError ? "dp-job-note" : undefined}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? "dp-job-note" : undefined}
         onChange={(e) => setValue(e.target.value)}
         onPaste={(e) => {
           const text = e.clipboardData.getData("text").trim();
@@ -539,9 +595,9 @@ function JobField({ intake, locked }: { intake: Intake; locked: boolean }) {
         onKeyDown={onKey}
         onBlur={commit}
       />
-      {intake.jobError ? (
+      {error ? (
         <p className="dp-error" id="dp-job-note" role="alert">
-          Only Greenhouse or Ashby links work
+          {error}
         </p>
       ) : null}
     </div>
@@ -604,8 +660,7 @@ function Result({
   onTryAnother: () => void;
 }) {
   const match = verdict.match!;
-  const titles = intake.titles.status === "ok" ? intake.titles.value : [];
-  const { share, copied, xHref } = useShare(verdict, titles, intake.handle);
+  const { share, copied, xHref } = useShare(verdict, intake.handle);
   const percent = useCountUp(match.alignment.percent, 1100);
   const [boom, setBoom] = useState(false);
 
