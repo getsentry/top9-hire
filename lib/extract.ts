@@ -96,7 +96,7 @@ export async function extractGamesFromImage(
   const extracted = await Sentry.startSpan(
     {
       op: "top9.extract",
-      name: "read 9 titles from card",
+      name: "Read the game titles from the card",
       attributes: {
         "gen_ai.request.model": model,
         "gen_ai.provider.name": "vercel.ai_gateway",
@@ -145,11 +145,8 @@ export async function extractGamesFromImage(
 
       const result = extractSchema.parse(output);
       span.setAttribute("top9.games.count", result.games.length);
-      span.updateName("read 9 titles from card · model");
       return result;
     },
   );
-  // Streamed gen_ai spans wait on an unref'd timer. Flush before Vercel freezes the function.
-  await Sentry.flush(2000);
   return extracted;
 }

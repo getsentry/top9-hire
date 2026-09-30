@@ -1,6 +1,7 @@
 import { type Experimental_EvaluationQuestion as EvaluationQuestion } from "ai";
 import * as Sentry from "@sentry/nextjs";
 import type { Span } from "@sentry/nextjs";
+import { spanSourceTag } from "./action-span.ts";
 import type { GameBreakdown, GameSkill, JobBreakdown, Requirement } from "./breakdown.ts";
 import { jobFingerprint } from "./breakdown.ts";
 import { JEV_STATE_CHARS, askJev, expectedLevel, libraryStrength, type AskJev } from "./jev-breakdown.ts";
@@ -167,7 +168,7 @@ export type FitOptions = {
 
 /** One Jev call per job posting and library; a repeat of the same pair is served from memory, then the blob store. Returns the raw 0-100 score. */
 export async function judgeFit(url: string, games: FitGame[], job: FitJob, opts: FitOptions = {}): Promise<number> {
-  return Sentry.startSpan({ op: "top9.fit", name: "judge fit with Jev" }, async (span) => {
+  return Sentry.startSpan({ op: "top9.fit", name: "Judge the fit" }, async (span) => {
     const titles = games.map((game) => normalizeTitle(game.title));
     const jobHash = jobFingerprint(job.title, job.description);
     const key = `${url}|${jobHash}|${titles.join("|")}`;
@@ -176,7 +177,7 @@ export async function judgeFit(url: string, games: FitGame[], job: FitJob, opts:
     const finish = (source: "memory" | "blob" | "model", raw: number) => {
       lastFitSource.value = source;
       span.setAttribute("top9.source", source);
-      span.updateName(`judge fit with Jev · ${source}`);
+      span.updateName(`Judge the fit ${spanSourceTag(source)}`);
       setScore(span, raw);
       return raw;
     };

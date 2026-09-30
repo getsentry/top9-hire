@@ -35,14 +35,14 @@ test("readJson and writeJson do nothing without a token", async () => {
 });
 
 test("cache span names say hit or miss for one key and count hits for many", () => {
-  assert.equal(readSpanName("jobs", 1), "cache read jobs");
-  assert.equal(readSpanName("jobs", 1, 1), "cache read jobs · hit");
-  assert.equal(readSpanName("jobs", 1, 0), "cache read jobs · miss");
-  assert.equal(readSpanName("games", 9, 1), "cache read 9 games · 1 hit");
-  assert.equal(readSpanName("wiki", 8, 0), "cache read 8 wiki · 0 hits");
-  assert.equal(readSpanName("wiki", 8, 3), "cache read 8 wiki · 3 hits");
-  assert.equal(writeSpanName("fits", 1), "cache write fits");
-  assert.equal(writeSpanName("games", 8), "cache write 8 games");
+  assert.equal(readSpanName("jobs", 1), "Check cache for job");
+  assert.equal(readSpanName("jobs", 1, 1), "Check cache for job (found)");
+  assert.equal(readSpanName("jobs", 1, 0), "Check cache for job (not found)");
+  assert.equal(readSpanName("games", 9, 1), "Check cache for 9 games (1 found)");
+  assert.equal(readSpanName("wiki", 8, 0), "Check cache for 8 wiki pages (0 found)");
+  assert.equal(readSpanName("wiki", 1, 1), "Check cache for wiki page (found)");
+  assert.equal(writeSpanName("fits", 1), "Save fit to cache");
+  assert.equal(writeSpanName("games", 8), "Save 8 games to cache");
 });
 
 /** Blob stand-ins: `stored` paths hit, `broken` paths throw, the rest miss. */

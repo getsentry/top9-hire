@@ -97,7 +97,7 @@ function jevSpanName(functionId: string, state: Record<string, unknown>): string
   if (functionId === "top9.job.needs") return "Jev reads the job";
   if (functionId === "top9.fit") return "Jev judges the fit";
   if (functionId === "top9.game.skills") return typeof state.game === "string" ? `Jev reads ${state.game}` : "Jev reads a game";
-  return `Jev · ${functionId}`;
+  return `Jev runs ${functionId}`;
 }
 
 /**

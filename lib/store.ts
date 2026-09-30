@@ -33,15 +33,28 @@ export function useBlobIo(io: BlobIo | undefined): void {
   defaultIo = io ?? { get, put };
 }
 
-const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
+const CACHE_NOUNS: Record<string, [one: string, many: string]> = {
+  jobs: ["job", "jobs"],
+  games: ["game", "games"],
+  wiki: ["wiki page", "wiki pages"],
+  fits: ["fit", "fits"],
+};
 
-/** Span name for a read: one key says hit or miss, several say how many hits. */
-export function readSpanName(kind: string, keys: number, hits?: number): string {
-  if (keys === 1) return `cache read ${kind}${hits === undefined ? "" : hits ? " · hit" : " · miss"}`;
-  return `cache read ${keys} ${kind}${hits === undefined ? "" : ` · ${plural(hits, "hit")}`}`;
+/** "job", "9 games": what a cache span holds, in plain words. */
+function cacheNoun(kind: string, keys: number): string {
+  const [one, many] = CACHE_NOUNS[kind] ?? [kind, kind];
+  return keys === 1 ? one : `${keys} ${many}`;
 }
 
-export const writeSpanName = (kind: string, keys: number) => `cache write ${keys === 1 ? "" : `${keys} `}${kind}`;
+/** Span name for a cache read: one key says found or not found, several say how many were found. */
+export function readSpanName(kind: string, keys: number, hits?: number): string {
+  const name = `Check cache for ${cacheNoun(kind, keys)}`;
+  if (hits === undefined) return name;
+  if (keys === 1) return `${name} ${hits ? "(found)" : "(not found)"}`;
+  return `${name} (${hits} found)`;
+}
+
+export const writeSpanName = (kind: string, keys: number) => `Save ${cacheNoun(kind, keys)} to cache`;
 
 /** The Blob calls run without their own http.client spans, so the one cache span keeps the first error. */
 function reportError(span: Span, first: unknown): void {

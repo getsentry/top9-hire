@@ -2,7 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 import { breakdownGames, breakdownJob, lastSource, libraryCard, type JobBreakdown } from "@/lib/breakdown";
-import { inActionSpan } from "@/lib/action-span";
+import { inActionSpan, spanSourceTag } from "@/lib/action-span";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
   extractGamesFromImage,
@@ -56,11 +56,8 @@ export type ExtractActionResult =
 
 type SignalInput = { paste: string; handle: string; jobUrl?: string };
 
+/** Runs inside the caller's action span (`matchSignal`), so it opens none of its own. */
 export async function readSignal(input: SignalInput): Promise<SignalResult> {
-  return inActionSpan("action · read signal", () => runReadSignal(input));
-}
-
-async function runReadSignal(input: SignalInput): Promise<SignalResult> {
   const parsed = parsePaste(input.paste, input.handle);
   if (!parsed.ok) {
     return {
@@ -80,7 +77,8 @@ async function runReadSignal(input: SignalInput): Promise<SignalResult> {
       : locked.source === "web"
         ? new URL(locked.pageUrl).hostname
         : locked.org;
-  const name = `match ${titles.length} games${org ? ` × ${org}` : ""}`;
+  const atOrg = org ? ` at ${org}` : "";
+  const name = jobUrl ? `Match ${titles.length} games to a job${atOrg}` : `Read ${titles.length} games`;
   const result = await Sentry.startSpan(
     { op: "top9.match", name, attributes: { "top9.games.count": titles.length } },
     async (span) => {
@@ -90,7 +88,7 @@ async function runReadSignal(input: SignalInput): Promise<SignalResult> {
       }
       if (outcome.title) {
         span.setAttribute("top9.job.title", outcome.title);
-        span.updateName(`${name} · ${outcome.title}`);
+        span.updateName(`Match ${titles.length} games to ${outcome.title}${atOrg}`);
       }
       if (outcome.result.ok && outcome.result.match) {
         span.setAttributes({
@@ -103,8 +101,6 @@ async function runReadSignal(input: SignalInput): Promise<SignalResult> {
       return outcome.result;
     },
   );
-  // Streamed spans wait on an unref'd timer, and the match span only ends above. Flush before Vercel freezes the function.
-  await Sentry.flush(2000);
   return result;
 }
 
@@ -215,7 +211,7 @@ async function readJob(
   if (!jobUrl) return {};
   const locked = parseJobUrl(jobUrl);
   if (!locked) return { jobError: jobUrlProblem(jobUrl) ?? JOB_URL_REJECTED };
-  return Sentry.startSpan({ op: "top9.job", name: "read job" }, async (span) => {
+  return Sentry.startSpan({ op: "top9.job", name: "Read the job" }, async (span) => {
     let posting: JobPosting;
     try {
       posting = await fetchAnyJob(locked);
@@ -228,7 +224,7 @@ async function readJob(
     try {
       const breakdown = await breakdownJob({ url: posting.pageUrl, title: posting.title, description: posting.text }, { beforeModel });
       const source = lastSource.job;
-      span.updateName(`read job · ${source}`);
+      span.updateName(`Read the job ${spanSourceTag(source)}`);
       span.setAttributes({
         "top9.source": source,
         "top9.job.archetype": breakdown.wants,
@@ -242,7 +238,7 @@ async function readJob(
 }
 
 export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActionResult> {
-  return inActionSpan("action · read Top 9 from X post", () => runExtractFromTweetUrl(tweetUrl));
+  return inActionSpan("Read a Top 9 from an X post", () => runExtractFromTweetUrl(tweetUrl));
 }
 
 async function runExtractFromTweetUrl(tweetUrl: string): Promise<ExtractActionResult> {
@@ -262,11 +258,9 @@ async function runExtractFromTweetUrl(tweetUrl: string): Promise<ExtractActionRe
   } catch (error) {
     const limited = refusal(error);
     if (limited) {
-      await Sentry.flush(2000);
       return { ok: false, error: "extract_failed", message: LIMITED_COPY[limited], limited };
     }
     if (error instanceof MissingGatewayKey) {
-      await Sentry.flush(2000);
       return {
         ok: false,
         error: "missing_key",
@@ -287,7 +281,6 @@ async function runExtractFromTweetUrl(tweetUrl: string): Promise<ExtractActionRe
           extra: { retryAfter: error.retryAfter },
         });
       }
-      await Sentry.flush(2000);
       return { ok: false, error: "extract_failed", message: RESOLVER_BUSY_COPY };
     }
     if (error instanceof TweetNotFoundError) {
@@ -295,7 +288,6 @@ async function runExtractFromTweetUrl(tweetUrl: string): Promise<ExtractActionRe
     }
     const message = error instanceof Error ? error.message : "Failed to extract games from tweet";
     Sentry.captureException(error);
-    await Sentry.flush(2000);
     return {
       ok: false,
       error: "extract_failed",

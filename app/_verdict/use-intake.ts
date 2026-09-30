@@ -1,5 +1,6 @@
 "use client";
 
+import * as Sentry from "@sentry/nextjs";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { extractFromTweetUrl, type SignalResult } from "@/app/actions";
 import { matchSignal } from "./actions";
@@ -17,6 +18,29 @@ export type Step<T> =
   | { status: "error"; message: string };
 
 export type Verdict = Extract<SignalResult, { ok: true }>;
+
+type TraceSeed = { traceId: string; sampleRand: number };
+
+/**
+ * Runs one user action as a root span. With `seed` it joins an earlier action's trace; without it the action
+ * starts a new trace. The browser SDK keeps one trace for the whole page visit, so without this a click joins
+ * the page-load trace, with the idle time before it.
+ */
+function inActionTrace<T>(name: string, seed: TraceSeed | null, run: () => Promise<T>): Promise<T> {
+  const start = () => Sentry.startSpan({ op: "ui.action", name }, run);
+  if (!seed) return Sentry.startNewTrace(start);
+  return Sentry.withActiveSpan(null, () =>
+    Sentry.withScope((scope) => {
+      scope.setPropagationContext(seed);
+      return start();
+    }),
+  );
+}
+
+function currentTraceSeed(): TraceSeed {
+  const { traceId, sampleRand } = Sentry.getCurrentScope().getPropagationContext();
+  return { traceId, sampleRand };
+}
 
 const TWEET = /^https?:\/\/(?:www\.)?(?:x|twitter)\.com\/([A-Za-z0-9_]{1,15})\/status\/\d+/i;
 
@@ -50,6 +74,8 @@ export function useIntake() {
   const [jobUrl, setJobUrlState] = useState("");
   const [handle, setHandle] = useState("");
   const gen = useRef(0);
+  /** The card read's trace; the match joins it, so one trace shows the card read and the match. */
+  const cardTrace = useRef<TraceSeed | null>(null);
   const previewRef = useRef<string | null>(null);
 
   useEffect(
@@ -61,12 +87,15 @@ export function useIntake() {
 
   const jobError = jobUrl.trim() && !parseJobUrl(jobUrl) ? (jobUrlProblem(jobUrl) ?? JOB_URL_REJECTED) : null;
 
-  const extract = useCallback(async (run: () => Promise<{ ok: true; games: string[]; imageUrl?: string } | { ok: false; message: string }>, onImage?: (url?: string) => void) => {
+  const extract = useCallback(async (name: string, run: () => Promise<{ ok: true; games: string[]; imageUrl?: string } | { ok: false; message: string }>, onImage?: (url?: string) => void) => {
     const mine = ++gen.current;
     setTitles({ status: "busy" });
     setVerdict({ status: "idle" });
     try {
-      const result = await run();
+      const result = await inActionTrace(name, null, () => {
+        cardTrace.current = currentTraceSeed();
+        return run();
+      });
       if (mine !== gen.current) return;
       if (!result.ok) {
         setTitles({ status: "error", message: result.message });
@@ -91,7 +120,7 @@ export function useIntake() {
       const preview = URL.createObjectURL(file);
       previewRef.current = preview;
       setCard({ kind: "file", name: file.name || "Pasted image", preview });
-      void extract(async () => {
+      void extract("Upload a Top 9 image", async () => {
         const body = new FormData();
         body.set("file", file);
         const response = await fetch("/api/extract", { method: "POST", body });
@@ -112,6 +141,7 @@ export function useIntake() {
       setCard({ kind: "tweet", url: url.trim(), handle: handleFromUrl });
       setHandle((current) => current || handleFromUrl);
       void extract(
+        "Paste an X post link",
         () => extractFromTweetUrl(url.trim()),
         (imageUrl) => {
           const preview = postImageUrl(imageUrl);
@@ -140,6 +170,7 @@ export function useIntake() {
 
   const addKnown = useCallback((source: CardSource, games: string[]) => {
     gen.current++;
+    cardTrace.current = null;
     setCard(source);
     setTitles({ status: "ok", value: games });
     setVerdict({ status: "idle" });
@@ -147,6 +178,7 @@ export function useIntake() {
 
   const clearCard = useCallback(() => {
     gen.current++;
+    cardTrace.current = null;
     setCard(null);
     setTitles({ status: "idle" });
     setVerdict({ status: "idle" });
@@ -157,12 +189,14 @@ export function useIntake() {
     const mine = gen.current;
     setVerdict({ status: "busy" });
     try {
-      const result = await matchSignal({
-        paste: titles.value.join("\n"),
-        handle,
-        jobUrl: jobUrl.trim(),
-        postUrl: card?.kind === "tweet" ? card.url : undefined,
-      });
+      const result = await inActionTrace("Click Match", cardTrace.current, () =>
+        matchSignal({
+          paste: titles.value.join("\n"),
+          handle,
+          jobUrl: jobUrl.trim(),
+          postUrl: card?.kind === "tweet" ? card.url : undefined,
+        }),
+      );
       if (mine !== gen.current) return;
       if (!result.ok) setVerdict({ status: "error", message: result.message });
       else if (!result.match) setVerdict({ status: "error", message: result.jobError ?? "The panel could not read that job post." });

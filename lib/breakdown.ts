@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import * as Sentry from "@sentry/nextjs";
+import { spanSourceTag } from "./action-span.ts";
 import { roleCard, type ArchetypeId, type HireCard } from "./hire.ts";
 import { JEV_STATE_CHARS, jevGameSkills, jevJobNeeds, topSkills, type AskJev } from "./jev-breakdown.ts";
 import { cacheKey, readJson, readMany, writeJson, writeMany } from "./store.ts";
@@ -158,12 +159,12 @@ export function clearMemoryCaches(): void {
 
 export async function breakdownGames(titles: string[], opts: BreakdownOptions = {}): Promise<GameBreakdown[]> {
   return Sentry.startSpan(
-    { op: "top9.games", name: `break down ${titles.length} games` },
+    { op: "top9.games", name: `Get skills for ${titles.length} games` },
     async (span) => {
       const games = await readGames(titles, opts);
       const found = Object.values(lastSource.games);
       const source = (["model", "blob", "seed"] as const).find((kind) => found.includes(kind)) ?? "memory";
-      span.updateName(`break down ${titles.length} games · ${source}`);
+      span.updateName(`Get skills for ${titles.length} games ${spanSourceTag(source)}`);
       span.setAttributes({
         "top9.source": source,
         "top9.games.titles": games.map((game) => game.title),
@@ -211,6 +212,14 @@ async function resolveWiki(
   } catch {
     return { summary: null, source: "error", fetched: false };
   }
+}
+
+/** How a game's wiki lookup ended, in the words a span name shows. */
+function wikiTag(source: WikiSource | "none"): string {
+  if (source === "net") return "(wiki fetched)";
+  if (source === "none") return "(no wiki page)";
+  if (source === "error") return "(wiki failed)";
+  return "(wiki cached)";
 }
 
 async function readGames(titles: string[], opts: BreakdownOptions): Promise<GameBreakdown[]> {
@@ -274,13 +283,13 @@ async function readGames(titles: string[], opts: BreakdownOptions): Promise<Game
     await Promise.all(
       uncached.map((title, i) =>
         Sentry.startSpan(
-          { op: "top9.game", name: title, attributes: { "top9.game.title": title } },
+          { op: "top9.game", name: `Look up ${title}`, attributes: { "top9.game.title": title } },
           async (span) => {
             const key = normalizeTitle(title);
             const wiki = await resolveWiki(title, storedByTitle.get(title), cache, opts);
             const summary = wiki.summary;
             const failed = wiki.source === "error";
-            span.updateName(`${title} · wiki ${failed || summary !== null ? wiki.source : "none"}`);
+            span.updateName(`Look up ${title} ${wikiTag(failed ? "error" : summary === null ? "none" : wiki.source)}`);
             span.setAttributes({ "top9.wiki.found": summary !== null, "top9.wiki.source": wiki.source });
             if (wiki.fetched && cache) wikiWrites.push([wikiPaths[i] as string, { summary }]);
             summaries.set(key, { summary: summary ?? "", complete: !failed });

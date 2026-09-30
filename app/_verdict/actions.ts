@@ -20,7 +20,7 @@ type MatchInput = { paste: string; handle: string; jobUrl?: string; postUrl?: st
 
 /** A sample card against a sample job needs no model call: breakdowns and fits ship with the app. Anything else runs live. */
 export async function matchSignal(input: MatchInput): Promise<SignalResult> {
-  return inActionSpan("action · match Top 9 to job", () => runMatchSignal(input));
+  return inActionSpan("Match a Top 9 to a job", () => runMatchSignal(input));
 }
 
 async function runMatchSignal(input: MatchInput): Promise<SignalResult> {
@@ -79,11 +79,9 @@ async function readMatch(input: {
     };
   } catch (error) {
     if (error instanceof MissingGatewayKey) {
-      await Sentry.flush(2000);
       return { ok: false, error: "missing_key", message: GATEWAY_MISSING };
     }
     Sentry.captureException(error);
-    await Sentry.flush(2000);
     return {
       ok: false,
       error: "model_failed",
