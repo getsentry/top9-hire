@@ -4,6 +4,9 @@ import * as Sentry from "@sentry/nextjs";
 import { breakdownGames, breakdownJob, lastSource, libraryCard, type JobBreakdown } from "@/lib/breakdown";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
+  RESOLVER_BUSY_COPY,
+  ResolverBusyError,
+  TweetNotFoundError,
   extractGamesFromImage,
   fetchImageBytesFromUrl,
   resolveTweetMedia,
@@ -14,10 +17,11 @@ import { GATEWAY_MISSING, parsePaste, roleCard, type HireCard, type RoleCard } f
 import {
   JOB_URL_REJECTED,
   JobFetchError,
-  fetchJobPosting,
+  jobUrlProblem,
   parseJobUrl,
   type JobPosting,
 } from "@/lib/job";
+import { fetchAnyJob } from "@/lib/job-fetch";
 
 export type SignalResult =
   | {
@@ -26,6 +30,8 @@ export type SignalResult =
       role?: RoleCard;
       match?: HireJobMatch;
       job?: { title: string; url: string };
+      /** Signed token for the `/v/<token>` share link. Absent when no secret is set in production. */
+      share?: string;
       jobError?: string;
       limited?: Limited["reason"];
     }
@@ -67,7 +73,13 @@ export async function readSignal(input: {
   const titles = parsed.top9.titles.map((game) => game.title);
   const jobUrl = input.jobUrl?.trim() ?? "";
   const locked = jobUrl ? parseJobUrl(jobUrl) : null;
-  const org = locked ? (locked.source === "greenhouse" ? locked.board : locked.org) : undefined;
+  const org = !locked
+    ? undefined
+    : locked.source === "greenhouse"
+      ? locked.board
+      : locked.source === "web"
+        ? new URL(locked.pageUrl).hostname
+        : locked.org;
   const name = `match ${titles.length} games${org ? ` × ${org}` : ""}`;
   const result = await Sentry.startSpan(
     { op: "top9.match", name, attributes: { "top9.games.count": titles.length } },
@@ -202,11 +214,11 @@ async function readJob(
 ): Promise<{ posting?: JobPosting; breakdown?: JobBreakdown; jobError?: string; limited?: Limited["reason"] }> {
   if (!jobUrl) return {};
   const locked = parseJobUrl(jobUrl);
-  if (!locked) return { jobError: JOB_URL_REJECTED };
+  if (!locked) return { jobError: jobUrlProblem(jobUrl) ?? JOB_URL_REJECTED };
   return Sentry.startSpan({ op: "top9.job", name: "read job" }, async (span) => {
     let posting: JobPosting;
     try {
-      posting = await fetchJobPosting(locked);
+      posting = await fetchAnyJob(locked);
     } catch (error) {
       if (error instanceof JobFetchError) return { jobError: error.message };
       Sentry.captureException(error);
@@ -256,6 +268,26 @@ export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActi
         error: "missing_key",
         message: GATEWAY_MISSING,
       };
+    }
+    if (error instanceof ResolverBusyError) {
+      // A short-circuit repeats a limit already reported when it began.
+      if (!error.shortCircuit) {
+        Sentry.captureException(error, {
+          level: "warning",
+          fingerprint: ["fxtwitter-limited"],
+          tags: {
+            resolver: error.source,
+            resolver_status: String(error.status),
+            resolver_limited: "true",
+          },
+          extra: { retryAfter: error.retryAfter },
+        });
+      }
+      await Sentry.flush(2000);
+      return { ok: false, error: "extract_failed", message: RESOLVER_BUSY_COPY };
+    }
+    if (error instanceof TweetNotFoundError) {
+      return { ok: false, error: "extract_failed", message: error.message };
     }
     const message = error instanceof Error ? error.message : "Failed to extract games from tweet";
     Sentry.captureException(error);

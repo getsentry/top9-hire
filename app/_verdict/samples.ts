@@ -2,10 +2,10 @@
 
 import { useCallback, useState } from "react";
 import type { Intake } from "./use-intake";
-import { SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor, type SampleCard, type SampleJob } from "./sample-data";
+import { JOB_REQUEST_URL, SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor, type SampleCard, type SampleJob } from "./sample-data";
 import reads from "./sample-reads.json";
 
-export { SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor };
+export { JOB_REQUEST_URL, SAMPLE_CARDS, SAMPLE_JOBS, sampleJobFor };
 export type { SampleCard, SampleJob };
 
 /**
