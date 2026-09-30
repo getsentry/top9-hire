@@ -2,7 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 import { breakdownGames, breakdownJob, lastSource, libraryCard, type JobBreakdown } from "@/lib/breakdown";
-import { nameActionRoot } from "@/lib/action-span";
+import { inActionSpan } from "@/lib/action-span";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
   extractGamesFromImage,
@@ -54,12 +54,13 @@ export type ExtractActionResult =
       limited?: Limited["reason"];
     };
 
-export async function readSignal(input: {
-  paste: string;
-  handle: string;
-  jobUrl?: string;
-}): Promise<SignalResult> {
-  nameActionRoot("action · read signal");
+type SignalInput = { paste: string; handle: string; jobUrl?: string };
+
+export async function readSignal(input: SignalInput): Promise<SignalResult> {
+  return inActionSpan("action · read signal", () => runReadSignal(input));
+}
+
+async function runReadSignal(input: SignalInput): Promise<SignalResult> {
   const parsed = parsePaste(input.paste, input.handle);
   if (!parsed.ok) {
     return {
@@ -241,7 +242,10 @@ async function readJob(
 }
 
 export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActionResult> {
-  nameActionRoot("action · read Top 9 from X post");
+  return inActionSpan("action · read Top 9 from X post", () => runExtractFromTweetUrl(tweetUrl));
+}
+
+async function runExtractFromTweetUrl(tweetUrl: string): Promise<ExtractActionResult> {
   if (!tweetUrl || typeof tweetUrl !== "string" || !tweetUrl.trim()) {
     return {
       ok: false,

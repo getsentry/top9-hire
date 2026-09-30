@@ -1,7 +1,7 @@
 "use server";
 
 import * as Sentry from "@sentry/nextjs";
-import { nameActionRoot } from "@/lib/action-span";
+import { inActionSpan } from "@/lib/action-span";
 import { readSignal, type SignalResult } from "@/app/actions";
 import { breakdownGames, cachedJobBreakdowns, libraryCard } from "@/lib/breakdown";
 import { MissingGatewayKey } from "@/lib/classify";
@@ -16,16 +16,15 @@ const cards = Object.entries(reads.cards) as [string, { titles: string[] }][];
 const jobs = reads.jobs as Record<string, { title: string; pageUrl: string }>;
 const fits = reads.fits as unknown as Record<string, HireJobMatch>;
 
+type MatchInput = { paste: string; handle: string; jobUrl?: string; postUrl?: string };
+
 /** A sample card against a sample job needs no model call: breakdowns and fits ship with the app. Anything else runs live. */
-export async function matchSignal(input: {
-  paste: string;
-  handle: string;
-  jobUrl?: string;
-  postUrl?: string;
-}): Promise<SignalResult> {
+export async function matchSignal(input: MatchInput): Promise<SignalResult> {
+  return inActionSpan("action · match Top 9 to job", () => runMatchSignal(input));
+}
+
+async function runMatchSignal(input: MatchInput): Promise<SignalResult> {
   const result = await readMatch(input);
-  // readSignal names the root too, so the rename comes after it.
-  nameActionRoot("action · match Top 9 to job");
   if (!result.ok || !result.match) return result;
   // Signed here from the server's own read; the client never supplies a payload.
   const parsed = parsePaste(input.paste, input.handle);
