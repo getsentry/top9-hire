@@ -8,13 +8,15 @@ import "../share.css";
 
 type Props = { params: Promise<{ token: string }> };
 
+const roleOf = (share: SharePayload) => (share.c ? `${share.j} at ${share.c}` : share.j);
+
 const whoOf = (share: SharePayload) => (share.h ? `@${share.h}` : "This Top 9");
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
   const share = readShare(token);
   if (!share) return {};
-  const title = `${whoOf(share)} for ${share.j}: ${DECISION[share.m]}`;
+  const title = `${whoOf(share)} for ${roleOf(share)}: ${DECISION[share.m]}`;
   const description = `${share.a}${share.p === undefined ? "" : `, ${share.p}% aligned`}. Nine games instead of a LeetCode round.`;
   return {
     title,
@@ -35,7 +37,7 @@ export default async function SharePage({ params }: Props) {
         <Image src="/brand/top9-mascot.png" alt="" width={44} height={44} priority />
         <span>top9.wtf</span>
       </header>
-      <p className="share-line">{`${whoOf(share)} for ${share.j}`}</p>
+      <p className="share-line">{`${whoOf(share)} for ${roleOf(share)}`}</p>
       <h1 className="share-decision">
         <span>{DECISION[share.m]}</span>
       </h1>

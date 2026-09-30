@@ -25,6 +25,8 @@ export type JobPosting = {
   title: string;
   pageUrl: string;
   text: string;
+  /** The employer's name when the page data carries one. */
+  company?: string;
 };
 
 
@@ -105,7 +107,7 @@ export function postingFromGreenhouse(body: unknown, pageUrl: string): JobPostin
   const description = clipDescription(htmlToText(record.content));
   const company = typeof record.company_name === "string" ? record.company_name.trim() : "";
   const text = company ? `${title}\n${company}\n\n${description}` : `${title}\n\n${description}`;
-  return { source: "greenhouse", title, pageUrl, text };
+  return { source: "greenhouse", title, pageUrl, text, ...(company && { company }) };
 }
 
 function decodeJsonString(source: string, start: number): string | null {
@@ -248,6 +250,7 @@ export function postingFromWebPage(html: string, pageUrl: string): JobPosting {
         title,
         pageUrl,
         text: company ? `${title}\n${company}\n\n${clipped}` : `${title}\n\n${clipped}`,
+        ...(company && { company }),
       };
     }
   }

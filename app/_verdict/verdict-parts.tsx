@@ -2,12 +2,12 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import { flushSync } from "react-dom";
-import { DECISION, shareBlurb } from "@/lib/pack";
+import { DECISION, VERDICT_COLOR, shareBlurb } from "@/lib/pack";
 import type { HireJobMatch, MatchChoice } from "@/lib/fit";
 import type { Verdict } from "./use-intake";
 import "./verdict-parts.css";
 
-export { DECISION };
+export { DECISION, VERDICT_COLOR };
 
 export const TONE: Record<MatchChoice, string> = {
   match: "Your nine and this job want the same things.",
@@ -132,8 +132,6 @@ export function morph(update: () => void) {
 export function Spinner({ label }: { label: string }) {
   return <span className="sh-spin" role="status" aria-label={label} />;
 }
-
-export const VERDICT_COLOR: Record<MatchChoice, string> = { match: "#1f7a4d", stretch: "#b3650c", mismatch: "#e23d28" };
 
 /** A one-shot burst of paper confetti from `origin` (viewport %). Hidden when motion is reduced. */
 export function Confetti({ colors, count = 48, origin = [50, 50] }: { colors: readonly string[]; count?: number; origin?: readonly [number, number] }) {

@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/nextjs";
 import {
   experimental_evaluate as evaluate,
   type Experimental_EvaluationQuestion as EvaluationQuestion,
@@ -91,25 +92,51 @@ export function topSkills(levels: SkillLevels, count = 3): GameSkill[] {
     .map((entry) => entry.skill);
 }
 
-/** One Jev call. `functionId` names the call in telemetry, so Sentry shows it as its own gen_ai.evaluate span. */
+/** The plain-words span name for one Jev call, so a trace shows what each call was for. */
+function jevSpanName(functionId: string, state: Record<string, unknown>): string {
+  if (functionId === "top9.job.needs") return "Jev reads the job";
+  if (functionId === "top9.fit") return "Jev judges the fit";
+  if (functionId === "top9.game.skills") return typeof state.game === "string" ? `Jev reads ${state.game}` : "Jev reads a game";
+  return `Jev · ${functionId}`;
+}
+
+/**
+ * One Jev call. `functionId` names the call in telemetry, so Sentry shows it as its own gen_ai.evaluate span.
+ * The wrapper span above it names the call in plain words and carries the gateway cost; tokens stay on the SDK span.
+ */
 export async function askJev(state: Record<string, unknown>, questions: Record<string, EvaluationQuestion>, functionId: string) {
   const oidcToken = await requestOidcToken(process.env);
   if (!gatewayReady(process.env, oidcToken)) throw new MissingGatewayKey();
-  const started = Date.now();
-  const result = await evaluate({
-    model: EVALUATE_MODEL,
-    state: state as never,
-    questions,
-    telemetry: { isEnabled: true, functionId, recordInputs: true, recordOutputs: true },
-  });
-  const gateway = (result.providerMetadata as { gateway?: { cost?: string } } | undefined)?.gateway;
-  const info: CallInfo = {
-    ms: Date.now() - started,
-    input: result.usage.inputTokens ?? 0,
-    output: result.usage.outputTokens ?? 0,
-    cost: Number(gateway?.cost ?? 0) || 0,
-  };
-  return { answers: result.answers as EvaluationAnswers, info, response: result.response };
+  return Sentry.startSpan(
+    {
+      op: "gen_ai.invoke_agent",
+      name: jevSpanName(functionId, state),
+      attributes: {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.agent.name": "Jev",
+        "gen_ai.function_id": functionId,
+        "gen_ai.request.model": EVALUATE_MODEL,
+      },
+    },
+    async (span) => {
+      const started = Date.now();
+      const result = await evaluate({
+        model: EVALUATE_MODEL,
+        state: state as never,
+        questions,
+        telemetry: { isEnabled: true, functionId, recordInputs: true, recordOutputs: true },
+      });
+      const gateway = (result.providerMetadata as { gateway?: { cost?: string } } | undefined)?.gateway;
+      const info: CallInfo = {
+        ms: Date.now() - started,
+        input: result.usage.inputTokens ?? 0,
+        output: result.usage.outputTokens ?? 0,
+        cost: Number(gateway?.cost ?? 0) || 0,
+      };
+      if (info.cost > 0) span.setAttribute("gen_ai.cost.total_tokens", info.cost);
+      return { answers: result.answers as EvaluationAnswers, info, response: result.response };
+    },
+  );
 }
 /** The seam tests replace. */
 export type AskJev = (

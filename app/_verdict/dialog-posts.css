@@ -850,6 +850,7 @@
 
 .dp-or-label {
   grid-row: 3;
+  grid-column: 1;
   align-self: end;
   font: 500 10px/1 var(--mono);
   letter-spacing: 0.04em;
@@ -886,9 +887,11 @@
   color: var(--ink-3);
 }
 
-/* The error covers the label in its own row, so it never adds height to the card. */
+/* The error covers the label in its own row, so it never adds height to the card.
+   Both pin a column: with only a row set, auto-placement puts the second one in a new column. */
 .dp-error {
   grid-row: 3;
+  grid-column: 1;
   align-self: stretch;
   z-index: 1;
   display: grid;

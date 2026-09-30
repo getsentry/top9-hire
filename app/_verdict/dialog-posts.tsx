@@ -276,7 +276,6 @@ function YouSlot({
 }) {
   const { card, titles } = intake;
   const [drag, setDrag] = useState(false);
-  const titlesError = titles.status === "error" ? titles.message : null;
 
   return (
     <section
@@ -355,7 +354,7 @@ function YouSlot({
             <span className="dp-drop-text">Add your Top 9</span>
             <span className="dp-drop-hint">Drop or choose the image</span>
           </label>
-          <PostField intake={intake} locked={locked} onAdd={onClearPicked} error={titlesError} />
+          <PostField intake={intake} locked={locked} onAdd={onClearPicked} />
           <button type="button" className="dp-sample" disabled={locked} onClick={onOpenSamples}>
             Pick a sample
           </button>
@@ -452,6 +451,13 @@ function Go({ intake }: { intake: Intake }) {
         ? "Now add the job"
         : "";
   const blocked = !intake.ready;
+  // Card-read failures can run long, so they wrap here instead of in the one-line field row.
+  const problem =
+    intake.verdict.status === "error"
+      ? intake.verdict.message
+      : intake.titles.status === "error"
+        ? intake.titles.message
+        : null;
   // Touch has no hover, so a tap on the blocked button shows the tip for a moment.
   const [nudge, setNudge] = useState(false);
   useEffect(() => {
@@ -476,9 +482,9 @@ function Go({ intake }: { intake: Intake }) {
           {need}
         </span>
       ) : null}
-      {intake.verdict.status === "error" ? (
+      {problem ? (
         <p className="dp-need" role="alert">
-          {intake.verdict.message}
+          {problem}
         </p>
       ) : null}
     </div>

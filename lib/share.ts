@@ -10,11 +10,16 @@ export type SharePayload = {
   j: string;
   m: MatchChoice;
   p?: number;
+  /** Company name. */
+  c?: string;
+  /** X status id of the Top 9 post. */
+  t?: string;
 };
 
 const MAX_TOKEN = 2048;
 const MAC_BYTES = 16;
 const HANDLE = /^[A-Za-z0-9_]{1,15}$/;
+const STATUS_ID = /^\d{1,25}$/;
 const CHOICES: readonly string[] = ["match", "stretch", "mismatch"];
 const DEV_SECRET = "top9-dev-share-secret";
 
@@ -56,6 +61,9 @@ export function signShare(payload: SharePayload): string | undefined {
     };
     if (payload.h && HANDLE.test(payload.h)) clean.h = payload.h;
     if (payload.p !== undefined) clean.p = payload.p;
+    const company = payload.c ? clip(payload.c, cap(60)) : "";
+    if (company) clean.c = company;
+    if (payload.t && STATUS_ID.test(payload.t)) clean.t = payload.t;
     const token = encode(key, clean);
     if (token.length <= MAX_TOKEN) return token;
   }
@@ -81,12 +89,14 @@ export function readShare(token: string): SharePayload | undefined {
     return undefined;
   }
   if (typeof raw !== "object" || raw === null) return undefined;
-  const { v, h, g, a, j, m, p } = raw as Record<string, unknown>;
+  const { v, h, g, a, j, m, p, c, t } = raw as Record<string, unknown>;
   if (v !== 1) return undefined;
   if (h !== undefined && !(typeof h === "string" && HANDLE.test(h))) return undefined;
   if (!Array.isArray(g) || g.length < 1 || g.length > 9 || !g.every((t) => inRange(t, 80))) return undefined;
   if (!inRange(a, 120) || !inRange(j, 120)) return undefined;
   if (typeof m !== "string" || !CHOICES.includes(m)) return undefined;
   if (p !== undefined && !(Number.isInteger(p) && (p as number) >= 0 && (p as number) <= 100)) return undefined;
-  return { v, h, g, a, j, m: m as MatchChoice, p } as SharePayload;
+  if (c !== undefined && !inRange(c, 60)) return undefined;
+  if (t !== undefined && !(typeof t === "string" && STATUS_ID.test(t))) return undefined;
+  return { v, h, g, a, j, m: m as MatchChoice, p, ...(c !== undefined && { c }), ...(t !== undefined && { t }) } as SharePayload;
 }

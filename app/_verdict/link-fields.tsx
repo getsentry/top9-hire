@@ -5,7 +5,7 @@ import { sniff, type Intake } from "./use-intake";
 import { JOB_URL_REJECTED, jobUrlProblem, parseJobUrl } from "@/lib/job-url";
 
 /** The "or an X post link" input under the card picker. Only x.com status links are accepted. */
-export function PostField({ intake, locked, onAdd, error }: { intake: Intake; locked: boolean; onAdd: () => void; error: string | null }) {
+export function PostField({ intake, locked, onAdd }: { intake: Intake; locked: boolean; onAdd: () => void }) {
   const [link, setLink] = useState("");
   const [hint, setHint] = useState<string | null>(null);
 
@@ -16,11 +16,9 @@ export function PostField({ intake, locked, onAdd, error }: { intake: Intake; lo
       setLink("");
       setHint(null);
     } else if (link.trim()) {
-      setHint("Use a post link like x.com/name/status/123.");
+      setHint("Use a post link: x.com/name/status/…");
     }
   }
-
-  const message = hint ?? error;
 
   return (
     <div className="dp-or">
@@ -38,8 +36,8 @@ export function PostField({ intake, locked, onAdd, error }: { intake: Intake; lo
         placeholder="x.com/…"
         value={link}
         disabled={locked}
-        aria-invalid={message ? true : undefined}
-        aria-describedby={message ? "dp-post-note" : undefined}
+        aria-invalid={hint ? true : undefined}
+        aria-describedby={hint ? "dp-post-note" : undefined}
         onChange={(e) => {
           setLink(e.target.value);
           if (hint && sniff(e.target.value) === "tweet") setHint(null);
@@ -47,9 +45,9 @@ export function PostField({ intake, locked, onAdd, error }: { intake: Intake; lo
         onKeyDown={(e) => e.key === "Enter" && submit()}
         onBlur={submit}
       />
-      {message ? (
+      {hint ? (
         <p className="dp-error" id="dp-post-note" role="alert">
-          {message}
+          {hint}
         </p>
       ) : null}
     </div>

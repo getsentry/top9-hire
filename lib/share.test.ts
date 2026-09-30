@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHmac } from "node:crypto";
 import test from "node:test";
 import { readShare, signShare, type SharePayload } from "./share.ts";
 
@@ -80,4 +81,34 @@ test("clipping never leaves a lone surrogate", () => {
   assert.ok(read);
   assert.doesNotMatch(read.g[0] ?? "", /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/);
   assert.equal(read.g[0], "a".repeat(79));
+});
+
+test("company and post id round trip; old tokens without them still read", () => {
+  const read = readShare(signShare({ ...payload, c: "Sentry", t: "1797001231180009863" }) ?? "");
+  assert.equal(read?.c, "Sentry");
+  assert.equal(read?.t, "1797001231180009863");
+  const old = readShare(signShare(payload) ?? "");
+  assert.ok(old);
+  assert.equal(old.c, undefined);
+  assert.equal(old.t, undefined);
+});
+
+test("a long company is clipped and an empty one or a bad post id is dropped at signing", () => {
+  const read = readShare(signShare({ ...payload, c: "x".repeat(100), t: "12ab" }) ?? "");
+  assert.equal(read?.c, "x".repeat(60));
+  assert.equal(read?.t, undefined);
+  assert.equal(readShare(signShare({ ...payload, c: "" }) ?? "")?.c, undefined);
+});
+
+test("a validly signed token with a bad post id or company is rejected at read", () => {
+  const sign = (extra: object) => {
+    const body = Buffer.from(JSON.stringify({ ...payload, ...extra })).toString("base64url");
+    const tag = createHmac("sha256", "top9-dev-share-secret").update(body).digest().subarray(0, 16).toString("base64url");
+    return `${body}.${tag}`;
+  };
+  assert.ok(readShare(sign({ t: "123" })));
+  assert.equal(readShare(sign({ t: "12ab" })), undefined);
+  assert.equal(readShare(sign({ t: 5 })), undefined);
+  assert.equal(readShare(sign({ c: "" })), undefined);
+  assert.equal(readShare(sign({ c: "x".repeat(61) })), undefined);
 });

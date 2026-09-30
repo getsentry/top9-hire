@@ -1,6 +1,7 @@
 "use server";
 
 import * as Sentry from "@sentry/nextjs";
+import { nameActionRoot } from "@/lib/action-span";
 import { readSignal, type SignalResult } from "@/app/actions";
 import { breakdownGames, cachedJobBreakdowns, libraryCard } from "@/lib/breakdown";
 import { MissingGatewayKey } from "@/lib/classify";
@@ -8,6 +9,7 @@ import type { HireJobMatch } from "@/lib/fit";
 import { GATEWAY_MISSING, parsePaste, roleCard } from "@/lib/hire";
 import { parseJobUrl } from "@/lib/job-url";
 import { signShare } from "@/lib/share";
+import { parseTweetUrl } from "@/lib/tweet-media";
 import reads from "./sample-reads.json";
 
 const cards = Object.entries(reads.cards) as [string, { titles: string[] }][];
@@ -19,8 +21,11 @@ export async function matchSignal(input: {
   paste: string;
   handle: string;
   jobUrl?: string;
+  postUrl?: string;
 }): Promise<SignalResult> {
   const result = await readMatch(input);
+  // readSignal names the root too, so the rename comes after it.
+  nameActionRoot("action · match Top 9 to job");
   if (!result.ok || !result.match) return result;
   // Signed here from the server's own read; the client never supplies a payload.
   const parsed = parsePaste(input.paste, input.handle);
@@ -33,8 +38,16 @@ export async function matchSignal(input: {
     j: result.job?.title ?? result.role?.label ?? "this role",
     m: result.match.choice,
     p: result.match.alignment.percent,
+    c: result.job?.company ?? orgSlug(input.jobUrl),
+    t: parseTweetUrl(input.postUrl ?? "")?.statusId,
   });
   return share ? { ...result, share } : result;
+}
+
+/** The ATS org segment of a job link, as written; `undefined` for links that carry none. */
+function orgSlug(jobUrl: string | undefined): string | undefined {
+  const parsed = parseJobUrl(jobUrl ?? "");
+  return parsed && "org" in parsed ? parsed.org : undefined;
 }
 
 async function readMatch(input: {

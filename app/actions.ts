@@ -2,6 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 import { breakdownGames, breakdownJob, lastSource, libraryCard, type JobBreakdown } from "@/lib/breakdown";
+import { nameActionRoot } from "@/lib/action-span";
 import { MissingGatewayKey } from "@/lib/classify";
 import {
   extractGamesFromImage,
@@ -26,7 +27,7 @@ export type SignalResult =
       card: HireCard;
       role?: RoleCard;
       match?: HireJobMatch;
-      job?: { title: string; url: string };
+      job?: { title: string; url: string; company?: string };
       /** Signed token for the `/v/<token>` share link. Absent when no secret is set in production. */
       share?: string;
       jobError?: string;
@@ -58,6 +59,7 @@ export async function readSignal(input: {
   handle: string;
   jobUrl?: string;
 }): Promise<SignalResult> {
+  nameActionRoot("action · read signal");
   const parsed = parsePaste(input.paste, input.handle);
   if (!parsed.ok) {
     return {
@@ -158,7 +160,7 @@ async function readMatch(
           card,
           role: roleCard(breakdown.wants),
           match,
-          job: { title: posting.title, url: posting.pageUrl },
+          job: { title: posting.title, url: posting.pageUrl, company: posting.company },
         },
       };
     } catch (error) {
@@ -239,6 +241,7 @@ async function readJob(
 }
 
 export async function extractFromTweetUrl(tweetUrl: string): Promise<ExtractActionResult> {
+  nameActionRoot("action · read Top 9 from X post");
   if (!tweetUrl || typeof tweetUrl !== "string" || !tweetUrl.trim()) {
     return {
       ok: false,

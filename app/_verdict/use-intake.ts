@@ -31,7 +31,7 @@ export function sniff(text: string): "tweet" | "job" | "other" {
 export function jobLabel(url: string): string {
   try {
     const { hostname, pathname } = new URL(url);
-    const board = /(^|\.)(ashbyhq|greenhouse|lever)\.(io|co)$/.test(hostname);
+    const board = /(^|\.)(ashbyhq|greenhouse|lever)\.(io|co|com)$/.test(hostname);
     if (board) return pathname.split("/").filter(Boolean)[0] ?? hostname;
     return hostname.replace(/^(www|jobs|careers)\./, "");
   } catch {
@@ -157,7 +157,12 @@ export function useIntake() {
     const mine = gen.current;
     setVerdict({ status: "busy" });
     try {
-      const result = await matchSignal({ paste: titles.value.join("\n"), handle, jobUrl: jobUrl.trim() });
+      const result = await matchSignal({
+        paste: titles.value.join("\n"),
+        handle,
+        jobUrl: jobUrl.trim(),
+        postUrl: card?.kind === "tweet" ? card.url : undefined,
+      });
       if (mine !== gen.current) return;
       if (!result.ok) setVerdict({ status: "error", message: result.message });
       else if (!result.match) setVerdict({ status: "error", message: result.jobError ?? "The panel could not read that job post." });
@@ -166,7 +171,7 @@ export function useIntake() {
       if (mine !== gen.current) return;
       setVerdict({ status: "error", message: "The read did not come back from the server. Try again." });
     }
-  }, [titles, jobUrl, handle]);
+  }, [titles, jobUrl, handle, card]);
 
   const reset = useCallback(() => {
     clearCard();

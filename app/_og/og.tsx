@@ -9,33 +9,42 @@ export const INK = "#171815";
 export const INK_2 = "#42463f";
 export const LIME = "#caff4a";
 
+const font = (file: string) => readFile(join(process.cwd(), "app/_og/fonts", file));
+const fonts = [
+  { name: "Geist", data: await font("Geist-500.ttf"), weight: 500 as const, style: "normal" as const },
+  { name: "Geist", data: await font("Geist-700.ttf"), weight: 700 as const, style: "normal" as const },
+];
+
 const mascotData = await readFile(join(process.cwd(), "public/brand/top9-mascot-og.png"), "base64");
 const mascotSrc = `data:image/png;base64,${mascotData}`;
 
-/** The brand canvas: paper, wordmark top-left, mascot top-right. Satori needs `display: flex` on any div with several children. */
-export function ogImage(children: ReactNode, mascot: number) {
+type OgOptions = {
+  /** Mascot size in pixels. */
+  mascot: number;
+  /** Where the mascot sits; the home image keeps the top-right default. */
+  corner?: "top-right" | "bottom-right";
+  padding?: string;
+};
+
+/** The brand canvas: paper, Geist, and the mascot in a corner. Satori needs `display: flex` on any div with several children. */
+export function ogImage(children: ReactNode, { mascot, corner = "top-right", padding = "72px 78px" }: OgOptions) {
+  const place = corner === "top-right" ? { right: 58, top: 42 } : { right: 40, bottom: 28 };
   return new ImageResponse(
     <div
       style={{
         width: "100%",
         height: "100%",
         display: "flex",
-        padding: "72px 78px",
+        padding,
         background: "#f5f2e9",
         color: INK,
-        fontFamily: "sans-serif",
+        fontFamily: "Geist",
       }}
     >
       {children}
-      <img
-        src={mascotSrc}
-        alt=""
-        width={mascot}
-        height={mascot}
-        style={{ position: "absolute", right: 58, top: 42, objectFit: "contain" }}
-      />
+      <img src={mascotSrc} alt="" width={mascot} height={mascot} style={{ position: "absolute", objectFit: "contain", ...place }} />
     </div>,
-    OG_SIZE,
+    { ...OG_SIZE, fonts },
   );
 }
 

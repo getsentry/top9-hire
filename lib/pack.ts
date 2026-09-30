@@ -16,6 +16,9 @@ export const DECISION: Record<MatchChoice, string> = {
   mismatch: "No hire",
 };
 
+/** The ink of each decision: the seal in the app and on the share image. */
+export const VERDICT_COLOR: Record<MatchChoice, string> = { match: "#1f7a4d", stretch: "#b3650c", mismatch: "#e23d28" };
+
 export type PackJob = {
   id: string;
   company: string;

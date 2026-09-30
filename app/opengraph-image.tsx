@@ -5,5 +5,5 @@ export const size = OG_SIZE;
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
-  return ogImage(homeBody(), 300);
+  return ogImage(homeBody(), { mascot: 300 });
 }
