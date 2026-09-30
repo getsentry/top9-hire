@@ -7,6 +7,7 @@ import { MissingGatewayKey } from "@/lib/classify";
 import type { HireJobMatch } from "@/lib/fit";
 import { GATEWAY_MISSING, parsePaste, roleCard } from "@/lib/hire";
 import { parseJobUrl } from "@/lib/job";
+import { signShare } from "@/lib/share";
 import reads from "./sample-reads.json";
 
 const cards = Object.entries(reads.cards) as [string, { titles: string[] }][];
@@ -15,6 +16,28 @@ const fits = reads.fits as unknown as Record<string, HireJobMatch>;
 
 /** A sample card against a sample job needs no model call: breakdowns and fits ship with the app. Anything else runs live. */
 export async function matchSignal(input: {
+  paste: string;
+  handle: string;
+  jobUrl?: string;
+}): Promise<SignalResult> {
+  const result = await readMatch(input);
+  if (!result.ok || !result.match) return result;
+  // Signed here from the server's own read; the client never supplies a payload.
+  const parsed = parsePaste(input.paste, input.handle);
+  if (!parsed.ok) return result;
+  const share = signShare({
+    v: 1,
+    h: parsed.top9.handle?.replace(/^@/, ""),
+    g: parsed.top9.titles.map((game) => game.title),
+    a: result.card.label,
+    j: result.job?.title ?? result.role?.label ?? "this role",
+    m: result.match.choice,
+    p: result.match.alignment.percent,
+  });
+  return share ? { ...result, share } : result;
+}
+
+async function readMatch(input: {
   paste: string;
   handle: string;
   jobUrl?: string;

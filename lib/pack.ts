@@ -9,7 +9,7 @@ import type { MatchChoice } from "./fit.ts";
 
 export { CAPTURED_AT, TOP9_EXAMPLES, type Top9Example };
 
-/** The match choice in hiring-committee words: the panel decision on the crit. */
+/** The match choice in hiring-committee words: the panel decision. */
 export const DECISION: Record<MatchChoice, string> = {
   match: "Strong hire",
   stretch: "Lean hire",
@@ -50,37 +50,25 @@ export function findExample(
   return examples.find((example) => example.handle.toLowerCase() === needle);
 }
 
-/** Stable four-hex plate id for a typed or extracted list, e.g. `T9-7F3A`. */
-export function plateId(titles: readonly string[]): string {
-  let hash = 0x811c9dc5;
-  for (const char of titles.map((t) => t.trim().toLowerCase()).join("\n")) {
-    hash ^= char.codePointAt(0) ?? 0;
-    hash = Math.imul(hash, 0x01000193) >>> 0;
-  }
-  return `T9-${(hash & 0xffff).toString(16).toUpperCase().padStart(4, "0")}`;
-}
-
 export function shareBlurb(input: {
   handle?: string;
-  plate: string;
   card: Pick<HireCard, "label" | "signal">;
   match?: { choice: MatchChoice; percent?: number; jobTitle: string; company?: string };
+  url?: string;
 }): string {
   const who = input.handle ? `@${input.handle.replace(/^@/, "")}` : "This Top9";
+  const link = input.url ? [input.url] : [];
   if (!input.match) {
-    return [
-      `${who}: ${input.card.label}.`,
-      `"${input.card.signal}"`,
-      `top9.wtf crit ${input.plate}`,
-    ].join("\n");
+    return [`${who}: ${input.card.label}.`, `"${input.card.signal}"`, ...link].join("\n");
   }
   const role = input.match.company
     ? `${input.match.company} ${input.match.jobTitle}`
     : input.match.jobTitle;
   const aligned = input.match.percent === undefined ? "" : `, ${input.match.percent}% aligned`;
   return [
-    `${who} for ${role}: ${DECISION[input.match.choice]}.`,
-    `Evidence: ${input.card.label}${aligned}.`,
-    `Nine games instead of a leetcode round. top9.wtf crit ${input.plate}`,
+    `${who} for ${role}: ${DECISION[input.match.choice]}${aligned}.`,
+    `Evidence: ${input.card.label}.`,
+    "Nine games instead of a LeetCode round.",
+    ...link,
   ].join("\n");
 }

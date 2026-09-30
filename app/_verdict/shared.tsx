@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import { flushSync } from "react-dom";
-import { DECISION, plateId, shareBlurb } from "@/lib/pack";
+import { DECISION, shareBlurb } from "@/lib/pack";
 import type { HireJobMatch, MatchChoice } from "@/lib/fit";
 import type { Verdict } from "./use-intake";
 import "./shared.css";
@@ -19,12 +19,14 @@ export function jobName(verdict: Verdict): string {
   return verdict.job?.title ?? verdict.role?.label ?? "this role";
 }
 
-export function useShare(verdict: Verdict | null, titles: readonly string[], handle: string) {
+export function useShare(verdict: Verdict | null, handle: string) {
   const [copied, setCopied] = useState(false);
+  // The blurb is only read after a verdict exists on the client, so `location` is safe here.
+  const url = verdict?.share ? `${location.origin}/v/${verdict.share}` : undefined;
   const blurb = verdict?.match
     ? shareBlurb({
         handle: handle || undefined,
-        plate: plateId(titles),
+        url,
         card: verdict.card,
         match: {
           choice: verdict.match.choice,
@@ -38,7 +40,7 @@ export function useShare(verdict: Verdict | null, titles: readonly string[], han
     if (!blurb) return;
     if (typeof navigator.share === "function") {
       try {
-        await navigator.share({ text: blurb });
+        await navigator.share({ text: blurb, url });
         return;
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") return;

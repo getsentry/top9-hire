@@ -8,7 +8,6 @@ import {
   TOP9_EXAMPLES,
   findExample,
   findJob,
-  plateId,
   shareBlurb,
   suggestedFor,
 } from "./pack.ts";
@@ -78,28 +77,21 @@ test("findExample ignores case and a leading @", () => {
   assert.equal(findExample("nobody"), undefined);
 });
 
-test("plate ids are stable, case-blind, and differ by list", () => {
-  const theo = TOP9_EXAMPLES[0]?.games ?? [];
-  const dorry = TOP9_EXAMPLES[6]?.games ?? [];
-  assert.match(plateId(theo), /^T9-[0-9A-F]{4}$/);
-  assert.equal(plateId(theo), plateId(theo.map((t) => ` ${t.toUpperCase()} `)));
-  assert.notEqual(plateId(theo), plateId(dorry));
-});
-
 test("the share blurb leads with the panel decision when a role was read", () => {
   const card = roleCard("systems_necromancer");
   const blurb = shareBlurb({
     handle: "dorryspears",
-    plate: "T9-07",
     card,
     match: { choice: "stretch", percent: 75, jobTitle: "Software Engineer, Platform", company: "Vercel" },
+    url: "https://top9.wtf/v/abc",
   });
   assert.equal(
     blurb,
     [
-      "@dorryspears for Vercel Software Engineer, Platform: Lean hire.",
-      "Evidence: Systems necromancer, 75% aligned.",
-      "Nine games instead of a leetcode round. top9.wtf crit T9-07",
+      "@dorryspears for Vercel Software Engineer, Platform: Lean hire, 75% aligned.",
+      "Evidence: Systems necromancer.",
+      "Nine games instead of a LeetCode round.",
+      "https://top9.wtf/v/abc",
     ].join("\n"),
   );
 });
@@ -107,11 +99,11 @@ test("the share blurb leads with the panel decision when a role was read", () =>
 test("the share blurb without a role carries the archetype and signal line", () => {
   const card = roleCard("systems_necromancer");
   assert.equal(
-    shareBlurb({ handle: "dorryspears", plate: "T9-07", card }),
+    shareBlurb({ handle: "dorryspears", card, url: "https://top9.wtf/v/abc" }),
     [
       "@dorryspears: Systems necromancer.",
       '"Reads a factory floor like a trace. Hand them the pipeline nobody else wants to own."',
-      "top9.wtf crit T9-07",
+      "https://top9.wtf/v/abc",
     ].join("\n"),
   );
 });
