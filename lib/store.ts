@@ -38,6 +38,7 @@ const CACHE_NOUNS: Record<string, [one: string, many: string]> = {
   games: ["game", "games"],
   wiki: ["wiki page", "wiki pages"],
   fits: ["fit", "fits"],
+  shares: ["share link", "share links"],
 };
 
 /** "job", "9 games": what a cache span holds, in plain words. */
@@ -92,11 +93,11 @@ export async function readMany<T>(kind: string, paths: string[], io: BlobIo = de
   });
 }
 
-/** Writes cached JSON values under one span. A failure never reaches the caller. */
-export async function writeMany(kind: string, entries: [string, unknown][], io: BlobIo = defaultIo): Promise<void> {
-  if (!enabled() || entries.length === 0) return;
+/** Writes cached JSON values under one span. A failure never reaches the caller; the result says whether every put succeeded. */
+export async function writeMany(kind: string, entries: [string, unknown][], io: BlobIo = defaultIo): Promise<boolean> {
+  if (!enabled() || entries.length === 0) return false;
   const attributes = { "top9.cache.kind": kind, "top9.cache.keys": entries.length };
-  await Sentry.startSpan({ op: "top9.cache", name: writeSpanName(kind, entries.length), attributes }, async (span) => {
+  return Sentry.startSpan({ op: "top9.cache", name: writeSpanName(kind, entries.length), attributes }, async (span) => {
     let first: unknown;
     await suppressTracing(() =>
       Promise.all(
@@ -115,6 +116,7 @@ export async function writeMany(kind: string, entries: [string, unknown][], io: 
       ),
     );
     reportError(span, first);
+    return first === undefined;
   });
 }
 
@@ -122,6 +124,6 @@ export async function readJson<T>(path: string): Promise<T | undefined> {
   return (await readMany<T>(kindOf(path), [path]))[0];
 }
 
-export async function writeJson(path: string, value: unknown): Promise<void> {
-  await writeMany(kindOf(path), [[path, value]]);
+export async function writeJson(path: string, value: unknown): Promise<boolean> {
+  return writeMany(kindOf(path), [[path, value]]);
 }

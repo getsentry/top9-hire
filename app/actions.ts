@@ -28,7 +28,7 @@ export type SignalResult =
       role?: RoleCard;
       match?: HireJobMatch;
       job?: { title: string; url: string; company?: string };
-      /** Signed token for the `/v/<token>` share link. Absent when no secret is set in production. */
+      /** The `/v/<slug>` share path segment: a short slug, or the legacy signed token when Blob is off. Absent when no secret is set in production. */
       share?: string;
       jobError?: string;
       limited?: Limited["reason"];

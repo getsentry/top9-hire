@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { createHmac } from "node:crypto";
 import test from "node:test";
-import { readShare, signShare, type SharePayload } from "./share.ts";
+import { loadShare, readShare, saveShare, signShare, type SharePayload } from "./share.ts";
+import { useBlobIo } from "./store.ts";
 
 const payload: SharePayload = {
   v: 1,
@@ -111,4 +112,76 @@ test("a validly signed token with a bad post id or company is rejected at read",
   assert.equal(readShare(sign({ t: 5 })), undefined);
   assert.equal(readShare(sign({ c: "" })), undefined);
   assert.equal(readShare(sign({ c: "x".repeat(61) })), undefined);
+});
+
+function memoryBlob(stored: Record<string, string> = {}) {
+  return {
+    get: async (path: string) => (path in stored ? { statusCode: 200, stream: new Response(stored[path]).body } : null),
+    put: async (path: string, body: string) => {
+      stored[path] = body;
+    },
+    stored,
+  };
+}
+
+async function withBlob<T>(io: ReturnType<typeof memoryBlob> | undefined, run: () => Promise<T>): Promise<T> {
+  const env = process.env as Record<string, string | undefined>;
+  const saved = env.BLOB_READ_WRITE_TOKEN;
+  if (io) env.BLOB_READ_WRITE_TOKEN = "test-token";
+  else delete env.BLOB_READ_WRITE_TOKEN;
+  useBlobIo(io as never);
+  try {
+    return await run();
+  } finally {
+    useBlobIo(undefined);
+    if (saved === undefined) delete env.BLOB_READ_WRITE_TOKEN;
+    else env.BLOB_READ_WRITE_TOKEN = saved;
+  }
+}
+
+test("a saved share gets a short handle slug that loads the same payload, deterministically", async () => {
+  await withBlob(memoryBlob(), async () => {
+    const slug = await saveShare(payload);
+    assert.match(slug ?? "", /^dorryspears-[A-Za-z0-9]{10}$/);
+    assert.deepEqual(await loadShare(slug ?? ""), readShare(signShare(payload) ?? ""));
+    assert.equal(await saveShare(payload), slug);
+  });
+});
+
+test("a share without a handle gets a bare id that loads", async () => {
+  await withBlob(memoryBlob(), async () => {
+    const { h: _h, ...bare } = payload;
+    const slug = await saveShare(bare);
+    assert.match(slug ?? "", /^[A-Za-z0-9]{10}$/);
+    assert.deepEqual(await loadShare(slug ?? ""), readShare(signShare(bare) ?? ""));
+  });
+});
+
+test("with Blob off, saveShare returns the legacy token and loadShare reads it", async () => {
+  await withBlob(undefined, async () => {
+    const slug = await saveShare(payload);
+    assert.ok(slug?.includes("."));
+    assert.deepEqual(await loadShare(slug ?? ""), payload);
+    assert.deepEqual(await loadShare(encodeURIComponent(slug ?? "")), payload);
+  });
+});
+
+test("loadShare rejects unknown ids, bad shapes, a wrong handle prefix and a tampered stored token", async () => {
+  const io = memoryBlob();
+  await withBlob(io, async () => {
+    const slug = (await saveShare(payload)) ?? "";
+    const id = slug.slice(slug.lastIndexOf("-") + 1);
+    assert.equal(await loadShare("dorryspears-AAAAAAAAAA"), undefined);
+    assert.equal(await loadShare("dorryspears-short"), undefined);
+    assert.equal(await loadShare("%E0%A4%A"), undefined);
+    assert.equal(await loadShare(`someoneelse-${id}`), undefined);
+    assert.equal(await loadShare(id), undefined);
+    const token = signShare(payload) ?? "";
+    const [body, tag] = token.split(".") as [string, string];
+    const forged = Buffer.from(JSON.stringify({ ...payload, m: "match" })).toString("base64url");
+    io.stored[`shares/${id}.json`] = JSON.stringify({ token: `${forged}.${tag}` });
+    assert.equal(await loadShare(slug), undefined);
+    io.stored[`shares/${id}.json`] = JSON.stringify({ token: body });
+    assert.equal(await loadShare(slug), undefined);
+  });
 });

@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { DECISION } from "@/lib/pack";
-import { readShare, type SharePayload } from "@/lib/share";
+import { loadShare, type SharePayload } from "@/lib/share";
 import "../share.css";
 
 type Props = { params: Promise<{ token: string }> };
+
+/** One Blob read per request: generateMetadata and the page share it. */
+const findShare = cache(loadShare);
 
 const roleOf = (share: SharePayload) => (share.c ? `${share.j} at ${share.c}` : share.j);
 
@@ -14,7 +18,7 @@ const whoOf = (share: SharePayload) => (share.h ? `@${share.h}` : "This Top 9");
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const share = readShare(token);
+  const share = await findShare(token);
   if (!share) return {};
   const title = `${whoOf(share)} for ${roleOf(share)}: ${DECISION[share.m]}`;
   const description = `${share.a}${share.p === undefined ? "" : `, ${share.p}% aligned`}. Nine games instead of a LeetCode round.`;
@@ -28,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SharePage({ params }: Props) {
   const { token } = await params;
-  const share = readShare(token);
+  const share = await findShare(token);
   if (!share) notFound();
 
   return (

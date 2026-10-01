@@ -1,5 +1,5 @@
 import { DECISION, VERDICT_COLOR } from "@/lib/pack";
-import { readShare } from "@/lib/share";
+import { loadShare } from "@/lib/share";
 import { shareMedia } from "@/app/_og/share-media";
 import { homeBody, INK, INK_2, LIME, OG_SIZE, ogImage } from "@/app/_og/og";
 
@@ -153,7 +153,7 @@ function Person({ handle, avatar }: { handle?: string; avatar?: string }) {
 
 export default async function OpenGraphImage({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params;
-  const share = readShare(decodeURIComponent(token));
+  const share = await loadShare(token);
   if (!share) return ogImage(homeBody(), { mascot: 300 });
 
   const media = await shareMedia(share);

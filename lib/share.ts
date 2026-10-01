@@ -1,7 +1,8 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import type { MatchChoice } from "./fit.ts";
+import { readJson, writeJson } from "./store.ts";
 
-/** What a share link shows. The signed token carries it, so the link needs no storage. */
+/** What a share link shows. The signed token is the proof; `saveShare` stores it in Blob under a short id so the link stays short. */
 export type SharePayload = {
   v: 1;
   h?: string;
@@ -99,4 +100,40 @@ export function readShare(token: string): SharePayload | undefined {
   if (c !== undefined && !inRange(c, 60)) return undefined;
   if (t !== undefined && !(typeof t === "string" && STATUS_ID.test(t))) return undefined;
   return { v, h, g, a, j, m: m as MatchChoice, p, ...(c !== undefined && { c }), ...(t !== undefined && { t }) } as SharePayload;
+}
+
+/** Short, stable id for a token: the same payload always maps to the same link. */
+export function shareId(token: string): string {
+  const key = secret() ?? DEV_SECRET;
+  return createHmac("sha256", key).update(token).digest("base64url").replace(/[-_]/g, "").slice(0, 10);
+}
+
+/** Path segment for `/v/<slug>`: `<handle>-<id>`, or `<id>` without a handle. Falls back to the legacy signed token when Blob cannot store it. */
+export async function saveShare(payload: SharePayload): Promise<string | undefined> {
+  const token = signShare(payload);
+  if (!token) return undefined;
+  const id = shareId(token);
+  // Outside CACHE_VERSION, so a cache bump never breaks a shared link.
+  const saved = await writeJson(`shares/${id}.json`, { token });
+  if (!saved) return token;
+  return payload.h && HANDLE.test(payload.h) ? `${payload.h}-${id}` : id;
+}
+
+export async function loadShare(param: string): Promise<SharePayload | undefined> {
+  let value: string;
+  try {
+    value = decodeURIComponent(param);
+  } catch {
+    return undefined;
+  }
+  if (value.includes(".")) return readShare(value);
+  const cut = value.lastIndexOf("-");
+  const id = value.slice(cut + 1);
+  if (!/^[A-Za-z0-9]{10}$/.test(id)) return undefined;
+  const stored = await readJson<{ token?: unknown }>(`shares/${id}.json`);
+  if (typeof stored?.token !== "string") return undefined;
+  const payload = readShare(stored.token);
+  // The handle prefix is cosmetic, but a slug that names someone else would mislead.
+  if (payload && (cut < 0 ? "" : value.slice(0, cut)) !== (payload.h ?? "")) return undefined;
+  return payload;
 }

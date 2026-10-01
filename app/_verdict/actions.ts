@@ -8,7 +8,7 @@ import { MissingGatewayKey } from "@/lib/classify";
 import type { HireJobMatch } from "@/lib/fit";
 import { GATEWAY_MISSING, parsePaste, roleCard } from "@/lib/hire";
 import { parseJobUrl } from "@/lib/job-url";
-import { signShare } from "@/lib/share";
+import { saveShare } from "@/lib/share";
 import { parseTweetUrl } from "@/lib/tweet-media";
 import reads from "./sample-reads.json";
 
@@ -29,7 +29,7 @@ async function runMatchSignal(input: MatchInput): Promise<SignalResult> {
   // Signed here from the server's own read; the client never supplies a payload.
   const parsed = parsePaste(input.paste, input.handle);
   if (!parsed.ok) return result;
-  const share = signShare({
+  const share = await saveShare({
     v: 1,
     h: parsed.top9.handle?.replace(/^@/, ""),
     g: parsed.top9.titles.map((game) => game.title),

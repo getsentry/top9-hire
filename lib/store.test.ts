@@ -28,7 +28,7 @@ test("readJson and writeJson do nothing without a token", async () => {
   delete process.env.BLOB_READ_WRITE_TOKEN;
   try {
     assert.equal(await readJson("v1/x.json"), undefined);
-    assert.equal(await writeJson("v1/x.json", { a: 1 }), undefined);
+    assert.equal(await writeJson("v1/x.json", { a: 1 }), false);
   } finally {
     if (saved !== undefined) process.env.BLOB_READ_WRITE_TOKEN = saved;
   }
@@ -83,7 +83,7 @@ test("a failed blob call reads as a miss and a failed write does not throw", asy
   const { io, puts } = fakeBlob({ a: { n: 1 } }, ["b"]);
   await withToken(async () => {
     assert.deepEqual(await readMany("games", ["a", "b"], io), [{ n: 1 }, undefined]);
-    await writeMany("games", [["a", 1], ["b", 2]], io);
+    assert.equal(await writeMany("games", [["a", 1], ["b", 2]], io), false);
   });
   assert.deepEqual(puts, ["a"]);
 });
@@ -93,7 +93,7 @@ test("readMany and writeMany do nothing without a token", async () => {
   delete process.env.BLOB_READ_WRITE_TOKEN;
   try {
     assert.deepEqual(await readMany("games", ["a", "b"]), [undefined, undefined]);
-    assert.equal(await writeMany("games", [["a", 1]]), undefined);
+    assert.equal(await writeMany("games", [["a", 1]]), false);
   } finally {
     if (saved !== undefined) process.env.BLOB_READ_WRITE_TOKEN = saved;
   }
